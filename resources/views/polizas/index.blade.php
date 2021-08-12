@@ -3,11 +3,11 @@
 @section('title', 'Dash')
 
 @section('content_header')
-<h1>Vehiculos</h1>
+<h1>Poliza</h1>
 @stop
 
 @section('content')
-<a class="btn btn-primary mb-3" href="vehiculo/create">Registrar vehiculo</a>
+<a class="btn btn-primary mb-3" href="poliza/create">Registrar placas</a>
 <div class="table-responsive">
 
 
@@ -15,30 +15,30 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">id</th>
-                <th scope="col">Marca</th>
-                <th scope="col">Submarca</th>
-                <th scope="col">tipo</th>
-                <th scope="col">modelo</th>
-                <th scope="col">Color</th>
+                <th scope="col">Vehiculo</th>
                 <th scope="col">placas</th>
-                <th scope="col">imagen</th>
+                <th scope="col">Poliza</th>
+                <th scope="col">Seguro</th>
+                <th scope="col">Vigencia</th>
+                <th scope="col">Nombre de PDF</th>
+                <th scope="col">PDF</th>
                 <th scope="col">acciones</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($valores as $valores)
+            @foreach ($data as $data)
                 <tr>
-                    <th>{{ $valores->id }}</th>
-                    <th>{{ $valores->marca }}</th>
-                    <th>{{ $valores->submarca }}</th>
-                    <th>{{ $valores->tipo }}</th>
-                    <th>{{ $valores->modelo }}</th>
-                    <th>{{ $valores->color }}</th>
-                    <th>{{ $valores->placas }}</th>
-                    <th><img src="/imagen/{{ $valores->imagen }}" width="50" height="50" alt=""></th>
+                    <th>{{ $data->id }}</th>
+                    <th>{{ $data->marca }}</th>
+                    <th>{{ $data->placas }}</th>
+                    <th>{{ $data->poliza }}</th>
+                    <th>{{ $data->seguro }}</th>
+                    <th>{{ $data->vigencia }}</th>
+                    <th>{{ $data->nombre }}</th>
+                    <th><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank">PDF</a></th>
                     <th>
-                        <a class="btn btn-info" href="/vehiculo/{{ $valores->id }}/edit">Editar</a>
-                        <a class="btn btn-danger eliminar" href="/vehiculod/{{ $valores->id }}">Eliminar</a>
+                        <a class="btn btn-info" href="/poliza/{{ $data->id }}/edit">Editar</a>
+                        <a class="btn btn-danger eliminar" href="/polizad/{{ $data->id }}">Eliminar</a>
                     </th>
                 </tr>
             @endforeach
@@ -86,7 +86,10 @@
 <script>
     $(document).ready(function() {
         $('#tablas').DataTable({
-            "lengthMenu": [[5, 10, 50, -1],[5, 10, 50,"All"]]
+            "lengthMenu": [
+                [5, 10, 50, -1],
+                [5, 10, 50, "All"]
+            ]
         });
     });
 </script>

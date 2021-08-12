@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Placas;
+use App\Models\polizas;
 use App\Models\Vehiculo;
+use App\Models\tenencias;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-
-class PlacasController extends Controller
+class tenenciaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,12 +17,11 @@ class PlacasController extends Controller
      */
     public function index()
     {
-        $data=DB::table('placas')
-        ->select('placas.*', 'vehiculos.marca','vehiculos.placas')
-        ->join('vehiculos', 'placas.id_vehiculo','vehiculos.id')
+        $data=DB::table('tenencias')
+        ->select('tenencias.*', 'vehiculos.marca','vehiculos.placas')
+        ->join('vehiculos', 'tenencias.id_vehiculo','vehiculos.id')
         ->get();
-        $valores=Placas::all();
-        return view('placas.index')->with('data', $data);
+        return view('tenencias.index')->with('data', $data);
     }
 
     /**
@@ -32,8 +31,8 @@ class PlacasController extends Controller
      */
     public function create()
     {
-        $selec=Vehiculo::all();
-        return view('placas.create')->with('selec', $selec);
+        $selec = Vehiculo::all();
+        return view('tenencias.create')->with('selec', $selec);
     }
 
     /**
@@ -44,8 +43,9 @@ class PlacasController extends Controller
      */
     public function store(Request $request)
     {
-        $valores = new Placas();
-        $valores->vencimiento = $request->get('vencimiento');
+        $valores = new tenencias();
+        $valores->tenencia = $request->get('tenencia');
+        $valores->pago = $request->get('pago');
         $valores->estatus = $request->get('estatus');
         $valores->nombre = $request->get('nombre');
         $valores->id_vehiculo = $request->get('vehiculo');
@@ -56,7 +56,7 @@ class PlacasController extends Controller
             $valores->archivo="$archivonombre";
         }
         $valores->save();
-        return redirect('/placa');
+        return redirect('/tenencia');
     }
 
     /**
@@ -79,12 +79,12 @@ class PlacasController extends Controller
     public function edit($id)
     {
         $selec=Vehiculo::all();
-        $valores=Placas::find($id);
-        $datos=DB::table('placas')
-        ->join('vehiculos', 'placas.id_vehiculo','vehiculos.id')
-        ->where('placas.id', "$id")
+        $valores=tenencias::find($id);
+        $datos=DB::table('tenencias')
+        ->join('vehiculos', 'tenencias.id_vehiculo','vehiculos.id')
+        ->where('tenencias.id', "$id")
         ->get();
-        return view('placas.edit')->with('valores', $valores)
+        return view('tenencias.edit')->with('valores', $valores)
         ->with('selec', $selec)
         ->with('datos', $datos);
     }
@@ -98,13 +98,14 @@ class PlacasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $valores = Placas::find($id);
-        $valores->vencimiento = $request->get('vencimiento');
+        $valores = tenencias::find($id);
+        $valores->tenencia = $request->get('tenencia');
+        $valores->pago = $request->get('pago');
         $valores->estatus = $request->get('estatus');
         $valores->nombre = $request->get('nombre');
         $valores->id_vehiculo = $request->get('vehiculo');
         $valores->save();
-        return redirect('/placa');
+        return redirect('/tenencia');
     }
 
     /**
@@ -115,9 +116,9 @@ class PlacasController extends Controller
      */
     public function destroy($id)
     {
-        $valores = Placas::find($id);
+        $valores = tenencias::find($id);
         unlink('PDF/'.$valores->archivo);
         $valores->delete();
-        return redirect('/placa');
+        return redirect('/tenencia');
     }
 }

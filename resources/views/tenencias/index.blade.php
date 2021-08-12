@@ -3,11 +3,11 @@
 @section('title', 'Dash')
 
 @section('content_header')
-    <h1>Placas</h1>
+    <h1>Tenencia</h1>
 @stop
 
 @section('content')
-    <a class="btn btn-primary mb-3" href="placa/create">Registrar placas</a>
+    <a class="btn btn-primary mb-3" href="tenencia/create">Registrar placas</a>
  <div class="table-responsive">
 
  
@@ -17,7 +17,8 @@
                     <th scope="col">id</th>
                     <th scope="col">Vehiculo</th>
                     <th scope="col">placas</th>
-                    <th scope="col">Vencimiento</th>
+                    <th scope="col">Tenencia</th>
+                    <th scope="col">Pago</th>
                     <th scope="col">Estatus</th>
                     <th scope="col">Nombre de PDF</th>
                     <th scope="col">PDF</th>
@@ -30,13 +31,14 @@
                         <th>{{ $data->id}}</th>
                         <th>{{ $data->marca }}</th>
                         <th>{{ $data->placas }}</th>
-                        <th>{{ $data->vencimiento }}</th>
+                        <th>{{ $data->tenencia }}</th>
+                        <th>{{ $data->pago }}</th>
                         <th>{{ $data->estatus }}</th>
                         <th>{{ $data->nombre }}</th>
                         <th><a class="btn btn-primary" href="/PDF/{{$data->archivo}}" target="_blank">PDF</a></th>
                         <th>
-                            <a class="btn btn-info" href="/placa/{{ $data->id }}/edit">Editar</a>
-                            <a class="btn btn-danger eliminar" href="/placad/{{ $data->id }}">Eliminar</a>
+                            <a class="btn btn-info" href="/tenencia/{{ $data->id }}/edit">Editar</a>
+                            <a class="btn btn-danger eliminar" href="/tenenciad/{{ $data->id }}">Eliminar</a>
                         </th>
                     </tr>
                 @endforeach

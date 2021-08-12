@@ -256,49 +256,47 @@ return [
             'label_color' => 'success',
         ],
         [
-            'text'        => 'Bitacora',
-            'url'         => 'bitacora',
-            'icon'        => 'fa fa-address-card',
+            'text'        => 'Polizas',
+            'url'         => 'poliza',
+            'icon'        => 'fa fa-lock',
             'label_color' => 'success',
         ],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+            'text'        => 'Tenencias',
+            'url'         => 'tenencia',
+            'icon'        => 'fa fa-calendar',
+            'label_color' => 'success',
+        ],[
+        'text'    => 'Verificaciones',
+            'icon'    => 'fa fa-check-circle',
             'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
+        [
+            'text'        => 'Verificacion A',
+            'url'         => 'verificacion_a',
+            'icon_color' => 'red',
+            'label_color' => 'success',
         ],
+        [
+            'text'        => 'Verificacion B',
+            'url'         => 'verificacion_b',
+            'icon_color' => 'yellow',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Verificacion Federal',
+            'url'         => 'verificacion_f',
+            'icon_color' => 'cyan',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Fisico Mecanico',
+            'url'         => 'fisico_m',
+            'icon_color' => 'purple',
+            'label_color' => 'success',
+        ],
+    ],
+],
+       
         ['header' => 'labels'],
         [
             'text'       => 'important',

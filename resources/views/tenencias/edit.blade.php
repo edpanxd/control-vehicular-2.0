@@ -3,11 +3,11 @@
 @section('title', 'Dash')
 
 @section('content_header')
-    <h1>Editar de placas</h1>
+    <h1>Editar de Tenencia</h1>
 @stop
 
 @section('content')
-    <form action="/placa/{{ $valores->id}}" method="POST" enctype="multipart/form-data">
+    <form action="/tenencia/{{ $valores->id}}" method="POST" enctype="multipart/form-data">
         @method('put')
         @csrf
         <div class="row">
@@ -24,18 +24,22 @@
                 </select>
             </div>
             <div class="form-group col-md-6">
-                <label for="message-text" class="col-form-label">Vencimiento:</label>
-                <input type="date" class="form-control" name="vencimiento" maxlength="20" value="{{$valores->vencimiento}}" required>
+                <label for="message-text" class="col-form-label">Tenencia:</label>
+                <input type="text" class="form-control" name="tenencia" maxlength="20" value="{{$valores->tenencia}}" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="message-text" class="col-form-label">pago:</label>
+                <input type="text" class="form-control" name="pago" maxlength="20" value="{{$valores->pago}}" required>
             </div>
         </div>
       
             <div class="form-group col-6">
             <label  class="col-form-label">Estatus:</label> <br>
-            <input type="radio" class="btn-check" name="estatus" id="success-outline" value="vigentes" autocomplete="off" required>
-            <label class="btn btn-outline-success" for="success-outline">Vigentes</label>
+            <input type="radio" class="btn-check" name="estatus" id="success-outline" value="Pagado" autocomplete="off" required>
+            <label class="btn btn-outline-success" for="success-outline">Pagaso</label>
 
-            <input type="radio" class="btn-check" name="estatus" value="vencidas" id="danger-outline" autocomplete="off" required>
-            <label class="btn btn-outline-danger" for="danger-outline">vencidas</label>
+            <input type="radio" class="btn-check" name="estatus" value="Sin pagar" id="danger-outline" autocomplete="off" required>
+            <label class="btn btn-outline-danger" for="danger-outline">Sin pagar</label>
           </div>
           <div class="form-group ">
             <label for="message-text" class="col-form-label">Nombre:</label>
@@ -43,7 +47,7 @@
         </div>
     </div>
     
-        <a type="button" href="/placa" class="btn btn-secondary" data-dismiss="modal">Cancelar</a>
+        <a type="button" href="/tenencia" class="btn btn-secondary" data-dismiss="modal">Cancelar</a>
         <button type="submit" class="btn btn-primary">Registrar</button>
     </form>
 @stop

@@ -46,6 +46,7 @@ class VehiculoController extends Controller
         $valores->placas = $request->get('placas');
         $valores->serie = $request->get('serie');
         $valores->numeroM = $request->get('numeroM');
+        $valores->estatus = $request->get('estatus');
 
         if($imagen= $request->file('imagen')){
             $rutaguardarimg= 'imagen/';
@@ -99,7 +100,7 @@ class VehiculoController extends Controller
         $valores->placas = $request->get('placas');
         $valores->serie = $request->get('serie');
         $valores->numeroM = $request->get('numeroM');
-
+        $valores->estatus = $request->get('estatus');
         $valores->save();
         return redirect('/vehiculo');
     }
@@ -114,7 +115,12 @@ class VehiculoController extends Controller
     {
         $valores = Vehiculo::find($id);
         $valores->delete();
-        return redirect('/vehiculo');
+        if($valores){
+            unlink('imagen/'.$valores->imagen);
+            return redirect('/vehiculo');
+        }
+        
+       
 
     }
 }

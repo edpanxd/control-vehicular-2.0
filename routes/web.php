@@ -11,6 +11,8 @@ Route::get('/bitacora', 'App\Http\Controllers\BitacoraController@index');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::resource('/dashboard', 'App\Http\Controllers\dashboardController');
+    Route::get('/dashboardd/{p}', 'App\Http\Controllers\dashboardController@create');
+    Route::get('/dashboardv/{p}', 'App\Http\Controllers\dashboardController@create2');
    //ruta vehiculo
     Route::resource('/vehiculo', 'App\Http\Controllers\VehiculoController');
    Route::get('/vehiculod/{id}', 'App\Http\Controllers\VehiculoController@destroy');

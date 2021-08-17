@@ -226,23 +226,23 @@ return [
 
     'menu' => [
         // Navbar items:
-       // [
-       //     'type'         => 'navbar-search',
-       //     'text'         => 'Buscar',
-       //     'topnav_right' => true,
-       // ],
+        [
+            'type'         => 'navbar-search',
+            'text'         => 'Buscar',
+            'topnav_right' => false,
+        ],
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
         ],
-        ['header' => 'Dashboard'],
+        ['header' => 'DASHBOARD'],
         [
             'text' => 'Dashboard',
             'url'  => '/login',
             'icon' => 'fa fa-desktop',
             'label_color' => 'success',
         ],
-        ['header' => 'Modulos'],
+        ['header' => 'MODULOS'],
         [
             'text'        => 'Vehiculo',
             'url'         => 'vehiculo',

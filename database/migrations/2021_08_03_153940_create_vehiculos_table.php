@@ -23,6 +23,7 @@ class CreateVehiculosTable extends Migration
             $table->string('placas');
             $table->string('serie');
             $table->string('numeroM');
+            $table->string('estatus');
             $table->string('imagen');
             $table->timestamps();
         });

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Vehiculo;
-use App\Models\Placas;
 
 class dashboardController extends Controller
 {
@@ -16,29 +15,15 @@ class dashboardController extends Controller
      */
     public function index()
     {
-       $valores= Vehiculo::all();
+       $valores= Vehiculo::all()->where('estatus', 'Activo');
        $datos= Vehiculo::all();
-       $placas= DB::table('placas')
-       ->where('placas.estatus', 'vencidas')
-       ->get();
-       $poliza= DB::table('polizas')
-       ->where('polizas.estatus', 'vencidas')
-       ->get();
-       $tenencia= DB::table('tenencias')
-       ->where('tenencias.estatus', 'sin pagar')
-       ->get();
-       $Va= DB::table('verificacion_as')
-       ->where('verificacion_as.estatus', 'sin pagar')
-       ->get();
-       $Vb= DB::table('verificacion_bs')
-       ->where('verificacion_bs.estatus', 'sin pagar')
-       ->get();
-       $Vf= DB::table('verificacion_fs')
-       ->where('verificacion_fs.estatus', 'sin pagar')
-       ->get();
-       $Fm= DB::table('fisico_ms')
-       ->where('fisico_ms.estatus', 'sin pagar')
-       ->get();
+       $placas= DB::table('placas')->where('placas.estatus', 'vencidas')->get();
+       $poliza= DB::table('polizas')->where('polizas.estatus', 'vencidas')->get();
+       $tenencia= DB::table('tenencias')->where('tenencias.estatus', 'sin pagar')->get();
+       $Va= DB::table('verificacion_as')->where('verificacion_as.estatus', 'sin pagar')->get();
+       $Vb= DB::table('verificacion_bs')->where('verificacion_bs.estatus', 'sin pagar')->get();
+       $Vf= DB::table('verificacion_fs')->where('verificacion_fs.estatus', 'sin pagar')->get();
+       $Fm= DB::table('fisico_ms')->where('fisico_ms.estatus', 'sin pagar')->get();
         return view('dashboard.index')->with('valores', $valores)
         ->with('datos', $datos)
         ->with('placas', $placas)
@@ -50,14 +35,36 @@ class dashboardController extends Controller
         ->with('Fm', $Fm);
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($p)
     {
-        //
+        $data=DB::table("$p".'s')
+        ->select("$p".'s.*', 'vehiculos.marca','vehiculos.placas')
+        ->join('vehiculos', "$p".'s'.'.id_vehiculo','vehiculos.id')
+        ->where("$p".'s'.'.estatus', 'vencidas')
+        ->get();
+        return view("$p".'s'.".index")->with('data', $data);
+    
+    }
+    public function create2($p)
+    {
+        $data=DB::table("$p".'s')
+        ->select("$p".'s.*', 'vehiculos.marca','vehiculos.placas')
+        ->join('vehiculos', "$p".'s'.'.id_vehiculo','vehiculos.id')
+        ->where("$p".'s'.'.estatus', 'sin pagar')
+        ->get();
+        if($p=='tenencia'){
+            return view("$p".'s'.".index")->with('data', $data);
+        }else{
+            return view("$p".".index")->with('data', $data);
+        }
+        
+    
     }
 
     /**

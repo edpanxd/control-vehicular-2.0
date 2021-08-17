@@ -8,8 +8,10 @@
 
 @section('content')
 <a class="btn btn-primary mb-3" href="vehiculo/create">Registrar vehiculo</a>
-<div class="table-responsive">
 
+
+
+<div class="table-responsive">
 
     <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas">
         <thead class="thead-dark">
@@ -22,7 +24,8 @@
                 <th scope="col">Color</th>
                 <th scope="col">placas</th>
                 <th scope="col">imagen</th>
-                <th scope="col">acciones</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -37,9 +40,11 @@
                     <th>{{ $valores->placas }}</th>
                     <th><img src="/imagen/{{ $valores->imagen }}" width="50" height="50" alt=""></th>
                     <th>
-                        <a class="btn btn-info" href="/vehiculo/{{ $valores->id }}/edit">Editar</a>
-                        <a class="btn btn-danger eliminar" href="/vehiculod/{{ $valores->id }}">Eliminar</a>
+                        <a class="btn btn-info" href="/vehiculo/{{ $valores->id }}/edit"><i
+                                class="fas fa-edit"></i></a>
                     </th>
+                    <th><a class="btn btn-danger eliminar" href="/vehiculod/{{ $valores->id }}"><i
+                                class="fas fa-trash-alt"></i></a></th>
                 </tr>
             @endforeach
         </tbody>
@@ -64,6 +69,7 @@
 
         swal.fire({
             title: 'Desea eliminar el registro?',
+            text: "Recuarda que si eliminas el vehiculo se eliminara automanticamnete todos los registros con los que tenga relacion",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -86,7 +92,10 @@
 <script>
     $(document).ready(function() {
         $('#tablas').DataTable({
-            "lengthMenu": [[5, 10, 50, -1],[5, 10, 50,"All"]]
+            "lengthMenu": [
+                [5, 10, 50, -1],
+                [5, 10, 50, "All"]
+            ]
         });
     });
 </script>

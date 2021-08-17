@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\polizas;
 use App\Models\Vehiculo;
 use App\Models\tenencias;
 use Illuminate\Http\Request;

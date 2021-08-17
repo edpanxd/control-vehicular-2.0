@@ -31,6 +31,17 @@
             <label for="message-text" class="col-form-label">vigencia:</label>
             <input type="date" class="form-control" name="vigencia" maxlength="20" required>
         </div>
+        <div class="form-group col-6">
+            <label  class="col-form-label">Estatus:</label> <br>
+            <input type="radio" class="btn-check" name="estatus" id="success-outline" value="vigentes" autocomplete="off" required>
+            <label class="btn btn-outline-success" for="success-outline">Vigentes</label>
+
+            <input type="radio" class="btn-check" name="estatus" value="vencidas" id="danger-outline" autocomplete="off" required>
+            <label class="btn btn-outline-danger" for="danger-outline">vencidas</label>
+
+            <input type="radio" class="btn-check" name="estatus" value="baja" id="info-outline" autocomplete="off" required>
+            <label class="btn btn-outline-info" for="info-outline">Dadas de baja</label>
+          </div>
     </div>
 
 

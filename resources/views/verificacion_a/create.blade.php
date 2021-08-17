@@ -3,11 +3,11 @@
 @section('title', 'Dash')
 
 @section('content_header')
-    <h1>Registro de placas</h1>
+    <h1>Registro de Verificacion A</h1>
 @stop
 
 @section('content')
-    <form action="/placa" method="POST" enctype="multipart/form-data">
+    <form action="/verificacion_a" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="form-group col-md-6">
@@ -20,19 +20,21 @@
                 </select>
             </div>
             <div class="form-group col-md-6">
-                <label for="message-text" class="col-form-label">Vencimiento:</label>
-                <input type="date" class="form-control" name="vencimiento" maxlength="20" required>
+                <label for="message-text" class="col-form-label">Verificacion:</label>
+                <input type="text" class="form-control" name="verificacion" maxlength="20" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="message-text" class="col-form-label">Fecha:</label>
+                <input type="date" class="form-control" name="fecha" maxlength="20" required>
             </div>
         </div>
       
             <div class="form-group col-6" >
             <label  class="col-form-label">Estatus:</label> <br>
-            <input type="radio" class="btn-check" name="estatus" id="success-outline" value="vigentes" autocomplete="off" required>
-            <label class="btn btn-outline-success" for="success-outline">Vigentes</label>
-            <input type="radio" class="btn-check" name="estatus" value="vencidas" id="danger-outline" autocomplete="off" required>
-            <label class="btn btn-outline-danger" for="danger-outline">vencidas</label>
-            <input type="radio" class="btn-check" name="estatus" value="baja" id="info-outline" autocomplete="off" required>
-            <label class="btn btn-outline-info" for="info-outline">Dadas de baja</label>
+            <input type="radio" class="btn-check" name="estatus" id="success-outline" value="Pagado" autocomplete="off" required>
+            <label class="btn btn-outline-success" for="success-outline">Pagado</label>
+            <input type="radio" class="btn-check" name="estatus" value="Sin pagar" id="danger-outline" autocomplete="off" required>
+            <label class="btn btn-outline-danger" for="danger-outline">Sin pagar</label>
           </div>
           <div class="form-group ">
             <label for="message-text" class="col-form-label">Nombre:</label>
@@ -50,7 +52,7 @@
        
     </div>
     
-        <a type="button" href="/placa" class="btn btn-secondary" data-dismiss="modal">Cancelar</a>
+        <a type="button" href="/verificacion_a" class="btn btn-secondary" data-dismiss="modal">Cancelar</a>
         <button type="submit" class="btn btn-primary">Registrar</button>
     </form>
 @stop

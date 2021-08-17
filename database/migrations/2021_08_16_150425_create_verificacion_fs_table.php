@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePolizasTable extends Migration
+class CreateVerificacionFsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreatePolizasTable extends Migration
      */
     public function up()
     {
-        Schema::create('polizas', function (Blueprint $table) {
+        Schema::create('verificacion_fs', function (Blueprint $table) {
             $table->id();
-            $table->string('poliza');
-            $table->string('seguro');
+            $table->string('verificacion');
+            $table->date('fecha');
             $table->string('estatus');
-            $table->date('vigencia');
             $table->string('nombre');
             $table->string('archivo');
             $table->unsignedBigInteger('id_vehiculo');
@@ -34,6 +33,6 @@ class CreatePolizasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('polizas');
+        Schema::dropIfExists('verificacion_fs');
     }
 }

@@ -20,9 +20,11 @@
                 <th scope="col">Poliza</th>
                 <th scope="col">Seguro</th>
                 <th scope="col">Vigencia</th>
+                <th scope="col">Estatus</th>
                 <th scope="col">Nombre de PDF</th>
                 <th scope="col">PDF</th>
-                <th scope="col">acciones</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -34,12 +36,15 @@
                     <th>{{ $data->poliza }}</th>
                     <th>{{ $data->seguro }}</th>
                     <th>{{ $data->vigencia }}</th>
+                    <th>{{ $data->estatus }}</th>
                     <th>{{ $data->nombre }}</th>
-                    <th><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank">PDF</a></th>
+                    <th><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank"><i
+                                class="far fa-file-pdf"></i></a></th>
                     <th>
-                        <a class="btn btn-info" href="/poliza/{{ $data->id }}/edit">Editar</a>
-                        <a class="btn btn-danger eliminar" href="/polizad/{{ $data->id }}">Eliminar</a>
+                        <a class="btn btn-info" href="/poliza/{{ $data->id }}/edit"><i class="fas fa-edit"></i></a>
                     </th>
+                    <th> <a class="btn btn-danger eliminar" href="/polizad/{{ $data->id }}"><i
+                                class="fas fa-trash-alt"></i></a></th>
                 </tr>
             @endforeach
         </tbody>

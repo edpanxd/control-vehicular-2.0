@@ -14,7 +14,7 @@ class BitacoraController extends Controller
      */
     public function index()
     {
-        return view('dash.bitacora');
+        return view('dashboard.bitacora');
     }
 
     /**

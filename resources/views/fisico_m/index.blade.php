@@ -3,11 +3,11 @@
 @section('title', 'Dash')
 
 @section('content_header')
-    <h1>Placas</h1>
+    <h1>Fisico Mecanico</h1>
 @stop
 
 @section('content')
-    <a class="btn btn-primary mb-3" href="placa/create">Registrar placas</a>
+    <a class="btn btn-primary mb-3" href="fisico_m/create">Registrar Verificacion</a>
  <div class="table-responsive">
 
  
@@ -17,11 +17,13 @@
                     <th scope="col">id</th>
                     <th scope="col">Vehiculo</th>
                     <th scope="col">placas</th>
-                    <th scope="col">Vencimiento</th>
+                    <th scope="col">Verificacion</th>
+                    <th scope="col">Fecha</th>
                     <th scope="col">Estatus</th>
                     <th scope="col">Nombre de PDF</th>
                     <th scope="col">PDF</th>
-                    <th scope="col">acciones</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -30,14 +32,15 @@
                         <th>{{ $data->id}}</th>
                         <th>{{ $data->marca }}</th>
                         <th>{{ $data->placas }}</th>
-                        <th>{{ $data->vencimiento }}</th>
+                        <th>{{ $data->verificacion }}</th>
+                        <th>{{ $data->fecha }}</th>
                         <th>{{ $data->estatus }}</th>
                         <th>{{ $data->nombre }}</th>
-                        <th><a class="btn btn-primary" href="/PDF/{{$data->archivo}}" target="_blank">PDF</a></th>
+                        <th><a class="btn btn-primary" href="/PDF/{{$data->archivo}}" target="_blank"><i class="far fa-file-pdf"></i></a></th>
                         <th>
-                            <a class="btn btn-info" href="/placa/{{ $data->id }}/edit">Editar</a>
-                            <a class="btn btn-danger eliminar" href="/placad/{{ $data->id }}">Eliminar</a>
+                            <a class="btn btn-info" href="/fisico_m/{{ $data->id }}/edit"><i class="fas fa-edit"></i></a>
                         </th>
+                        <th><a class="btn btn-danger eliminar" href="/fisico_md/{{ $data->id }}"><i class="fas fa-trash-alt"></i></a></th>
                     </tr>
                 @endforeach
             </tbody>
@@ -70,6 +73,7 @@
     
             }).then((result) => {
                 if (result.value) {
+                    
                     document.location.href = href;
                 }
             })

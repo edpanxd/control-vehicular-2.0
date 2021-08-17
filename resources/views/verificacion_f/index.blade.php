@@ -3,11 +3,11 @@
 @section('title', 'Dash')
 
 @section('content_header')
-<h1>Tenencia</h1>
+<h1>Verificacion Federal</h1>
 @stop
 
 @section('content')
-<a class="btn btn-primary mb-3" href="tenencia/create">Registrar placas</a>
+<a class="btn btn-primary mb-3" href="verificacion_f/create">Registrar Verificacion</a>
 <div class="table-responsive">
 
 
@@ -17,8 +17,8 @@
                 <th scope="col">id</th>
                 <th scope="col">Vehiculo</th>
                 <th scope="col">placas</th>
-                <th scope="col">Tenencia</th>
-                <th scope="col">Pago</th>
+                <th scope="col">Verificacion</th>
+                <th scope="col">Fecha</th>
                 <th scope="col">Estatus</th>
                 <th scope="col">Nombre de PDF</th>
                 <th scope="col">PDF</th>
@@ -32,15 +32,18 @@
                     <th>{{ $data->id }}</th>
                     <th>{{ $data->marca }}</th>
                     <th>{{ $data->placas }}</th>
-                    <th>{{ $data->tenencia }}</th>
-                    <th>{{ $data->pago }}</th>
+                    <th>{{ $data->verificacion }}</th>
+                    <th>{{ $data->fecha }}</th>
                     <th>{{ $data->estatus }}</th>
                     <th>{{ $data->nombre }}</th>
-                    <th><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank"><i class="far fa-file-pdf"></i></a></th>
+                    <th><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank"><i
+                                class="far fa-file-pdf"></i></a></th>
                     <th>
-                        <a class="btn btn-info" href="/tenencia/{{ $data->id }}/edit"><i class="fas fa-edit"></i></a>
+                        <a class="btn btn-info" href="/verificacion_f/{{ $data->id }}/edit"><i
+                                class="fas fa-edit"></i></a>
                     </th>
-                    <th><a class="btn btn-danger eliminar" href="/tenenciad/{{ $data->id }}"><i class="fas fa-trash-alt"></i></a></th>
+                    <th><a class="btn btn-danger eliminar" href="/verificacion_fd/{{ $data->id }}"><i
+                                class="fas fa-trash-alt"></i></a></th>
                 </tr>
             @endforeach
         </tbody>

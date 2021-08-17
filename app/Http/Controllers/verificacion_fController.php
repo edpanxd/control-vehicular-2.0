@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Vehiculo;
-use App\Models\polizas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Vehiculo;
+use App\Models\Verificacion_f;
 
-class polizaController extends Controller
+class verificacion_fController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +16,11 @@ class polizaController extends Controller
      */
     public function index()
     {
-        $data=DB::table('polizas')
-        ->select('polizas.*', 'vehiculos.marca','vehiculos.placas')
-        ->join('vehiculos', 'polizas.id_vehiculo','vehiculos.id')
+        $data=DB::table('verificacion_fs')
+        ->select('verificacion_fs.*', 'vehiculos.marca','vehiculos.placas')
+        ->join('vehiculos', 'verificacion_fs.id_vehiculo','vehiculos.id')
         ->get();
-        $valores=polizas::all();
-        return view('polizas.index')->with('data', $data);   
+        return view('verificacion_f.index')->with('data', $data);
     }
 
     /**
@@ -32,7 +31,7 @@ class polizaController extends Controller
     public function create()
     {
         $selec = Vehiculo::all();
-        return view('polizas.create')->with('selec', $selec);
+        return view('verificacion_f.create')->with('selec', $selec);
     }
 
     /**
@@ -43,11 +42,10 @@ class polizaController extends Controller
      */
     public function store(Request $request)
     {
-        $valores = new polizas();
-        $valores->poliza = $request->get('poliza');
-        $valores->seguro = $request->get('seguro');
+        $valores = new Verificacion_f();
+        $valores->verificacion = $request->get('verificacion');
+        $valores->fecha = $request->get('fecha');
         $valores->estatus = $request->get('estatus');
-        $valores->vigencia = $request->get('vigencia');
         $valores->nombre = $request->get('nombre');
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo= $request->file('archivo')){
@@ -57,7 +55,7 @@ class polizaController extends Controller
             $valores->archivo="$archivonombre";
         }
         $valores->save();
-        return redirect('/poliza');
+        return redirect('/verificacion_f');
     }
 
     /**
@@ -80,12 +78,12 @@ class polizaController extends Controller
     public function edit($id)
     {
         $selec=Vehiculo::all();
-        $valores=polizas::find($id);
-        $datos=DB::table('polizas')
-        ->join('vehiculos', 'polizas.id_vehiculo','vehiculos.id')
-        ->where('polizas.id', "$id")
+        $valores=Verificacion_f::find($id);
+        $datos=DB::table('verificacion_fs')
+        ->join('vehiculos', 'verificacion_fs.id_vehiculo','vehiculos.id')
+        ->where('verificacion_fs.id', "$id")
         ->get();
-        return view('polizas.edit')->with('valores', $valores)
+        return view('verificacion_f.edit')->with('valores', $valores)
         ->with('selec', $selec)
         ->with('datos', $datos);
     }
@@ -99,16 +97,14 @@ class polizaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $valores = polizas::find($id);
-        $valores->poliza = $request->get('poliza');
-        $valores->seguro = $request->get('seguro');
+        $valores = Verificacion_f::find($id);
+        $valores->verificacion = $request->get('verificacion');
+        $valores->fecha = $request->get('fecha');
         $valores->estatus = $request->get('estatus');
-        $valores->vigencia = $request->get('vigencia');
         $valores->nombre = $request->get('nombre');
         $valores->id_vehiculo = $request->get('vehiculo');
         $valores->save();
-        return redirect('/poliza');
-        
+        return redirect('/verificacion_f');
     }
 
     /**
@@ -119,9 +115,9 @@ class polizaController extends Controller
      */
     public function destroy($id)
     {
-        $valores = polizas::find($id);
+        $valores = Verificacion_f::find($id);
         unlink('PDF/'.$valores->archivo);
         $valores->delete();
-        return redirect('/poliza');
+        return redirect('/verificaion_f');
     }
 }

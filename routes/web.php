@@ -10,9 +10,7 @@ Route::get('/bitacora', 'App\Http\Controllers\BitacoraController@index');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('/dashboard', function(){
-        return view('dash.index');
-    });
+    Route::resource('/dashboard', 'App\Http\Controllers\dashboardController');
    //ruta vehiculo
     Route::resource('/vehiculo', 'App\Http\Controllers\VehiculoController');
    Route::get('/vehiculod/{id}', 'App\Http\Controllers\VehiculoController@destroy');
@@ -28,5 +26,22 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
    //ruta tenencia
    Route::resource('/tenencia', 'App\Http\Controllers\tenenciaController');
    Route::get('/tenenciad/{id}', 'App\Http\Controllers\tenenciaController@destroy');
+
+   //ruta verificacion a
+   Route::resource('/verificacion_a', 'App\Http\Controllers\Verificacion_aController');
+   Route::get('/verificacion_ad/{id}', 'App\Http\Controllers\Verificacion_aController@destroy');
+   
+   //ruta verificacion b
+   Route::resource('/verificacion_b', 'App\Http\Controllers\verificacion_bController');
+   Route::get('/verificacion_bd/{id}', 'App\Http\Controllers\verificacion_bController@destroy');
+
+   //ruta verificacion federal
+   Route::resource('/verificacion_f', 'App\Http\Controllers\verificacion_fController');
+   Route::get('/verificacion_fd/{id}', 'App\Http\Controllers\verificacion_fController@destroy');
+
+   //ruta fisico mecanico
+   Route::resource('/fisico_m', 'App\Http\Controllers\fisico_mController');
+   Route::get('/fisico_md/{id}', 'App\Http\Controllers\fisico_mController@destroy');
+
 
 });

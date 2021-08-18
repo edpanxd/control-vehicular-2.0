@@ -20,7 +20,7 @@
 
                     </h3>
 
-                    <p>vehiculos registrados</p>
+                    <p>vehiculos activos</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-car"></i>
@@ -164,7 +164,7 @@
             <div class="col-4">
                 <div class="card card-widget widget-user">
                     <div>
-                        <div class="widget-user-header bg-green">
+                        <div class="widget-user-header bg-gray">
                             <h3 class="widget-user-username">{{ $datos->marca }}</h3>
                             <h5 class="widget-user-desc">{{ $datos->submarca }}</h5>
                         </div>
@@ -199,7 +199,7 @@
                                 <!-- /.col -->
                             </div>
                             <!-- /.row -->
-                            <a href="/bitacora" class="btn btn-default bg-maroon">Perfil de vehiculo</a>
+                            <a href="/dashboardvh/{{$datos->id}}" class="btn btn-default bg-maroon mb-4">Perfil de vehiculo</a>
                         </div>
 
                     </div>

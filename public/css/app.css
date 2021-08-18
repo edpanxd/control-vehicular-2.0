@@ -1129,6 +1129,12 @@ select {
 .z-50 {
 	z-index: 50;
 }
+.order-1 {
+	order: 1;
+}
+.order-3 {
+	order: 3;
+}
 .col-span-6 {
 	grid-column: span 6 / span 6;
 }
@@ -1221,14 +1227,14 @@ select {
 .mt-0 {
 	margin-top: 0px;
 }
-.-mt-px {
-	margin-top: -1px;
-}
 .mr-1 {
 	margin-right: 0.25rem;
 }
-.mb-0 {
-	margin-bottom: 0px;
+.-mt-px {
+	margin-top: -1px;
+}
+.mb-2 {
+	margin-bottom: 0.5rem;
 }
 .block {
 	display: block;
@@ -1570,6 +1576,10 @@ select {
 .bg-gray-200 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
+}
+.bg-black {
+	--tw-bg-opacity: 1;
+	background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
 }
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;

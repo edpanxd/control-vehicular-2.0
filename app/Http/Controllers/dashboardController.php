@@ -67,6 +67,27 @@ class dashboardController extends Controller
     
     }
 
+    public function perfil($id)
+    {
+        $vehiculo=Vehiculo::all()->where('id', "$id");
+        $placas=DB::table('placas')->where('id_vehiculo',"$id")->get();
+        $polizas=DB::table('polizas')->where('id_vehiculo',"$id")->get();
+        $tenencias=DB::table('tenencias')->where('id_vehiculo',"$id")->get();
+        $verificacion_as=DB::table('verificacion_as')->where('id_vehiculo',"$id")->get();
+        $verificacion_bs=DB::table('verificacion_bs')->where('id_vehiculo',"$id")->get();
+        $verificacion_fs=DB::table('verificacion_fs')->where('id_vehiculo',"$id")->get();
+        $fisico_ms=DB::table('fisico_ms')->where('id_vehiculo',"$id")->get();
+        return view('dashboard.perfil')->with('vehiculo', $vehiculo)
+        ->with('placas', $placas)
+        ->with('polizas', $polizas)
+        ->with('tenencias', $tenencias)
+        ->with('verificacion_as', $verificacion_as)
+        ->with('verificacion_bs', $verificacion_bs)
+        ->with('verificacion_fs', $verificacion_fs)
+        ->with('fisico_ms', $fisico_ms);
+        
+    }
+
     /**
      * Store a newly created resource in storage.
      *

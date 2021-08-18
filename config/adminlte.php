@@ -85,7 +85,7 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
+    'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => null,
     'layout_fixed_footer' => null,
     'layout_dark_mode' => null,
@@ -266,58 +266,63 @@ return [
             'url'         => 'tenencia',
             'icon'        => 'fa fa-calendar',
             'label_color' => 'success',
-        ],[
-        'text'    => 'Verificaciones',
+        ], [
+            'text'    => 'Verificaciones',
             'icon'    => 'fa fa-check-circle',
             'submenu' => [
+                [
+                    'text'        => 'Verificacion A',
+                    'url'         => 'verificacion_a',
+                    'icon_color' => 'red',
+                    'label_color' => 'success',
+                ],
+                [
+                    'text'        => 'Verificacion B',
+                    'url'         => 'verificacion_b',
+                    'icon_color' => 'yellow',
+                    'label_color' => 'success',
+                ],
+                [
+                    'text'        => 'Verificacion Federal',
+                    'url'         => 'verificacion_f',
+                    'icon_color' => 'cyan',
+                    'label_color' => 'success',
+                ],
+                [
+                    'text'        => 'Fisico Mecanico',
+                    'url'         => 'fisico_m',
+                    'icon_color' => 'purple',
+                    'label_color' => 'success',
+                ],
+
+            ],
+        ],
+
+        ['header' => 'Bitacoras'],
         [
-            'text'        => 'Verificacion A',
-            'url'         => 'verificacion_a',
-            'icon_color' => 'red',
+            'text'        => 'Usuarios',
+            'url'         => 'usuario',
+            'icon'        => 'fas fa-user',
             'label_color' => 'success',
         ],
         [
-            'text'        => 'Verificacion B',
-            'url'         => 'verificacion_b',
-            'icon_color' => 'yellow',
+            'text'        => 'Bitacoras',
+            'url'         => 'bitacora',
+            'icon'        => 'fas fa-book',
             'label_color' => 'success',
         ],
         [
-            'text'        => 'Verificacion Federal',
-            'url'         => 'verificacion_f',
-            'icon_color' => 'cyan',
+            'text'        => 'Registro de consumo de gasolina',
+            'url'         => 'registro',
+            'icon'        => '<i fas fa-gas-pump',
             'label_color' => 'success',
         ],
-        [
-            'text'        => 'Fisico Mecanico',
-            'url'         => 'fisico_m',
-            'icon_color' => 'purple',
-            'label_color' => 'success',
-        ],
-    ],
-],
-       
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+
         ['header' => 'Datos personales'],
         [
             'text' => 'Perfil',
             'url'  => 'user/profile',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-user-cog',
         ],
     ],
 
@@ -357,22 +362,22 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
+                    'asset' => true,
+                    'location' => '//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js',
                 ],
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
+                    'asset' => true,
+                    'location' => '//cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
+                    'asset' => true,
+                    'location' => '//cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css',
                 ],
             ],
         ],
@@ -402,12 +407,12 @@ return [
             ],
         ],
         'Sweetalert2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
+                    'asset' => true,
+                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@11',
                 ],
             ],
         ],

@@ -9,8 +9,6 @@
 @section('content')
 <a class="btn btn-primary mb-3" href="verificacion_a/create">Registrar Verificacion</a>
 <div class="table-responsive">
-
-
     <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas">
         <thead class="thead-dark">
             <tr>

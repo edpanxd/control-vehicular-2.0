@@ -15,9 +15,14 @@ class CreatePlacasTable extends Migration
     {
         Schema::create('placas', function (Blueprint $table) {
             $table->id();
+            $table->string('placas');
+            $table->string('entidad');
             $table->date('vencimiento');
+            $table->date('alta');
+            $table->date('baja');
+            $table->string('cambio_propietario');
             $table->string('estatus');
-            $table->string('nombre');
+            $table->string('observaciones');
             $table->string('archivo');
             $table->unsignedBigInteger('id_vehiculo');
             $table->foreign('id_vehiculo')->references('id')->on('vehiculos');

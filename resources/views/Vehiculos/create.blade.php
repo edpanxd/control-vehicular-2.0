@@ -21,27 +21,27 @@
     </div>
     <div class="row">
         <div class="form-group col-md-6">
-            <label for="message-text" class="col-form-label">tipo:</label>
+            <label for="message-text" class="col-form-label">Tipo:</label>
             <input type="text" class="form-control" name="tipo" maxlength="20" required>
         </div>
         <div class="form-group col-md-6">
-            <label for="message-text" class="col-form-label">modelo:</label>
+            <label for="message-text" class="col-form-label">Modelo:</label>
             <input type="text" class="form-control" name="modelo" maxlength="20" required>
         </div>
     </div>
     <div class="row">
         <div class="form-group col-md-6">
-            <label for="message-text" class="col-form-label">color:</label>
+            <label for="message-text" class="col-form-label">Color:</label>
             <input type="text" class="form-control" name="color" maxlength="20" required>
         </div>
         <div class="form-group col-md-6">
-            <label for="message-text" class="col-form-label">placas:</label>
+            <label for="message-text" class="col-form-label">Placas:</label>
             <input type="text" class="form-control" name="placas" maxlength="20" required>
         </div>
     </div>
     <div class="row">
         <div class="form-group col-md-6">
-            <label for="message-text" class="col-form-label">serie:</label>
+            <label for="message-text" class="col-form-label">Serie:</label>
             <input type="text" class="form-control" name="serie" maxlength="20" required>
         </div>
         <div class="form-group col-md-6">

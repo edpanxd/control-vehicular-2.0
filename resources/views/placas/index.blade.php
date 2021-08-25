@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dash')
+@section('title', 'Placas')
 
 @section('content_header')
 <h1>Placas</h1>
@@ -13,13 +13,13 @@
     <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">id</th>
-                <th scope="col">Vehiculo</th>
-                <th scope="col">placas</th>
+                <th scope="col">Id</th>
+                <th scope="col">Vehículo</th>
+                <th scope="col">Serie</th>
+                <th scope="col">Placas</th>
                 <th scope="col">Vencimiento</th>
                 <th scope="col">Estatus</th>
-                <th scope="col">Nombre PDF</th>
-                <th scope="col">PDF</th>
+                <th scope="col">Observaciones</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
             </tr>
@@ -29,14 +29,13 @@
                 <tr>
                     <th>{{ $data->id }}</th>
                     <th>{{ $data->marca }}</th>
-                    <th>{{ $data->placas }}</th>
+                    <th>{{ $data->serie }}</th>
+                    <th><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank">
+                        <i class="far fa-file-pdf"></i></a></th>
                     <th>{{ $data->vencimiento }}</th>
                     <th>{{ $data->estatus }}</th>
                     <th>{{ $data->nombre }}</th>
-                    <th><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank">
-                        <i class="far fa-file-pdf"></i></a></th>
-                    <th>
-                        <a class="btn btn-info" href="/placa/{{ $data->id }}/edit"><i class="fas fa-edit"></i></a>
+                       <th> <a class="btn btn-info" href="/placa/{{ $data->id }}/edit"><i class="fas fa-edit"></i></a>
                     </th>
                     <th>
                         <a class="btn btn-danger eliminar" href="/placad/{{ $data->id }}">
@@ -94,6 +93,11 @@
             ]
         });
     });
+</script>
+<script>
+    $('.select2').select2({
+    placeholder: 'Seleccione un vehiculo'
+  });
 </script>
 <!-- pagimation-->
 @stop

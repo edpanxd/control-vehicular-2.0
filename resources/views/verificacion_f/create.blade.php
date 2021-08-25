@@ -3,7 +3,7 @@
 @section('title', 'Dash')
 
 @section('content_header')
-    <h1>Registro de Verificacion Federal</h1>
+    <h1>Registro de Verificación Federal</h1>
 @stop
 
 @section('content')
@@ -11,16 +11,16 @@
         @csrf
         <div class="row">
             <div class="form-group col-md-6">
-                <label for="message-text" class="col-form-label">Vehiculo:</label>
-                <select class="custom-select" id="message-text" name="vehiculo" required>
-                    <option disabled selected>Selecciona el vehiculo</option>
+                <label for="message-text" class="col-form-label">Vehículo:</label>
+                <select class="custom-select select2" id="message-text" name="vehiculo" required>
+                    <option value=""></option>
                     @foreach ($selec as $selec)
                         <option value="{{ $selec->id }}">{{ $selec->marca }}, {{ $selec->placas }} </option>
                     @endforeach
                 </select>
             </div>
             <div class="form-group col-md-6">
-                <label for="message-text" class="col-form-label">Verificacion:</label>
+                <label for="message-text" class="col-form-label">Verificación:</label>
                 <input type="text" class="form-control" name="verificacion" maxlength="20" required>
             </div>
             <div class="form-group col-md-6">
@@ -63,8 +63,10 @@
 @stop
 
 @section('js')
-    <script>
-        console.log('Hi!');
-    </script>
+<script>
+    $('.select2').select2({
+        placeholder: 'Seleccione un vehículo'
+    });
+</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 @stop

@@ -17,7 +17,7 @@ class tenenciaController extends Controller
     public function index()
     {
         $data=DB::table('tenencias')
-        ->select('tenencias.*', 'vehiculos.marca','vehiculos.placas')
+        ->select('tenencias.*', 'vehiculos.marca','vehiculos.serie')
         ->join('vehiculos', 'tenencias.id_vehiculo','vehiculos.id')
         ->get();
         return view('tenencias.index')->with('data', $data);
@@ -46,7 +46,6 @@ class tenenciaController extends Controller
         $valores->tenencia = $request->get('tenencia');
         $valores->pago = $request->get('pago');
         $valores->estatus = $request->get('estatus');
-        $valores->nombre = $request->get('nombre');
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo= $request->file('archivo')){
             $rutaguardarpdf= 'PDF/';
@@ -101,7 +100,6 @@ class tenenciaController extends Controller
         $valores->tenencia = $request->get('tenencia');
         $valores->pago = $request->get('pago');
         $valores->estatus = $request->get('estatus');
-        $valores->nombre = $request->get('nombre');
         $valores->id_vehiculo = $request->get('vehiculo');
         $valores->save();
         return redirect('/tenencia');

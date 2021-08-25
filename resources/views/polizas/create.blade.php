@@ -11,24 +11,24 @@
     @csrf
     <div class="row">
         <div class="form-group col-md-6">
-            <label for="message-text" class="col-form-label">Vehiculo:</label>
-            <select class="custom-select" id="message-text" name="vehiculo" required>
-                <option disabled selected>Selecciona el vehiculo</option>
+            <label for="message-text" class="col-form-label">Vehículo:</label>
+            <select class="custom-select select2" id="message-text" name="vehiculo" required>
+                <option value=""></option>
                 @foreach ($selec as $selec)
                     <option value="{{ $selec->id }}">{{ $selec->marca }}, {{ $selec->placas }} </option>
                 @endforeach
             </select>
         </div>
         <div class="form-group col-md-6">
-            <label for="message-text" class="col-form-label">Poliza:</label>
+            <label for="message-text" class="col-form-label">Póliza:</label>
             <input type="text" class="form-control" name="poliza" maxlength="20" required>
         </div>
         <div class="form-group col-md-6">
-            <label for="message-text" class="col-form-label">seguro:</label>
+            <label for="message-text" class="col-form-label">Seguro:</label>
             <input type="text" class="form-control" name="seguro" maxlength="20" required>
         </div>
         <div class="form-group col-md-6">
-            <label for="message-text" class="col-form-label">vigencia:</label>
+            <label for="message-text" class="col-form-label">Vigencia:</label>
             <input type="date" class="form-control" name="vigencia" maxlength="20" required>
         </div>
         <div class="form-group col-6">
@@ -37,17 +37,11 @@
             <label class="btn btn-outline-success" for="success-outline">Vigentes</label>
 
             <input type="radio" class="btn-check" name="estatus" value="vencidas" id="danger-outline" autocomplete="off" required>
-            <label class="btn btn-outline-danger" for="danger-outline">vencidas</label>
+            <label class="btn btn-outline-danger" for="danger-outline">Vencidas</label>
 
             <input type="radio" class="btn-check" name="estatus" value="baja" id="info-outline" autocomplete="off" required>
             <label class="btn btn-outline-info" for="info-outline">Dadas de baja</label>
           </div>
-    </div>
-
-
-    <div class="form-group ">
-        <label for="message-text" class="col-form-label">Nombre:</label>
-        <input type="text" class="form-control" name="nombre" maxlength="20" required>
     </div>
     <div class="input-group mb-4 ">
         <div class="input-group-prepend">
@@ -78,4 +72,9 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script>
+    $('.select2').select2({
+        placeholder: 'Seleccione un vehículo'
+    });
+</script>
 @stop

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVerificacionAsTable extends Migration
+class CreatePropietariosAsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateVerificacionAsTable extends Migration
      */
     public function up()
     {
-        Schema::create('verificacion_as', function (Blueprint $table) {
+        Schema::create('propietarios_as', function (Blueprint $table) {
             $table->id();
-            $table->string('placa');
-            $table->string('engomado');
-            $table->string('verificacion');
-            $table->date('fecha');
-            $table->string('estatus');
-            $table->string('archivo');
+            $table->string('vendedor');
+            $table->string('ide_ven');
+            $table->string('comprador');
+            $table->string('ide_com');
             $table->unsignedBigInteger('id_vehiculo');
             $table->foreign('id_vehiculo')->references('id')->on('vehiculos');
             $table->timestamps();
@@ -34,6 +32,6 @@ class CreateVerificacionAsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('verificacion_as');
+        Schema::dropIfExists('propietarios_as');
     }
 }

@@ -12,7 +12,7 @@
         @csrf
         <div class="row">
             <div class="form-group col-md-6">
-                <label for="message-text" class="col-form-label">Vehiculo:</label>
+                <label for="message-text" class="col-form-label">Vehículo:</label>
                 <select class="custom-select" id="pe" name="vehiculo" required>
                     @foreach($datos as $datos)
                     <option value="{{$datos->id_vehiculo}}">{{$datos->marca}}</option>
@@ -24,12 +24,12 @@
                 </select>
             </div>
             <div class="form-group col-md-6">
-                <label for="message-text" class="col-form-label">Verificacion:</label>
+                <label for="message-text" class="col-form-label">Verificación:</label>
                 <input type="text" class="form-control" name="verificacion" maxlength="20" value="{{$valores->verificacion}}" required>
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Fecha:</label>
-                <input type="text" class="form-control" name="fecha" maxlength="20" value="{{$valores->fecha}}" required>
+                <input type="date" class="form-control" name="fecha" maxlength="20" value="{{$valores->fecha}}" required>
             </div>
         </div>
       
@@ -42,8 +42,15 @@
             <label class="btn btn-outline-danger" for="danger-outline">Sin pagar</label>
           </div>
           <div class="form-group ">
-            <label for="message-text" class="col-form-label">Nombre:</label>
-            <input type="text" class="form-control" name="nombre" maxlength="20" value="{{$valores->nombre}}" required>
+            <label  class="col-form-label">Engomado:</label>
+            <select class="custom-select" name="nombre" style="font-size:15pt" required>
+                <option value=""></option>
+                <option value="rgba(247,255,23,1)" style="background-color:rgba(247,255,23,1) "> 5 u 6 <a ></a></option>
+                <option value="rgba(255,64,217,1)" style="background-color:rgba(255,64,217,1)">7 u 8</option>
+                <option value="rgba(255,3,3,1)" style="background-color:rgba(255,3,3,1)">3 o 4</option>
+                <option value="rgba(6,179,0,1)" style="background-color: rgba(6,179,0,1)">1 o 2</option>
+                <option value="rgba(0,187,255,1)" style="background-color: rgba(0,187,255,1)">9 o 0</option>
+            </select>
         </div>
     </div>
     

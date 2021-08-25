@@ -12,7 +12,7 @@
     @method('put')
     <div class="row">
         <div class="form-group col-md-6">
-            <label for="message-text" class="col-form-label">Vehiculo:</label>
+            <label for="message-text" class="col-form-label">Vehículo:</label>
             <select class="custom-select" id="message-text" name="vehiculo" required>
                 @foreach ($datos as $datos)
                     <option value="{{ $datos->id_vehiculo }}">{{ $datos->marca }}</option>
@@ -23,17 +23,17 @@
             </select>
         </div>
         <div class="form-group col-md-6">
-            <label for="message-text" class="col-form-label">Poliza:</label>
+            <label for="message-text" class="col-form-label">Póliza:</label>
             <input type="text" class="form-control" name="poliza" maxlength="20" value="{{ $valores->poliza }}"
                 required>
         </div>
         <div class="form-group col-md-6">
-            <label for="message-text" class="col-form-label">seguro:</label>
+            <label for="message-text" class="col-form-label">Seguro:</label>
             <input type="text" class="form-control" name="seguro" maxlength="20" value="{{ $valores->seguro }}"
                 required>
         </div>
         <div class="form-group col-md-6">
-            <label for="message-text" class="col-form-label">vigencia:</label>
+            <label for="message-text" class="col-form-label">Vigencia:</label>
             <input type="date" class="form-control" name="vigencia" maxlength="20" value="{{ $valores->vigencia }}"
                 required>
         </div>
@@ -43,20 +43,12 @@
             <label class="btn btn-outline-success" for="success-outline">Vigentes</label>
 
             <input type="radio" class="btn-check" name="estatus" value="vencidas" id="danger-outline" autocomplete="off" required>
-            <label class="btn btn-outline-danger" for="danger-outline">vencidas</label>
+            <label class="btn btn-outline-danger" for="danger-outline">Vencidas</label>
 
             <input type="radio" class="btn-check" name="estatus" value="baja" id="info-outline" autocomplete="off" required>
             <label class="btn btn-outline-info" for="info-outline">Dadas de baja</label>
           </div>
     </div>
-
-
-    <div class="form-group ">
-        <label for="message-text" class="col-form-label">Nombre:</label>
-        <input type="text" class="form-control" name="nombre" maxlength="20" value="{{ $valores->nombre }}" required>
-    </div>
-
-
 
     <a type="button" href="/poliza" class="btn btn-secondary" data-dismiss="modal">Cancelar</a>
     <button type="submit" class="btn btn-primary">Registrar</button>

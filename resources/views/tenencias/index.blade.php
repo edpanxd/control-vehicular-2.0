@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Dash')
+@section('title', 'Tenencias')
 
 @section('content_header')
 <h1>Tenencia</h1>
 @stop
 
 @section('content')
-<a class="btn btn-primary mb-3" href="tenencia/create">Registrar placas</a>
+<a class="btn btn-primary mb-3" href="tenencia/create">Registrar Tenencia </a>
 <div class="table-responsive">
 
 
@@ -15,12 +15,11 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">id</th>
-                <th scope="col">Vehiculo</th>
-                <th scope="col">placas</th>
+                <th scope="col">Vehículo</th>
+                <th scope="col">Serie</th>
                 <th scope="col">Tenencia</th>
                 <th scope="col">Pago</th>
                 <th scope="col">Estatus</th>
-                <th scope="col">Nombre de PDF</th>
                 <th scope="col">PDF</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
@@ -31,11 +30,10 @@
                 <tr>
                     <th>{{ $data->id }}</th>
                     <th>{{ $data->marca }}</th>
-                    <th>{{ $data->placas }}</th>
+                    <th>{{ $data->serie }}</th>
                     <th>{{ $data->tenencia }}</th>
                     <th>{{ $data->pago }}</th>
                     <th>{{ $data->estatus }}</th>
-                    <th>{{ $data->nombre }}</th>
                     <th><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank"><i class="far fa-file-pdf"></i></a></th>
                     <th>
                         <a class="btn btn-info" href="/tenencia/{{ $data->id }}/edit"><i class="fas fa-edit"></i></a>

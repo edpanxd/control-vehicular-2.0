@@ -43,7 +43,7 @@
                 @endif
 
                 <x-jet-button class="ml-4">
-                    {{ __('Iniciar seción') }}
+                    {{ __('Iniciar sesión') }}
                 </x-jet-button>
             </div>
         </form>

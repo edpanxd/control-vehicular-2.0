@@ -18,7 +18,7 @@ class PlacasController extends Controller
     public function index()
     {
         $data=DB::table('placas')
-        ->select('placas.*', 'vehiculos.marca','vehiculos.placas')
+        ->select('placas.*', 'vehiculos.marca','vehiculos.serie')
         ->join('vehiculos', 'placas.id_vehiculo','vehiculos.id')
         ->get();
         $valores=Placas::all();
@@ -33,7 +33,10 @@ class PlacasController extends Controller
     public function create()
     {
         $selec=Vehiculo::all();
-        return view('placas.create')->with('selec', $selec);
+        $prueba=true;
+        return view('placas.create')->with('selec', $selec)
+        ->with('prueba', $prueba);
+        
     }
 
     /**
@@ -44,6 +47,7 @@ class PlacasController extends Controller
      */
     public function store(Request $request)
     {
+
         $valores = new Placas();
         $valores->vencimiento = $request->get('vencimiento');
         $valores->estatus = $request->get('estatus');
@@ -51,7 +55,7 @@ class PlacasController extends Controller
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo= $request->file('archivo')){
             $rutaguardarpdf= 'PDF/';
-            $archivonombre= date('YmdHis'). "." . $archivo->getClientOriginalExtension();
+            $archivonombre= date('YmdHis')."_". $valores->nombre . "." . $archivo->getClientOriginalExtension();
             $archivo->move($rutaguardarpdf, $archivonombre);
             $valores->archivo="$archivonombre";
         }

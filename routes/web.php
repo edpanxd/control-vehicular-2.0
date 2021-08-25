@@ -6,17 +6,16 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::resource('/dashboard', 'App\Http\Controllers\dashboardController');
+Route::get('/dashboardvh/{id}', 'App\Http\Controllers\dashboardController@perfil');
 
-
-
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::resource('/dashboard', 'App\Http\Controllers\dashboardController');
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {    
     Route::get('/dashboardd/{p}', 'App\Http\Controllers\dashboardController@create');
     Route::get('/dashboardv/{p}', 'App\Http\Controllers\dashboardController@create2');
-    Route::get('/dashboardvh/{id}', 'App\Http\Controllers\dashboardController@perfil');
+    
    //ruta vehiculo
     Route::resource('/vehiculo', 'App\Http\Controllers\VehiculoController');
-   Route::get('/vehiculod/{id}', 'App\Http\Controllers\VehiculoController@destroy');
+  // Route::get('/vehiculod/{id}', 'App\Http\Controllers\VehiculoController@destroy'); //ruta de eliminar vehiculo inavilitada
 
    //ruta placas
    Route::resource('/placa', 'App\Http\Controllers\PlacasController');

@@ -15,10 +15,10 @@ class CreateVerificacionFsTable extends Migration
     {
         Schema::create('verificacion_fs', function (Blueprint $table) {
             $table->id();
+            $table->string('placa');
             $table->string('verificacion');
             $table->date('fecha');
             $table->string('estatus');
-            $table->string('nombre');
             $table->string('archivo');
             $table->unsignedBigInteger('id_vehiculo');
             $table->foreign('id_vehiculo')->references('id')->on('vehiculos');

@@ -1,21 +1,21 @@
 @extends('adminlte::page')
 
-@section('title', 'Dash')
+@section('title', 'Verificación')
 
 @section('content_header')
-    <h1>Verificacion B</h1>
+    <h1>Verificación B</h1>
 @stop
 
 @section('content')
-    <a class="btn btn-primary mb-3" href="verificacion_b/create">Registrar Verificacion</a>
+    <a class="btn btn-primary mb-3" href="verificacion_b/create">Registrar Verificación</a>
     <div class="table-responsive">
         <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">id</th>
-                    <th scope="col">Vehiculo</th>
-                    <th scope="col">placas</th>
-                    <th scope="col">Verificacion</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Vehículo</th>
+                    <th scope="col">Placas</th>
+                    <th scope="col">Verificación</th>
                     <th scope="col">Fecha</th>
                     <th scope="col">Estatus</th>
                     <th scope="col">Nombre de PDF</th>

@@ -1,21 +1,21 @@
 @extends('adminlte::page')
 
-@section('title', 'Dash')
+@section('title', 'Físico Mecánico')
 
 @section('content_header')
-    <h1>Fisico Mecanico</h1>
+    <h1>Físico mecánico </h1>
 @stop
 
 @section('content')
-    <a class="btn btn-primary mb-3" href="fisico_m/create">Registrar Verificacion</a>
+    <a class="btn btn-primary mb-3" href="fisico_m/create">Registrar Físico mecánico</a>
     <div class="table-responsive">
         <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">id</th>
-                    <th scope="col">Vehiculo</th>
-                    <th scope="col">placas</th>
-                    <th scope="col">Verificacion</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Vehículo</th>
+                    <th scope="col">Placas</th>
+                    <th scope="col">Verificación</th>
                     <th scope="col">Fecha</th>
                     <th scope="col">Estatus</th>
                     <th scope="col">Nombre de PDF</th>

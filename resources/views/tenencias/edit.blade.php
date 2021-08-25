@@ -28,7 +28,7 @@
                 <input type="text" class="form-control" name="tenencia" maxlength="20" value="{{$valores->tenencia}}" required>
             </div>
             <div class="form-group col-md-6">
-                <label for="message-text" class="col-form-label">pago:</label>
+                <label for="message-text" class="col-form-label">Pago:</label>
                 <input type="text" class="form-control" name="pago" maxlength="20" value="{{$valores->pago}}" required>
             </div>
         </div>
@@ -36,15 +36,11 @@
             <div class="form-group col-6">
             <label  class="col-form-label">Estatus:</label> <br>
             <input type="radio" class="btn-check" name="estatus" id="success-outline" value="Pagado" autocomplete="off" required>
-            <label class="btn btn-outline-success" for="success-outline">Pagaso</label>
+            <label class="btn btn-outline-success" for="success-outline">Pagado</label>
 
             <input type="radio" class="btn-check" name="estatus" value="Sin pagar" id="danger-outline" autocomplete="off" required>
             <label class="btn btn-outline-danger" for="danger-outline">Sin pagar</label>
           </div>
-          <div class="form-group ">
-            <label for="message-text" class="col-form-label">Nombre:</label>
-            <input type="text" class="form-control" name="nombre" maxlength="20" value="{{$valores->nombre}}" required>
-        </div>
     </div>
     
         <a type="button" href="/tenencia" class="btn btn-secondary" data-dismiss="modal">Cancelar</a>

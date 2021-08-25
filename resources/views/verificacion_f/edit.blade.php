@@ -3,7 +3,7 @@
 @section('title', 'Dash')
 
 @section('content_header')
-    <h1>Editar Verificacion Federal</h1>
+    <h1>Editar Verificación Federal</h1>
 @stop
 
 @section('content')
@@ -12,7 +12,7 @@
         @csrf
         <div class="row">
             <div class="form-group col-md-6">
-                <label for="message-text" class="col-form-label">Vehiculo:</label>
+                <label for="message-text" class="col-form-label">Vehículo:</label>
                 <select class="custom-select" id="pe" name="vehiculo" required>
                     @foreach($datos as $datos)
                     <option value="{{$datos->id_vehiculo}}">{{$datos->marca}}</option>
@@ -23,7 +23,7 @@
                 </select>
             </div>
             <div class="form-group col-md-6">
-                <label for="message-text" class="col-form-label">Verificacion:</label>
+                <label for="message-text" class="col-form-label">Verificación:</label>
                 <input type="text" class="form-control" name="verificacion" maxlength="20" value="{{$valores->verificacion}}" required>
             </div>
             <div class="form-group col-md-6">

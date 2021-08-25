@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Vehiculo;
 use App\Models\Verificacion_a;
+use App\Models\Placas;
 
 class Verificacion_aController extends Controller
 {
@@ -17,7 +18,7 @@ class Verificacion_aController extends Controller
     public function index()
     {
         $data=DB::table('verificacion_as')
-        ->select('verificacion_as.*', 'vehiculos.marca','vehiculos.placas')
+        ->select('verificacion_as.*', 'vehiculos.marca','vehiculos.serie')
         ->join('vehiculos', 'verificacion_as.id_vehiculo','vehiculos.id')
         ->get();
         return view('verificacion_a.index')->with('data', $data);
@@ -31,8 +32,11 @@ class Verificacion_aController extends Controller
      */
     public function create()
     {
+        $selec2 = Placas::all();
         $selec = Vehiculo::all();
-        return view('verificacion_a.create')->with('selec', $selec);
+        return view('verificacion_a.create')
+        ->with('selec', $selec)
+        ->with('selec2', $selec2);
     }
 
     /**
@@ -119,6 +123,6 @@ class Verificacion_aController extends Controller
         $valores = Verificacion_a::find($id);
         unlink('PDF/'.$valores->archivo);
         $valores->delete();
-        return redirect('/verificaion_a');
+        return redirect('/verificacion_a');
     }
 }

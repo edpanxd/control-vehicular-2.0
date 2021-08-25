@@ -22,7 +22,6 @@ class CreateBitacorasTable extends Migration
             $table->unsignedBigInteger('usuario_id');
             $table->unsignedBigInteger('id_vehiculo');
             $table->foreign('usuario_id')->references('id')->on('users');
-            
             $table->foreign('id_vehiculo')->references('id')->on('vehiculos');
             $table->timestamps();
         });

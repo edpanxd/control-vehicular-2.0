@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVerificacionAsTable extends Migration
+class CreateVerificacionF2sTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateVerificacionAsTable extends Migration
      */
     public function up()
     {
-        Schema::create('verificacion_as', function (Blueprint $table) {
+        Schema::create('verificacion_f2s', function (Blueprint $table) {
             $table->id();
             $table->string('placa');
-            $table->string('engomado');
             $table->string('verificacion');
             $table->date('fecha');
             $table->string('estatus');
@@ -34,6 +33,6 @@ class CreateVerificacionAsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('verificacion_as');
+        Schema::dropIfExists('verificacion_f2s');
     }
 }

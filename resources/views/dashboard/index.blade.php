@@ -20,12 +20,12 @@
 
                     </h3>
 
-                    <p>vehiculos activos</p>
+                    <p>Vehículos activos.</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-car"></i>
                 </div>
-                <a href="#" class="small-box-footer">mas informacion <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer">mas información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <div class="col-mb-3 col-3">
@@ -37,12 +37,12 @@
                     {{ $V }}
                     </h3>
 
-                    <p>Placas no vigentes</p>
+                    <p>Placas no vigentes.</p>
                 </div>
                 <div class="icon">
                     <i class="fas fa-address-card"></i>
                 </div>
-                <a href="/dashboardd/{{ 'placa' }}" class="small-box-footer">mas informacion
+                <a href="/dashboardd/{{ 'placa' }}" class="small-box-footer">mas información
                     <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
@@ -56,12 +56,12 @@
                 {{ $p }}
                     </h3>
 
-                    <p>Polizas no vigentes</p>
+                    <p>Pólizas no vigentes.</p>
                 </div>
                 <div class="icon">
                     <i class="fas fa-lock"></i>
                 </div>
-                <a href="/dashboardd/{{ 'poliza' }}" class="small-box-footer">mas informacion <i
+                <a href="/dashboardd/{{ 'poliza' }}" class="small-box-footer">mas información <i
                         class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
@@ -75,12 +75,12 @@
                         {{ $t }}
                     </h3>
 
-                    <p>Tenencias no pagadas</p>
+                    <p>Tenencias no pagadas.</p>
                 </div>
                 <div class="icon">
                     <i class="far fa-calendar-alt"></i>
                 </div>
-                <a href="/dashboardv/{{ 'tenencia' }}" class="small-box-footer">mas informacion <i
+                <a href="/dashboardv/{{ 'tenencia' }}" class="small-box-footer">mas información <i
                         class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
@@ -93,13 +93,13 @@
                     {{ $verA }}
                     </h3>
 
-                    <p>Verificacion A</p>
+                    <p>Verificación A no pagada.</p>
                 </div>
                 <div class="icon">
                     <i class="fas fa-check-circle"></i>
                 </div>
                 <a href="/dashboardv/{{ 'verificacion_a' }}" class="small-box-footer">mas
-                    informacion <i class="fas fa-arrow-circle-right"></i></a>
+                    información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <div class="col-mb-3 col-3">
@@ -111,13 +111,13 @@
                         {{ $verB }}
                     </h3>
 
-                    <p>Verificacion B</p>
+                    <p>Verificación B no pagada.</p>
                 </div>
                 <div class="icon">
                     <i class="fas fa-check-circle"></i>
                 </div>
                 <a href="/dashboardv/{{ 'verificacion_B' }}" class="small-box-footer">mas
-                    informacion <i class="fas fa-arrow-circle-right"></i></a>
+                    información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <div class="col-mb-3 col-3">
@@ -129,13 +129,13 @@
                         {{ $verF }}
                     </h3>
 
-                    <p>Verificacion Federal</p>
+                    <p>Verificación federal no pagada.</p>
                 </div>
                 <div class="icon">
                     <i class="fas fa-check-square"></i>
                 </div>
                 <a href="/dashboardv/{{ 'verificacion_f' }}" class="small-box-footer">mas
-                    informacion <i class="fas fa-arrow-circle-right"></i></a>
+                    información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <div class="col-mb-3 col-3">
@@ -147,12 +147,12 @@
                         {{ $fiM }}
                     </h3>
 
-                    <p>Fisico Mecanico</p>
+                    <p>Físico mecánico no pagada.</p>
                 </div>
                 <div class="icon">
                     <i class="fas fa-tools"></i>
                 </div>
-                <a href="/dashboardv/{{ 'fisico_m' }}" class="small-box-footer">mas informacion <i
+                <a href="/dashboardv/{{ 'fisico_m' }}" class="small-box-footer">mas información <i
                         class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
@@ -199,7 +199,7 @@
                                 <!-- /.col -->
                             </div>
                             <!-- /.row -->
-                            <a href="/dashboardvh/{{$datos->id}}" class="btn btn-default bg-maroon mb-4">Perfil de vehiculo</a>
+                            <a href="/dashboardvh/{{$datos->id}}" class="btn btn-default bg-maroon mb-4">Perfil de vehículo. </a>
                         </div>
 
                     </div>

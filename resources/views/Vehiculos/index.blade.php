@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Dash')
+@section('title', 'Vehículos')
 
 @section('content_header')
-<h1>Vehiculos</h1>
+<h1>Vehículos</h1>
 @stop
 
 @section('content')
-<a class="btn btn-primary mb-3" href="vehiculo/create">Registrar vehiculo</a>
+<a class="btn btn-primary mb-3" href="vehiculo/create">Registrar vehículos</a>
 
 
 
@@ -16,16 +16,16 @@
     <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">id</th>
+                <th scope="col">Id</th>
                 <th scope="col">Marca</th>
                 <th scope="col">Submarca</th>
-                <th scope="col">tipo</th>
-                <th scope="col">modelo</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Modelo</th>
                 <th scope="col">Color</th>
-                <th scope="col">placas</th>
-                <th scope="col">imagen</th>
+                <th scope="col">Placas</th>
+                <th scope="col">Imagen</th>
                 <th scope="col"></th>
-                <th scope="col"></th>
+                <!--<th scope="col">Eliminar inabilitado</th>-->
             </tr>
         </thead>
         <tbody>
@@ -43,8 +43,8 @@
                         <a class="btn btn-info" href="/vehiculo/{{ $valores->id }}/edit"><i
                                 class="fas fa-edit"></i></a>
                     </th>
-                    <th><a class="btn btn-danger eliminar" href="/vehiculod/{{ $valores->id }}"><i
-                                class="fas fa-trash-alt"></i></a></th>
+                  <!--  <th><a class="btn btn-danger eliminar" href="/vehiculod/"><i
+                                class="fas fa-trash-alt"></i></a></th>-->
                 </tr>
             @endforeach
         </tbody>

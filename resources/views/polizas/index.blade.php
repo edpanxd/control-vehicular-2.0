@@ -1,28 +1,26 @@
 @extends('adminlte::page')
 
-@section('title', 'Dash')
+@section('title', 'Pólizas')
 
 @section('content_header')
-<h1>Poliza</h1>
+<h1>Pólizas</h1>
 @stop
 
 @section('content')
-<a class="btn btn-primary mb-3" href="poliza/create">Registrar placas</a>
+<a class="btn btn-primary mb-3" href="poliza/create">Registrar póliza</a>
 <div class="table-responsive">
-
 
     <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">id</th>
-                <th scope="col">Vehiculo</th>
-                <th scope="col">placas</th>
-                <th scope="col">Poliza</th>
+                <th scope="col">Vehículo</th>
+                <th scope="col">Serie</th>
+                <th scope="col">Póliza</th>
+                <th scope="col">Póliza</th>
                 <th scope="col">Seguro</th>
                 <th scope="col">Vigencia</th>
                 <th scope="col">Estatus</th>
-                <th scope="col">Nombre de PDF</th>
-                <th scope="col">PDF</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
             </tr>
@@ -32,14 +30,13 @@
                 <tr>
                     <th>{{ $data->id }}</th>
                     <th>{{ $data->marca }}</th>
-                    <th>{{ $data->placas }}</th>
+                    <th>{{ $data->serie }}</th>
                     <th>{{ $data->poliza }}</th>
+                    <th><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank"><i
+                        class="far fa-file-pdf"></i></a></th>
                     <th>{{ $data->seguro }}</th>
                     <th>{{ $data->vigencia }}</th>
                     <th>{{ $data->estatus }}</th>
-                    <th>{{ $data->nombre }}</th>
-                    <th><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank"><i
-                                class="far fa-file-pdf"></i></a></th>
                     <th>
                         <a class="btn btn-info" href="/poliza/{{ $data->id }}/edit"><i class="fas fa-edit"></i></a>
                     </th>

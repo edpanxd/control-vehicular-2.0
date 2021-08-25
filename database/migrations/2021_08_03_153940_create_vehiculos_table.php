@@ -20,10 +20,12 @@ class CreateVehiculosTable extends Migration
             $table->string('tipo');
             $table->string('modelo');
             $table->string('color');
-            $table->string('placas');
             $table->string('serie');
             $table->string('numeroM');
             $table->string('estatus');
+            $table->string('uso');
+            $table->string('adquisicion');
+            $table->string('empresa');
             $table->string('imagen');
             $table->timestamps();
         });

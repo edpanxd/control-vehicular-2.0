@@ -118,6 +118,6 @@ class verificacion_fController extends Controller
         $valores = Verificacion_f::find($id);
         unlink('PDF/'.$valores->archivo);
         $valores->delete();
-        return redirect('/verificaion_f');
+        return redirect('/verificacion_f');
     }
 }

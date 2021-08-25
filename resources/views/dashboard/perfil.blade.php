@@ -90,13 +90,13 @@
                     <div class="card-header p-2">
                         <ul class="nav nav-pills">
                             <li class="nav-item"><a class="nav-link active" href="#placas" data-toggle="tab">Placas</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#poliza" data-toggle="tab">Poliza</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#poliza" data-toggle="tab">Póliza</a></li>
                             <li class="nav-item"><a class="nav-link" href="#tenencia" data-toggle="tab">Tenencia</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#va" data-toggle="tab">Verificacion A</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#vb" data-toggle="tab">Verificacion B</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#vf" data-toggle="tab">Verificacion federal</a>
+                            <li class="nav-item"><a class="nav-link" href="#va" data-toggle="tab">Verificación A</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#vb" data-toggle="tab">Verificación B</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#vf" data-toggle="tab">Verificación federal</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="#fm" data-toggle="tab">Fisico mecanico</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#fm" data-toggle="tab">Físico Mecánico</a></li>
                         </ul>
                     </div>
                     <div class="card-body">
@@ -107,7 +107,7 @@
                                     <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas">
                                         <thead class="thead-dark">
                                             <tr>
-                                                <th scope="col">id</th>
+                                                <th scope="col">Id</th>
                                                 <th scope="col">Vencimiento</th>
                                                 <th scope="col">Estatus</th>
                                                 <th scope="col">Nombre</th>
@@ -135,15 +135,13 @@
                                 <!-- Tabla placas -->
                             </div>
                             <div class="tab-pane " id="poliza">
-                                <h1>Polizas</h1>
+                                <h1>Pólizas</h1>
                                 <div class="table-responsive">
-
-
                                     <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas2">
                                         <thead class="thead-dark">
                                             <tr>
-                                                <th scope="col">id</th>
-                                                <th scope="col">Poliza</th>
+                                                <th scope="col">Id</th>
+                                                <th scope="col">Póliza</th>
                                                 <th scope="col">Seguro</th>
                                                 <th scope="col">Vigencia</th>
                                                 <th scope="col">Estatus</th>
@@ -177,7 +175,7 @@
                                     <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas3">
                                         <thead class="thead-dark">
                                             <tr>
-                                                <th scope="col">id</th>
+                                                <th scope="col">Id</th>
                                                 <th scope="col">Tenencia</th>
                                                 <th scope="col">Pago</th>
                                                 <th scope="col">Estatus</th>
@@ -203,13 +201,13 @@
                                 <!-- Tablas tenencia -->
                             </div>
                             <div class="tab-pane " id="va">
-                                <h1>Verificacion A</h1>
+                                <h1>Verificación A</h1>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas4">
                                         <thead class="thead-dark">
                                             <tr>
-                                                <th scope="col">id</th>
-                                                <th scope="col">Verificacion</th>
+                                                <th scope="col">Id</th>
+                                                <th scope="col">Verificación</th>
                                                 <th scope="col">Fecha</th>
                                                 <th scope="col">Estatus</th>
                                                 <th scope="col">Nombre</th>
@@ -238,13 +236,13 @@
 
                             </div>
                             <div class="tab-pane " id="vb">
-                                <h1>Verificacion B</h1>
+                                <h1>Verificación B</h1>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas5">
                                         <thead class="thead-dark">
                                             <tr>
-                                                <th scope="col">id</th>
-                                                <th scope="col">Verificacion</th>
+                                                <th scope="col">Id</th>
+                                                <th scope="col">Verificación</th>
                                                 <th scope="col">Fecha</th>
                                                 <th scope="col">Estatus</th>
                                                 <th scope="col">Nombre</th>
@@ -273,13 +271,13 @@
 
                             </div>
                             <div class="tab-pane " id="vf">
-                                <h1>Verificaion Federal</h1>
+                                <h1>Verificación Federal</h1>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas6">
                                         <thead class="thead-dark">
                                             <tr>
-                                                <th scope="col">id</th>
-                                                <th scope="col">Verificacion</th>
+                                                <th scope="col">Id</th>
+                                                <th scope="col">Verificación</th>
                                                 <th scope="col">Fecha</th>
                                                 <th scope="col">Estatus</th>
                                                 <th scope="col">Nombre</th>
@@ -308,13 +306,13 @@
 
                             </div>
                             <div class="tab-pane " id="fm">
-                                <h1>Fisico Mecanico</h1>
+                                <h1>Físico Mecánico</h1>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas7">
                                         <thead class="thead-dark">
                                             <tr>
-                                                <th scope="col">id</th>
-                                                <th scope="col">Verificacion</th>
+                                                <th scope="col">Id</th>
+                                                <th scope="col">Verificación</th>
                                                 <th scope="col">Fecha</th>
                                                 <th scope="col">Estatus</th>
                                                 <th scope="col">Nombre</th>
@@ -357,9 +355,7 @@
 
 @section('js')
 
-    <script>
-        console.log('Hi!');
-    </script>
+   
     <script>
         $(document).ready(function() {
             $('#tablas').DataTable({

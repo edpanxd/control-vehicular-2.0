@@ -17,7 +17,7 @@ class polizaController extends Controller
     public function index()
     {
         $data=DB::table('polizas')
-        ->select('polizas.*', 'vehiculos.marca','vehiculos.placas')
+        ->select('polizas.*', 'vehiculos.marca','vehiculos.serie')
         ->join('vehiculos', 'polizas.id_vehiculo','vehiculos.id')
         ->get();
         $valores=polizas::all();
@@ -48,7 +48,6 @@ class polizaController extends Controller
         $valores->seguro = $request->get('seguro');
         $valores->estatus = $request->get('estatus');
         $valores->vigencia = $request->get('vigencia');
-        $valores->nombre = $request->get('nombre');
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo= $request->file('archivo')){
             $rutaguardarpdf= 'PDF/';
@@ -104,7 +103,6 @@ class polizaController extends Controller
         $valores->seguro = $request->get('seguro');
         $valores->estatus = $request->get('estatus');
         $valores->vigencia = $request->get('vigencia');
-        $valores->nombre = $request->get('nombre');
         $valores->id_vehiculo = $request->get('vehiculo');
         $valores->save();
         return redirect('/poliza');

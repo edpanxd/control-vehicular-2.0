@@ -18,7 +18,6 @@ class CreateTenenciasTable extends Migration
             $table->string('tenencia');
             $table->string('pago');
             $table->string('estatus');
-            $table->string('nombre');
             $table->string('archivo');
             $table->unsignedBigInteger('id_vehiculo');
             $table->foreign('id_vehiculo')->references('id')->on('vehiculos');

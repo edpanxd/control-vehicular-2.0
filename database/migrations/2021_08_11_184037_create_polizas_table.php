@@ -16,10 +16,12 @@ class CreatePolizasTable extends Migration
         Schema::create('polizas', function (Blueprint $table) {
             $table->id();
             $table->string('poliza');
-            $table->string('seguro');
+            $table->string('aseguradora');
             $table->string('estatus');
-            $table->date('vigencia');
-            $table->string('nombre');
+            $table->date('inicio');
+            $table->date('vencimiento');
+            $table->string('endoso');
+            $table->string('concepto_endoso');
             $table->string('archivo');
             $table->unsignedBigInteger('id_vehiculo');
             $table->foreign('id_vehiculo')->references('id')->on('vehiculos');

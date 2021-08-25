@@ -12,14 +12,14 @@
         @csrf
         <div class="row">
             <div class="form-group col-md-6">
-                <label for="message-text" class="col-form-label">Vehiculo:</label>
+                <label for="message-text" class="col-form-label">Vehículo:</label>
                 <select class="custom-select" id="pe" name="vehiculo" required>
                     @foreach($datos as $datos)
                     <option value="{{$datos->id_vehiculo}}">{{$datos->marca}}</option>
                     @endforeach
                     
                     @foreach ($selec as $selec)
-                        <option value="{{ $selec->id }}">{{ $selec->marca }}, {{ $selec->placas }} </option>
+                        <option value="{{ $selec->id }}">{{ $selec->marca }}, {{ $selec->serie }} </option>
                     @endforeach
                 </select>
             </div>
@@ -41,8 +41,8 @@
             <label class="btn btn-outline-info" for="info-outline">Dadas de baja</label>
           </div>
           <div class="form-group ">
-            <label for="message-text" class="col-form-label">Nombre:</label>
-            <input type="text" class="form-control" name="nombre" maxlength="20" value="{{$valores->nombre}}" required>
+            <label for="message-text" class="col-form-label">Observaciones:</label>
+            <input type="text" class="form-control" name="nombre" maxlength="55" value="{{$valores->nombre}}" required>
         </div>
     </div>
     

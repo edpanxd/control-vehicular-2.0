@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Vehiculo;
 use App\Models\fisico_m;
+use App\Models\Placas;
+use JeroenNoten\LaravelAdminLte\Components\Form\Select2;
 
 class fisico_mController extends Controller
 {
@@ -17,7 +19,7 @@ class fisico_mController extends Controller
     public function index()
     {
         $data=DB::table('fisico_ms')
-        ->select('fisico_ms.*', 'vehiculos.marca','vehiculos.placas')
+        ->select('fisico_ms.*', 'vehiculos.marca','vehiculos.serie')
         ->join('vehiculos', 'fisico_ms.id_vehiculo','vehiculos.id')
         ->get();
         return view('fisico_m.index')->with('data', $data);
@@ -30,8 +32,10 @@ class fisico_mController extends Controller
      */
     public function create()
     {
+        $selec2 = Placas::all();
         $selec = Vehiculo::all();
-        return view('fisico_m.create')->with('selec', $selec);
+        return view('fisico_m.create')->with('selec', $selec)
+        ->with('selec2', $selec2);
     }
 
     /**
@@ -43,10 +47,10 @@ class fisico_mController extends Controller
     public function store(Request $request)
     {
         $valores = new fisico_m();
+        $valores->placa = $request->get('placa');
         $valores->verificacion = $request->get('verificacion');
         $valores->fecha = $request->get('fecha');
         $valores->estatus = $request->get('estatus');
-        $valores->nombre = $request->get('nombre');
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo= $request->file('archivo')){
             $rutaguardarpdf= 'PDF/';
@@ -77,6 +81,7 @@ class fisico_mController extends Controller
      */
     public function edit($id)
     {
+        $selec2 = Placas::all();
         $selec=Vehiculo::all();
         $valores=fisico_m::find($id);
         $datos=DB::table('fisico_ms')
@@ -85,7 +90,8 @@ class fisico_mController extends Controller
         ->get();
         return view('fisico_m.edit')->with('valores', $valores)
         ->with('selec', $selec)
-        ->with('datos', $datos);
+        ->with('datos', $datos)
+        ->with('selec2', $selec2);
     }
 
     /**

@@ -15,7 +15,7 @@
             <select class="custom-select select2" id="message-text" name="vehiculo" required>
                 <option value=""></option>
                 @foreach ($selec as $selec)
-                    <option value="{{ $selec->id }}">{{ $selec->marca }}, {{ $selec->placas }} </option>
+                    <option value="{{ $selec->id }}">{{ $selec->marca }}, {{ $selec->serie }} </option>
                 @endforeach
             </select>
         </div>
@@ -24,12 +24,8 @@
             <input type="text" class="form-control" name="poliza" maxlength="20" required>
         </div>
         <div class="form-group col-md-6">
-            <label for="message-text" class="col-form-label">Seguro:</label>
-            <input type="text" class="form-control" name="seguro" maxlength="20" required>
-        </div>
-        <div class="form-group col-md-6">
-            <label for="message-text" class="col-form-label">Vigencia:</label>
-            <input type="date" class="form-control" name="vigencia" maxlength="20" required>
+            <label for="message-text" class="col-form-label">Aseguradora:</label>
+            <input type="text" class="form-control" name="aseguradora" maxlength="20" required>
         </div>
         <div class="form-group col-6">
             <label  class="col-form-label">Estatus:</label> <br>
@@ -41,7 +37,29 @@
 
             <input type="radio" class="btn-check" name="estatus" value="baja" id="info-outline" autocomplete="off" required>
             <label class="btn btn-outline-info" for="info-outline">Dadas de baja</label>
-          </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="message-text" class="col-form-label">Inicio:</label>
+            <input type="date" class="form-control" name="inicio" maxlength="20" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="message-text" class="col-form-label">Vencimiento:</label>
+            <input type="date" class="form-control" name="vencimiento" maxlength="20" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="message-text" class="col-form-label">Endoso:</label>
+            <select class="custom-select select2"  name="endoso" id="mySelect" onchange="myFunction()"  required>
+            <option value=""></option>
+            <option value="Si">Si</option>
+            <option value="No">No</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6"  id="mostrar" style="display: none">
+            <label class="col-form-label">Concepto de Endoso</label>
+            <input class="form-control" name="concepto_endoso" id="" cols="30" rows="2">
+        </div>
+        
+        
     </div>
     <div class="input-group mb-4 ">
         <div class="input-group-prepend">
@@ -68,13 +86,24 @@
 
 @section('js')
 <script>
-    console.log('Hi!');
+    function myFunction() {
+        var x = document.getElementById("mySelect").value;
+
+        if (x == "Si") {
+            document.getElementById("mostrar").style.display = "inline"
+            console.log("cambio")
+        } else {
+            document.getElementById("mostrar").style.display = "none"
+        }
+
+
+    }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script>
     $('.select2').select2({
-        placeholder: 'Seleccione un vehículo'
+        placeholder: 'Seleccione una opcion'
     });
 </script>
 @stop

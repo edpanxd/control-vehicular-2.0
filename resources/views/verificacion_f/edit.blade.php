@@ -10,17 +10,30 @@
     <form action="/verificacion_f/{{ $valores->id}}" method="POST" enctype="multipart/form-data">
         @method('put')
         @csrf
+        
         <div class="row">
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Vehículo:</label>
-                <select class="custom-select" id="pe" name="vehiculo" required>
-                    @foreach($datos as $datos)
-                    <option value="{{$datos->id_vehiculo}}">{{$datos->marca}}</option>
+                <select class="custom-select select2" id="pe" name="vehiculo" required>
+                    @foreach ($datos as $datos)
+                        <option value="{{ $datos->id_vehiculo }}">{{ $datos->marca }}</option>
                     @endforeach
+
                     @foreach ($selec as $selec)
                         <option value="{{ $selec->id }}">{{ $selec->marca }}, {{ $selec->placas }} </option>
                     @endforeach
                 </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label  class="col-form-label">Placas:</label>
+                <select class="custom-select select2" name="placa" id="" required>
+                    <option value="{{$valores->placa}}">{{$valores->placa}}</option>
+                    @foreach($selec2 as $selec2)
+                    <option value="{{$selec2->placas}}">{{$selec2->placas}}</option>
+                    @endforeach
+                
+                </select>
+                
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Verificación:</label>
@@ -28,23 +41,21 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Fecha:</label>
-                <input type="text" class="form-control" name="fecha" maxlength="20" value="{{$valores->fecha}}" required>
+                <input type="date" class="form-control" name="fecha" maxlength="20" value="{{$valores->fecha}}" required>
             </div>
-        </div>
-      
-            <div class="form-group col-6">
-            <label  class="col-form-label">Estatus:</label> <br>
-            <input type="radio" class="btn-check" name="estatus" id="success-outline" value="Pagado" autocomplete="off" required>
-            <label class="btn btn-outline-success" for="success-outline">Pagado</label>
 
-            <input type="radio" class="btn-check" name="estatus" value="Sin pagar" id="danger-outline" autocomplete="off" required>
-            <label class="btn btn-outline-danger" for="danger-outline">Sin pagar</label>
-          </div>
-          <div class="form-group ">
-            <label for="message-text" class="col-form-label">Nombre:</label>
-            <input type="text" class="form-control" name="nombre" maxlength="20" value="{{$valores->nombre}}" required>
+
+            <div class="form-group col-6">
+                <label class="col-form-label">Estatus:</label> <br>
+                <input type="radio" class="btn-check" name="estatus" id="success-outline" value="Pagado" autocomplete="off"
+                    required>
+                <label class="btn btn-outline-success" for="success-outline">Pagado</label>
+                <input type="radio" class="btn-check" name="estatus" value="Sin pagar" id="danger-outline"
+                    autocomplete="off" required>
+                <label class="btn btn-outline-danger" for="danger-outline">Sin pagar</label>
+            </div>
+
         </div>
-    </div>
     
         <a type="button" href="/verificacion_f" class="btn btn-secondary" data-dismiss="modal">Cancelar</a>
         <button type="submit" class="btn btn-primary">Registrar</button>

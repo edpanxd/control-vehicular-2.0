@@ -17,6 +17,7 @@
                 <th scope="col">Vehículo</th>
                 <th scope="col">Serie</th>
                 <th scope="col">Placas</th>
+                <th scope="col">PDF</th>
                 <th scope="col">Vencimiento</th>
                 <th scope="col">Estatus</th>
                 <th scope="col">Observaciones</th>
@@ -27,20 +28,21 @@
         <tbody>
             @foreach ($data as $data)
                 <tr>
-                    <th>{{ $data->id }}</th>
-                    <th>{{ $data->marca }}</th>
-                    <th>{{ $data->serie }}</th>
-                    <th><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank">
-                        <i class="far fa-file-pdf"></i></a></th>
-                    <th>{{ $data->vencimiento }}</th>
-                    <th>{{ $data->estatus }}</th>
-                    <th>{{ $data->nombre }}</th>
-                       <th> <a class="btn btn-info" href="/placa/{{ $data->id }}/edit"><i class="fas fa-edit"></i></a>
-                    </th>
-                    <th>
+                    <td>{{ $data->id }}</td>
+                    <td>{{ $data->marca }}</td>
+                    <td>{{ $data->serie }}</td>
+                    <td>{{$data->placas}}</td>
+                    <td><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank">
+                        <i class="far fa-file-pdf"></i></a></td>
+                    <td>{{ $data->vencimiento }}</td>
+                    <td>{{ $data->estatus }}</td>
+                    <td>{{ $data->observaciones }}</td>
+                       <td> <a class="btn btn-info" href="/placa/{{ $data->id }}/edit"><i class="fas fa-edit"></i></a>
+                    </td>
+                    <td>
                         <a class="btn btn-danger eliminar" href="/placad/{{ $data->id }}">
                             <i class="fas fa-trash-alt"></i></a>
-                    </th>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

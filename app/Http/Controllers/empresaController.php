@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\empresa;
+use App\Models\User;
 use Illuminate\Http\Request;
+Use App\Models\Vehiculo;
 
 class empresaController extends Controller
 {
@@ -13,7 +16,9 @@ class empresaController extends Controller
      */
     public function index()
     {
-        //
+        $valores = empresa::all();
+        return view("empresa.index")
+        ->with('valores', $valores);
     }
 
     /**
@@ -23,7 +28,7 @@ class empresaController extends Controller
      */
     public function create()
     {
-        //
+        return view("empresa.create");
     }
 
     /**
@@ -34,7 +39,12 @@ class empresaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $valores = new empresa();
+        $valores->empresa = $request->get('empresa');
+        $valores->rfc = $request->get('rfc');
+        $valores->save();
+        return redirect('/empresa');
+
     }
 
     /**
@@ -56,7 +66,8 @@ class empresaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $valores = empresa::find($id);
+        return view('empresa.edit')->with('valores', $valores);
     }
 
     /**
@@ -68,7 +79,11 @@ class empresaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $valores = empresa::find($id);
+        $valores->empresa=$request->get('empresa');
+        $valores->rfc=$request->get('rfc');
+        $valores->save();
+        return redirect('/empresa');
     }
 
     /**
@@ -79,6 +94,10 @@ class empresaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $valores = empresa::find($id);
+        unlink('PDF/'.$valores->archivo);
+        $valores->delete();
+        return redirect('/empresa')
+        ->with('status_success','Eliminado Correctamente');
     }
 }

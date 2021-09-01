@@ -17,9 +17,9 @@
                 <th scope="col">Vehículo</th>
                 <th scope="col">Serie</th>
                 <th scope="col">Póliza</th>
-                <th scope="col">Póliza</th>
-                <th scope="col">Seguro</th>
-                <th scope="col">Vigencia</th>
+                <th scope="col">PDF</th>
+                <th scope="col">Aseguradora</th>
+                <th scope="col">Vencimiento</th>
                 <th scope="col">Estatus</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
@@ -28,20 +28,20 @@
         <tbody>
             @foreach ($data as $data)
                 <tr>
-                    <th>{{ $data->id }}</th>
-                    <th>{{ $data->marca }}</th>
-                    <th>{{ $data->serie }}</th>
-                    <th>{{ $data->poliza }}</th>
-                    <th><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank"><i
-                        class="far fa-file-pdf"></i></a></th>
-                    <th>{{ $data->seguro }}</th>
-                    <th>{{ $data->vigencia }}</th>
-                    <th>{{ $data->estatus }}</th>
-                    <th>
+                    <td>{{ $data->id }}</td>
+                    <td>{{ $data->marca }}</td>
+                    <td>{{ $data->serie }}</td>
+                    <td>{{ $data->poliza }}</td>
+                    <td><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank"><i
+                        class="far fa-file-pdf"></i></a></td>
+                    <td>{{ $data->aseguradora }}</td>
+                    <td>{{ $data->vencimiento }}</td>
+                    <td>{{ $data->estatus }}</td>
+                    <td>
                         <a class="btn btn-info" href="/poliza/{{ $data->id }}/edit"><i class="fas fa-edit"></i></a>
-                    </th>
-                    <th> <a class="btn btn-danger eliminar" href="/polizad/{{ $data->id }}"><i
-                                class="fas fa-trash-alt"></i></a></th>
+                    </td>
+                    <td> <a class="btn btn-danger eliminar" href="/polizad/{{ $data->id }}"><i
+                                class="fas fa-trash-alt"></i></a></td>
                 </tr>
             @endforeach
         </tbody>

@@ -28,17 +28,17 @@
         <tbody>
             @foreach ($data as $data)
                 <tr>
-                    <th>{{ $data->id }}</th>
-                    <th>{{ $data->marca }}</th>
-                    <th>{{ $data->serie }}</th>
-                    <th>{{ $data->tenencia }}</th>
-                    <th>{{ $data->pago }}</th>
-                    <th>{{ $data->estatus }}</th>
-                    <th><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank"><i class="far fa-file-pdf"></i></a></th>
-                    <th>
+                    <td>{{ $data->id }}</td>
+                    <td>{{ $data->marca }}</td>
+                    <td>{{ $data->serie }}</td>
+                    <td>{{ $data->tenencia }}</td>
+                    <td>{{ $data->pago }}</td>
+                    <td>{{ $data->estatus }}</td>
+                    <td><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank"><i class="far fa-file-pdf"></i></a></td>
+                    <td>
                         <a class="btn btn-info" href="/tenencia/{{ $data->id }}/edit"><i class="fas fa-edit"></i></a>
-                    </th>
-                    <th><a class="btn btn-danger eliminar" href="/tenenciad/{{ $data->id }}"><i class="fas fa-trash-alt"></i></a></th>
+                    </td>
+                    <td><a class="btn btn-danger eliminar" href="/tenenciad/{{ $data->id }}"><i class="fas fa-trash-alt"></i></a></td>
                 </tr>
             @endforeach
         </tbody>

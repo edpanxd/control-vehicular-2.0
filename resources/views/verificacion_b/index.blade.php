@@ -22,18 +22,20 @@
                     <th scope="col">PDF</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($data as $data)
                     <tr>
-                        <th>{{ $data->id }}</th>
-                        <th>{{ $data->marca }}</th>
-                        <th>{{ $data->placas }}</th>
-                        <th>{{ $data->verificacion }}</th>
-                        <th>{{ $data->fecha }}</th>
-                        <th>{{ $data->estatus }}</th>
-                        <th>{{ $data->nombre }}</th>
+                        <td>{{ $data->id }}</td>
+                        <td>{{ $data->marca }}</td>
+                        <td>{{ $data->serie }}</td>
+                        <td>{{ $data->placa}} </td>
+                        <td> <button data-jscolor="{value:'{{ $data->engomado }}', previewSize:60}" disabled></button></td>
+                        <td>{{ $data->verificacion }}</td>
+                        <td>{{ $data->fecha }}</td>
+                        <td>{{ $data->estatus }}</td>
                         <th><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank"> <i
                                     class="far fa-file-pdf"></i></a></th>
                         <th>
@@ -55,6 +57,7 @@
 @stop
 
 @section('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.6/jscolor.min.js"></script>
     <script>
         console.log('Hi!');
     </script>

@@ -48,10 +48,11 @@ class Verificacion_aController extends Controller
     public function store(Request $request)
     {
         $valores = new Verificacion_a();
+        $valores->placa = $request->get('placa');
+        $valores->engomado = $request->get('engomado');
         $valores->verificacion = $request->get('verificacion');
         $valores->fecha = $request->get('fecha');
         $valores->estatus = $request->get('estatus');
-        $valores->nombre = $request->get('nombre');
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo= $request->file('archivo')){
             $rutaguardarpdf= 'PDF/';
@@ -82,6 +83,8 @@ class Verificacion_aController extends Controller
      */
     public function edit($id)
     {
+        
+        $selec2 = Placas::all();
         $selec=Vehiculo::all();
         $valores=Verificacion_a::find($id);
         $datos=DB::table('verificacion_as')
@@ -90,7 +93,8 @@ class Verificacion_aController extends Controller
         ->get();
         return view('verificacion_a.edit')->with('valores', $valores)
         ->with('selec', $selec)
-        ->with('datos', $datos);
+        ->with('datos', $datos)
+        ->with('selec2', $selec2);
     }
 
     /**

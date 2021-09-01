@@ -45,9 +45,12 @@ class polizaController extends Controller
     {
         $valores = new polizas();
         $valores->poliza = $request->get('poliza');
-        $valores->seguro = $request->get('seguro');
+        $valores->aseguradora = $request->get('aseguradora');
         $valores->estatus = $request->get('estatus');
-        $valores->vigencia = $request->get('vigencia');
+        $valores->inicio = $request->get('inicio');
+        $valores->vencimiento = $request->get('vencimiento');
+        $valores->endoso = $request->get('endoso');
+        $valores->concepto_endoso = $request->get('concepto_endoso');
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo= $request->file('archivo')){
             $rutaguardarpdf= 'PDF/';
@@ -100,9 +103,12 @@ class polizaController extends Controller
     {
         $valores = polizas::find($id);
         $valores->poliza = $request->get('poliza');
-        $valores->seguro = $request->get('seguro');
+        $valores->aseguradora = $request->get('aseguradora');
         $valores->estatus = $request->get('estatus');
-        $valores->vigencia = $request->get('vigencia');
+        $valores->inicio = $request->get('inicio');
+        $valores->vencimiento = $request->get('vencimiento');
+        $valores->endoso = $request->get('endoso');
+        $valores->concepto_endoso = $request->get('concepto_endoso');
         $valores->id_vehiculo = $request->get('vehiculo');
         $valores->save();
         return redirect('/poliza');

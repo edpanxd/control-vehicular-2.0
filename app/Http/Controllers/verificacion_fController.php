@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Placas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Vehiculo;
@@ -17,7 +18,7 @@ class verificacion_fController extends Controller
     public function index()
     {
         $data=DB::table('verificacion_fs')
-        ->select('verificacion_fs.*', 'vehiculos.marca','vehiculos.placas')
+        ->select('verificacion_fs.*', 'vehiculos.marca','vehiculos.serie')
         ->join('vehiculos', 'verificacion_fs.id_vehiculo','vehiculos.id')
         ->get();
         return view('verificacion_f.index')->with('data', $data);
@@ -30,8 +31,10 @@ class verificacion_fController extends Controller
      */
     public function create()
     {
+        $selec2 = Placas::all();
         $selec = Vehiculo::all();
-        return view('verificacion_f.create')->with('selec', $selec);
+        return view('verificacion_f.create')->with('selec', $selec)
+        ->with('selec2', $selec2);
     }
 
     /**
@@ -43,10 +46,10 @@ class verificacion_fController extends Controller
     public function store(Request $request)
     {
         $valores = new Verificacion_f();
+        $valores->placa = $request->get('placa');
         $valores->verificacion = $request->get('verificacion');
         $valores->fecha = $request->get('fecha');
         $valores->estatus = $request->get('estatus');
-        $valores->nombre = $request->get('nombre');
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo= $request->file('archivo')){
             $rutaguardarpdf= 'PDF/';
@@ -77,6 +80,7 @@ class verificacion_fController extends Controller
      */
     public function edit($id)
     {
+        $selec2=Placas::all();
         $selec=Vehiculo::all();
         $valores=Verificacion_f::find($id);
         $datos=DB::table('verificacion_fs')
@@ -85,7 +89,8 @@ class verificacion_fController extends Controller
         ->get();
         return view('verificacion_f.edit')->with('valores', $valores)
         ->with('selec', $selec)
-        ->with('datos', $datos);
+        ->with('datos', $datos)
+        ->with('selec2', $selec2);
     }
 
     /**
@@ -98,10 +103,10 @@ class verificacion_fController extends Controller
     public function update(Request $request, $id)
     {
         $valores = Verificacion_f::find($id);
+        $valores->placa = $request->get('placa');;
         $valores->verificacion = $request->get('verificacion');
         $valores->fecha = $request->get('fecha');
         $valores->estatus = $request->get('estatus');
-        $valores->nombre = $request->get('nombre');
         $valores->id_vehiculo = $request->get('vehiculo');
         $valores->save();
         return redirect('/verificacion_f');

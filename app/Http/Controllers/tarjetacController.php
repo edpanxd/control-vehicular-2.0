@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Placas;
+use Illuminate\Support\Facades\DB;
+use App\Models\Vehiculo;
+use App\Models\tarjetac;
 use Illuminate\Http\Request;
+
 
 class tarjetacController extends Controller
 {
@@ -13,7 +18,12 @@ class tarjetacController extends Controller
      */
     public function index()
     {
-        //
+        $valores = DB::table('tarjetacs')
+        ->select('tarjetacs.*', 'vehiculos.marca','vehiculos.serie')
+        ->join('vehiculos', 'tarjetacs.id_vehiculo','vehiculos.id')
+        ->get();
+        return view('tarjetas.index')
+        ->with('valores', $valores);
     }
 
     /**
@@ -23,7 +33,10 @@ class tarjetacController extends Controller
      */
     public function create()
     {
-        //
+        $selec2 = Placas::all();
+        $selec = Vehiculo::all();
+        return view('tarjetas.create')->with('selec', $selec)
+        ->with('selec2', $selec2);   
     }
 
     /**
@@ -34,7 +47,20 @@ class tarjetacController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $valores = new tarjetac();
+        $valores->placas= $request->get('placa');
+        $valores->inicio=$request->get('inicio');
+        $valores->vencimiento=$request->get('vencimiento');
+        $valores->estatus=$request->get('estatus');
+        $valores->id_vehiculo=$request->get('vehiculo');
+        if($archivo= $request->file('archivo_pla')){
+            $rutaguardarpdf= 'PDF/';
+            $archivonombre= date('YmdHis'). "." . $archivo->getClientOriginalExtension();
+            $archivo->move($rutaguardarpdf, $archivonombre);
+            $valores->archivo_pla="$archivonombre";
+        }
+        $valores->save();
+        return redirect('/tarjeta');
     }
 
     /**
@@ -56,7 +82,17 @@ class tarjetacController extends Controller
      */
     public function edit($id)
     {
-        //
+        $selec2 = Placas::all();
+        $selec=Vehiculo::all();
+        $valores=tarjetac::find($id);
+        $datos=DB::table('tarjetacs')
+        ->join('vehiculos', 'tarjetacs.id_vehiculo','vehiculos.id')
+        ->where('tarjetacs.id', "$id")
+        ->get();
+        return view('tarjetas.edit')->with('valores', $valores)
+        ->with('selec', $selec)
+        ->with('datos', $datos)
+        ->with('selec2', $selec2);
     }
 
     /**
@@ -68,7 +104,15 @@ class tarjetacController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $valores = tarjetac::find($id);
+        $valores->placas= $request->get('placa');
+        $valores->inicio=$request->get('inicio');
+        $valores->vencimiento=$request->get('vencimiento');
+        $valores->estatus=$request->get('estatus');
+        $valores->id_vehiculo=$request->get('vehiculo');
+        $valores->save();
+        
+        return redirect('/tarjeta');
     }
 
     /**
@@ -79,6 +123,10 @@ class tarjetacController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $valores = tarjetac::find($id);
+        unlink('PDF/'.$valores->archivo_pla);
+        $valores->delete();
+        return redirect('/tarjeta')
+        ->with('status_success','Eliminado Correctamente');
     }
 }

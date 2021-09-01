@@ -242,18 +242,61 @@ return [
             'icon' => 'fa fa-desktop',
             'label_color' => 'success',
         ],
-        ['header' => 'MODULOS'],
         [
-            'text'        => 'Vehículo',
-            'url'         => 'vehiculo',
-            'icon'        => 'fa fa-car',
-            'label_color' => 'success',
+            'text'    => 'PROPIEDAD',
+            'icon'    => 'fas fa-truck-moving',
+            'submenu' => [
+                ['header' => 'Vehiculos'],
+                [
+                    'text'        => 'Vehículo',
+                    'url'         => 'vehiculo',
+                    'icon'        => 'fa fa-car',
+                    'label_color' => 'success',
+                ],
+                [
+                    'text'        => 'Documentos',
+                    'url'         => 'documento',
+                    'icon'        => 'fas fa-file-alt',
+                    'label_color' => 'success',
+                ],
+                [
+                    'text'        => 'Vehículo Nacionales',
+                    'url'         => 'vehiculon',
+                    'icon'        => 'fa fa-car',
+                    'label_color' => 'success',
+                ],
+                [
+                    'text'        => 'Vehículo Internacionales',
+                    'url'         => 'vehiculoi',
+                    'icon'        => 'fa fa-car',
+                    'label_color' => 'success',
+                ],
+                [
+                    'text'        => 'Permisos',
+                    'url'         => 'permiso',
+                    'icon'        => 'fas fa-file-alt',
+                    'label_color' => 'success',
+                ],
+            ],
         ],
         [
-            'text'        => 'placas',
-            'url'         => 'placa',
-            'icon'        => 'fa fa-address-card',
-            'label_color' => 'success',
+            'text'    => 'EMPLACAMIENTO',
+            'icon'    => 'fas fa-id-card-alt',
+            'submenu' => [
+            
+                [
+                    'text'        => 'Placas',
+                    'url'         => 'placa',
+                    'icon'        => 'far fa-credit-card',
+                    'label_color' => 'success',
+                ],
+                [
+                    'text'        => 'Tarjeta de circulacion',
+                    'url'         => 'tarjeta',
+                    'icon'        => 'fa fa-address-card',
+                    'label_color' => 'success',
+                ],
+            ],
         ],
         [
             'text'        => 'Pólizas',
@@ -271,20 +314,26 @@ return [
             'icon'    => 'fa fa-check-circle',
             'submenu' => [
                 [
-                    'text'        => 'Verificación A ',
+                    'text'        => 'Verificación Estatal A ',
                     'url'         => 'verificacion_a',
                     'icon_color' => 'red',
                     'label_color' => 'success',
                 ],
                 [
-                    'text'        => 'Verificación B ',
+                    'text'        => 'Verificación Estatal B ',
                     'url'         => 'verificacion_b',
                     'icon_color' => 'yellow',
                     'label_color' => 'success',
                 ],
                 [
-                    'text'        => 'Verificación federal ',
+                    'text'        => 'Verificación federal A',
                     'url'         => 'verificacion_f',
+                    'icon_color' => 'cyan',
+                    'label_color' => 'success',
+                ],
+                [
+                    'text'        => 'Verificación federal B',
+                    'url'         => 'verificacion_f2',
                     'icon_color' => 'cyan',
                     'label_color' => 'success',
                 ],
@@ -297,24 +346,18 @@ return [
 
             ],
         ],
+        [
+            'text'        => 'Propietarios anteriores',
+            'url'         => 'propietario',
+            'icon'        => 'fa fa-lock',
+            'label_color' => 'success',
+        ],
 
-        ['header' => 'Bitacoras'],
+        ['header' => 'Empresa'],
         [
-            'text'        => 'Usuarios',
-            'url'         => 'usuario',
-            'icon'        => 'fas fa-user',
-            'label_color' => 'success',
-        ],
-        [
-            'text'        => 'Bitacoras',
-            'url'         => 'bitacora',
+            'text'        => 'Empresas',
+            'url'         => 'empresa',
             'icon'        => 'fas fa-book',
-            'label_color' => 'success',
-        ],
-        [
-            'text'        => 'Registro de consumo de gasolina',
-            'url'         => 'registro',
-            'icon'        => '<i fas fa-gas-pump',
             'label_color' => 'success',
         ],
 

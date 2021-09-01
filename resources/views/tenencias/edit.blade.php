@@ -19,7 +19,7 @@
                     @endforeach
                     
                     @foreach ($selec as $selec)
-                        <option value="{{ $selec->id }}">{{ $selec->marca }}, {{ $selec->placas }} </option>
+                        <option value="{{ $selec->id }}">{{ $selec->marca }}, {{ $selec->serie }} </option>
                     @endforeach
                 </select>
             </div>
@@ -31,7 +31,7 @@
                 <label for="message-text" class="col-form-label">Pago:</label>
                 <input type="text" class="form-control" name="pago" maxlength="20" value="{{$valores->pago}}" required>
             </div>
-        </div>
+        
       
             <div class="form-group col-6">
             <label  class="col-form-label">Estatus:</label> <br>

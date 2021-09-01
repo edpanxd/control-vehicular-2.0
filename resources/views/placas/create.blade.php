@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <form action="/placa" method="POST" enctype="multipart/form-data">
+    <form action="/placa" method="POST" enctype="multipart/form-data" onload="myFunction();">
         @csrf
         <div class="row">
             <div class="form-group col-md-6">
@@ -20,25 +20,64 @@
                 </select>
             </div>
             <div class="form-group col-md-6">
+                <label for="message-text" class="col-form-label">Placa:</label>
+                <input type="text" class="form-control" name="placas" maxlength="20" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="message-text" class="col-form-label">Entidad:</label>
+                <select class="custom-select select2" id="" name="entidad" required>
+                    <option value=""></option>
+                    <option value="CDMX">CDMX</option>
+                    <option value="EDO.MEX">EDO.MEX</option>
+                    <option value="FEDERAL">FEDERAL</option>
+                    <option value="OTRO">OTRO</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Vencimiento:</label>
                 <input type="date" class="form-control" name="vencimiento" maxlength="20" required>
             </div>
+            <div class="form-group col-md-6">
+                <label for="message-text" class="col-form-label">Alta:</label>
+                <input type="date" class="form-control" name="alta" maxlength="20" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="message-text" class="col-form-label">Baja:</label>
+                <input type="date" class="form-control" name="baja" maxlength="20" required>
+            </div>
         </div>
 
-        <div class="form-group col-6">
-            <label class="col-form-label">Estatus:</label> <br>
-            <input type="radio" class="btn-check" name="estatus" id="success-outline" value="vigentes" autocomplete="off"
-                required>
-            <label class="btn btn-outline-success" for="success-outline">Vigentes</label>
-            <input type="radio" class="btn-check" name="estatus" value="vencidas" id="danger-outline" autocomplete="off"
-                required>
-            <label class="btn btn-outline-danger" for="danger-outline">vencidas</label>
-            <input type="radio" class="btn-check" name="estatus" value="baja" id="info-outline" autocomplete="off" required>
-            <label class="btn btn-outline-info" for="info-outline">Dadas de baja</label>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label class="form-label ">Estatus:</label> <br>
+                <input type="radio" class="btn-check" name="estatus" id="success-outline" value="vigentes"
+                    autocomplete="off" required>
+                <label class="btn btn-outline-success" for="success-outline">Vigentes</label>
+                <input type="radio" class="btn-check" name="estatus" value="vencidas" id="danger-outline" autocomplete="off"
+                    required>
+                <label class="btn btn-outline-danger" for="danger-outline">vencidas</label>
+                <input type="radio" class="btn-check" name="estatus" value="baja" id="info-outline" autocomplete="off"
+                    required>
+                <label class="btn btn-outline-info" for="info-outline">Dadas de baja</label>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="message-text" class="col-form-label">Cambio de propietario:</label>
+                <select class="custom-select select2" id="mySelect" onchange="myFunction()" name="cambio_propietario"
+                    required>
+                    <option value=""></option>
+                    <option value="Si">Si</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6" id="mostrar" style="display: none">
+                <label for="message-text" class="col-form-label">Fecha de cambio de propietario:</label>
+                <input type="date" class="form-control" name="fecha_cambio_p" maxlength="20" >
+            </div>
+
         </div>
         <div class="form-group ">
             <label for="message-text" class="col-form-label">Observaciones:</label>
-            <input type="textarea" class="form-control" name="nombre" maxlength="55" required>
+            <input type="textarea" class="form-control" name="observaciones" maxlength="55" required>
         </div>
         <div class="input-group mb-4 ">
             <div class="input-group-prepend">
@@ -65,14 +104,25 @@
 
 @section('js')
     <script>
-        console.log('Hi!');
+        function myFunction() {
+            var x = document.getElementById("mySelect").value;
+
+            if (x == "Si") {
+                document.getElementById("mostrar").style.display = "inline"
+                console.log("cambio")
+            } else {
+                document.getElementById("mostrar").style.display = "none"
+            }
+
+
+        }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <script>
         $('.select2').select2({
-            placeholder: 'Seleccione un vehículo'
+            placeholder: 'Seleccione su opción'
         });
     </script>
 @stop

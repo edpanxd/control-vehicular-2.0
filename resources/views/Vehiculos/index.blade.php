@@ -22,7 +22,7 @@
                 <th scope="col">Tipo</th>
                 <th scope="col">Modelo</th>
                 <th scope="col">Color</th>
-                <th scope="col">Placas</th>
+                <th scope="col">uso</th>
                 <th scope="col">Imagen</th>
                 <th scope="col"></th>
                 <!--<th scope="col">Eliminar inabilitado</th>-->
@@ -31,18 +31,18 @@
         <tbody>
             @foreach ($valores as $valores)
                 <tr>
-                    <th>{{ $valores->id }}</th>
-                    <th>{{ $valores->marca }}</th>
-                    <th>{{ $valores->submarca }}</th>
-                    <th>{{ $valores->tipo }}</th>
-                    <th>{{ $valores->modelo }}</th>
-                    <th>{{ $valores->color }}</th>
-                    <th>{{ $valores->placas }}</th>
-                    <th><img src="/imagen/{{ $valores->imagen }}" width="50" height="50" alt=""></th>
-                    <th>
+                    <td><a href="/dashboardvh/{{ $valores->id }}">{{ $valores->id }}</a></td>
+                    <td>{{ $valores->marca }}</td>
+                    <td>{{ $valores->submarca }}</td>
+                    <td>{{ $valores->tipo }}</td>
+                    <td>{{ $valores->modelo }}</td>
+                    <td>{{ $valores->color }}</td>
+                    <td>{{ $valores->uso }}</td>
+                    <td><img src="/imagen/{{ $valores->imagen }}" width="50" height="50" alt=""></td>
+                    <td>
                         <a class="btn btn-info" href="/vehiculo/{{ $valores->id }}/edit"><i
                                 class="fas fa-edit"></i></a>
-                    </th>
+                    </td>
                   <!--  <th><a class="btn btn-danger eliminar" href="/vehiculod/"><i
                                 class="fas fa-trash-alt"></i></a></th>-->
                 </tr>

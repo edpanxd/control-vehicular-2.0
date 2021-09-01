@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\empresa;
 use App\Models\Vehiculo;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,7 @@ class VehiculoController extends Controller
     public function index()
     {
         $valores=Vehiculo::all();
+        
         return view('Vehiculos.index')->with('valores', $valores);
     }
 
@@ -26,7 +28,8 @@ class VehiculoController extends Controller
      */
     public function create()
     {
-        return view('vehiculos.create');
+        $empresa=empresa::all();
+        return view('vehiculos.create') ->with('empresa', $empresa);
     }
 
     /**
@@ -43,11 +46,12 @@ class VehiculoController extends Controller
         $valores->tipo = $request->get('tipo');
         $valores->modelo = $request->get('modelo');
         $valores->color = $request->get('color');
-        $valores->placas = $request->get('placas');
         $valores->serie = $request->get('serie');
         $valores->numeroM = $request->get('numeroM');
         $valores->estatus = $request->get('estatus');
-
+        $valores->uso = $request->get('uso');
+        $valores->adquisicion = $request->get('adquisicion');
+        $valores->empresa = $request->get('empresa');
         if($imagen= $request->file('imagen')){
             $rutaguardarimg= 'imagen/';
             $imagennombre= date('YmdHis'). "." . $imagen->getClientOriginalExtension();
@@ -79,7 +83,9 @@ class VehiculoController extends Controller
     public function edit($id)
     {
         $valores=Vehiculo::find($id);
-        return view('vehiculos.edit')->with('valores', $valores);
+        $empresa=empresa::all();
+        return view('vehiculos.edit')->with('valores', $valores)
+        ->with('empresa', $empresa);
     }
 
     /**
@@ -97,10 +103,12 @@ class VehiculoController extends Controller
         $valores->tipo = $request->get('tipo');
         $valores->modelo = $request->get('modelo');
         $valores->color = $request->get('color');
-        $valores->placas = $request->get('placas');
         $valores->serie = $request->get('serie');
         $valores->numeroM = $request->get('numeroM');
         $valores->estatus = $request->get('estatus');
+        $valores->uso = $request->get('uso');
+        $valores->adquisicion = $request->get('adquisicion');
+        $valores->empresa = $request->get('empresa');
         $valores->save();
         return redirect('/vehiculo');
     }

@@ -49,13 +49,19 @@ class PlacasController extends Controller
     {
 
         $valores = new Placas();
+        $valores->placas = $request->get('placas');
+        $valores->entidad = $request->get('entidad');
         $valores->vencimiento = $request->get('vencimiento');
+        $valores->alta = $request->get('alta');
+        $valores->baja = $request->get('baja');
         $valores->estatus = $request->get('estatus');
-        $valores->nombre = $request->get('nombre');
+        $valores->cambio_propietario = $request->get('cambio_propietario');
+        $valores->fecha_cambio_p = $request->get('fecha_cambio_p');
+        $valores->observaciones = $request->get('observaciones');
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo= $request->file('archivo')){
             $rutaguardarpdf= 'PDF/';
-            $archivonombre= date('YmdHis')."_". $valores->nombre . "." . $archivo->getClientOriginalExtension();
+            $archivonombre= date('YmdHis')."_". $valores->placas . "." . $archivo->getClientOriginalExtension();
             $archivo->move($rutaguardarpdf, $archivonombre);
             $valores->archivo="$archivonombre";
         }
@@ -103,9 +109,15 @@ class PlacasController extends Controller
     public function update(Request $request, $id)
     {
         $valores = Placas::find($id);
+        $valores->placas = $request->get('placas');
+        $valores->entidad = $request->get('entidad');
         $valores->vencimiento = $request->get('vencimiento');
+        $valores->alta = $request->get('alta');
+        $valores->baja = $request->get('baja');
         $valores->estatus = $request->get('estatus');
-        $valores->nombre = $request->get('nombre');
+        $valores->cambio_propietario = $request->get('cambio_propietario');
+        $valores->fecha_cambio_p = $request->get('fecha_cambio_p');
+        $valores->observaciones = $request->get('observaciones');
         $valores->id_vehiculo = $request->get('vehiculo');
         $valores->save();
         return redirect('/placa');

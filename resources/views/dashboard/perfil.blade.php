@@ -123,7 +123,7 @@
 
                                                     <th>{{ $placas->vencimiento }}</th>
                                                     <th>{{ $placas->estatus }}</th>
-                                                    <th>{{ $placas->nombre }}</th>
+                                                    <th></th>
                                                     <th><a class="btn btn-primary" href="/PDF/{{ $placas->archivo }}"
                                                             target="_blank">
                                                             <i class="far fa-file-pdf"></i></a></th>
@@ -155,10 +155,10 @@
                                                 <tr>
                                                     <th>{{ $polizas->id }}</th>
                                                     <th>{{ $polizas->poliza }}</th>
-                                                    <th>{{ $polizas->seguro }}</th>
-                                                    <th>{{ $polizas->vigencia }}</th>
+                                                    <th></th>
+                                                    <th></th>
                                                     <th>{{ $polizas->estatus }}</th>
-                                                    <th>{{ $polizas->nombre }}</th>
+                                                    <th></th>
                                                     <th><a class="btn btn-primary" href="/PDF/{{ $polizas->archivo }}"
                                                             target="_blank"><i class="far fa-file-pdf"></i></a></th>
 
@@ -190,7 +190,7 @@
                                                     <th>{{ $tenencias->tenencia }}</th>
                                                     <th>{{ $tenencias->pago }}</th>
                                                     <th>{{ $tenencias->estatus }}</th>
-                                                    <th>{{ $tenencias->nombre }}</th>
+                                                    <th></th>
                                                     <th><a class="btn btn-primary" href="/PDF/{{ $tenencias->archivo }}"
                                                             target="_blank"><i class="far fa-file-pdf"></i></a></th>
                                                 </tr>
@@ -221,7 +221,7 @@
                                                     <th>{{ $verificacion_as->verificacion }}</th>
                                                     <th>{{ $verificacion_as->fecha }}</th>
                                                     <th>{{ $verificacion_as->estatus }}</th>
-                                                    <th>{{ $verificacion_as->nombre }}</th>
+                                                    <th></th>
                                                     <th><a class="btn btn-primary"
                                                             href="/PDF/{{ $verificacion_as->archivo }}"
                                                             target="_blank"><i class="far fa-file-pdf"></i></a></th>
@@ -256,7 +256,7 @@
                                                     <th>{{ $verificacion_bs->verificacion }}</th>
                                                     <th>{{ $verificacion_bs->fecha }}</th>
                                                     <th>{{ $verificacion_bs->estatus }}</th>
-                                                    <th>{{ $verificacion_bs->nombre }}</th>
+                                                    <th></th>
                                                     <th><a class="btn btn-primary"
                                                             href="/PDF/{{ $verificacion_bs->archivo }}" target="_blank">
                                                             <i class="far fa-file-pdf"></i></a></th>
@@ -291,7 +291,7 @@
                                                     <th>{{ $verificacion_fs->verificacion }}</th>
                                                     <th>{{ $verificacion_fs->fecha }}</th>
                                                     <th>{{ $verificacion_fs->estatus }}</th>
-                                                    <th>{{ $verificacion_fs->nombre }}</th>
+                                                    <th></th>
                                                     <th><a class="btn btn-primary"
                                                             href="/PDF/{{ $verificacion_fs->archivo }}"
                                                             target="_blank"><i class="far fa-file-pdf"></i></a></th>
@@ -326,7 +326,7 @@
                                                     <th>{{ $fisico_ms->verificacion }}</th>
                                                     <th>{{ $fisico_ms->fecha }}</th>
                                                     <th>{{ $fisico_ms->estatus }}</th>
-                                                    <th>{{ $fisico_ms->nombre }}</th>
+                                                    <th></th>
                                                     <th><a class="btn btn-primary" href="/PDF/{{ $fisico_ms->archivo }}"
                                                             target="_blank"><i class="far fa-file-pdf"></i></a></th>
                                                 </tr>

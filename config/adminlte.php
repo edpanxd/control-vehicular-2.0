@@ -242,17 +242,17 @@ return [
             'icon' => 'fa fa-desktop',
             'label_color' => 'success',
         ],
+        ['header' => 'Vehiculos'],
+        [
+            'text'        => 'Vehículo',
+            'url'         => 'vehiculo',
+            'icon'        => 'fa fa-car',
+            'label_color' => 'success',
+        ],
         [
             'text'    => 'PROPIEDAD',
             'icon'    => 'fas fa-truck-moving',
             'submenu' => [
-                ['header' => 'Vehiculos'],
-                [
-                    'text'        => 'Vehículo',
-                    'url'         => 'vehiculo',
-                    'icon'        => 'fa fa-car',
-                    'label_color' => 'success',
-                ],
                 [
                     'text'        => 'Documentos',
                     'url'         => 'documento',
@@ -266,7 +266,7 @@ return [
                     'label_color' => 'success',
                 ],
                 [
-                    'text'        => 'Vehículo Internacionales',
+                    'text'        => 'Vehículo importados',
                     'url'         => 'vehiculoi',
                     'icon'        => 'fa fa-car',
                     'label_color' => 'success',

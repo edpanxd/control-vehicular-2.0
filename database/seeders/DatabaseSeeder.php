@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Faker\Factory as faker;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,6 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call([
+            empresaSeeder::class,
+           // vehiculoSeeder::class,
+            vehiculonSeeder::class,
+            vehiculoiSeeder::class,
+        ]);
     }
 }

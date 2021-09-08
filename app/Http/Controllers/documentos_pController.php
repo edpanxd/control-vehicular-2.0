@@ -146,7 +146,7 @@ class documentos_pController extends Controller
             $valores->archivo_in="$archivonombre";
         }else{ $valores->archivo_in; }
         $valores->save();
-        return redirect('/vehiculoi');
+        return redirect('/documento');
     }
 
     /**
@@ -157,6 +157,10 @@ class documentos_pController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $valores = documentos_p::find($id);
+        //unlink('Documentos_p/'.$valores->archivo);
+        $valores->delete();
+        return redirect('/documento')
+        ->with('status_success','Eliminado Correctamente');
     }
 }

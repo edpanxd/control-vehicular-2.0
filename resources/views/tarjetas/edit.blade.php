@@ -3,7 +3,7 @@
 @section('title', 'Dash')
 
 @section('content_header')
-    <h1>Editar Tarjetas</h1>
+    <h1>Editar Tarjetas de circulación</h1>
 @stop
 
 @section('content')

@@ -175,24 +175,24 @@
                             <div class="row">
                                 <div class="col-sm-4 border-right">
                                     <div class="description-block">
-                                        <h5 class="description-header">{{ $datos->placas }}</h5>
-                                        <span class="description-text">Placas</span>
-                                    </div>
-                                    <!-- /.description-block -->
-                                </div>
-                                <!-- /.col -->
-                                <div class="col-sm-4 border-right">
-                                    <div class="description-block">
                                         <h5 class="description-header">{{ $datos->color }}</h5>
                                         <span class="description-text">Color</span>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
                                 <!-- /.col -->
-                                <div class="col-sm-4">
+                                <div class="col-sm-4 border-right">
                                     <div class="description-block">
                                         <h5 class="description-header">{{ $datos->modelo }}</h5>
                                         <span class="description-text">Modelo</span>
+                                    </div>
+                                    <!-- /.description-block -->
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-sm-4">
+                                    <div class="description-block">
+                                        <h5 class="description-header">{{ $datos->estatus }}</h5>
+                                        <span class="description-text">Estatus</span>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
@@ -215,7 +215,4 @@
     @stop
 
     @section('js')
-        <script>
-            console.log('Hi!');
-        </script>
     @stop

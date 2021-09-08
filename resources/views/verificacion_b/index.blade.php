@@ -3,7 +3,7 @@
 @section('title', 'Verificación')
 
 @section('content_header')
-    <h1>Verificación B</h1>
+    <h1>Verificación Estatal 2° Periodo</h1>
 @stop
 
 @section('content')
@@ -16,7 +16,7 @@
                     <th scope="col">Vehículo</th>
                     <th scope="col">Placas</th>
                     <th scope="col">Verificación</th>
-                    <th scope="col">Fecha</th>
+                    <th scope="col">Engomado</th>
                     <th scope="col">Estatus</th>
                     <th scope="col">Nombre de PDF</th>
                     <th scope="col">PDF</th>

@@ -283,7 +283,6 @@ return [
             'text'    => 'EMPLACAMIENTO',
             'icon'    => 'fas fa-id-card-alt',
             'submenu' => [
-            
                 [
                     'text'        => 'Placas',
                     'url'         => 'placa',
@@ -291,7 +290,7 @@ return [
                     'label_color' => 'success',
                 ],
                 [
-                    'text'        => 'Tarjeta de circulacion',
+                    'text'        => 'Tarjeta de circulación',
                     'url'         => 'tarjeta',
                     'icon'        => 'fa fa-address-card',
                     'label_color' => 'success',

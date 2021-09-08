@@ -3,7 +3,7 @@
 @section('title', 'Vehículos')
 
 @section('content_header')
-<h1>Tarjetas de circulacion</h1>
+<h1>Tarjetas de circulación</h1>
 @stop
 
 @section('content')

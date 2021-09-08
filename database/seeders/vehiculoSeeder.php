@@ -17,7 +17,7 @@ class vehiculoSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        foreach (range(1, 10) as $value) {
+        foreach (range(1, 30) as $value) {
             DB::table('vehiculos')->insert([
                 'marca' => $faker->word,
                 'submarca' => $faker->word,

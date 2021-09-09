@@ -53,7 +53,7 @@ class polizaController extends Controller
         $valores->concepto_endoso = $request->get('concepto_endoso');
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo= $request->file('archivo')){
-            $rutaguardarpdf= 'PDF/';
+            $rutaguardarpdf= 'Polizas/';
             $archivonombre= date('YmdHis'). "." . $archivo->getClientOriginalExtension();
             $archivo->move($rutaguardarpdf, $archivonombre);
             $valores->archivo="$archivonombre";

@@ -34,7 +34,7 @@
                         <td>{{ $data->fecha }}</td>
                         <td>{{ $data->estatus }}</td>
                         
-                        <td><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank"><i
+                        <td><a class="btn btn-primary" href="/Verificacion federal 2/{{ $data->archivo }}" target="_blank"><i
                                     class="far fa-file-pdf"></i></a></td>
                         <td>
                             <a class="btn btn-info" href="/verificacion_f2/{{ $data->id }}/edit"><i

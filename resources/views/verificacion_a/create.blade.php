@@ -19,6 +19,7 @@
                     @endforeach
                 </select>
             </div>
+            
             <div class="form-group col-md-6">
                 <label  class="col-form-label">Placas:</label>
                 <select class="custom-select select2" name="placa" id="" required>
@@ -26,9 +27,7 @@
                     @foreach($selec2 as $selec2)
                     <option value="{{$selec2->placas}}">{{$selec2->placas}}</option>
                     @endforeach
-                
                 </select>
-                
             </div>
             <div class="form-group col-md-6">
                 <label class="col-form-label">Engomado:</label>
@@ -79,25 +78,35 @@
 @stop
 
 @section('css')
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 @stop
 
 @section('js')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.6/jscolor.min.js"></script>
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.6/jscolor.min.js">
+    </script>
     <script>
         $('.select2').select2({
             placeholder: 'Seleccione una opcion'
         });
         
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    <script 
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <script>
         $('.select2').select2({
             placeholder: 'Seleccione su opción'
+        });
+    </script>
+    <script>
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
         });
     </script>
 @stop

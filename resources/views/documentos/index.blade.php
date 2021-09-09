@@ -8,11 +8,7 @@
 
 @section('content')
     <a class="btn btn-primary mb-3" href="documento/create">Registrar Documento</a>
-
-
-
     <div class="table-responsive ">
-
         <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas" style="text-align:center;">
             <thead class="thead-dark">
                 <tr>
@@ -38,7 +34,7 @@
                             @if ($valores->archivo_con == 'Sin archivo')
                                 {{ $valores->archivo_con }}
                             @else
-                                <a class="btn btn-primary" href="/Documentos_p/{{ $valores->archivo_con }}"
+                                <a class="btn btn-primary" href="/Contrato/{{ $valores->archivo_con }}"
                                     target="_blank">
                                     <i class="far fa-file-pdf"></i>
                                 </a>
@@ -48,7 +44,7 @@
                             @if ($valores->archivo_car == 'Sin archivo')
                                 {{ $valores->archivo_car }}
                             @else
-                                <a class="btn btn-primary" href="/Documentos_p/{{ $valores->archivo_car }}"
+                                <a class="btn btn-primary" href="/cartas responsivas/{{ $valores->archivo_car }}"
                                     target="_blank">
                                     <i class="far fa-file-pdf"></i>
                                 </a>
@@ -58,7 +54,7 @@
                             @if ($valores->archivo_iden == 'Sin archivo')
                                 {{ $valores->archivo_iden }}
                             @else
-                                <a class="btn btn-primary" href="/Documentos_p/{{ $valores->archivo_iden }}"
+                                <a class="btn btn-primary" href="/Identificaciones/{{ $valores->archivo_iden }}"
                                     target="_blank">
                                     <i class="far fa-file-pdf"></i>
                                 </a>
@@ -68,7 +64,7 @@
                             @if ($valores->archivo_in == 'Sin archivo')
                                 {{ $valores->archivo_in }}
                             @else
-                                <a class="btn btn-primary" href="/Documentos_p/{{ $valores->archivo_in }}"
+                                <a class="btn btn-primary" href="/Informe repuve/{{ $valores->archivo_in }}"
                                     target="_blank">
                                     <i class="far fa-file-pdf"></i>
                                 </a>

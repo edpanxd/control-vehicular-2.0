@@ -64,8 +64,10 @@
 
                             <strong><i class="fas fa-sort-numeric-down mr-1"></i>Numero de motor</strong>
 
-                            <p class="text-muted"></p>
-                            {{ $vehiculo->numeroM }}
+                            <p class="text-muted">
+                                {{ $vehiculo->numeroM }}
+                            </p>
+                           
                             <hr>
 
                             <strong><i class="fas fa-pencil-alt mr-1"></i> Serie</strong>
@@ -147,7 +149,7 @@
                                                 <h5>{{ $documentos->archivo_con }}</h5>
                                             @else
                                                 <a class="btn btn-primary"
-                                                    href="/Documentos_p/{{ $documentos->archivo_con }}" target="_blank">
+                                                    href="/Contrato/{{ $documentos->archivo_con }}" target="_blank">
                                                     <i class="far fa-file-pdf"></i>
                                                 </a>
                                             @endif
@@ -160,7 +162,7 @@
                                                 <h5>{{ $documentos->archivo_car }}</h5>
                                             @else
                                                 <a class="btn btn-primary"
-                                                    href="/Documentos_p/{{ $documentos->archivo_car }}" target="_blank">
+                                                    href="/cartas responsivas/{{ $documentos->archivo_car }}" target="_blank">
                                                     <i class="far fa-file-pdf"></i>
                                                 </a>
                                             @endif
@@ -173,7 +175,7 @@
                                                 <h5>{{ $documentos->archivo_iden }}</h5>
                                             @else
                                                 <a class="btn btn-primary"
-                                                    href="/Documentos_p/{{ $documentos->archivo_iden }}" target="_blank">
+                                                    href="/Identificaciones/{{ $documentos->archivo_iden }}" target="_blank">
                                                     <i class="far fa-file-pdf"></i>
                                                 </a>
                                             @endif
@@ -186,7 +188,7 @@
                                                 <h5>{{ $documentos->archivo_in }}</h5>
                                             @else
                                                 <a class="btn btn-primary"
-                                                    href="/Documentos_p/{{ $documentos->archivo_in }}" target="_blank">
+                                                    href="/Informe repuve/{{ $documentos->archivo_in }}" target="_blank">
                                                     <i class="far fa-file-pdf"></i>
                                                 </a>
                                             @endif
@@ -211,7 +213,7 @@
                                                     <h5>{{ $Vehiculos_T->archivo_fa }}</h5>
                                                 @else
                                                     <a class="btn btn-primary"
-                                                        href="/Vehiculos_Nacionales/{{ $Vehiculos_T->archivo_fa }}"
+                                                        href="/Factura/{{ $Vehiculos_T->archivo_fa }}"
                                                         target="_blank">
                                                         <i class="far fa-file-pdf"></i>
                                                     </a>
@@ -231,7 +233,7 @@
                                                     <h5>{{ $Vehiculos_T->archivo_refa }}</h5>
                                                 @else
                                                     <a class="btn btn-primary"
-                                                        href="/Vehiculos_Nacionales/{{ $Vehiculos_T->archivo_refa }}"
+                                                        href="/Refactura/{{ $Vehiculos_T->archivo_refa }}"
                                                         target="_blank">
                                                         <i class="far fa-file-pdf"></i>
                                                     </a>
@@ -251,7 +253,7 @@
                                                     <h5>{{ $Vehiculos_T->archivo_car }}</h5>
                                                 @else
                                                     <a class="btn btn-primary"
-                                                        href="/Vehiculos_Nacionales/{{ $Vehiculos_T->archivo_car }}"
+                                                        href="/Carta factura/{{ $Vehiculos_T->archivo_car }}"
                                                         target="_blank">
                                                         <i class="far fa-file-pdf"></i>
                                                     </a>
@@ -279,7 +281,7 @@
                                                     <h5>{{ $Vehiculos_T->archivo_fa }}</h5>
                                                 @else
                                                     <a class="btn btn-primary"
-                                                        href="/Vehiculos_Nacionales/{{ $Vehiculos_T->archivo_fa }}"
+                                                        href="/Facturas/{{ $Vehiculos_T->archivo_fa }}"
                                                         target="_blank">
                                                         <i class="far fa-file-pdf"></i>
                                                     </a>
@@ -299,7 +301,7 @@
                                                     <h5>{{ $Vehiculos_T->archivo_pe }}</h5>
                                                 @else
                                                     <a class="btn btn-primary"
-                                                        href="/Vehiculos_Nacionales/{{ $Vehiculos_T->archivo_pe }}"
+                                                        href="/Pedimento/{{ $Vehiculos_T->archivo_pe }}"
                                                         target="_blank">
                                                         <i class="far fa-file-pdf"></i>
                                                     </a>
@@ -319,7 +321,7 @@
                                                     <h5>{{ $Vehiculos_T->archivo_titu }}</h5>
                                                 @else
                                                     <a class="btn btn-primary"
-                                                        href="/Vehiculos_Nacionales/{{ $Vehiculos_T->archivo_titu }}"
+                                                        href="/Titulos propietario/{{ $Vehiculos_T->archivo_titu }}"
                                                         target="_blank">
                                                         <i class="far fa-file-pdf"></i>
                                                     </a>
@@ -352,7 +354,7 @@
                                                     <td>{{ $placas->placas }}</td>
                                                     <td>{{ $placas->estatus }}</td>
                                                     <td>{{ $placas->vencimiento }}</td>
-                                                    <td><a class="btn btn-primary" href="/PDF/{{ $placas->archivo }}"
+                                                    <td><a class="btn btn-primary" href="/Placas/{{ $placas->archivo }}"
                                                             target="_blank">
                                                             <i class="far fa-file-pdf"></i></a></td>
                                                 </tr>
@@ -391,7 +393,7 @@
                                                     <td>{{ $tarjetacs->vencimiento }}</td>
                                                     <td>{{ $tarjetacs->estatus }}</td>
                                                     <td><a class="btn btn-primary"
-                                                            href="/PDF/{{ $tarjetacs->archivo_pla }}" target="_blank">
+                                                            href="/Tarjetas de circulacion/{{ $tarjetacs->archivo_pla }}" target="_blank">
                                                             <i class="far fa-file-pdf"></i></a></td>
                                                     <td>
                                                         <a class="btn btn-info"
@@ -432,7 +434,7 @@
                                                     <td></td>
                                                     <td>{{ $polizas->estatus }}</td>
                                                     <td></td>
-                                                    <th><a class="btn btn-primary" href="/PDF/{{ $polizas->archivo }}"
+                                                    <th><a class="btn btn-primary" href="/Polizas/{{ $polizas->archivo }}"
                                                             target="_blank"><i class="far fa-file-pdf"></i></a></th>
 
                                                 </tr>
@@ -465,7 +467,7 @@
                                                     <td>{{ $tenencias->pago }}</td>
                                                     <td>{{ $tenencias->estatus }}</td>
                                                     <td></td>
-                                                    <td><a class="btn btn-primary" href="/PDF/{{ $tenencias->archivo }}"
+                                                    <td><a class="btn btn-primary" href="/Tenencias/{{ $tenencias->archivo }}"
                                                             target="_blank"><i class="far fa-file-pdf"></i></a></td>
                                                 </tr>
                                             @endforeach
@@ -500,7 +502,7 @@
                                                             data-jscolor="{value:'{{ $verificacion_as->engomado }}', previewSize:60}"
                                                             disabled></button></td>
                                                     <td><a class="btn btn-primary"
-                                                            href="/PDF/{{ $verificacion_as->archivo }}"
+                                                            href="/Verificaciones A/{{ $verificacion_as->archivo }}"
                                                             target="_blank"><i class="far fa-file-pdf"></i></a></td>
 
                                                 </tr>
@@ -538,7 +540,7 @@
                                                             data-jscolor="{value:'{{ $verificacion_bs->engomado }}', previewSize:60}"
                                                             disabled></button></td>
                                                     <td><a class="btn btn-primary"
-                                                            href="/PDF/{{ $verificacion_bs->archivo }}" target="_blank">
+                                                            href="/Verificaciones B/{{ $verificacion_bs->archivo }}" target="_blank">
                                                             <i class="far fa-file-pdf"></i></a></td>
 
                                                 </tr>
@@ -572,7 +574,7 @@
                                                     <td>{{ $verificacion_fs->fecha }}</td>
                                                     <td>{{ $verificacion_fs->estatus }}</td>
                                                     <td><a class="btn btn-primary"
-                                                            href="/PDF/{{ $verificacion_fs->archivo }}"
+                                                            href="/verificacion federal/{{ $verificacion_fs->archivo }}"
                                                             target="_blank"><i class="far fa-file-pdf"></i></a></td>
 
                                                 </tr>
@@ -606,7 +608,7 @@
                                                     <td>{{ $verificacion_fsa->fecha }}</td>
                                                     <td>{{ $verificacion_fsa->estatus }}</td>
                                                     <td><a class="btn btn-primary"
-                                                            href="/PDF/{{ $verificacion_fsa->archivo }}"
+                                                            href="/Verificacion federal 2/{{ $verificacion_fsa->archivo }}"
                                                             target="_blank"><i class="far fa-file-pdf">
                                                             </i>
                                                         </a></td>

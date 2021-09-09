@@ -24,12 +24,12 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Vendedor:</label>
-                <input type="text" class="form-control" name="Vendedor" maxlength="20" value="{{$valores->vendedor}}" required>
+                <input type="text" class="form-control" name="Vendedor" maxlength="50" value="{{$valores->vendedor}}" required>
             </div>
        
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Comprador:</label>
-                <input type="text" class="form-control" name="Comprador" maxlength="20" value="{{$valores->comprador}}" required>
+                <input type="text" class="form-control" name="Comprador" maxlength="50" value="{{$valores->comprador}}" required>
             </div>
         </div>
        
@@ -40,15 +40,20 @@
 @stop
 
 @section('css')
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 @stop
 
 @section('js')
-    <script>
-        console.log('Hi!');
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    <script 
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script>
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
     </script>
 @stop

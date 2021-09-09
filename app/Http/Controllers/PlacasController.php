@@ -60,7 +60,7 @@ class PlacasController extends Controller
         $valores->observaciones = $request->get('observaciones');
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo= $request->file('archivo')){
-            $rutaguardarpdf= 'PDF/';
+            $rutaguardarpdf= 'Placas/';
             $archivonombre= date('YmdHis')."_". $valores->placas . "." . $archivo->getClientOriginalExtension();
             $archivo->move($rutaguardarpdf, $archivonombre);
             $valores->archivo="$archivonombre";

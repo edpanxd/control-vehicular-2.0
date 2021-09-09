@@ -46,7 +46,7 @@ class dashboardController extends Controller
     public function create($p)
     {
         $data = DB::table("$p" . 's')
-            ->select("$p" . 's.*', 'vehiculos.marca', 'vehiculos.placas')
+            ->select("$p" . 's.*', 'vehiculos.marca', 'vehiculos.serie')
             ->join('vehiculos', "$p" . 's' . '.id_vehiculo', 'vehiculos.id')
             ->where("$p" . 's' . '.estatus', 'vencidas')
             ->get();
@@ -55,7 +55,7 @@ class dashboardController extends Controller
     public function create2($p)
     {
         $data = DB::table("$p" . 's')
-            ->select("$p" . 's.*', 'vehiculos.marca', 'vehiculos.placas')
+            ->select("$p" . 's.*', 'vehiculos.marca', 'vehiculos.serie')
             ->join('vehiculos', "$p" . 's' . '.id_vehiculo', 'vehiculos.id')
             ->where("$p" . 's' . '.estatus', 'sin pagar')
             ->get();
@@ -75,16 +75,15 @@ class dashboardController extends Controller
             if ($ve->id_vehiculo == $id) {
                 $Vehiculos_T = DB::table('vehiculos_ns')->where('id_vehiculo', "$id")->get();
                 $estatus = "Nacional";
-            } else {
-                $vi = vehiculos_i::all();
+            }
+        }
+        $vi = vehiculos_i::all();
                 foreach ($vi as $vi) {
                     if ($vi->id_vehiculo == $id) {
                         $Vehiculos_T = DB::table('vehiculos_is')->where('id_vehiculo', "$id")->get();
                         $estatus = "Importado";
                     }
                 }
-            }
-        }
 
 
         $vehiculo = Vehiculo::all()->where('id', "$id");

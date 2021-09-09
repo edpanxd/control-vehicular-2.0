@@ -95,7 +95,6 @@ class empresaController extends Controller
     public function destroy($id)
     {
         $valores = empresa::find($id);
-        unlink('PDF/'.$valores->archivo);
         $valores->delete();
         return redirect('/empresa')
         ->with('status_success','Eliminado Correctamente');

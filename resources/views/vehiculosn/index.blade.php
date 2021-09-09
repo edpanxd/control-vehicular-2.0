@@ -37,7 +37,7 @@
                             @if ($valores->archivo_fa == 'Sin archivo')
                                 {{ $valores->archivo_fa }}
                             @else
-                                <a class="btn btn-primary" href="/Vehiculos_Nacionales/{{ $valores->archivo_fa }}"
+                                <a class="btn btn-primary" href="/Factura/{{ $valores->archivo_fa }}"
                                     target="_blank">
                                     <i class="far fa-file-pdf"></i></a>
                             @endif
@@ -48,7 +48,7 @@
                             @if ($valores->archivo_refa == 'Sin archivo')
                             {{ $valores->archivo_refa }}
                             @else
-                            <a class="btn btn-primary" href="/Vehiculos_Nacionales/{{ $valores->archivo_refa }}"
+                            <a class="btn btn-primary" href="/Refactura/{{ $valores->archivo_refa }}"
                                 target="_blank">
                                 <i class="far fa-file-pdf"></i>
                             </a>
@@ -60,7 +60,7 @@
                             @if ($valores->archivo_car == 'Sin archivo')
                             {{ $valores->archivo_car }}
                             @else
-                            <a class="btn btn-primary" href="/Vehiculos_Nacionales/{{ $valores->archivo_car }}"
+                            <a class="btn btn-primary" href="/Carta factura/{{ $valores->archivo_car }}"
                                 target="_blank">
                                 <i class="far fa-file-pdf"></i>
                             </a>
@@ -84,9 +84,6 @@
 @stop
 
 @section('js')
-    <script>
-        console.log('Hi!');
-    </script>
     <!-- Alerta -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript">

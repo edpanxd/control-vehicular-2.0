@@ -32,7 +32,7 @@
                     <td>{{ $data->marca }}</td>
                     <td>{{ $data->serie }}</td>
                     <td>{{ $data->poliza }}</td>
-                    <td><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank"><i
+                    <td><a class="btn btn-primary" href="/Polizas/{{ $data->archivo }}" target="_blank"><i
                         class="far fa-file-pdf"></i></a></td>
                     <td>{{ $data->aseguradora }}</td>
                     <td>{{ $data->vencimiento }}</td>

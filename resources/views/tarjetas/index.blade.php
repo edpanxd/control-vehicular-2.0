@@ -37,7 +37,7 @@
                     <td>{{ $valores->inicio }}</td>
                     <td>{{ $valores->vencimiento }}</td>
                     <td>{{ $valores->estatus }}</td>
-                    <td><a class="btn btn-primary" href="/PDF/{{ $valores->archivo_pla }}" target="_blank">
+                    <td><a class="btn btn-primary" href="/Tarjetas de circulacion/{{ $valores->archivo_pla }}" target="_blank">
                         <i class="far fa-file-pdf"></i></a></td>
                     <td>
                         <a class="btn btn-info" href="/tarjeta/{{ $valores->id }}/edit"><i

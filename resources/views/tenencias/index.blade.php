@@ -34,7 +34,7 @@
                     <td>{{ $data->tenencia }}</td>
                     <td>{{ $data->pago }}</td>
                     <td>{{ $data->estatus }}</td>
-                    <td><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank"><i class="far fa-file-pdf"></i></a></td>
+                    <td><a class="btn btn-primary" href="/Tenencias/{{ $data->archivo }}" target="_blank"><i class="far fa-file-pdf"></i></a></td>
                     <td>
                         <a class="btn btn-info" href="/tenencia/{{ $data->id }}/edit"><i class="fas fa-edit"></i></a>
                     </td>

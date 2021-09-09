@@ -53,7 +53,7 @@ class verificacion_bController extends Controller
         $valores->estatus = $request->get('estatus');
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo= $request->file('archivo')){
-            $rutaguardarpdf= 'PDF/';
+            $rutaguardarpdf= 'Verificaciones B/';
             $archivonombre= date('YmdHis'). "." . $archivo->getClientOriginalExtension();
             $archivo->move($rutaguardarpdf, $archivonombre);
             $valores->archivo="$archivonombre";

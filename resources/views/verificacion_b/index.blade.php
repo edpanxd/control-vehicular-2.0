@@ -36,7 +36,7 @@
                         <td>{{ $data->verificacion }}</td>
                         <td>{{ $data->fecha }}</td>
                         <td>{{ $data->estatus }}</td>
-                        <th><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank"> <i
+                        <th><a class="btn btn-primary" href="/Verificaciones B/{{ $data->archivo }}" target="_blank"> <i
                                     class="far fa-file-pdf"></i></a></th>
                         <th>
                             <a class="btn btn-info" href="/verificacion_b/{{ $data->id }}/edit"><i

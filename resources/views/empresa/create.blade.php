@@ -12,7 +12,7 @@
         <div class="row">
             <div class="form-group col-md-6">
                 <label for="recipient-name" class="col-form-label">Nombre de la empresa:</label>
-                <input type="text" class="form-control" name="empresa" maxlength="20" required>
+                <input type="text" class="form-control" name="empresa" maxlength="50" required>
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">RFC:</label>
@@ -31,10 +31,8 @@
 @stop
 
 @section('js')
-    <script>
-        console.log('Hi!');
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    <script 
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 @stop

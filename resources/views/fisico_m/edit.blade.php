@@ -45,8 +45,8 @@
 
             <div class="form-group col-6">
                 <label class="col-form-label">Estatus:</label> <br>
-                <input type="radio" class="btn-check" name="estatus" id="success-outline" value="Pagado" autocomplete="off"
-                    required>
+                <input type="radio" class="btn-check" name="estatus" id="success-outline" value="Pagado"
+                    autocomplete="off" required>
                 <label class="btn btn-outline-success" for="success-outline">Pagado</label>
 
                 <input type="radio" class="btn-check" name="estatus" value="Sin pagar" id="danger-outline"
@@ -62,16 +62,21 @@
 @stop
 
 @section('css')
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 @stop
 
 @section('js')
-    <script>
-        console.log('Hi!');
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    <script 
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script>
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
     </script>
 @stop

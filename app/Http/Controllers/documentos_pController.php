@@ -53,26 +53,26 @@ class documentos_pController extends Controller
         $valores->informe = $request->get('informe');
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo_con= $request->file('archivo_con')){
-            $rutaguardarpdf= 'Documentos_p/';
-            $archivonombre= date('YmdHis'). "." . $archivo_con->getClientOriginalExtension();
+            $rutaguardarpdf= 'Contrato/';
+            $archivonombre= date('YmdHis')."-vehiculo_id=".$valores->id_vehiculo.".". $archivo_con->getClientOriginalExtension();
             $archivo_con->move($rutaguardarpdf, $archivonombre);
             $valores->archivo_con="$archivonombre";
         }else{ $valores->archivo_con="Sin archivo"; }
         if($archivo_car= $request->file('archivo_car')){
-            $rutaguardarpdf= 'Documentos_p/';
-            $archivonombre= date('YmdHis'). "." . $archivo_car->getClientOriginalExtension();
+            $rutaguardarpdf= 'cartas responsivas/';
+            $archivonombre= date('YmdHis')."-vehiculo_id=".$valores->id_vehiculo."." . $archivo_car->getClientOriginalExtension();
             $archivo_car->move($rutaguardarpdf, $archivonombre);
             $valores->archivo_car="$archivonombre";
         }else{ $valores->archivo_car="Sin archivo"; }
         if($archivo_iden= $request->file('archivo_iden')){
-            $rutaguardarpdf= 'Documentos_p/';
-            $archivonombre= date('YmdHis'). "." . $archivo_iden->getClientOriginalExtension();
+            $rutaguardarpdf= 'Identificaciones/';
+            $archivonombre= date('YmdHis')."-vehiculo_id=".$valores->id_vehiculo.".".$archivo_iden->getClientOriginalExtension();
             $archivo_iden->move($rutaguardarpdf, $archivonombre);
             $valores->archivo_iden="$archivonombre";
         }else{ $valores->archivo_iden="Sin archivo"; }
         if($archivo_in= $request->file('archivo_in')){
-            $rutaguardarpdf= 'Documentos_p/';
-            $archivonombre= date('YmdHis'). "." . $archivo_in->getClientOriginalExtension();
+            $rutaguardarpdf= 'Informe repuve/';
+            $archivonombre= date('YmdHis')."-vehiculo_id=".$valores->id_vehiculo."." . $archivo_in->getClientOriginalExtension();
             $archivo_in->move($rutaguardarpdf, $archivonombre);
             $valores->archivo_in="$archivonombre";
         }else{ $valores->archivo_in="Sin archivo"; }
@@ -120,31 +120,19 @@ class documentos_pController extends Controller
     public function update(Request $request, $id)
     {
         $valores = documentos_p::find($id);
-        $valores->no_factura = $request->get('no_factura');
-        $valores->pedimiento = $request->get('pedimiento');
-        $valores->titulo_pro = $request->get('titulo_pro');
+        $valores->comprador = $request->get('comprador');
+        $valores->vendedor = $request->get('vendedor');
+        $valores->contrato_com = $request->get('contrato_com');
+        $valores->carta_res = $request->get('carta_res');
+        $valores->identificacion = $request->get('identificacion');
+        $valores->informe = $request->get('informe');
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo_con= $request->file('archivo_con')){
-            unlink('Documentos_p/'.$valores->archivo_con);
-            $rutaguardarpdf= 'Documentos_p/';
-            $archivonombre= date('YmdHis'). "." . $archivo_con->getClientOriginalExtension();
+            $rutaguardarpdf= 'Contrato/';
+            $archivonombre= date('YmdHis')."-vehiculo_id=".$valores->id_vehiculo.".". $archivo_con->getClientOriginalExtension();
             $archivo_con->move($rutaguardarpdf, $archivonombre);
             $valores->archivo_con="$archivonombre";
-        }else{ $valores->archivo_con;}
-        if($archivo_car= $request->file('archivo_car')){
-            unlink('Documentos_p/'.$valores->archivo_car);
-            $rutaguardarpdf= 'Documentos_p/';
-            $archivonombre= date('YmdHis'). "." . $archivo_car->getClientOriginalExtension();
-            $archivo_car->move($rutaguardarpdf, $archivonombre);
-            $valores->archivo_car="$archivonombre";
-        }else{ $valores->archivo_car; }
-        if($archivo_in= $request->file('archivo_in')){
-            unlink('Documentos_p/'.$valores->archivo_in);
-            $rutaguardarpdf= 'Documentos_p/';
-            $archivonombre= date('YmdHis'). "." . $archivo_in->getClientOriginalExtension();
-            $archivo_in->move($rutaguardarpdf, $archivonombre);
-            $valores->archivo_in="$archivonombre";
-        }else{ $valores->archivo_in; }
+        }else{ $valores->archivo_con="nada"; }
         $valores->save();
         return redirect('/documento');
     }

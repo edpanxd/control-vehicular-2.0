@@ -32,7 +32,7 @@
                     <td>{{ $data->marca }}</td>
                     <td>{{ $data->serie }}</td>
                     <td>{{$data->placas}}</td>
-                    <td><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank">
+                    <td><a class="btn btn-primary" href="/Placas/{{ $data->archivo }}" target="_blank">
                         <i class="far fa-file-pdf"></i></a></td>
                     <td>{{ $data->vencimiento }}</td>
                     <td>{{ $data->estatus }}</td>

@@ -122,7 +122,6 @@ class fisico_mController extends Controller
     public function destroy($id)
     {
         $valores = fisico_m::find($id);
-        unlink('PDF/'.$valores->archivo);
         $valores->delete();
         return redirect('/fisico_m')
         ->with('status_success','Eliminado Correctamente');

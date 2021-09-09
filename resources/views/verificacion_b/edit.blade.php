@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <form action="/verificacion_b/{{ $valores->id}}" method="POST" enctype="multipart/form-data">
+    <form action="/verificacion_b/{{ $valores->id }}" method="POST" enctype="multipart/form-data">
         @method('put')
         @csrf
         <div class="row">
@@ -24,15 +24,15 @@
                 </select>
             </div>
             <div class="form-group col-md-6">
-                <label  class="col-form-label">Placas:</label>
+                <label class="col-form-label">Placas:</label>
                 <select class="custom-select select2" name="placa" id="" required>
-                    <option value="{{$valores->placa}}">{{$valores->placa}}</option>
-                    @foreach($selec2 as $selec2)
-                    <option value="{{$selec2->placas}}">{{$selec2->placas}}</option>
+                    <option value="{{ $valores->placa }}">{{ $valores->placa }}</option>
+                    @foreach ($selec2 as $selec2)
+                        <option value="{{ $selec2->placas }}">{{ $selec2->placas }}</option>
                     @endforeach
-                
+
                 </select>
-                
+
             </div>
             <div class="form-group col-md-6">
                 <label class="col-form-label">Engomado:</label>
@@ -47,18 +47,20 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Verificación:</label>
-                <input type="text" class="form-control" name="verificacion" maxlength="20" value="{{$valores->verificacion}}" required>
+                <input type="text" class="form-control" name="verificacion" maxlength="20"
+                    value="{{ $valores->verificacion }}" required>
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Fecha:</label>
-                <input type="date" class="form-control" name="fecha" maxlength="20" value="{{$valores->fecha}}" required>
+                <input type="date" class="form-control" name="fecha" maxlength="20" value="{{ $valores->fecha }}"
+                    required>
             </div>
 
 
             <div class="form-group col-6">
                 <label class="col-form-label">Estatus:</label> <br>
-                <input type="radio" class="btn-check" name="estatus" id="success-outline" value="Pagado" autocomplete="off"
-                    required>
+                <input type="radio" class="btn-check" name="estatus" id="success-outline" value="Pagado"
+                    autocomplete="off" required>
                 <label class="btn btn-outline-success" for="success-outline">Pagado</label>
                 <input type="radio" class="btn-check" name="estatus" value="Sin pagar" id="danger-outline"
                     autocomplete="off" required>
@@ -66,14 +68,15 @@
             </div>
 
         </div>
-    
+
         <a type="button" href="/verificacion_b" class="btn btn-secondary" data-dismiss="modal">Cancelar</a>
         <button type="submit" class="btn btn-primary">Registrar</button>
     </form>
 @stop
 
 @section('css')
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 @stop
 
@@ -81,5 +84,13 @@
     <script>
         console.log('Hi!');
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script>
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
 @stop

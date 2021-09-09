@@ -3,7 +3,7 @@
 @section('title', 'Vehículos')
 
 @section('content_header')
-    <h1>Vehiculos importados </h1>
+    <h1>Vehiculos Importados </h1>
 @stop
 
 @section('content')
@@ -37,7 +37,7 @@
                             @if ($valores->archivo_fa == 'Sin archivo')
                                 {{ $valores->archivo_fa }}
                             @else
-                                <a class="btn btn-primary" href="/Vehiculos_Nacionales/{{ $valores->archivo_fa }}"
+                                <a class="btn btn-primary" href="/Facturas/{{ $valores->archivo_fa }}"
                                     target="_blank">
                                     <i class="far fa-file-pdf"></i>
                                 </a>
@@ -48,7 +48,7 @@
                             @if ($valores->archivo_pe == 'Sin archivo')
                                 {{ $valores->archivo_pe }}
                             @else
-                                <a class="btn btn-primary" href="/Vehiculos_Nacionales/{{ $valores->archivo_pe }}"
+                                <a class="btn btn-primary" href="/Pedimento/{{ $valores->archivo_pe }}"
                                     target="_blank">
                                     <i class="far fa-file-pdf"></i>
                                 </a>
@@ -59,7 +59,7 @@
                             @if ($valores->archivo_titu == 'Sin archivo')
                                 {{ $valores->archivo_titu }}
                             @else
-                                <a class="btn btn-primary" href="/Vehiculos_Nacionales/{{ $valores->archivo_titu }}"
+                                <a class="btn btn-primary" href="/Titulos propietario/{{ $valores->archivo_titu }}"
                                     target="_blank">
                                     <i class="far fa-file-pdf"></i>
                                 </a>

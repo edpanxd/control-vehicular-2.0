@@ -148,6 +148,9 @@ class vehiculos_iController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $valores = vehiculos_i::find($id);
+        $valores->delete();
+        return redirect('/vehiculoi')
+        ->with('status_success','Eliminado Correctamente');
     }
 }

@@ -145,6 +145,9 @@ class vehiculos_nController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $valores = vehiculos_n::find($id);
+        $valores->delete();
+        return redirect('/vehiculon')
+        ->with('status_success','Eliminado Correctamente');
     }
 }

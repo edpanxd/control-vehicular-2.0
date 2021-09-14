@@ -77,4 +77,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
    Route::resource('/propietario', 'App\Http\Controllers\propietarios_aController');
    Route::get('/propietariod/{id}', 'App\Http\Controllers\propietarios_aController@destroy');
 
+   //ruta de ayuda
+   Route::get('/ayuda', function()
+  {
+     return view("ayuda.index");
+  });
+     
+
 });

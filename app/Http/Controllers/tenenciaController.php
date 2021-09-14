@@ -114,7 +114,7 @@ class tenenciaController extends Controller
     public function destroy($id)
     {
         $valores = tenencias::find($id);
-        unlink('PDF/'.$valores->archivo);
+        unlink('Tenencias/'.$valores->archivo);
         $valores->delete();
         return redirect('/tenencia');
     }

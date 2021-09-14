@@ -3,7 +3,7 @@
 @section('title', 'Dash')
 
 @section('content_header')
-    <h1>Perfil</h1>
+    <h1>PERFIL</h1>
 @stop
 
 @section('content')
@@ -420,7 +420,6 @@
                                                 <th scope="col">Seguro</th>
                                                 <th scope="col">Vigencia</th>
                                                 <th scope="col">Estatus</th>
-                                                <th scope="col">Nombre</th>
                                                 <th scope="col">PDF</th>
 
                                             </tr>
@@ -433,7 +432,6 @@
                                                     <td></td>
                                                     <td></td>
                                                     <td>{{ $polizas->estatus }}</td>
-                                                    <td></td>
                                                     <th><a class="btn btn-primary" href="/Polizas/{{ $polizas->archivo }}"
                                                             target="_blank"><i class="far fa-file-pdf"></i></a></th>
 
@@ -455,7 +453,6 @@
                                                 <th scope="col">Tenencia</th>
                                                 <th scope="col">Pago</th>
                                                 <th scope="col">Estatus</th>
-                                                <th scope="col">Nombre</th>
                                                 <th scope="col">PDF</th>
                                             </tr>
                                         </thead>
@@ -466,7 +463,6 @@
                                                     <td>{{ $tenencias->tenencia }}</td>
                                                     <td>{{ $tenencias->pago }}</td>
                                                     <td>{{ $tenencias->estatus }}</td>
-                                                    <td></td>
                                                     <td><a class="btn btn-primary" href="/Tenencias/{{ $tenencias->archivo }}"
                                                             target="_blank"><i class="far fa-file-pdf"></i></a></td>
                                                 </tr>

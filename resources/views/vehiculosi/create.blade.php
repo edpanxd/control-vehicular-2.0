@@ -40,7 +40,7 @@
                 <input type="text" class="form-control" name="pedimiento" maxlength="20" required>
             </div>
             <div class="form-group col-6 mb-4">
-                <label class="col-form-label">archivo_pe</label>
+                <label class="col-form-label">Pedimiento</label>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text">PDF</span>
@@ -56,7 +56,7 @@
                 <input type="text" class="form-control" name="titulo_pro" maxlength="20" required>
             </div>
             <div class="form-group col-6 mb-4">
-                <label class="col-form-label">Carta factura</label>
+                <label class="col-form-label">Titulo de propietario:</label>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text">PDF</span>

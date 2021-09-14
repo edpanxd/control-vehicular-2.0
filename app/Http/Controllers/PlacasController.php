@@ -132,7 +132,7 @@ class PlacasController extends Controller
     public function destroy($id)
     {
         $valores = Placas::find($id);
-        unlink('PDF/'.$valores->archivo);
+        unlink('Placas/'.$valores->archivo);
         $valores->delete();
         return redirect('/placa');
     }

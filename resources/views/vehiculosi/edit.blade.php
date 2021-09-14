@@ -22,54 +22,21 @@
                     @endforeach
                 </select>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-8">
                 <label  class="col-form-label">Numero de Factura:</label>
                 <input type="text" class="form-control" name="no_factura" maxlength="20" value="{{$valores->no_factura}}" required>
             </div>
-            <div class="form-group col-6 mb-4">
-                <label class="col-form-label">Factura</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">PDF</span>
-                    </div>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="archivo_fa" >
-                        <label class="custom-file-label">Seleccionar PDF</label>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group col-md-6">
+           
+            <div class="form-group col-md-8">
                 <label for="message-text" class="col-form-label">Pedimiento:</label>
                 <input type="text" class="form-control" name="pedimiento" maxlength="20" value="{{$valores->pedimiento}}" required>
             </div>
-            <div class="form-group col-6 mb-4">
-                <label class="col-form-label">Pedimiento</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">PDF</span>
-                    </div>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="archivo_pe" >
-                        <label class="custom-file-label">Seleccionar PDF</label>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group col-md-6">
+        
+            <div class="form-group col-md-8">
                 <label for="message-text" class="col-form-label">Titulo de propietario:</label>
                 <input type="text" class="form-control" name="titulo_pro" maxlength="20" value="{{$valores->titulo_pro}}" required>
             </div>
-            <div class="form-group col-6 mb-4">
-                <label class="col-form-label">Carta factura</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">PDF</span>
-                    </div>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="archivo_titu" >
-                        <label class="custom-file-label">Seleccionar PDF</label>
-                    </div>
-                </div>
-            </div>
+           
 
 
         </div>

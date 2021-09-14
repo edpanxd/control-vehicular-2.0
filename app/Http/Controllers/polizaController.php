@@ -124,7 +124,7 @@ class polizaController extends Controller
     public function destroy($id)
     {
         $valores = polizas::find($id);
-        unlink('PDF/'.$valores->archivo);
+        unlink('Polizas/'.$valores->archivo);
         $valores->delete();
         return redirect('/poliza');
     }

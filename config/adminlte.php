@@ -366,6 +366,12 @@ return [
             'url'  => 'user/profile',
             'icon' => 'fas fa-user-cog',
         ],
+        ['header' => 'Ayuda'],
+        [
+            'text' => 'Ayuda',
+            'url'  => 'ayuda',
+            'icon' => 'far fa-question-circle',
+        ],
     ],
 
     /*

@@ -122,17 +122,7 @@ class documentos_pController extends Controller
         $valores = documentos_p::find($id);
         $valores->comprador = $request->get('comprador');
         $valores->vendedor = $request->get('vendedor');
-        $valores->contrato_com = $request->get('contrato_com');
-        $valores->carta_res = $request->get('carta_res');
-        $valores->identificacion = $request->get('identificacion');
-        $valores->informe = $request->get('informe');
         $valores->id_vehiculo = $request->get('vehiculo');
-        if($archivo_con= $request->file('archivo_con')){
-            $rutaguardarpdf= 'Contrato/';
-            $archivonombre= date('YmdHis')."-vehiculo_id=".$valores->id_vehiculo.".". $archivo_con->getClientOriginalExtension();
-            $archivo_con->move($rutaguardarpdf, $archivonombre);
-            $valores->archivo_con="$archivonombre";
-        }else{ $valores->archivo_con="nada"; }
         $valores->save();
         return redirect('/documento');
     }

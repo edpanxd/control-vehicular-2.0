@@ -124,7 +124,7 @@ class tarjetacController extends Controller
     public function destroy($id)
     {
         $valores = tarjetac::find($id);
-        unlink('PDF/'.$valores->archivo_pla);
+        unlink('Tarjetas de circulacion/'.$valores->archivo_pla);
         $valores->delete();
         return redirect('/tarjeta')
         ->with('status_success','Eliminado Correctamente');

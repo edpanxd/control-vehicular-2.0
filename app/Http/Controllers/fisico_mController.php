@@ -53,7 +53,7 @@ class fisico_mController extends Controller
         $valores->estatus = $request->get('estatus');
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo= $request->file('archivo')){
-            $rutaguardarpdf= 'PDF/';
+            $rutaguardarpdf= 'fisico mecanico/';
             $archivonombre= date('YmdHis'). "." . $archivo->getClientOriginalExtension();
             $archivo->move($rutaguardarpdf, $archivonombre);
             $valores->archivo="$archivonombre";
@@ -122,6 +122,7 @@ class fisico_mController extends Controller
     public function destroy($id)
     {
         $valores = fisico_m::find($id);
+        unlink('fisico mecanico/'.$valores->archivo);
         $valores->delete();
         return redirect('/fisico_m')
         ->with('status_success','Eliminado Correctamente');

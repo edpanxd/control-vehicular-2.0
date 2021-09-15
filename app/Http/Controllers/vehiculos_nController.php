@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\permisos;
 use App\Models\Vehiculo;
+use Illuminate\Http\Request;
+use App\Models\vehiculos_n;
 use Illuminate\Support\Facades\DB;
 
-class permisosController extends Controller
+class vehiculos_nController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +16,8 @@ class permisosController extends Controller
      */
     public function index()
     {
-        $valores = DB::table('permisos')
-        ->select('permisos.*', 'vehiculos.marca','vehiculos.serie')
-        ->join('vehiculos', 'permisos.id_vehiculo','vehiculos.id')
-        ->get();
-        return view('permisos.index')
+        $valores = vehiculos_n::all();
+        return view('vehiculosn.index')
         ->with('valores', $valores);
     }
 
@@ -31,9 +28,9 @@ class permisosController extends Controller
      */
     public function create()
     {
-     
+        
         $selec = Vehiculo::all();
-        return view('permisos.create')->with('selec', $selec);
+        return view('vehiculosn.create')->with('selec', $selec);
     }
 
     /**
@@ -44,19 +41,13 @@ class permisosController extends Controller
      */
     public function store(Request $request)
     {
-        $valores = new permisos();
-        $valores->no_permiso= $request->get('no_permiso');
-        $valores->id_vehiculo=$request->get('vehiculo');
-        if($archivo_per= $request->file('archivo_per')){
-            $rutaguardarpdf= 'Permisos/';
-            $archivonombre= date('YmdHis'). "." . $archivo_per->getClientOriginalExtension();
-            $archivo_per->move($rutaguardarpdf, $archivonombre);
-            $valores->archivo_per="$archivonombre";
-        }else{
-            $valores->archivo_per= "Sin archivo";
-        }
+        $valores = new vehiculos_n();
+        $valores->no_factura = $request->get('no_factura');
+        $valores->refactura = $request->get('refactura');
+        $valores->carta_fa = $request->get('carta_fa');
+        $valores->id_vehiculo = $request->get('vehiculo');
         $valores->save();
-        return redirect('/permiso');
+        return redirect('/vehiculon');
     }
 
     /**
@@ -78,14 +69,13 @@ class permisosController extends Controller
      */
     public function edit($id)
     {
-    
         $selec=Vehiculo::all();
-        $valores=permisos::find($id);
-        $datos=DB::table('permisos')
-        ->join('vehiculos', 'permisos.id_vehiculo','vehiculos.id')
-        ->where('permisos.id', "$id")
+        $valores=vehiculos_n::find($id);
+        $datos=DB::table('vehiculos_ns')
+        ->join('vehiculos', 'vehiculos_ns.id_vehiculo','vehiculos.id')
+        ->where('vehiculos_ns.id', "$id")
         ->get();
-        return view('permisos.edit')->with('valores', $valores)
+        return view('vehiculosn.edit')->with('valores', $valores)
         ->with('selec', $selec)
         ->with('datos', $datos);
     }
@@ -99,11 +89,14 @@ class permisosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $valores = permisos::find($id);
-        $valores->no_permiso= $request->get('no_permiso');
+        $valores = vehiculos_n::find($id);
+        $valores->no_factura = $request->get('no_factura');
+        $valores->refactura = $request->get('refactura');
+        $valores->carta_fa = $request->get('carta_fa');
+        $valores->id_vehiculo = $request->get('vehiculo');
+       
         $valores->save();
-        
-        return redirect('/permiso');
+        return redirect('/vehiculon');
     }
 
     /**
@@ -114,10 +107,9 @@ class permisosController extends Controller
      */
     public function destroy($id)
     {
-        $valores = permisos::find($id);
-        unlink('Permisos/'.$valores->archivo_per);
+        $valores = vehiculos_n::find($id);
         $valores->delete();
-        return redirect('/permiso')
+        return redirect('/vehiculon')
         ->with('status_success','Eliminado Correctamente');
     }
 }

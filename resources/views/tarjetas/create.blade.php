@@ -47,7 +47,7 @@
                 <label class="btn btn-outline-danger" for="danger-outline">Vencida</label>
             </div>
             <div class="form-group col-6 mb-4">
-                <label class="col-form-label">Tarjeca de circulacion</label>
+                <label class="col-form-label">Tarjeta de circulacion</label>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text">PDF</span>

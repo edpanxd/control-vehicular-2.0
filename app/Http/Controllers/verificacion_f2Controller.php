@@ -116,7 +116,7 @@ class verificacion_f2Controller extends Controller
     public function destroy($id)
     {
         $valores = Verificacion_f2::find($id);
-        unlink('PDF/'.$valores->archivo);
+        unlink('Verificacion federal 2/'.$valores->archivo);
         $valores->delete();
         return redirect('/verificacion_f2');
     }

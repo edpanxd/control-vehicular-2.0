@@ -14,43 +14,43 @@
                     aria-controls="vert-tabs-home" aria-selected="true">Principal</a>
                 <a class="nav-link " id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab"
                     aria-controls="vert-tabs-profile" aria-selected="false">Vehiculo</a>
-                <a class="nav-link" id="vert-tabs-messages-tab" data-toggle="pill" href="#vert-tabs-messages"
-                    role="tab" aria-controls="vert-tabs-messages" aria-selected="false">Documentos</a>
-                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings"
-                    role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Vehiculos Nacionales</a>
-                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings"
-                    role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Vehiculos Importados</a>
-                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings"
-                    role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Permisos</a>
-                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings"
-                    role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Placas</a>
-                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings"
-                    role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Tarjetas de circulacion</a>
-                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings"
-                    role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Polizas</a>
-                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings"
-                    role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Tenencias</a>
-                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings"
-                    role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Verificacion Estatal A</a>
-                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings"
-                    role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Verificacion Estatal B</a>
-                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings"
-                    role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Verificacion Federla A</a>
-                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings"
-                    role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Verificacion Federla B</a>
-                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings"
-                    role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Fisico Mecanico</a>
-                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings"
-                    role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Propietarios anteriores</a>
-                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings"
-                    role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Empresas</a>
+                <a class="nav-link" id="vert-tabs-messages-tab" data-toggle="pill" href="#Documentos" role="tab"
+                    aria-controls="vert-tabs-messages" aria-selected="false">Documentos</a>
+                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vn" role="tab"
+                    aria-controls="vert-tabs-settings" aria-selected="false">Vehiculos Nacionales</a>
+                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vi" role="tab"
+                    aria-controls="vert-tabs-settings" aria-selected="false">Vehiculos Importados</a>
+                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#permisos" role="tab"
+                    aria-controls="vert-tabs-settings" aria-selected="false">Permisos</a>
+                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#placas" role="tab"
+                    aria-controls="vert-tabs-settings" aria-selected="false">Placas</a>
+                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#tarjetas" role="tab"
+                    aria-controls="vert-tabs-settings" aria-selected="false">Tarjetas de circulacion</a>
+                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#poliza" role="tab"
+                    aria-controls="vert-tabs-settings" aria-selected="false">Polizas</a>
+                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#tenencia" role="tab"
+                    aria-controls="vert-tabs-settings" aria-selected="false">Tenencias</a>
+                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vea" role="tab"
+                    aria-controls="vert-tabs-settings" aria-selected="false">Verificacion Estatal A</a>
+                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#veb" role="tab"
+                    aria-controls="vert-tabs-settings" aria-selected="false">Verificacion Estatal B</a>
+                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vfa" role="tab"
+                    aria-controls="vert-tabs-settings" aria-selected="false">Verificacion Federla A</a>
+                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vfb" role="tab"
+                    aria-controls="vert-tabs-settings" aria-selected="false">Verificacion Federla B</a>
+                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#fm" role="tab"
+                    aria-controls="vert-tabs-settings" aria-selected="false">Fisico Mecanico</a>
+                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="propietarios" role="tab"
+                    aria-controls="vert-tabs-settings" aria-selected="false">Propietarios anteriores</a>
+                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#empresa" role="tab"
+                    aria-controls="vert-tabs-settings" aria-selected="false">Empresas</a>
             </div>
         </div>
         <div class="col-7 col-sm-9">
             <div class="tab-content" id="vert-tabs-tabContent">
                 <div class="tab-pane text-left fade active show" id="vert-tabs-home" role="tabpanel"
                     aria-labelledby="vert-tabs-home-tab">
-                    Principal 
+                    Principal
                 </div>
                 <div class="tab-pane fade " id="vert-tabs-profile" role="tabpanel" aria-labelledby="vert-tabs-profile-tab">
                     <h1>Campos de vehiculo</h1>
@@ -138,14 +138,806 @@
                     <img src="/ayudaa/actualizar vehiculo.jpg" alt="">
                 </div>
                 <!--Fin de vehiculo -->
-                <div class="tab-pane fade" id="vert-tabs-messages" role="tabpanel"
-                    aria-labelledby="vert-tabs-messages-tab">
-                    bay
+                <div class="tab-pane fade" id="Documentos" role="tabpanel" aria-labelledby="vert-tabs-messages-tab">
+                    <h1>Campos documentos</h1>
+                    <p>
+                        Vehículo: Se refiere a el vehículo al cual le pertenecen esos documentos.
+                        <br>
+                        Nombre del comprador: El nombre de la persona o entidad que compro el vehículo.
+                        <br>
+                        Nombre del vendedor: El nombre de la persona o entidad que vendió el vehículo.
+                        <br>
+                        Contrato de compraventa: Es el documento que se genera al hacer la compra.
+                        <br>
+                        Carta responsiva:
+                        <br>
+                        Identificación del vendedor:
+                        <br>
+                        Informe repuve:
+                        <br>
+                    </p>
+                    <h3>Registro de documento.</h3>
+                    <p>
+                        1.- Debe de seleccionar el botón el cual dice registro de documentos que se encuentra arriba de la
+                        tabla principal.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- Una vez oprimido el botón nos redireccionara a un formulario el cual debemos llenar con los
+                        datos correspondientes, En el caso de los campos de Contrato de compraventa, carta responsiva,
+                        identificación del vendedor e informe repuve. Al presionar el campo se desplegará una lista con la
+                        respuesta si o no en la cual debemos escoger dependiendo si contamos con ese documento o no se
+                        cuenta con el documento, en caso que escojamos si se habilitara un nuevo campo el cual nos permitirá
+                        introducir el documento correspondiente.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- ya como paso final únicamente tendremos que oprimir el botón registrar el cual se encuentra en
+                        la parte inferior del formulario.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Edición de documento.</h3>
+                    <p>1.- Para ir a la vista de edición se debe de oprimir el botón azul que se encuentra en la parte final
+                        del registro dentro de la tabla correspondiente.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- Una vez en la vista del formulario podremos apreciar como los campos ya están llenos con la
+                        información, únicamente tenemos que modificar lo que sea necesario en ese instante.
+                    </p>
+                    <img src="" alt="">
+                    <p>3.- para guardar los cambios únicamente se tiene que oprimir el botón de registrar y listo.</p>
+                    <img src="" alt="">
+                    <h3>Eliminar documento</h3>
+                    <p>
+                        Para Eliminar un registro únicamente hay que presionar el botón rojo en la parte final del registro
+                        el cual al presionarlo nos saldrá una alerta de precaución en donde se decidirá si quieren eliminar
+                        el registro o cancelar la eliminación.
+                    </p>
+                    <img src="" alt="">
+                    <img src="" alt="">
                 </div>
-                <div class="tab-pane fade" id="vert-tabs-settings" role="tabpanel"
-                    aria-labelledby="vert-tabs-settings-tab">
-                    chao
+                <!--Fin-->
+                <div class="tab-pane fade" id="vn" role="tabpanel" aria-labelledby="vert-tabs-settings-tab">
+                    <h1>Campos de vehículos nacionales.</h1>
+                    <p>
+                        Vehículo:
+                        <br>
+                        Numero de factura:
+                        <br>
+                        Factura:
+                        <br>
+                        Refactura:
+                        <br>
+                        Refactura:
+                        <br>
+                        Carta factura:
+                        <br>
+                        Carta factura:
+                        <br>
+                    </p>
+                    <h3>Registro de vehículo nacional.</h3>
+                    <p>1.- se debe de oprimir el botón en la parte superior el cual se llama registrar vehículo.</p>
+                    <img src="" alt="">
+                    <p>2.- Nos aparecerá el formulario el cual debe ser llenado con los datos correspondientes.</p>
+                    <img src="" alt="">
+                    <p>3.- tendremos que oprimir el botón de registrar y el registro estará realizado.</p>
+                    <img src="" alt="">
+                    <h3>Editar vehículo nacional</h3>
+                    <p>
+                        1.- Debemos dar clip al penúltimo botón en el registro de la tabla.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- En el formulario nos encontramos con el formulario lleno con la información del registro y se
+                        pueden modificar los campos que sean necesario.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Para guardar el registro se deberá oprimir el botón registrar.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Eliminar vehículo</h3>
+                    <p>
+
+                    </p>
                 </div>
+                <!--Fin-->
+                <div class="tab-pane fade" id="vi" role="tabpanel" aria-labelledby="vert-tabs-settings-tab">
+                    <h1>Campos de vehículos importados.</h1>
+                    <p>
+                        Vehículo:
+                        <br>
+                        Numero de factura:
+                        <br>
+                        Factura:
+                        <br>
+                        Pedimiento:
+                        <br>
+                        Pedimiento:
+                        <br>
+                        Título de propietario:
+                        <br>
+                        Título de propietario:
+                        <br>
+                    </p>
+                    <h3>Registro de vehículo importado.</h3>
+                    <p>
+                        1.- Oprimir el botón de la parte superior que se llama registro vehículo.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- En el formulario se tendrá que rellenar los campos con la información correspondiente.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Al finalizar se deberá oprimir el botón registrar en la parte final del formulario.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Editar vehículo importado.</h3>
+                    <p>
+                        1.- tendremos que dar en el penúltimo botón el cual nos enviara a un formulario.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- El formulario estará lleno con la información del registro.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Se debe dar al botón registra para actualizar el registro.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Eliminar vehículo importado.</h3>
+                    <p>
+                        Se tiene que oprimir el ultimo botón del registro que se encuentra de color rojo el cual nos mandara
+                        una alerta la cual debemos de aceptar.
+                    </p>
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+                <!--Fin-->
+                <div class="tab-pane fade" id="permisos" role="tabpanel" aria-labelledby="vert-tabs-settings-tab">
+                    <h1>Campos de permisos</h1>
+                    <p>
+                        Vehículo:
+                        <br>
+                        Numero de permiso:
+                        <br>
+                        Permiso:
+                        <br>
+                    </p>
+                    <h3>Registro de permisos.</h3>
+                    <p>
+                        1.- Debemos oprimir el botón de registro de permisos que se encuentra en la parte superior, llamado
+                        registro de permiso.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- Nos enviara a un formulario al cual debemos de llenar con los datos correspondientes.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Por último, paso debemos de oprimir el botón de registrar.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Editar permisos.</h3>
+                    <p>
+                        1.- debemos oprimir el penúltimo botón de color azul encontrado en el registro de la tabla
+                        correspondiente de permisos.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- El formulario que aparezca tendrá el campo lleno con la información de registro y tendremos el
+                        permiso de poder modificarlo, de la manera que queramos.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Para finalizar tendremos que oprimir el botón de registro y se actualizara.
+                    </p>
+                    <h3> Eliminar permiso</h3>
+                    <p>
+                        Para realizar la eliminación de un registro se debe oprimir el ultimo botón de el registro que
+                        aparece en la tabla, una vez apretado el botón nos saltara una alerta en la cual se tendrá que
+                        aceptar o denegar dependiendo de lo que se quiera realizar.
+                    </p>
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+                <!--Fin-->
+                <div class="tab-pane fade" id="placas" role="tabpanel" aria-labelledby="vert-tabs-settings-tab">
+                    <h1>Campos placas.</h1>
+                    <p>
+                        vehículo:
+                        <br>
+                        Placa:
+                        <br>
+                        Entidad:
+                        <br>
+                        Vencimiento:
+                        <br>
+                        Alta:
+                        <br>
+                        Baja:
+                        <br>
+                        Estatus:
+                        <br>
+                        Cambio de propietario:
+                        <br>
+                        Fecha de cambio de propietario:
+                        <br>
+                        Observaciones:
+                        <br>
+                        PDF de las placas:
+                        <br>
+                    </p>
+                    <h3>Registrar placa.</h3>
+                    <p>1.- Se debe de seleccionar el botón llamado registro de placas el cual se encuentra en la parte
+                        superior arriba de la tabla de registros.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- Una vez ya en el formulario se debe llenar todos los campos que el formulario solicita.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Como último paso únicamente se tiene que oprimir el botón registrar y se guardara el registro.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Editar placa.</h3>
+                    <p>
+                        1.- Se tiene que oprimir el penúltimo botón ubicado en el registro de la tabla.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- El formulario que aparezca tendrá los campos llenos con la información de registro y tendremos
+                        el permiso de poder modificarlo, de la manera que queramos.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Para finalizar tendremos que oprimir el botón de registro y se actualizara.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Eliminar placa</h3>
+                    <p>
+                        Para realizar la eliminación de un registro se debe oprimir el ultimo botón del registro que aparece
+                        en la tabla, una vez apretado el botón nos saltara una alerta en la cual se tendrá que aceptar o
+                        denegar dependiendo de lo que se quiera realizar.
+                    </p>
+                </div>
+                <!--Fin-->
+                <div class="tab-pane fade" id="tarjetas" role="tabpanel" aria-labelledby="vert-tabs-settings-tab">
+                    <h1>Campos tarjetas de circulación.</h1>
+                    <p>
+                        Vehículo:
+                        <br>
+                        Placas:
+                        <br>
+                        Inicio:
+                        <br>
+                        Vencimiento:
+                        <br>
+                        Estatus:
+                        <br>
+                        Tarjeta de circulación:
+                        <br>
+                    </p>
+                    <h3>Registrar tarjeta de circulación.</h3>
+                    <p>
+                        1.- Se tiene que oprimir el botón llamado registro de tarjeta de circulación ubicado en la parte
+                        superior arriba de la tabla de registros.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- En el formulario se tendrán que rellenar los campos con la información correspondiente.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Para guardar el registro únicamente se tiene que presionar el botón del final llamado registro.
+                    </p>
+                    <h3>Editar tarjeta de circulación.</h3>
+                    <p>
+                        1.- Se tiene que oprimir el penúltimo botón ubicado en el registro de la tabla.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- El formulario que aparezca tendrá los campos llenos con la información de registro y tendremos
+                        el permiso de poder modificarlo, de la manera que queramos.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Para finalizar tendremos que oprimir el botón de registro y se actualizara.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Eliminar tarjeta de circulación</h3>
+                    <p>
+                        Para realizar la eliminación de un registro se debe oprimir el ultimo botón del registro que aparece
+                        en la tabla, una vez apretado el botón nos saltara una alerta en la cual se tendrá que aceptar o
+                        denegar dependiendo de lo que se quiera realizar.
+                    </p>
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+                <!--Fin-->
+                <div class="tab-pane fade" id="poliza" role="tabpanel" aria-labelledby="vert-tabs-settings-tab">
+                    <h1>Campos de póliza</h1>
+                    <p>
+                        Vehículo:
+                        <br>
+                        Póliza:
+                        <br>
+                        Aseguradora:
+                        <br>
+                        Estatus:
+                        <br>
+                        Inicio:
+                        <br>
+                        Vencimiento:
+                        <br>
+                        Endoso:
+                        <br>
+                        PDF:
+                        <br>
+                    </p>
+                    <h3>Registrar póliza.</h3>
+                    <p>
+                        1.- Se debe de seleccionar el botón llamado registro de placas el cual se encuentra en la parte
+                        superior arriba de la tabla de registros.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- Una vez ya en el formulario se debe llenar todos los campos que el formulario solicita.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Como último paso únicamente se tiene que oprimir el botón registrar y se guardara el registro.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Editar póliza.</h3>
+                    <p>
+                        1.- Se tiene que oprimir el penúltimo botón ubicado en el registro de la tabla.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- El formulario que aparezca tendrá los campos llenos con la información de registro y tendremos
+                        el permiso de poder modificarlo, de la manera que queramos.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Para finalizar tendremos que oprimir el botón de registro y se actualizara.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Eliminar póliza</h3>
+                    <p>
+                        Para realizar la eliminación de un registro se debe oprimir el ultimo botón del registro que aparece
+                        en la tabla, una vez apretado el botón nos saltara una alerta en la cual se tendrá que aceptar o
+                        denegar dependiendo de lo que se quiera realizar.
+                    </p>
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+                <!--Fin-->
+                <div class="tab-pane fade" id="tenencia" role="tabpanel" aria-labelledby="vert-tabs-settings-tab">
+                    <h1>Campos tenencias.</h1>
+                    <p>
+                        vehículo:
+                        <br>
+                        Tenencia:
+                        <br>
+                        Pago:
+                        <br>
+                        Estatus:
+                        <br>
+                        PDF:
+                        <br>
+                    </p>
+                   
+                    <h3>Registrar tenencia.</h3>
+                    <p>
+                        1.- Se debe de seleccionar el botón llamado registro de placas el cual se encuentra en la parte
+                        superior arriba de la tabla de registros.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- Una vez ya en el formulario se debe llenar todos los campos que el formulario solicita.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Como último paso únicamente se tiene que oprimir el botón registrar y se guardara el registro.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Editar tenencia.</h3>
+                    <p>
+                        1.- Se tiene que oprimir el penúltimo botón ubicado en el registro de la tabla.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- El formulario que aparezca tendrá los campos llenos con la información de registro y tendremos
+                        el permiso de poder modificarlo, de la manera que queramos.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Para finalizar tendremos que oprimir el botón de registro y se actualizara.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Eliminar tenencia</h3>
+                    <p>Para realizar la eliminación de un registro se debe oprimir el ultimo botón del registro que aparece
+                        en la tabla, una vez apretado el botón nos saltara una alerta en la cual se tendrá que aceptar o
+                        denegar dependiendo de lo que se quiera realizar.
+                    </p>
+                </div>
+                <!--Fin-->
+                <div class="tab-pane fade" id="vea" role="tabpanel" aria-labelledby="vert-tabs-settings-tab">
+                    <h1>Campos verificación estatal 1° Periodo.</h1>
+                    <p>
+                        Vehículo:
+                        <br>
+                        Placas:
+                        <br>
+                        Engomado:
+                        <br>
+                        Verificación:
+                        <br>
+                        Fecha:
+                        <br>
+                        Estatus:
+                        <br>
+                        PDF:
+                        <br>
+                    </p>
+                    <img src="/ayudaa/calendario.jpg" alt="">
+                    <h3>Registrar Verificación estatal 1° periodo.</h3>
+                    <p>
+                        1.- Se debe de seleccionar el botón llamado registro de placas el cual se encuentra en la parte
+                        superior arriba de la tabla de registros.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- Una vez ya en el formulario se debe llenar todos los campos que el formulario solicita.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Como último paso únicamente se tiene que oprimir el botón registrar y se guardara el registro.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Editar verificación estatal 1° Periodo.</h3>
+                    <p>
+                        1.- Se tiene que oprimir el penúltimo botón ubicado en el registro de la tabla.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- El formulario que aparezca tendrá los campos llenos con la información de registro y tendremos
+                        el permiso de poder modificarlo, de la manera que queramos.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Para finalizar tendremos que oprimir el botón de registro y se actualizara.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Eliminar verificación estatal 1° Periodo</h3>
+                    <p>
+                        Para realizar la eliminación de un registro se debe oprimir el ultimo botón del registro que aparece
+                        en la tabla, una vez apretado el botón nos saltara una alerta en la cual se tendrá que aceptar o
+                        denegar dependiendo de lo que se quiera realizar.
+                    </p>
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+                <!--Fin-->
+                <div class="tab-pane fade" id="veb" role="tabpanel" aria-labelledby="vert-tabs-settings-tab">
+                    <h1>Campos verificación estatal 2° periodo.</h1>
+                    <p>
+                        Vehículo:
+                        <br>
+                        Placas:
+                        <br>
+                        Engomado:
+                        <br>
+                        Verificación:
+                        <br>
+                        Fecha:
+                        <br>
+                        Estatus:
+                        <br>
+                        PDF:
+                        <br>
+                    </p>
+                    <img src="/ayudaa/calendario.jpg" alt="">
+                    <h3>Registrar Verificación estatal 2° periodo.</h3>
+                    <p>
+                        1.- Se debe de seleccionar el botón llamado registro de placas el cual se encuentra en la parte
+                        superior arriba de la tabla de registros.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- Una vez ya en el formulario se debe llenar todos los campos que el formulario solicita.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Como último paso únicamente se tiene que oprimir el botón registrar y se guardara el registro.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Editar verificación estatal 2° periodo.</h3>
+                    <p>
+                        1.- Se tiene que oprimir el penúltimo botón ubicado en el registro de la tabla.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- El formulario que aparezca tendrá los campos llenos con la información de registro y tendremos
+                        el permiso de poder modificarlo, de la manera que queramos.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Para finalizar tendremos que oprimir el botón de registro y se actualizara.
+                    </p>
+                    <h3>Eliminar verificación estatal 2° periodo</h3>
+                    <p>
+                        Para realizar la eliminación de un registro se debe oprimir el ultimo botón del registro que aparece
+                        en la tabla, una vez apretado el botón nos saltara una alerta en la cual se tendrá que aceptar o
+                        denegar dependiendo de lo que se quiera realizar.
+                    </p>
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+                <!--Fin-->
+                <div class="tab-pane fade" id="vfa" role="tabpanel" aria-labelledby="vert-tabs-settings-tab">
+                    <h1>Campos de verificación Federar 1° periodo.</h1>
+                    <p>
+                        Vehículo:
+                        <br>
+                        Placas:
+                        <br>
+                        Verificación:
+                        <br>
+                        Fecha:
+                        <br>
+                        Estatus:
+                        <br>
+                        PDF:
+                        <br>
+                    </p>
+                    <h3>Registrar Verificación Federar 1° periodo.</h3>
+                    <p>
+                        1.- Se debe de seleccionar el botón llamado registro de placas el cual se encuentra en la parte
+                        superior arriba de la tabla de registros.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- Una vez ya en el formulario se debe llenar todos los campos que el formulario solicita.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Como último paso únicamente se tiene que oprimir el botón registrar y se guardara el registro.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Editar de verificación Federar 1° periodo.</h3>
+                    <p>
+                        1.- Se tiene que oprimir el penúltimo botón ubicado en el registro de la tabla.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- El formulario que aparezca tendrá los campos llenos con la información de registro y tendremos
+                        el permiso de poder modificarlo, de la manera que queramos.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Para finalizar tendremos que oprimir el botón de registro y se actualizara.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Eliminar de verificación Federar 1° periodo</h3>
+                    <p>
+                        Para realizar la eliminación de un registro se debe oprimir el ultimo botón del registro que aparece
+                        en la tabla, una vez apretado el botón nos saltara una alerta en la cual se tendrá que aceptar o
+                        denegar dependiendo de lo que se quiera realizar.
+                    </p>
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+                <!--Fin-->
+                <div class="tab-pane fade" id="vfb" role="tabpanel" aria-labelledby="vert-tabs-settings-tab">
+                    <h1>Campos verificación federal 2° periodo.</h1>
+                    <p>
+                        Vehículo:
+                        <br>
+                        Placas:
+                        <br>
+                        Verificación:
+                        <br>
+                        Fecha:
+                        <br>
+                        Estatus:
+                        <br>
+                        PDF:
+                        <br>
+                    </p>
+                    <h3>Registrar Verificación federal 2° periodo.</h3>
+                    <p>
+                        1.- Se debe de seleccionar el botón llamado registro de placas el cual se encuentra en la parte
+                        superior arriba de la tabla de registros.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- Una vez ya en el formulario se debe llenar todos los campos que el formulario solicita.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Como último paso únicamente se tiene que oprimir el botón registrar y se guardara el registro.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Editar verificación federal 2° periodo.</h3>
+                    <p>
+                        1.- Se tiene que oprimir el penúltimo botón ubicado en el registro de la tabla.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- El formulario que aparezca tendrá los campos llenos con la información de registro y tendremos
+                        el permiso de poder modificarlo, de la manera que queramos.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Para finalizar tendremos que oprimir el botón de registro y se actualizara.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Eliminar verificación federal 2° periodo</h3>
+                    <p>
+                        Para realizar la eliminación de un registro se debe oprimir el ultimo botón del registro que aparece
+                        en la tabla, una vez apretado el botón nos saltara una alerta en la cual se tendrá que aceptar o
+                        denegar dependiendo de lo que se quiera realizar.
+                    </p>
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+                <!--Fin-->
+                <div class="tab-pane fade" id="fm" role="tabpanel" aria-labelledby="vert-tabs-settings-tab">
+                    <h1>Campos Físico mecánico.</h1>
+                    <p>
+                        Vehículo:
+                        <br>
+                        Placas:
+                        <br>
+                        Verificación:
+                        <br>
+                        Fecha:
+                        <br>
+                        Estatus:
+                        <br>
+                        PDF:
+                        <br>
+                    </p>
+                    <h3>Registrar Físico mecánico.</h3>
+                    <p>
+                        1.- Se debe de seleccionar el botón llamado registro de placas el cual se encuentra en la parte
+                        superior arriba de la tabla de registros.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- Una vez ya en el formulario se debe llenar todos los campos que el formulario solicita.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Como último paso únicamente se tiene que oprimir el botón registrar y se guardara el registro.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Editar Físico mecánico.</h3>
+                    <p>
+                        1.- Se tiene que oprimir el penúltimo botón ubicado en el registro de la tabla.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- El formulario que aparezca tendrá los campos llenos con la información de registro y tendremos
+                        el permiso de poder modificarlo, de la manera que queramos.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Para finalizar tendremos que oprimir el botón de registro y se actualizara.
+                    </p>
+                    <h3>Eliminar Físico mecánico.</h3>
+                    <p>
+                        Para realizar la eliminación de un registro se debe oprimir el ultimo botón del registro que aparece
+                        en la tabla, una vez apretado el botón nos saltara una alerta en la cual se tendrá que aceptar o
+                        denegar dependiendo de lo que se quiera realizar.
+                    </p>
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+                <!--Fin-->
+                <div class="tab-pane fade" id="propietarios" role="tabpanel" aria-labelledby="vert-tabs-settings-tab">
+                    <h1>Campos de propietarios anteriores.</h1>
+                    <p>
+                        Vehículo:
+                        <br>
+                        Vendedor:
+                        <br>
+                        Identificación del vendedor:
+                        <br>
+                        Comprador:
+                        <br>
+                        Identificación del comprador:
+                        <br>
+                    </p>
+                    <h3>Registrar propietarios anteriores.</h3>
+                    <p>
+                        1.- Se debe de seleccionar el botón llamado registro de placas el cual se encuentra en la parte
+                        superior arriba de la tabla de registros.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- Una vez ya en el formulario se debe llenar todos los campos que el formulario solicita.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Como último paso únicamente se tiene que oprimir el botón registrar y se guardara el registro.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Editar propietarios anteriores.</h3>
+                    <p>
+                        1.- Se tiene que oprimir el penúltimo botón ubicado en el registro de la tabla.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- El formulario que aparezca tendrá los campos llenos con la información de registro y tendremos
+                        el permiso de poder modificarlo, de la manera que queramos.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Para finalizar tendremos que oprimir el botón de registro y se actualizara.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Eliminar propietarios anteriores</h3>
+                    <p>
+                        Para realizar la eliminación de un registro se debe oprimir el ultimo botón del registro que aparece
+                        en la tabla, una vez apretado el botón nos saltara una alerta en la cual se tendrá que aceptar o
+                        denegar dependiendo de lo que se quiera realizar.
+                    </p>
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+                <!--Fin-->
+                <div class="tab-pane fade" id="empresa" role="tabpanel" aria-labelledby="vert-tabs-settings-tab">
+                    <h1>Campos de empresas.</h1>
+                    <p>
+                        Nombre de la empresa:
+                        <br>
+                        RFC:
+                        <br>
+                    </p>
+                    <h3>Registrar empresas.</h3>
+                    <p>
+                        1.- Se debe de seleccionar el botón llamado registro de placas el cual se encuentra en la parte
+                        superior arriba de la tabla de registros.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- Una vez ya en el formulario se debe llenar todos los campos que el formulario solicita.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Como último paso únicamente se tiene que oprimir el botón registrar y se guardara el registro.
+                    </p>
+                    <img src="" alt="">
+                    <h3>Editar empresas.</h3>
+                    <p>
+                        1.- Se tiene que oprimir el penúltimo botón ubicado en el registro de la tabla.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        2.- El formulario que aparezca tendrá los campos llenos con la información de registro y tendremos
+                        el permiso de poder modificarlo, de la manera que queramos.
+                    </p>
+                    <img src="" alt="">
+                    <p>
+                        3.- Para finalizar tendremos que oprimir el botón de registro y se actualizara.
+                    </p>
+                    <h3>Eliminar empresas</h3>
+                    <p>
+                        Para realizar la eliminación de un registro se debe oprimir el ultimo botón del registro que aparece
+                        en la tabla, una vez apretado el botón nos saltara una alerta en la cual se tendrá que aceptar o
+                        denegar dependiendo de lo que se quiera realizar.
+                    </p>
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+
+
             </div>
         </div>
     </div>

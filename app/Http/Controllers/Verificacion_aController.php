@@ -125,7 +125,7 @@ class Verificacion_aController extends Controller
     public function destroy($id)
     {
         $valores = Verificacion_a::find($id);
-        unlink('PDF/'.$valores->archivo);
+        unlink('Verificaciones A/'.$valores->archivo);
         $valores->delete();
         return redirect('/verificacion_a');
     }

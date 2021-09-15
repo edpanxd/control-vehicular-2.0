@@ -12,7 +12,7 @@
         <div class="row">
             <div class="form-group col-md-6">
                 <label for="recipient-name" class="col-form-label">Nombre de la empresa:</label>
-                <input type="text" class="form-control" name="empresa" maxlength="50" required>
+                <input type="text" class="form-control" name="empresa" maxlength="75" required>
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">RFC:</label>

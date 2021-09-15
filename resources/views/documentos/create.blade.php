@@ -21,11 +21,11 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Nombre del comprador:</label>
-                <input type="text" class="form-control" name="comprador" maxlength="50" required>
+                <input type="text" class="form-control" name="comprador" maxlength="75" required>
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Nombre del vendedor:</label>
-                <input type="text" class="form-control" name="vendedor" maxlength="50" required>
+                <input type="text" class="form-control" name="vendedor" maxlength="75" required>
             </div>
             <!--///////-->
             <div class="form-group col-md-6">

@@ -115,27 +115,6 @@ class vehiculos_iController extends Controller
         $valores->pedimiento = $request->get('pedimiento');
         $valores->titulo_pro = $request->get('titulo_pro');
         $valores->id_vehiculo = $request->get('vehiculo');
-        if($archivo_fa= $request->file('archivo_fa')){
-            unlink('Vehiculos_Nacionales/'.$valores->archivo_fa);
-            $rutaguardarpdf= 'Vehiculos_Nacionales/';
-            $archivonombre= date('YmdHis'). "." . $archivo_fa->getClientOriginalExtension();
-            $archivo_fa->move($rutaguardarpdf, $archivonombre);
-            $valores->archivo_fa="$archivonombre";
-        }else{ $valores->archivo_fa;}
-        if($archivo_pe= $request->file('archivo_pe')){
-            unlink('Vehiculos_Nacionales/'.$valores->archivo_pe);
-            $rutaguardarpdf= 'Vehiculos_Nacionales/';
-            $archivonombre= date('YmdHis'). "." . $archivo_pe->getClientOriginalExtension();
-            $archivo_pe->move($rutaguardarpdf, $archivonombre);
-            $valores->archivo_pe="$archivonombre";
-        }else{ $valores->archivo_pe; }
-        if($archivo_titu= $request->file('archivo_titu')){
-            unlink('Vehiculos_Nacionales/'.$valores->archivo_titu);
-            $rutaguardarpdf= 'Vehiculos_Nacionales/';
-            $archivonombre= date('YmdHis'). "." . $archivo_titu->getClientOriginalExtension();
-            $archivo_titu->move($rutaguardarpdf, $archivonombre);
-            $valores->archivo_titu="$archivonombre";
-        }else{ $valores->archivo_titu; }
         $valores->save();
         return redirect('/vehiculoi');
     }

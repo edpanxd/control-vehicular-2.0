@@ -122,7 +122,7 @@ class propietarios_aController extends Controller
     public function destroy($id)
     {
         $valores = propietarios_a::find($id);
-        unlink('Propietarios anteriores/'.$valores->archivo_per);
+       // unlink('Propietarios anteriores/'.$valores->archivo_per);
         $valores->delete();
         return redirect('/propietario')
         ->with('status_success','Eliminado Correctamente');

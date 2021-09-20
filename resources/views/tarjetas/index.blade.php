@@ -43,7 +43,7 @@
                         <a class="btn btn-info" href="/tarjeta/{{ $valores->id }}/edit"><i
                                 class="fas fa-edit"></i></a>
                     </td>
-                  <th><a class="btn btn-danger eliminar" href="/tarjetad/"><i
+                  <th><a class="btn btn-danger eliminar" href="/tarjetad/{{ $valores->id }}"><i
                                 class="fas fa-trash-alt"></i></a></th>
                 </tr>
             @endforeach

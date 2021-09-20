@@ -3,7 +3,7 @@
 @section('title', 'Dash')
 
 @section('content_header')
-    <h1>Registro de Poliza</h1>
+    <h1>Editar Poliza</h1>
 @stop
 
 @section('content')

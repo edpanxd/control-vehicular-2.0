@@ -115,7 +115,6 @@ class permisosController extends Controller
     public function destroy($id)
     {
         $valores = permisos::find($id);
-        unlink('Permisos/'.$valores->archivo_per);
         $valores->delete();
         return redirect('/permiso')
         ->with('status_success','Eliminado Correctamente');

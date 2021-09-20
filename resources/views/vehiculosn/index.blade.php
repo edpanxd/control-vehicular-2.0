@@ -71,7 +71,7 @@
                             <a class="btn btn-info" href="/vehiculon/{{ $valores->id }}/edit"><i
                                     class="fas fa-edit"></i></a>
                         </td>
-                        <th><a class="btn btn-danger eliminar" href="/vehiculond/"><i class="fas fa-trash-alt"></i></a></th>
+                        <th><a class="btn btn-danger eliminar" href="/vehiculond/{{ $valores->id }}"><i class="fas fa-trash-alt"></i></a></th>
                     </tr>
                 @endforeach
             </tbody>

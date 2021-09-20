@@ -53,12 +53,16 @@ class propietarios_aController extends Controller
             $archivonombre= date('YmdHis'). "." . $ide_ven->getClientOriginalExtension();
             $ide_ven->move($rutaguardarpdf, $archivonombre);
             $valores->ide_ven="$archivonombre";
+        }else{
+            $valores->ide_ven="Sin archivo";
         }
         if($ide_com= $request->file('ide_com')){
             $rutaguardarpdf= 'Propietarios anteriores/';
             $archivonombre= date('YmdHis'). "." . $ide_com->getClientOriginalExtension();
             $ide_com->move($rutaguardarpdf, $archivonombre);
             $valores->ide_com="$archivonombre";
+        }else{
+            $valores->ide_com="Sin archivo";
         }
         $valores->save();
         return redirect('/propietario');

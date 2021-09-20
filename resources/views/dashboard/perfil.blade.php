@@ -417,8 +417,9 @@
                                             <tr>
                                                 <th scope="col">Id</th>
                                                 <th scope="col">Póliza</th>
-                                                <th scope="col">Seguro</th>
-                                                <th scope="col">Vigencia</th>
+                                                <th scope="col">Aseguradora</th>
+                                                <th scope="col">Inicio</th>
+                                                <th scope="col">Vencimiento</th>
                                                 <th scope="col">Estatus</th>
                                                 <th scope="col">PDF</th>
 
@@ -429,8 +430,9 @@
                                                 <tr>
                                                     <td>{{ $polizas->id }}</td>
                                                     <td>{{ $polizas->poliza }}</td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>{{ $polizas->aseguradora }}</td>
+                                                    <td>{{ $polizas->inicio }}</td>
+                                                    <td>{{ $polizas->vencimiento }}</td>
                                                     <td>{{ $polizas->estatus }}</td>
                                                     <th><a class="btn btn-primary" href="/Polizas/{{ $polizas->archivo }}"
                                                             target="_blank"><i class="far fa-file-pdf"></i></a></th>

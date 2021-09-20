@@ -46,6 +46,24 @@ class vehiculos_nController extends Controller
         $valores->refactura = $request->get('refactura');
         $valores->carta_fa = $request->get('carta_fa');
         $valores->id_vehiculo = $request->get('vehiculo');
+        if($archivo_fa= $request->file('archivo_fa')){
+            $rutaguardarpdf= 'Factura/';
+            $archivonombre= date('YmdHis')."-".$valores->no_factura."." . $archivo_fa->getClientOriginalExtension();
+            $archivo_fa->move($rutaguardarpdf, $archivonombre);
+            $valores->archivo_fa="$archivonombre";
+        }else{ $valores->archivo_fa="Sin archivo"; }
+        if($archivo_refa= $request->file('archivo_refa')){
+            $rutaguardarpdf= 'Refactura/';
+            $archivonombre= date('YmdHis')."-".$valores->refactura. "." . $archivo_refa->getClientOriginalExtension();
+            $archivo_refa->move($rutaguardarpdf, $archivonombre);
+            $valores->archivo_refa="$archivonombre";
+        }else{ $valores->archivo_refa="Sin archivo"; }
+        if($archivo_car= $request->file('archivo_car')){
+            $rutaguardarpdf= 'Carta factura/';
+            $archivonombre= date('YmdHis')."-".$valores->carta_fa. "." . $archivo_car->getClientOriginalExtension();
+            $archivo_car->move($rutaguardarpdf, $archivonombre);
+            $valores->archivo_car="$archivonombre";
+        }else{ $valores->archivo_car="Sin archivo"; }
         $valores->save();
         return redirect('/vehiculon');
     }

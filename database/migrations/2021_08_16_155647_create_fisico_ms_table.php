@@ -17,6 +17,7 @@ class CreateFisicoMsTable extends Migration
             $table->id();
             $table->string('placa');
             $table->string('verificacion');
+            $table->string('terminacion');
             $table->date('fecha');
             $table->string('estatus');
             $table->string('archivo');

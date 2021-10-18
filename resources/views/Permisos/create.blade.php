@@ -21,7 +21,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Numero de Permiso:</label>
-                <input type="text" class="form-control" name="no_permiso" maxlength="20" required>
+                <input type="text" class="form-control" name="no_permiso" maxlength="30" required>
             </div>
             <div class="form-group col-6 mb-4">
                 <label class="col-form-label">Permiso</label>

@@ -17,9 +17,9 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Id</th>
-                <th scope="col">vehiculo</th>
-                <th scope="col">placa</th>
-                <th scope="col">Inicio</th>
+                <th scope="col">Vehiculo</th>
+                <th scope="col">Placa</th>
+                <th scope="col">Folio</th>
                 <th scope="col">Vencimiento</th>
                 <th scope="col">Esatus</th>
                 <th scope="col">PDF</th>
@@ -31,12 +31,12 @@
         <tbody>
             @foreach ($valores as $valores)
                 <tr>
-                    <td>{{ $valores->id }}</td>
-                    <td>{{ $valores->marca }}</td>
-                    <td>{{ $valores->placas }}</td>
-                    <td>{{ $valores->inicio }}</td>
-                    <td>{{ $valores->vencimiento }}</td>
-                    <td>{{ $valores->estatus }}</td>
+                    <td>{{ $valores->id}}</td>
+                    <td>{{ $valores->marca}}</td>
+                    <td>{{ $valores->placas}}</td>
+                    <td>{{ $valores->folio}}</td>
+                    <td>{{ $valores->vencimiento}}</td>
+                    <td>{{ $valores->estatus}}</td>
                     <td><a class="btn btn-primary" href="/Tarjetas de circulacion/{{ $valores->archivo_pla }}" target="_blank">
                         <i class="far fa-file-pdf"></i></a></td>
                     <td>

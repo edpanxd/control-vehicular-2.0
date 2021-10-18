@@ -13,13 +13,17 @@
         <div class="row">
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Vehículo:</label>
-                <select class="custom-select" id="pe" name="vehiculo" required>
+                <select class="custom-select select2" id="pe" name="vehiculo" required>
                     @foreach ($datos as $datos)
-                        <option value="{{ $datos->id_vehiculo }}">{{ $datos->marca }}</option>
+                        <option value="{{ $datos->id_vehiculo }}">{{ $datos->marca }}, {{$datos->serie}}</option>
                     @endforeach
-
                     @foreach ($selec as $selec)
-                        <option value="{{ $selec->id }}">{{ $selec->marca }}, {{ $selec->serie }} </option>
+                    @if ($datos->id_vehiculo==$selec->id )
+                        
+                    @else
+                    <option value="{{ $selec->id }}">{{ $selec->marca }}, {{ $selec->serie }} </option>
+                    @endif
+                        
                     @endforeach
                 </select>
             </div>
@@ -56,16 +60,16 @@
 
         <div class="form-group col-6">
             <label class="col-form-label">Estatus:</label> <br>
-            <input type="radio" class="btn-check" name="estatus" id="success-outline" value="vigentes" autocomplete="off"
+            <input type="radio" class="btn-check" name="estatus" id="success-outline" value="VIGENTES" autocomplete="off"
                 required>
-            <label class="btn btn-outline-success" for="success-outline">Vigentes</label>
+            <label class="btn btn-outline-success" for="success-outline">VIGENTES</label>
 
-            <input type="radio" class="btn-check" name="estatus" value="vencidas" id="danger-outline" autocomplete="off"
+            <input type="radio" class="btn-check" name="estatus" value="VENCIDAS" id="danger-outline" autocomplete="off"
                 required>
-            <label class="btn btn-outline-danger" for="danger-outline">vencidas</label>
+            <label class="btn btn-outline-danger" for="danger-outline">VENCIDAS</label>
 
-            <input type="radio" class="btn-check" name="estatus" value="baja" id="info-outline" autocomplete="off" required>
-            <label class="btn btn-outline-info" for="info-outline">Dadas de baja</label>
+            <input type="radio" class="btn-check" name="estatus" value="BAJA" id="info-outline" autocomplete="off" required>
+            <label class="btn btn-outline-info" for="info-outline">BAJA</label>
         </div>
         <div class="form-group col-md-6">
             <label for="message-text" class="col-form-label">Cambio de propietario:</label>
@@ -99,6 +103,11 @@
 @stop
 
 @section('js')
+<script>
+    $('.select2').select2({
+        placeholder: 'Seleccione una opcion'
+    });
+</script>
 <script>
     function myFunction() {
         var x = document.getElementById("mySelect").value;

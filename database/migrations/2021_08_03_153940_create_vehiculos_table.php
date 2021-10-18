@@ -24,6 +24,7 @@ class CreateVehiculosTable extends Migration
             $table->string('numeroM');
             $table->string('estatus');
             $table->string('uso');
+            $table->string('nombre_p');
             $table->string('adquisicion');
             $table->string('empresa');
             $table->string('imagen');

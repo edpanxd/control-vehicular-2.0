@@ -32,7 +32,7 @@
                     <td>{{ $data->marca }}</td>
                     <td>{{ $data->serie }}</td>
                     <td>{{ $data->tenencia }}</td>
-                    <td>{{ $data->pago }}</td>
+                    <td>${{ $data->pago }}</td>
                     <td>{{ $data->estatus }}</td>
                     <td><a class="btn btn-primary" href="/Tenencias/{{ $data->archivo }}" target="_blank"><i class="far fa-file-pdf"></i></a></td>
                     <td>

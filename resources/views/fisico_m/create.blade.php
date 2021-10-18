@@ -35,11 +35,20 @@
                 <input type="text" class="form-control" name="verificacion" maxlength="20" required>
             </div>
             <div class="form-group col-md-6">
+                <label for="message-text" class="col-form-label">Terminacion de placa:</label>
+                <select class="custom-select select2" name="terminacion" id="" required>
+                    <option value=""></option>
+                    <option value="ENERO, FEBRERO, MARZO Y ABRIL">5 ó 6</option>
+                    <option value="MARZO, ABRIL, MAYO Y JUNIO">7 u 8</option>
+                    <option value="MAYO, JUNIO, JULIO Y AGOSTO">3 ó 4</option>
+                    <option value="JULIO, AGOSTO, SEPTIEMBRE Y OCTUBRE">1 ó 2</option>
+                    <option value="SEPTIEMBRE, OCTUBRE, NOVIEMBRE Y DICIEMBRE">9 ó 0</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Fecha:</label>
                 <input type="date" class="form-control" name="fecha" maxlength="20" required>
             </div>
-
-
             <div class="form-group col-6">
                 <label class="col-form-label">Estatus:</label> <br>
                 <input type="radio" class="btn-check" name="estatus" id="success-outline" value="Pagado" autocomplete="off"
@@ -81,7 +90,7 @@
     </script>
     <script>
         $('.select2').select2({
-            placeholder: 'Seleccione un vehículo'
+            placeholder: 'Seleccione alguna opción'
         });
     </script>
     <script>

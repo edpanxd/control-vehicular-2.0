@@ -50,6 +50,7 @@ class VehiculoController extends Controller
         $valores->numeroM = $request->get('numeroM');
         $valores->estatus = $request->get('estatus');
         $valores->uso = $request->get('uso');
+        $valores->nombre_p =$request->get('nombre_p');
         $valores->adquisicion = $request->get('adquisicion');
         $valores->empresa = $request->get('empresa');
         if($imagen= $request->file('imagen')){
@@ -107,6 +108,7 @@ class VehiculoController extends Controller
         $valores->numeroM = $request->get('numeroM');
         $valores->estatus = $request->get('estatus');
         $valores->uso = $request->get('uso');
+        $valores->nombre_p =$request->get('nombre_p');
         $valores->adquisicion = $request->get('adquisicion');
         $valores->empresa = $request->get('empresa');
         $valores->save();

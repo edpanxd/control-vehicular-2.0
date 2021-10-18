@@ -14,7 +14,7 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Vehículo</th>
-                    <th scope="col">Placas</th>
+                    <th scope="col">Serie</th>
                     <th scope="col">Verificación</th>
                     <th scope="col">Fecha</th>
                     <th scope="col">Estatus</th>

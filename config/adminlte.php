@@ -250,7 +250,7 @@ return [
             'label_color' => 'success',
         ],
         [
-            'text'    => 'PROPIEDAD',
+            'text'    => 'Propiedad',
             'icon'    => 'fas fa-truck-moving',
             'submenu' => [
                 [
@@ -280,7 +280,7 @@ return [
             ],
         ],
         [
-            'text'    => 'EMPLACAMIENTO',
+            'text'    => 'Emplacamiento',
             'icon'    => 'fas fa-id-card-alt',
             'submenu' => [
                 [

@@ -15,10 +15,15 @@
                 <label for="vehiculo" class="col-form-label">Vehículo:</label>
                 <select class="custom-select select2" id="vehiculo" name="vehiculo" required>
                     @foreach ($datos as $datos)
-                        <option value="{{ $datos->id_vehiculo }}">{{ $datos->marca }}</option>
+                        <option value="{{ $datos->id_vehiculo }}">{{ $datos->marca }}, {{$datos->serie}}</option>
                     @endforeach
                     @foreach ($selec as $selec)
-                        <option value="{{ $selec->id }}">{{ $selec->marca }}, {{ $selec->serie }} </option>
+                    @if ($selec->id==$datos->id_vehiculo)
+                        
+                    @else
+                    <option value="{{ $selec->id }}">{{ $selec->marca }}, {{ $selec->serie }} </option>
+                    @endif
+                        
                     @endforeach
                 </select>
             </div>
@@ -47,6 +52,11 @@
 @stop
 
 @section('js')
+<script>
+    $('.select2').select2({
+        placeholder: 'Seleccione una opcion'
+    });
+</script>
     <script 
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">

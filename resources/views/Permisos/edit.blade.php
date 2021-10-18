@@ -15,16 +15,19 @@
                 <label for="vehiculo" class="col-form-label">Vehículo:</label>
                 <select class="custom-select select2" id="vehiculo" name="vehiculo" required>
                     @foreach ($datos as $datos)
-                        <option value="{{ $datos->id_vehiculo }}">{{ $datos->marca }}</option>
+                        <option value="{{ $datos->id_vehiculo }}">{{ $datos->marca }}, {{$datos->serie}}</option>
                     @endforeach
                     @foreach ($selec as $selec)
-                        <option value="{{ $selec->id }}">{{ $selec->marca }}, {{ $selec->serie }} </option>
+                    @if($datos->id_vehiculo !=$selec->id)
+                    <option value="{{ $selec->id }}">{{ $selec->marca }}, {{ $selec->serie }} </option>
+                    @endif
+                        
                     @endforeach
                 </select>
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Numero de Permiso:</label>
-                <input type="text" class="form-control" name="no_permiso" maxlength="20" value="{{$valores->no_permiso}}" required>
+                <input type="text" class="form-control" name="no_permiso" maxlength="30" value="{{$valores->no_permiso}}" required>
             </div>
         </div>
 
@@ -48,6 +51,11 @@
         $(".custom-file-input").on("change", function() {
             var fileName = $(this).val().split("\\").pop();
             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+    <script>
+        $('.select2').select2({
+            placeholder: 'Seleccione una opcion'
         });
     </script>
 @stop

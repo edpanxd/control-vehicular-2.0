@@ -14,11 +14,11 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Vehículo</th>
-                    <th scope="col">Placas</th>
+                    <th scope="col">Serie</th>
                     <th scope="col">Verificación</th>
                     <th scope="col">Fecha</th>
                     <th scope="col">Estatus</th>
-                    <th scope="col">Nombre de PDF</th>
+                    <th scope="col">Placa</th>
                     <th scope="col">PDF</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
@@ -34,7 +34,7 @@
                         <td>{{ $data->fecha }}</td>
                         <td>{{ $data->estatus }}</td>
                         <td>{{ $data->placa }}</td>
-                        <td><a class="btn btn-primary" href="/PDF/{{ $data->archivo }}" target="_blank"><i
+                        <td><a class="btn btn-primary" href="/fisico mecanico/{{ $data->archivo }}" target="_blank"><i
                                     class="far fa-file-pdf"></i></a></td>
                         <td>
                             <a class="btn btn-info" href="/fisico_m/{{ $data->id }}/edit"><i

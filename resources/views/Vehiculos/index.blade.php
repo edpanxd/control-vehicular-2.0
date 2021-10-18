@@ -18,7 +18,7 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Marca</th>
-                <th scope="col">Submarca</th>
+                <th scope="col">Serie</th>
                 <th scope="col">Tipo</th>
                 <th scope="col">Modelo</th>
                 <th scope="col">Color</th>
@@ -33,7 +33,7 @@
                 <tr>
                     <td><a href="/dashboardvh/{{ $valores->id }}">{{ $valores->id }}</a></td>
                     <td>{{ $valores->marca }}</td>
-                    <td>{{ $valores->submarca }}</td>
+                    <td>{{ $valores->serie }}</td>
                     <td>{{ $valores->tipo }}</td>
                     <td>{{ $valores->modelo }}</td>
                     <td>{{ $valores->color }}</td>

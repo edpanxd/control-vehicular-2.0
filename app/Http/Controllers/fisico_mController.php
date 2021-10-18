@@ -49,6 +49,7 @@ class fisico_mController extends Controller
         $valores = new fisico_m();
         $valores->placa = $request->get('placa');
         $valores->verificacion = $request->get('verificacion');
+        $valores->terminacion = $request->get('terminacion');
         $valores->fecha = $request->get('fecha');
         $valores->estatus = $request->get('estatus');
         $valores->id_vehiculo = $request->get('vehiculo');
@@ -105,9 +106,9 @@ class fisico_mController extends Controller
     {
         $valores = fisico_m::find($id);
         $valores->verificacion = $request->get('verificacion');
+        $valores->terminacion = $request->get('terminacion');
         $valores->fecha = $request->get('fecha');
         $valores->estatus = $request->get('estatus');
-        $valores->nombre = $request->get('nombre');
         $valores->id_vehiculo = $request->get('vehiculo');
         $valores->save();
         return redirect('/fisico_m');

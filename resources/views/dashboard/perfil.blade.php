@@ -29,8 +29,13 @@
 
                             <ul class="list-group list-group-unbordered mb-3">
                                 <li class="list-group-item">
-                                    <b>Color</b> <a class="float-right">{{ $vehiculo->color }}</a>
+                                    <b>Uso</b> <a class="float-right">{{ $vehiculo->uso }}</a>
                                 </li>
+                                @if ($vehiculo->uso == 'PARTICULAR')
+                                    <li class="list-group-item">
+                                        <b>Nombre </b> <a class="float-right">{{ $vehiculo->nombre_p }}</a>
+                                    </li>
+                                @endif
                                 <li class="list-group-item">
                                     <b>Modelo</b> <a class="float-right">{{ $vehiculo->modelo }}</a>
                                 </li>
@@ -67,7 +72,7 @@
                             <p class="text-muted">
                                 {{ $vehiculo->numeroM }}
                             </p>
-                           
+
                             <hr>
 
                             <strong><i class="fas fa-pencil-alt mr-1"></i> Serie</strong>
@@ -162,7 +167,8 @@
                                                 <h5>{{ $documentos->archivo_car }}</h5>
                                             @else
                                                 <a class="btn btn-primary"
-                                                    href="/cartas responsivas/{{ $documentos->archivo_car }}" target="_blank">
+                                                    href="/cartas responsivas/{{ $documentos->archivo_car }}"
+                                                    target="_blank">
                                                     <i class="far fa-file-pdf"></i>
                                                 </a>
                                             @endif
@@ -175,7 +181,8 @@
                                                 <h5>{{ $documentos->archivo_iden }}</h5>
                                             @else
                                                 <a class="btn btn-primary"
-                                                    href="/Identificaciones/{{ $documentos->archivo_iden }}" target="_blank">
+                                                    href="/Identificaciones/{{ $documentos->archivo_iden }}"
+                                                    target="_blank">
                                                     <i class="far fa-file-pdf"></i>
                                                 </a>
                                             @endif
@@ -213,8 +220,7 @@
                                                     <h5>{{ $Vehiculos_T->archivo_fa }}</h5>
                                                 @else
                                                     <a class="btn btn-primary"
-                                                        href="/Factura/{{ $Vehiculos_T->archivo_fa }}"
-                                                        target="_blank">
+                                                        href="/Factura/{{ $Vehiculos_T->archivo_fa }}" target="_blank">
                                                         <i class="far fa-file-pdf"></i>
                                                     </a>
                                                 @endif
@@ -281,8 +287,7 @@
                                                     <h5>{{ $Vehiculos_T->archivo_fa }}</h5>
                                                 @else
                                                     <a class="btn btn-primary"
-                                                        href="/Facturas/{{ $Vehiculos_T->archivo_fa }}"
-                                                        target="_blank">
+                                                        href="/Facturas/{{ $Vehiculos_T->archivo_fa }}" target="_blank">
                                                         <i class="far fa-file-pdf"></i>
                                                     </a>
                                                 @endif
@@ -301,8 +306,7 @@
                                                     <h5>{{ $Vehiculos_T->archivo_pe }}</h5>
                                                 @else
                                                     <a class="btn btn-primary"
-                                                        href="/Pedimento/{{ $Vehiculos_T->archivo_pe }}"
-                                                        target="_blank">
+                                                        href="/Pedimento/{{ $Vehiculos_T->archivo_pe }}" target="_blank">
                                                         <i class="far fa-file-pdf"></i>
                                                     </a>
                                                 @endif
@@ -373,8 +377,8 @@
                                         <thead class="thead-dark">
                                             <tr>
                                                 <th scope="col">Id</th>
-
-                                                <th scope="col">placa</th>
+                                                <th scope="col">Folio</th>
+                                                <th scope="col">Placa</th>
                                                 <th scope="col">Inicio</th>
                                                 <th scope="col">Vencimiento</th>
                                                 <th scope="col">Esatus</th>
@@ -388,12 +392,14 @@
                                             @foreach ($tarjetacs as $tarjetacs)
                                                 <tr>
                                                     <td>{{ $tarjetacs->id }}</td>
+                                                    <td>{{ $tarjetacs->folio }}</td>
                                                     <td>{{ $tarjetacs->placas }}</td>
                                                     <td>{{ $tarjetacs->inicio }}</td>
                                                     <td>{{ $tarjetacs->vencimiento }}</td>
                                                     <td>{{ $tarjetacs->estatus }}</td>
                                                     <td><a class="btn btn-primary"
-                                                            href="/Tarjetas de circulacion/{{ $tarjetacs->archivo_pla }}" target="_blank">
+                                                            href="/Tarjetas de circulacion/{{ $tarjetacs->archivo_pla }}"
+                                                            target="_blank">
                                                             <i class="far fa-file-pdf"></i></a></td>
                                                     <td>
                                                         <a class="btn btn-info"
@@ -434,8 +440,9 @@
                                                     <td>{{ $polizas->inicio }}</td>
                                                     <td>{{ $polizas->vencimiento }}</td>
                                                     <td>{{ $polizas->estatus }}</td>
-                                                    <th><a class="btn btn-primary" href="/Polizas/{{ $polizas->archivo }}"
-                                                            target="_blank"><i class="far fa-file-pdf"></i></a></th>
+                                                    <th><a class="btn btn-primary"
+                                                            href="/Polizas/{{ $polizas->archivo }}" target="_blank"><i
+                                                                class="far fa-file-pdf"></i></a></th>
 
                                                 </tr>
                                             @endforeach
@@ -465,7 +472,8 @@
                                                     <td>{{ $tenencias->tenencia }}</td>
                                                     <td>{{ $tenencias->pago }}</td>
                                                     <td>{{ $tenencias->estatus }}</td>
-                                                    <td><a class="btn btn-primary" href="/Tenencias/{{ $tenencias->archivo }}"
+                                                    <td><a class="btn btn-primary"
+                                                            href="/Tenencias/{{ $tenencias->archivo }}"
                                                             target="_blank"><i class="far fa-file-pdf"></i></a></td>
                                                 </tr>
                                             @endforeach
@@ -483,6 +491,7 @@
                                             <tr>
                                                 <th scope="col">Id</th>
                                                 <th scope="col">Verificación</th>
+                                                <th scope="col">placa</th>
                                                 <th scope="col">Fecha</th>
                                                 <th scope="col">Estatus</th>
                                                 <th scope="col">Engomado</th>
@@ -494,11 +503,29 @@
                                                 <tr>
                                                     <td>{{ $verificacion_as->id }}</td>
                                                     <td>{{ $verificacion_as->verificacion }}</td>
+                                                    <td>{{ $verificacion_as->placa }}</td>
                                                     <td>{{ $verificacion_as->fecha }}</td>
                                                     <td>{{ $verificacion_as->estatus }}</td>
-                                                    <td> <button
-                                                            data-jscolor="{value:'{{ $verificacion_as->engomado }}', previewSize:60}"
-                                                            disabled></button></td>
+
+                                                    @switch($verificacion_as->engomado)
+                                                        @case("5 u 6")
+                                                            <td class="bg-yellow">FEBRERO, MARZO</td>
+                                                        @break
+                                                        @case("7 u 8")
+                                                            <td class="bg-pink">FEBRERO, MARZO</td>
+                                                        @break
+                                                        @case("3 o 4")
+                                                            <td class="bg-red">MARZO, ABRIL</td>
+                                                        @break
+                                                        @case("1 o 2")
+                                                            <td class="bg-green">ABRIL, MAYO</td>
+                                                        @break
+                                                        @case("9 o 0")
+                                                            <td class="bg-info">MAYO-JUNIO</td>
+                                                        @break
+                                                        @default
+                                                    @endswitch
+
                                                     <td><a class="btn btn-primary"
                                                             href="/Verificaciones A/{{ $verificacion_as->archivo }}"
                                                             target="_blank"><i class="far fa-file-pdf"></i></a></td>
@@ -521,6 +548,7 @@
                                             <tr>
                                                 <th scope="col">Id</th>
                                                 <th scope="col">Verificación</th>
+                                                <th scope="col">Placa</th>
                                                 <th scope="col">Fecha</th>
                                                 <th scope="col">Estatus</th>
                                                 <th scope="col">Engomado</th>
@@ -532,13 +560,30 @@
                                                 <tr>
                                                     <td>{{ $verificacion_bs->id }}</td>
                                                     <td>{{ $verificacion_bs->verificacion }}</td>
+                                                    <td>{{ $verificacion_bs->placa }}</td>
                                                     <td>{{ $verificacion_bs->fecha }}</td>
                                                     <td>{{ $verificacion_bs->estatus }}</td>
-                                                    <td> <button
-                                                            data-jscolor="{value:'{{ $verificacion_bs->engomado }}', previewSize:60}"
-                                                            disabled></button></td>
+                                                    @switch($verificacion_bs->engomado)
+                                                        @case("5 u 6")
+                                                            <td class="bg-yellow">JULIO, AGOSTO</td>
+                                                        @break
+                                                        @case("7 u 8")
+                                                            <td class="bg-pink">AGOSTO, SEPTIEMBRE</td>
+                                                        @break
+                                                        @case("3 o 4")
+                                                            <td class="bg-red">SEPTIEMBRE, OCTUBRE</td>
+                                                        @break
+                                                        @case("1 o 2")
+                                                            <td class="bg-green">OCTUBRE, NOVIEMBRE</td>
+                                                        @break
+                                                        @case("9 o 0")
+                                                            <td class="bg-info">NOVIEMBRE, DICIEMBRE</td>
+                                                        @break
+                                                        @default
+                                                    @endswitch
                                                     <td><a class="btn btn-primary"
-                                                            href="/Verificaciones B/{{ $verificacion_bs->archivo }}" target="_blank">
+                                                            href="/Verificaciones B/{{ $verificacion_bs->archivo }}"
+                                                            target="_blank">
                                                             <i class="far fa-file-pdf"></i></a></td>
 
                                                 </tr>
@@ -628,7 +673,9 @@
                                         <thead class="thead-dark">
                                             <tr>
                                                 <th scope="col">Id</th>
-                                                <th scope="col">Verificación</th>
+                                                <th scope="col">Año</th>
+                                                <th scope="col">placa</th>
+                                                <th scope="col">Fechas de verificacion</th>
                                                 <th scope="col">Fecha</th>
                                                 <th scope="col">Estatus</th>
                                                 <th scope="col">PDF</th>
@@ -639,9 +686,12 @@
                                                 <tr>
                                                     <td>{{ $fisico_ms->id }}</td>
                                                     <td>{{ $fisico_ms->verificacion }}</td>
+                                                    <td>{{ $fisico_ms->placa }}</td>
+                                                    <td>{{ $fisico_ms->terminacion }}</td>
                                                     <td>{{ $fisico_ms->fecha }}</td>
                                                     <td>{{ $fisico_ms->estatus }}</td>
-                                                    <td><a class="btn btn-primary" href="/PDF/{{ $fisico_ms->archivo }}"
+                                                    <td><a class="btn btn-primary"
+                                                            href="/fisico mecanico/{{ $fisico_ms->archivo }}"
                                                             target="_blank"><i class="far fa-file-pdf"></i></a></td>
                                                 </tr>
                                             @endforeach
@@ -677,7 +727,7 @@
                                                             {{ $permisos->archivo_per }}
                                                         @else
                                                             <a class="btn btn-primary"
-                                                                href="/permiso/{{ $permisos->archivo_per }}"
+                                                                href="/permisos/{{ $permisos->archivo_per }}"
                                                                 target="_blank">
                                                                 <i class="far fa-file-pdf"></i>
                                                             </a>

@@ -135,7 +135,6 @@
             } else {
                 document.getElementById("mostrar").style.display = "none"
             }
-
         }
     </script>
     <script>
@@ -186,7 +185,7 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <script>
-        // Add the following code if you want the name of the file appear on select
+       
         $(".custom-file-input").on("change", function() {
             var fileName = $(this).val().split("\\").pop();
             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);

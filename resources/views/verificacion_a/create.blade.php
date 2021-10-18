@@ -33,11 +33,11 @@
                 <label class="col-form-label">Engomado:</label>
                 <select class="custom-select" name="engomado" style="font-size:15pt" required>
                     <option value=""></option>
-                    <option value="rgba(247,255,23,1)" style="background-color:rgba(247,255,23,1) "> 5 u 6 <a></a></option>
-                    <option value="rgba(255,64,217,1)" style="background-color:rgba(255,64,217,1)">7 u 8</option>
-                    <option value="rgba(255,3,3,1)" style="background-color:rgba(255,3,3,1)">3 o 4</option>
-                    <option value="rgba(6,179,0,1)" style="background-color: rgba(6,179,0,1)">1 o 2</option>
-                    <option value="rgba(0,187,255,1)" style="background-color: rgba(0,187,255,1)">9 o 0</option>
+                    <option value="5 u 6" style="background-color:rgba(247,255,23,1) "> 5 u 6 <a></a></option>
+                    <option value="7 u 8" style="background-color:rgba(255,64,217,1)">7 u 8</option>
+                    <option value="3 o 4" style="background-color:rgba(255,3,3,1)">3 o 4</option>
+                    <option value="1 o 2" style="background-color: rgba(6,179,0,1)">1 o 2</option>
+                    <option value="9 o 0" style="background-color: rgba(0,187,255,1)">9 o 0</option>
                 </select>
             </div>
             <div class="form-group col-md-6">

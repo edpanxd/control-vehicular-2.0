@@ -34,7 +34,7 @@
                             @if ($valores->archivo_per == 'Sin archivo')
                                 {{ $valores->archivo_per }}
                             @else
-                                <a class="btn btn-primary" href="/permiso/{{ $valores->archivo_per }}"
+                                <a class="btn btn-primary" href="/permisos/{{ $valores->archivo_per }}"
                                     target="_blank">
                                     <i class="far fa-file-pdf"></i>
                                 </a>

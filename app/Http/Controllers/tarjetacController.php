@@ -48,6 +48,7 @@ class tarjetacController extends Controller
     public function store(Request $request)
     {
         $valores = new tarjetac();
+        $valores->folio= $request->get('folio');
         $valores->placas= $request->get('placa');
         $valores->inicio=$request->get('inicio');
         $valores->vencimiento=$request->get('vencimiento');
@@ -105,6 +106,7 @@ class tarjetacController extends Controller
     public function update(Request $request, $id)
     {
         $valores = tarjetac::find($id);
+        $valores->folio= $request->get('folio');
         $valores->placas= $request->get('placa');
         $valores->inicio=$request->get('inicio');
         $valores->vencimiento=$request->get('vencimiento');

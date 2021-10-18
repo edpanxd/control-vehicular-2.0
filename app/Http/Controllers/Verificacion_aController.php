@@ -107,10 +107,11 @@ class Verificacion_aController extends Controller
     public function update(Request $request, $id)
     {
         $valores = Verificacion_a::find($id);
+        $valores->placa = $request->get('placa');
+        $valores->engomado = $request->get('engomado');
         $valores->verificacion = $request->get('verificacion');
         $valores->fecha = $request->get('fecha');
         $valores->estatus = $request->get('estatus');
-        $valores->nombre = $request->get('nombre');
         $valores->id_vehiculo = $request->get('vehiculo');
         $valores->save();
         return redirect('/verificacion_a');

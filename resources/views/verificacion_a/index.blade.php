@@ -32,7 +32,24 @@
                         <td>{{ $data->marca }}</td>
                         <td>{{ $data->serie }}</td>
                         <td>{{ $data->placa}} </td>
-                        <td> <button data-jscolor="{value:'{{ $data->engomado }}', previewSize:60}" disabled></button></td>
+                        @switch($data->engomado)
+                        @case("5 u 6")
+                        <td class="bg-yellow">FEBRERO, MARZO</td>
+                            @break
+                        @case("7 u 8")
+                        <td class="bg-pink">FEBRERO, MARZO</td>
+                            @break
+                        @case("3 o 4")
+                        <td class="bg-red">MARZO, ABRIL</td>
+                            @break
+                        @case("1 o 2")
+                        <td class="bg-green">ABRIL, MAYO</td>
+                            @break
+                        @case("9 o 0")
+                        <td class="bg-info">MAYO-JUNIO</td>
+                            @break
+                        @default
+                        @endswitch
                         <td>{{ $data->verificacion }}</td>
                         <td>{{ $data->fecha }}</td>
                         <td>{{ $data->estatus }}</td>

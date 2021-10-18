@@ -15,6 +15,7 @@ class CreateTarjetacsTable extends Migration
     {
         Schema::create('tarjetacs', function (Blueprint $table) {
             $table->id();
+            $table->string('folio');
             $table->string('placas');
             $table->string('archivo_pla');
             $table->string('estatus');

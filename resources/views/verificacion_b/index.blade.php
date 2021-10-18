@@ -14,7 +14,7 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Vehículo</th>
-                    <th scope="col">Placas</th>
+                    <th scope="col">Serie</th>
                     <th scope="col">Verificación</th>
                     <th scope="col">Engomado</th>
                     <th scope="col">Estatus</th>
@@ -32,7 +32,24 @@
                         <td>{{ $data->marca }}</td>
                         <td>{{ $data->serie }}</td>
                         <td>{{ $data->placa}} </td>
-                        <td> <button data-jscolor="{value:'{{ $data->engomado }}', previewSize:60}" disabled></button></td>
+                        @switch($data->engomado)
+                        @case("5 u 6")
+                        <td class="bg-yellow">JULIO, AGOSTO</td>
+                            @break
+                        @case("7 u 8")
+                        <td class="bg-pink">AGOSTO, SEPTIEMBRE</td>
+                            @break
+                        @case("3 o 4")
+                        <td class="bg-red">SEPTIEMBRE, OCTUBRE</td>
+                            @break
+                        @case("1 o 2")
+                        <td class="bg-green">OCTUBRE, NOVIEMBRE</td>
+                            @break
+                        @case("9 o 0")
+                        <td class="bg-info">NOVIEMBRE, DICIEMBRE</td>
+                            @break
+                        @default
+                        @endswitch
                         <td>{{ $data->verificacion }}</td>
                         <td>{{ $data->fecha }}</td>
                         <td>{{ $data->estatus }}</td>

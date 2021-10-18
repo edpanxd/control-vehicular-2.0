@@ -20,6 +20,10 @@
                 </select>
             </div>
             <div class="form-group col-md-6">
+                <label for="message-text" class="col-form-label">Folio:</label>
+                <input type="text" class="form-control" name="folio" maxlength="20" required>
+            </div>
+            <div class="form-group col-md-6">
                 <label class="col-form-label">Placas:</label>
                 <select class="custom-select select2" name="placa" id="" required>
                     <option value=""></option>
@@ -46,7 +50,7 @@
                     autocomplete="off" required>
                 <label class="btn btn-outline-danger" for="danger-outline">Vencida</label>
             </div>
-            <div class="form-group col-6 mb-4">
+            <div class="form-group col-12 mb-4">
                 <label class="col-form-label">Tarjeta de circulacion</label>
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -67,8 +71,7 @@
 @stop
 
 @section('css')
-    <link 
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 @stop
 
@@ -78,8 +81,7 @@
             placeholder: 'Seleccione una opcion'
         });
     </script>
-    <script 
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <script>

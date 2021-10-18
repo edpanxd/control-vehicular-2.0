@@ -164,7 +164,7 @@
             <div class="col-4">
                 <div class="card card-widget widget-user">
                     <div>
-                        <div class="widget-user-header bg-gray">
+                        <div class="widget-user-header bg-navy">
                             <h3 class="widget-user-username">{{ $datos->marca }}</h3>
                             <h5 class="widget-user-desc">{{ $datos->submarca }}</h5>
                         </div>
@@ -173,29 +173,30 @@
                         </div>
                         <div class="card-footer">
                             <div class="row">
-                                <div class="col-sm-4 border-right">
+                                <div class="col-sm-2 border-right">
                                     <div class="description-block">
-                                        <h5 class="description-header">{{ $datos->color }}</h5>
-                                        <span class="description-text">Color</span>
+                                        <h5 class="description-header">{{ $datos->id }}</h5>
+                                        <span class="description-text">ID</span>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
                                 <!-- /.col -->
+                                <div class="col-sm-6 border-right">
+                                    <div class="description-block">
+                                        <h5 class="description-header">{{ $datos->serie }}</h5>
+                                        <span class="description-text">Serie</span>
+                                    </div>
+                                    <!-- /.description-block -->
+                                </div>
                                 <div class="col-sm-4 border-right">
                                     <div class="description-block">
-                                        <h5 class="description-header">{{ $datos->modelo }}</h5>
-                                        <span class="description-text">Modelo</span>
+                                        <h5 class="description-header">{{ $datos->uso }}</h5>
+                                        <span class="description-text">Uso</span>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
                                 <!-- /.col -->
-                                <div class="col-sm-4">
-                                    <div class="description-block">
-                                        <h5 class="description-header">{{ $datos->estatus }}</h5>
-                                        <span class="description-text">Estatus</span>
-                                    </div>
-                                    <!-- /.description-block -->
-                                </div>
+                               
                                 <!-- /.col -->
                             </div>
                             <!-- /.row -->
@@ -207,7 +208,9 @@
                 </div>
             </div>
         @endforeach
-
+            <footer>
+                
+            </footer>
     @stop
 
     @section('css')

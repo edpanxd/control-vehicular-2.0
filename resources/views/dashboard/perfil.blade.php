@@ -18,7 +18,7 @@
                         <div class="card-body box-profile">
                             <div class="text-center">
 
-                                <img class="profile-user-img img-fluid img-circle" src="/imagen/{{ $vehiculo->imagen }}"
+                                <img class="img-fluid " src="/imagen/{{ $vehiculo->imagen }}"
                                     alt="User profile picture">
 
                             </div>
@@ -29,23 +29,42 @@
 
                             <ul class="list-group list-group-unbordered mb-3">
                                 <li class="list-group-item">
-                                    <b>Uso</b> <a class="float-right">{{ $vehiculo->uso }}</a>
+                                    <b>Uso</b>
+                                    <p class="float-right">{{ $vehiculo->uso }}</p>
                                 </li>
                                 @if ($vehiculo->uso == 'PARTICULAR')
                                     <li class="list-group-item">
-                                        <b>Nombre </b> <a class="float-right">{{ $vehiculo->nombre_p }}</a>
+                                        <b>Nombre </b>
+                                        <p class="float-right">{{ $vehiculo->nombre_p }}</p>
                                     </li>
                                 @endif
                                 <li class="list-group-item">
-                                    <b>Modelo</b> <a class="float-right">{{ $vehiculo->modelo }}</a>
+                                    <b>Modelo</b>
+                                    <p class="float-right">{{ $vehiculo->modelo }}</p>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Empresa</b> <a class="float-right">{{ $vehiculo->empresa }}</a>
+                                    <b>Empresa</b>
+                                    <p class="float-right">{{ $vehiculo->empresa }}</p>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Adquisición</b> <a class="float-right">{{ $vehiculo->adquisicion }}</a>
+                                    <b>Localidad</b>
+                                    <p class="float-right">{{ $vehiculo->localidad }}</p>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Adquisición</b>
+                                    <P class="float-right">{{ $vehiculo->adquisicion }}</p>
                                 </li>
 
+                                <button type="button" class="btn bg-purple mb-2" data-toggle="modal"
+                                    data-target="#modal-default">
+                                    Galeria
+                                </button>
+
+                                <button type="button" class="btn bg-purple mb-2" data-toggle="modal" data-target="#modal2">
+                                    Subir foto
+                                </button>
+                                <a href="/dashboardvim/{{ $vehiculo->id }}" class="btn btn-default bg-maroon mb-4"
+                                    target="_blank"> Reporte</a>
                                 <a href="/dashboard" class="btn bg-black">Volver a Dasboard</a>
                             </ul>
                         </div>
@@ -98,34 +117,63 @@
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header p-2">
-                        <ul class="nav nav-pills">
-                            <li class="nav-item"><a class="nav-link active" href="#documentos"
-                                    data-toggle="tab">Documentos</a></li>
-                            <li class="nav-item"><a class="nav-link " href="#placas" data-toggle="tab">Placas</a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link " href="#tarjeta"
-                                    data-toggle="tab">Tarjeta</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#poliza" data-toggle="tab">Póliza</a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="#tenencia"
-                                    data-toggle="tab">Tenencia</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#va" data-toggle="tab">Verificación
-                                    A</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#vb" data-toggle="tab">Verificación
-                                    B</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#vf" data-toggle="tab">Verificación
-                                    Federal A</a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="#vfa" data-toggle="tab">Verificación
-                                    Federal B</a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="#fm" data-toggle="tab">Físico
-                                    Mecánico</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#permisos" data-toggle="tab">
-                                    Permisos</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#anterior" data-toggle="tab">
-                                    Propietarios Anteriores</a></li>
-                        </ul>
+                        <!--Navbar-->
+                        <nav class="navbar navbar-light lighten-4 mb-4">
+
+                            <!-- Navbar brand -->
+                            <a class="navbar-brand" href="#">Menú</a>
+
+                            <!-- Collapse button -->
+                            <button class="navbar-toggler darken-3" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent41" aria-controls="navbarSupportedContent41"
+                                aria-expanded="false" aria-label="Toggle navigation"><span class="white-text"><i
+                                        class="fas fa-bars fa-1x"></i></span></button>
+
+                            <!-- Collapsible content -->
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent41">
+
+                                <!-- Links -->
+                                <ul class="navbar-nav mr-auto nav ">
+                                    <li class="nav-item"><a class="nav-link active" href="#documentos"
+                                            data-toggle="tab">Documentos</a></li>
+                                    <li class="nav-item"><a class="nav-link " href="#placas"
+                                            data-toggle="tab">Placas</a>
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link " href="#tarjeta"
+                                            data-toggle="tab">Tarjeta</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#poliza"
+                                            data-toggle="tab">Póliza</a>
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="#tenencia"
+                                            data-toggle="tab">Tenencia</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#va"
+                                            data-toggle="tab">Verificación Estatal
+                                            A</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#vb"
+                                            data-toggle="tab">Verificación Estatal
+                                            B</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#vf"
+                                            data-toggle="tab">Verificación
+                                            Federal A</a>
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="#vfa"
+                                            data-toggle="tab">Verificación
+                                            Federal B</a>
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="#fm" data-toggle="tab">Físico
+                                            Mecánico</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#permisos" data-toggle="tab">
+                                            Permisos</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#anterior" data-toggle="tab">
+                                            Propietarios Anteriores</a></li>
+                                </ul>
+                                <!-- Links -->
+
+                            </div>
+                            <!-- Collapsible content -->
+
+                        </nav>
+                        <!--/.Navbar-->
                     </div>
                     <div class="card-body">
                         <div class="tab-content">
@@ -135,7 +183,7 @@
                                 @foreach ($documentos as $documentos)
                                     <div class="row">
                                         <div class="col-5 mb-3">
-                                            <h5>Nombre del vendedor:</h5>
+                                            <h4>Nombre del vendedor:</h4>
                                         </div>
                                         <div class="col-4 mb-3">
                                             <h5>{{ $documentos->vendedor }}</h5>
@@ -203,7 +251,7 @@
                                     </div>
                                 @endforeach
                                 @if ($estatus == 'Nacional')
-                                    <h4>Vehiculo Nacional</h4>
+                                    <h3>Vehiculo Nacional</h3>
                                     @foreach ($Vehiculos_T as $Vehiculos_T)
                                         <div class="row">
                                             <div class="col-5 mb-3">
@@ -470,7 +518,7 @@
                                                 <tr>
                                                     <td>{{ $tenencias->id }}</td>
                                                     <td>{{ $tenencias->tenencia }}</td>
-                                                    <td>{{ $tenencias->pago }}</td>
+                                                    <td>$ {{ $tenencias->pago }}</td>
                                                     <td>{{ $tenencias->estatus }}</td>
                                                     <td><a class="btn btn-primary"
                                                             href="/Tenencias/{{ $tenencias->archivo }}"
@@ -508,19 +556,19 @@
                                                     <td>{{ $verificacion_as->estatus }}</td>
 
                                                     @switch($verificacion_as->engomado)
-                                                        @case("5 u 6")
+                                                        @case(" 5 u 6")
                                                             <td class="bg-yellow">FEBRERO, MARZO</td>
                                                         @break
-                                                        @case("7 u 8")
+                                                        @case(" 7 u 8")
                                                             <td class="bg-pink">FEBRERO, MARZO</td>
                                                         @break
-                                                        @case("3 o 4")
+                                                        @case(" 3 o 4")
                                                             <td class="bg-red">MARZO, ABRIL</td>
                                                         @break
-                                                        @case("1 o 2")
+                                                        @case(" 1 o 2")
                                                             <td class="bg-green">ABRIL, MAYO</td>
                                                         @break
-                                                        @case("9 o 0")
+                                                        @case(" 9 o 0")
                                                             <td class="bg-info">MAYO-JUNIO</td>
                                                         @break
                                                         @default
@@ -564,19 +612,19 @@
                                                     <td>{{ $verificacion_bs->fecha }}</td>
                                                     <td>{{ $verificacion_bs->estatus }}</td>
                                                     @switch($verificacion_bs->engomado)
-                                                        @case("5 u 6")
+                                                        @case(" 5 u 6")
                                                             <td class="bg-yellow">JULIO, AGOSTO</td>
                                                         @break
-                                                        @case("7 u 8")
+                                                        @case(" 7 u 8")
                                                             <td class="bg-pink">AGOSTO, SEPTIEMBRE</td>
                                                         @break
-                                                        @case("3 o 4")
+                                                        @case(" 3 o 4")
                                                             <td class="bg-red">SEPTIEMBRE, OCTUBRE</td>
                                                         @break
-                                                        @case("1 o 2")
+                                                        @case(" 1 o 2")
                                                             <td class="bg-green">OCTUBRE, NOVIEMBRE</td>
                                                         @break
-                                                        @case("9 o 0")
+                                                        @case(" 9 o 0")
                                                             <td class="bg-info">NOVIEMBRE, DICIEMBRE</td>
                                                         @break
                                                         @default
@@ -816,6 +864,114 @@
         </div>
 
     </div>
+    <!--  MODAL GALERIA -->
+    <div class="modal fade" id="modal-default" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">GALERIA DE {{ $vehiculo->marca }}, {{ $vehiculo->submarca }}</h4>
+                    <br>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <button href="#" class="btn btn-info mb-2" data-toggle="popover" data-html="true"
+                        title="Información del vehículo"
+                        data-content="Marca: {{ $vehiculo->marca }} {{ $vehiculo->modelo }},<br> Submarca: {{ $vehiculo->submarca }},<br> Numero de serie: {{ $vehiculo->serie }},<br> Placa:  
+                        @foreach ($placa as $placa)
+                        {{ $placa->placas }}
+                        @endforeach" ><i class="fas fa-info"></i></button>
+
+
+                    <div class="bd-example">
+                        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="/fotos_vehiculo/bioin.png" class="d-block w-100" alt="...">
+                                </div>
+                                @foreach ($foto as $foto)
+                                    <div class="carousel-item ">
+                                        <img src="/fotos_vehiculo/{{ $foto->fotos }}" class="d-block w-100" alt="...">
+                                    </div>
+                                @endforeach
+
+
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <!-- model xd-->
+
+    <div class="modal fade" id="modal2" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">AGREGAR IMAGEN DE {{ $vehiculo->marca }}</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <form action="/dashboardfoto" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="text" class="input-group-text" value="{{ $vehiculo->id }}" readonly="readonly"
+                            name="id">
+                        <label for="message-text" class="col-form-label">Foto del vehiculo:</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Foto</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="imagen" required>
+                                <label class="custom-file-label">Seleccionar Foto</label>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Subir</button>
+                    </form>
+
+                </div>
+                <div class="modal-footer justify-content-between">
+
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+
+
 @stop
 
 @section('css')
@@ -916,4 +1072,21 @@
             });
         });
     </script>
+    <script>
+        $('.navbar-nav>li>a').on('click', function() {
+            $('.navbar-collapse').collapse('hide');
+        });
+    </script>
+    <script>
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('[data-toggle="popover"]').popover();
+        });
+    </script>
+
 @stop

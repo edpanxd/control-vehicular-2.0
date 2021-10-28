@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\empresa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Vehiculo;
 use App\Models\vehiculos_i;
 use App\Models\vehiculos_n;
-
+use App\Models\fotos_vehiculos;
+use PDF;
 class dashboardController extends Controller
 {
     /**
@@ -17,6 +19,7 @@ class dashboardController extends Controller
      */
     public function index()
     {
+        
         $valores = Vehiculo::all()->where('estatus', 'Activo');
         $datos = Vehiculo::all();
         $placas = DB::table('placas')->where('placas.estatus', 'vencidas')->get();
@@ -99,6 +102,8 @@ class dashboardController extends Controller
         $permisos = DB::table('permisos')->where('id_vehiculo', "$id")->get();
         $propietarios_as = DB::table('propietarios_as')->where('id_vehiculo', "$id")->get();
         $fisico_ms = DB::table('fisico_ms')->where('id_vehiculo', "$id")->get();
+        $foto = DB::table('fotos_vehiculos')->where('id_vehiculo', "$id")->get();
+        $placa = DB::table('placas')->where('id_vehiculo', "$id")->where('estatus', "VIGENTES")->get();
         return view('dashboard.perfil')->with('vehiculo', $vehiculo)
             ->with('placas', $placas)
             ->with('tarjetacs', $tarjetacs)
@@ -113,9 +118,72 @@ class dashboardController extends Controller
             ->with('documentos', $documentos)
             ->with('Vehiculos_T', $Vehiculos_T)
             ->with('estatus', $estatus)
-            ->with('fisico_ms', $fisico_ms);
+            ->with('fisico_ms', $fisico_ms)
+            ->with('foto', $foto)
+            ->with('placa', $placa);
+    }
+    public function imprimir($id){
+        $Vehiculos_T=["1","2"];
+        $estatus = ["1","2","3","4","5"];
+        $ve = vehiculos_n::all();
+        foreach ($ve as $ve) {
+            if ($ve->id_vehiculo == $id) {
+                $Vehiculos_T = DB::table('vehiculos_ns')->where('id_vehiculo', "$id")->get();
+                $estatus = ["1","2","3"];
+            }
+        }
+        $vi = vehiculos_i::all();
+                foreach ($vi as $vi) {
+                    if ($vi->id_vehiculo == $id) {
+                        $Vehiculos_T = DB::table('vehiculos_is')->where('id_vehiculo', "$id")->get();
+                        $estatus = ["1","2","3","4"];
+                    }
+                }
+       
+
+        $vehiculo = Vehiculo::all()->where('id', "$id");
+        $documentos = DB::table('documentos_ps')->where('id_vehiculo', "$id")->get();
+        $placas = DB::table('placas')->where('id_vehiculo', "$id")->get();
+        $tarjetacs = DB::table('tarjetacs')->where('id_vehiculo', "$id")->get();
+        $polizas = DB::table('polizas')->where('id_vehiculo', "$id")->get();
+        $tenencias = DB::table('tenencias')->where('id_vehiculo', "$id")->get();
+        $verificacion_as = DB::table('verificacion_as')->where('id_vehiculo', "$id")->get();
+        $verificacion_bs = DB::table('verificacion_bs')->where('id_vehiculo', "$id")->get();
+        $verificacion_fs = DB::table('verificacion_fs')->where('id_vehiculo', "$id")->get();
+        $verificacion_fsa = DB::table('verificacion_f2s')->where('id_vehiculo', "$id")->get();
+        $permisos = DB::table('permisos')->where('id_vehiculo', "$id")->get();
+        $propietarios_as = DB::table('propietarios_as')->where('id_vehiculo', "$id")->get();
+        $fisico_ms = DB::table('fisico_ms')->where('id_vehiculo', "$id")->get();
+        $empresa= empresa::all();
+        $polizas2 = DB::table('polizas')->where('id_vehiculo', "$id")->get();
+        $placas2 = DB::table('placas')->where('id_vehiculo', "$id")->get();
+        $polizas3 = DB::table('polizas')->where('id_vehiculo', "$id")->get();
+        $permisos2 = DB::table('permisos')->where('id_vehiculo', "$id")->get();
+        $pdf = PDF::loadView('dashboard.reporte', compact('vehiculo', 'placas', 'empresa', "Vehiculos_T",
+                                'tarjetacs', 'permisos', 'polizas', 'estatus', 'tenencias', 'verificacion_as', 'verificacion_bs',
+                                    'verificacion_fs', 'verificacion_fsa', 'fisico_ms', 'polizas2', 'placas2', 'polizas3',
+                                        'permisos2'));
+
+            return $pdf->stream('CÉDULA DE CONTROL VEHÍCULAR.pdf');
+   
+    
+          
+            
     }
 
+    public function foto (Request $request){
+        $valores = new fotos_vehiculos();
+        $valores->id_vehiculo = $request->get('id');
+        if($fotos= $request->file('imagen')){
+            $rutaguardarimg= 'fotos_vehiculo/';
+            $imagennombre= date('YmdHis'). "." . $fotos->getClientOriginalExtension();
+            $fotos->move($rutaguardarimg, $imagennombre);
+            $valores->fotos="$imagennombre";
+        }
+        $valores->save();
+        $id= $request->get('id');
+        return redirect('/dashboardvh'.'/'.$id);
+    }
     /**
      * Store a newly created resource in storage.
      *

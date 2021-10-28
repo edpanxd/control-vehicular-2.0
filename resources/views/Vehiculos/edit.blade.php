@@ -26,7 +26,7 @@
                 <select class="custom-select select2" id="" name="tipo" required>
                     <option value="{{ $valores->tipo }}">{{ $valores->tipo }}</option>
                     <option value="AUTOMÓVIL">AUTOMÓVIL</option>
-                    <option value="CAMIÓN">CAMIÓN</option>
+                    <option value="CAMÍON">CAMIÓN</option>
                     <option value="CAJA">CAJA</option>
                     <option value="CAMIONETA">CAMIONETA</option>
                     <option value="TRÁILER">TRÁILER</option>
@@ -94,12 +94,29 @@
             </div>
         </div>
         <div class="row">
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Empresa:</label>
                 <select class="custom-select select2" id="" name="empresa" required>
                     <option value="{{$valores->empresa}}">{{$valores->empresa}}</option>
+                   
                     @foreach($empresa as $empresa)
+                    @if ($empresa->empresa != $valores->empresa)
                     <option value="{{$empresa->empresa}}">{{$empresa->empresa}}</option>
+                    @endif
+                    @endforeach
+                   
+                   
+                   
+                </select>
+            </div>
+            <div class="form-group col-6">
+                <label for="message-text" class="col-form-label">Localidad:</label>
+                <select class="custom-select select2" id="" name="localidad" required>
+                    <option value="{{$valores->localidad}}">{{$valores->localidad}}</option>
+                    @foreach ($localidad as $localidad)
+                    @if ($localidad->localidad != $valores->localidad)
+                    <option value="{{$localidad->localidad}}">{{$localidad->localidad}}</option> 
+                    @endif
                     @endforeach
                    
                 </select>
@@ -108,6 +125,10 @@
         <a type="button" href="/vehiculo" class="btn btn-secondary" data-dismiss="modal">Cancelar</a>
         <button type="submit" class="btn btn-primary">Registrar</button>
     </form>
+    <footer>
+        <br>
+        <br>
+    </footer>
 @stop
 
 @section('css')

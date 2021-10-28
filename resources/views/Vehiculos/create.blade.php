@@ -85,12 +85,22 @@
             </div>
         </div>
         <div class="row">
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Empresa:</label>
                 <select class="custom-select select2" id="" name="empresa" required>
                     <option value=""></option>
                     @foreach($empresa as $empresa)
                     <option value="{{$empresa->empresa}}">{{$empresa->empresa}}</option>
+                    @endforeach
+                   
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="message-text" class="col-form-label">Localidad:</label>
+                <select class="custom-select select2" id="" name="localidad" required>
+                    <option value=""></option>
+                    @foreach($localidad as $localidad)
+                    <option value="{{$localidad->localidad}}">{{$localidad->localidad}}</option>
                     @endforeach
                    
                 </select>
@@ -108,6 +118,10 @@
         <a type="button" href="/vehiculo" class="btn btn-secondary" data-dismiss="modal">Cancelar</a>
         <button type="submit" class="btn btn-primary">Registrar</button>
     </form>
+    <footer>
+        <br>
+        <br>
+    </footer>
 @stop
 
 @section('css')

@@ -8,11 +8,12 @@ Route::get('/', function () {
 
 Route::resource('/dashboard', 'App\Http\Controllers\dashboardController');
 Route::get('/dashboardvh/{id}', 'App\Http\Controllers\dashboardController@perfil');
+Route::get('/dashboardvim/{id}', 'App\Http\Controllers\dashboardController@imprimir');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {    
     Route::get('/dashboardd/{p}', 'App\Http\Controllers\dashboardController@create');
     Route::get('/dashboardv/{p}', 'App\Http\Controllers\dashboardController@create2');
-    
+    Route::post('/dashboardfoto', 'App\Http\Controllers\dashboardController@foto');
    //ruta vehiculo
     Route::resource('/vehiculo', 'App\Http\Controllers\VehiculoController');
   // Route::get('/vehiculod/{id}', 'App\Http\Controllers\VehiculoController@destroy'); //ruta de eliminar vehiculo inavilitada

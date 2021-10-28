@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\empresa;
 use App\Models\Vehiculo;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 class VehiculoController extends Controller
 {
@@ -29,7 +29,12 @@ class VehiculoController extends Controller
     public function create()
     {
         $empresa=empresa::all();
-        return view('vehiculos.create') ->with('empresa', $empresa);
+        $localidad=DB::table('localidad')
+        ->select('localidad.*')
+        ->get();
+        return view('vehiculos.create') 
+        ->with('empresa', $empresa)
+        ->with('localidad', $localidad);
     }
 
     /**
@@ -53,6 +58,7 @@ class VehiculoController extends Controller
         $valores->nombre_p =$request->get('nombre_p');
         $valores->adquisicion = $request->get('adquisicion');
         $valores->empresa = $request->get('empresa');
+        $valores->localidad = $request->get('localidad');
         if($imagen= $request->file('imagen')){
             $rutaguardarimg= 'imagen/';
             $imagennombre= date('YmdHis'). "." . $imagen->getClientOriginalExtension();
@@ -85,8 +91,12 @@ class VehiculoController extends Controller
     {
         $valores=Vehiculo::find($id);
         $empresa=empresa::all();
+        $localidad=DB::table('localidad')
+        ->select('localidad.*')
+        ->get();
         return view('vehiculos.edit')->with('valores', $valores)
-        ->with('empresa', $empresa);
+        ->with('empresa', $empresa)
+        ->with('localidad', $localidad);
     }
 
     /**
@@ -111,6 +121,7 @@ class VehiculoController extends Controller
         $valores->nombre_p =$request->get('nombre_p');
         $valores->adquisicion = $request->get('adquisicion');
         $valores->empresa = $request->get('empresa');
+        $valores->localidad = $request->get('localidad');
         $valores->save();
         return redirect('/vehiculo');
     }

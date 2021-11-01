@@ -51,7 +51,7 @@
                         colspan="2" bgcolor="#404040">
                         <p class="s1"
                             style="padding-left: 188pt;padding-right: 188pt;text-indent: 0pt;text-align: center;">
-                            CEDULA VEHICULAR</p>
+                            CÉDULA VEHICULAR</p>
                     </td>
                 </tr>
                 <tr style="height:20pt">

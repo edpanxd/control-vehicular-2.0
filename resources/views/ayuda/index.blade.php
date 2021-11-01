@@ -668,7 +668,7 @@
                     <h4>• PDF:</h4>
                     <br>
                     </p>
-                    <img src="/ayudaa/calendario.jpg" alt="">
+                    <img src="/ayudaa/calendario2.jpg" alt="">
                     <h3>Registrar Verificación estatal 2° periodo.</h3>
                     <p>
                         1.- Se debe de seleccionar el botón llamado registro de placas el cual se encuentra en la parte

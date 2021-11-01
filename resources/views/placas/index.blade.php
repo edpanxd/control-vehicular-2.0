@@ -60,7 +60,8 @@
 </script>
 <!-- Alerta -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script type="text/javascript">
+<script 
+    type="text/javascript">
     $('.eliminar').on('click', function(e) {
         e.preventDefault();
         const href = $(this).attr('href')

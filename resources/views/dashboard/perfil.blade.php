@@ -57,14 +57,14 @@
 
                                 <button type="button" class="btn bg-purple mb-2" data-toggle="modal"
                                     data-target="#modal-default">
-                                    Galeria
+                                    <i class="fas fa-images"></i>
                                 </button>
 
                                 <button type="button" class="btn bg-purple mb-2" data-toggle="modal" data-target="#modal2">
-                                    Subir foto
+                                    <i class="fas fa-upload"></i>
                                 </button>
-                                <a href="/dashboardvim/{{ $vehiculo->id }}" class="btn btn-default bg-maroon mb-4"
-                                    target="_blank"> Reporte</a>
+                                <a href="/dashboardvim/{{ $vehiculo->id }}" class="btn  bg-maroon mb-4" target="_blank">
+                                    Cédula vehicular</a>
                                 <a href="/dashboard" class="btn bg-black">Volver a Dasboard</a>
                             </ul>
                         </div>
@@ -118,7 +118,7 @@
                 <div class="card">
                     <div class="card-header p-2">
                         <!--Navbar-->
-                        <nav class="navbar navbar-light lighten-4 mb-4">
+                        <nav class="navbar navbar-dark lighten-4 mb-4">
 
                             <!-- Navbar brand -->
                             <a class="navbar-brand" href="#">Menú</a>
@@ -868,23 +868,16 @@
     <div class="modal fade" id="modal-default" aria-hidden="true" style="display: none;">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">GALERIA DE {{ $vehiculo->marca }}, {{ $vehiculo->submarca }}</h4>
-                    <br>
-
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
+                <div class="modal-header d-flex">
+                    <h4 class="modal-title">GALERIA DE {{ $vehiculo->marca }}, {{ $vehiculo->submarca }} </h4>
+                    <button href="#" class="btn btn-info mb-2 ml-auto"  data-toggle="popover" data-html="true"
+                    title="Información del vehículo" data-content="Marca: {{ $vehiculo->marca }} {{ $vehiculo->modelo }},<br> Submarca: {{ $vehiculo->submarca }},<br> Numero de serie: {{ $vehiculo->serie }},<br> Placa:  
+                         @foreach ($placa as $placa)
+                    {{ $placa->placas }}
+                    @endforeach" ><i class="fas fa-info"></i></button>
+                  
                 </div>
                 <div class="modal-body">
-                    <button href="#" class="btn btn-info mb-2" data-toggle="popover" data-html="true"
-                        title="Información del vehículo"
-                        data-content="Marca: {{ $vehiculo->marca }} {{ $vehiculo->modelo }},<br> Submarca: {{ $vehiculo->submarca }},<br> Numero de serie: {{ $vehiculo->serie }},<br> Placa:  
-                        @foreach ($placa as $placa)
-                        {{ $placa->placas }}
-                        @endforeach" ><i class="fas fa-info"></i></button>
-
-
                     <div class="bd-example">
                         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
@@ -898,11 +891,9 @@
                                 </div>
                                 @foreach ($foto as $foto)
                                     <div class="carousel-item ">
-                                        <img src="/fotos_vehiculo/{{ $foto->fotos }}" class="d-block w-100" alt="...">
+                                        <img src="/fotos_vehiculo/{{ $foto->fotos }}" class="d-block w-100" alt="..." height="460px" width="759">
                                     </div>
                                 @endforeach
-
-
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button"
                                 data-slide="prev">
@@ -914,10 +905,11 @@
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
+                           
                         </div>
                     </div>
 
-
+                   
 
                 </div>
                 <div class="modal-footer justify-content-between">
@@ -932,7 +924,7 @@
     <!-- model xd-->
 
     <div class="modal fade" id="modal2" aria-hidden="true" style="display: none;">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">AGREGAR IMAGEN DE {{ $vehiculo->marca }}</h4>
@@ -942,27 +934,71 @@
                 </div>
                 <div class="modal-body">
 
-                    <form action="/dashboardfoto" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <input type="text" class="input-group-text" value="{{ $vehiculo->id }}" readonly="readonly"
-                            name="id">
-                        <label for="message-text" class="col-form-label">Foto del vehiculo:</label>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Foto</span>
-                            </div>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="imagen" required>
-                                <label class="custom-file-label">Seleccionar Foto</label>
-                            </div>
+                    <div class="card">
+                        <div class="card-header p-2">
+                                    <!-- Links -->
+                                    <ul class="nav nav-pills ">
+                                        <li class="nav-item active"><a class="nav-link" href="#Subir"
+                                                data-toggle="tab">Subir imagen</a>
+                                        </li>
+                                        <li class="nav-item"><a class="nav-link " href="#Bajar"
+                                                data-toggle="tab">Eliminar Imagen</a></li>
+                                    </ul>
+                                    <!-- Links -->
                         </div>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary">Subir</button>
-                    </form>
-
-                </div>
-                <div class="modal-footer justify-content-between">
-
+                        <div class="card-body">
+                            <div class="tab-content">
+                                
+                                <div class="tab-pane active" id="Subir">
+                                    <form action="/dashboardfoto" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" class="input-group-text" value="{{ $vehiculo->id }}" readonly="readonly"
+                                            name="id">
+                                        <label for="message-text" class="col-form-label">Foto del vehiculo:</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Foto</span>
+                                            </div>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="imagen" required>
+                                                <label class="custom-file-label">Seleccionar Foto</label>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                        <button type="submit" class="btn btn-primary">Subir</button>
+                                    </form>
+                                    <!-- Tabla Subir -->
+                                </div>
+                                <!-- -->
+                                <div class="tab-pane" id="Bajar">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-bordered shadow-lg mt-4" style="text-align: center" id="tablas">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th scope="col">Imagen</th>
+                                                    <th scope="col">Eliminar</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($fotos as $fotos)
+                                                    <tr>
+                                                        <td><img src="/fotos_vehiculo/{{ $fotos->fotos}}" width="60px" height="50px" alt=""></td>
+                                                        <td>
+                                                            <a class="btn btn-danger eliminar" href="/dashboardE/{{ $fotos->id }}">
+                                                                <i class="fas fa-trash-alt"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                               
+                            </div>
+    
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -1088,5 +1124,26 @@
             $('[data-toggle="popover"]').popover();
         });
     </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript">
+        $('.eliminar').on('click', function(e) {
+            e.preventDefault();
+            const href = $(this).attr('href')
 
+            swal.fire({
+                title: 'Desea eliminar el registro?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Eliminar',
+
+            }).then((result) => {
+                if (result.value) {
+                    document.location.href = href;
+                }
+            })
+
+        })
+    </script>
 @stop

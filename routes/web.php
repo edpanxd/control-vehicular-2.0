@@ -14,6 +14,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboardd/{p}', 'App\Http\Controllers\dashboardController@create');
     Route::get('/dashboardv/{p}', 'App\Http\Controllers\dashboardController@create2');
     Route::post('/dashboardfoto', 'App\Http\Controllers\dashboardController@foto');
+    Route::get('/dashboardE/{id}', 'App\Http\Controllers\dashboardController@eliminar');
    //ruta vehiculo
     Route::resource('/vehiculo', 'App\Http\Controllers\VehiculoController');
   // Route::get('/vehiculod/{id}', 'App\Http\Controllers\VehiculoController@destroy'); //ruta de eliminar vehiculo inavilitada

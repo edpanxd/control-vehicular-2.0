@@ -104,6 +104,7 @@ class dashboardController extends Controller
         $fisico_ms = DB::table('fisico_ms')->where('id_vehiculo', "$id")->get();
         $foto = DB::table('fotos_vehiculos')->where('id_vehiculo', "$id")->get();
         $placa = DB::table('placas')->where('id_vehiculo', "$id")->where('estatus', "VIGENTES")->get();
+        $fotos = DB::table('fotos_vehiculos')->where('id_vehiculo', "$id")->get();
         return view('dashboard.perfil')->with('vehiculo', $vehiculo)
             ->with('placas', $placas)
             ->with('tarjetacs', $tarjetacs)
@@ -120,7 +121,8 @@ class dashboardController extends Controller
             ->with('estatus', $estatus)
             ->with('fisico_ms', $fisico_ms)
             ->with('foto', $foto)
-            ->with('placa', $placa);
+            ->with('placa', $placa)
+            ->with('fotos', $fotos);
     }
     public function imprimir($id){
         $Vehiculos_T=["1","2"];
@@ -169,6 +171,12 @@ class dashboardController extends Controller
     
           
             
+    }
+    public function eliminar($id){
+        $valores =fotos_vehiculos::find($id);
+        unlink('fotos_vehiculo/'.$valores->fotos);
+        $valores->delete();
+        return redirect('/dashboardvh'.'/'.$valores->id_vehiculo );
     }
 
     public function foto (Request $request){

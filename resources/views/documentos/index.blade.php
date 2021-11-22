@@ -104,7 +104,7 @@
                 text: "Recuarda que si eliminas el vehiculo se eliminara automanticamnete todos los registros con los que tenga relacion",
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#d33 ',
+                confirmButtonColor: '#d33',
                 cancelButtonColor: '#3085d6',
                 confirmButtonText: 'Eliminar',
 

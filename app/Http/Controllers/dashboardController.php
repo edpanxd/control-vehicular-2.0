@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
 use App\Models\empresa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -9,7 +10,10 @@ use App\Models\Vehiculo;
 use App\Models\vehiculos_i;
 use App\Models\vehiculos_n;
 use App\Models\fotos_vehiculos;
+use App\Models\Placas;
+use App\Models\polizas;
 use PDF;
+
 class dashboardController extends Controller
 {
     /**
@@ -19,7 +23,9 @@ class dashboardController extends Controller
      */
     public function index()
     {
-        
+        $actual = new DateTime("now");
+        $año = date('Y');
+        $final = new DateTime("30-03-$año");
         $valores = Vehiculo::all()->where('estatus', 'Activo');
         $datos = Vehiculo::all();
         $placas = DB::table('placas')->where('placas.estatus', 'vencidas')->get();
@@ -37,9 +43,10 @@ class dashboardController extends Controller
             ->with('Va', $Va)
             ->with('Vb', $Vb)
             ->with('Vf', $Vf)
-            ->with('Fm', $Fm);
+            ->with('Fm', $Fm)
+            ->with('actual', $actual)
+            ->with('año', $año);
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -81,12 +88,12 @@ class dashboardController extends Controller
             }
         }
         $vi = vehiculos_i::all();
-                foreach ($vi as $vi) {
-                    if ($vi->id_vehiculo == $id) {
-                        $Vehiculos_T = DB::table('vehiculos_is')->where('id_vehiculo', "$id")->get();
-                        $estatus = "Importado";
-                    }
-                }
+        foreach ($vi as $vi) {
+            if ($vi->id_vehiculo == $id) {
+                $Vehiculos_T = DB::table('vehiculos_is')->where('id_vehiculo', "$id")->get();
+                $estatus = "Importado";
+            }
+        }
 
 
         $vehiculo = Vehiculo::all()->where('id', "$id");
@@ -124,24 +131,25 @@ class dashboardController extends Controller
             ->with('placa', $placa)
             ->with('fotos', $fotos);
     }
-    public function imprimir($id){
-        $Vehiculos_T=["1","2"];
-        $estatus = ["1","2","3","4","5"];
+    public function imprimir($id)
+    {
+        $Vehiculos_T = ["1", "2"];
+        $estatus = ["1", "2", "3", "4", "5"];
         $ve = vehiculos_n::all();
         foreach ($ve as $ve) {
             if ($ve->id_vehiculo == $id) {
                 $Vehiculos_T = DB::table('vehiculos_ns')->where('id_vehiculo', "$id")->get();
-                $estatus = ["1","2","3"];
+                $estatus = ["1", "2", "3"];
             }
         }
         $vi = vehiculos_i::all();
-                foreach ($vi as $vi) {
-                    if ($vi->id_vehiculo == $id) {
-                        $Vehiculos_T = DB::table('vehiculos_is')->where('id_vehiculo', "$id")->get();
-                        $estatus = ["1","2","3","4"];
-                    }
-                }
-       
+        foreach ($vi as $vi) {
+            if ($vi->id_vehiculo == $id) {
+                $Vehiculos_T = DB::table('vehiculos_is')->where('id_vehiculo', "$id")->get();
+                $estatus = ["1", "2", "3", "4"];
+            }
+        }
+
 
         $vehiculo = Vehiculo::all()->where('id', "$id");
         $documentos = DB::table('documentos_ps')->where('id_vehiculo', "$id")->get();
@@ -156,95 +164,99 @@ class dashboardController extends Controller
         $permisos = DB::table('permisos')->where('id_vehiculo', "$id")->get();
         $propietarios_as = DB::table('propietarios_as')->where('id_vehiculo', "$id")->get();
         $fisico_ms = DB::table('fisico_ms')->where('id_vehiculo', "$id")->get();
-        $empresa= empresa::all();
+        $empresa = empresa::all();
         $polizas2 = DB::table('polizas')->where('id_vehiculo', "$id")->get();
         $placas2 = DB::table('placas')->where('id_vehiculo', "$id")->get();
         $polizas3 = DB::table('polizas')->where('id_vehiculo', "$id")->get();
         $permisos2 = DB::table('permisos')->where('id_vehiculo', "$id")->get();
-        $pdf = PDF::loadView('dashboard.reporte', compact('vehiculo', 'placas', 'empresa', "Vehiculos_T",
-                                'tarjetacs', 'permisos', 'polizas', 'estatus', 'tenencias', 'verificacion_as', 'verificacion_bs',
-                                    'verificacion_fs', 'verificacion_fsa', 'fisico_ms', 'polizas2', 'placas2', 'polizas3',
-                                        'permisos2'));
+        $pdf = PDF::loadView('dashboard.reporte', compact(
+            'vehiculo',
+            'placas',
+            'empresa',
+            "Vehiculos_T",
+            'tarjetacs',
+            'permisos',
+            'polizas',
+            'estatus',
+            'tenencias',
+            'verificacion_as',
+            'verificacion_bs',
+            'verificacion_fs',
+            'verificacion_fsa',
+            'fisico_ms',
+            'polizas2',
+            'placas2',
+            'polizas3',
+            'permisos2'
+        ));
 
-            return $pdf->stream('CÉDULA DE CONTROL VEHÍCULAR.pdf');
-   
-    
-          
-            
+        return $pdf->stream('CÉDULA DE CONTROL VEHÍCULAR.pdf');
     }
-    public function eliminar($id){
-        $valores =fotos_vehiculos::find($id);
-        unlink('fotos_vehiculo/'.$valores->fotos);
+    public function eliminar($id)
+    {
+        $valores = fotos_vehiculos::find($id);
+        unlink('fotos_vehiculo/' . $valores->fotos);
         $valores->delete();
-        return redirect('/dashboardvh'.'/'.$valores->id_vehiculo );
+        return redirect('/dashboardvh' . '/' . $valores->id_vehiculo);
     }
 
-    public function foto (Request $request){
+    public function foto(Request $request)
+    {
         $valores = new fotos_vehiculos();
         $valores->id_vehiculo = $request->get('id');
-        if($fotos= $request->file('imagen')){
-            $rutaguardarimg= 'fotos_vehiculo/';
-            $imagennombre= date('YmdHis'). "." . $fotos->getClientOriginalExtension();
+        if ($fotos = $request->file('imagen')) {
+            $rutaguardarimg = 'fotos_vehiculo/';
+            $imagennombre = date('YmdHis') . "." . $fotos->getClientOriginalExtension();
             $fotos->move($rutaguardarimg, $imagennombre);
-            $valores->fotos="$imagennombre";
+            $valores->fotos = "$imagennombre";
         }
         $valores->save();
-        $id= $request->get('id');
-        return redirect('/dashboardvh'.'/'.$id);
-    }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $id = $request->get('id');
+        return redirect('/dashboardvh' . '/' . $id);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function eventos()
     {
-        //
-    }
+        $data = array(); //declaramos un array principal que va contener los datos
+        $placas = DB::table('placas')
+            ->select('placas.*', 'vehiculos.marca', 'vehiculos.serie')
+            ->join('vehiculos', 'placas.id_vehiculo', 'vehiculos.id')
+            ->get();
+        $poliza = DB::table('polizas')
+            ->select('polizas.*', 'vehiculos.marca', 'vehiculos.serie')
+            ->join('vehiculos', 'polizas.id_vehiculo', 'vehiculos.id')
+            ->get();
+        $i = 0;
+        $title = 'title';
+        $start = 'start';
+        $color = 'color';
+        $descripcion = 'descripcion';
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        foreach ($placas as $placas) {
+            $newDate = date("Y-m-d", strtotime($placas->baja));
+            $data[$i] = array(
+                $title => "Placa :" . $placas->placas,
+                $start => $newDate,
+                $color => 'red',
+                $descripcion => 'La placa ' . $placas->placas . ' del vehiculo ' . $placas->marca . ' esta por vencer',
+                'url' => 'dashboardvh/' . $placas->id_vehiculo,
+            );
+            $i++;
+        }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        foreach ($poliza as $poliza) {
+            $newDato = date("Y-m-d", strtotime($poliza->vencimiento));
+            $data[$i] = array(
+                $title => "Poliza : " . $poliza->poliza,
+                $start => $newDato,
+                $color => 'green',
+                $descripcion => 'La poliza: ' . $poliza->poliza . ' del vehiculo ' . $poliza->marca . ' esta por vencer',
+                'url' => 'dashboardvh/' . $poliza->id_vehiculo,
+            );
+            $i++;
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+
+        return response()->json($data);  //para luego retornarlo y estar listo para consumirlo
     }
 }

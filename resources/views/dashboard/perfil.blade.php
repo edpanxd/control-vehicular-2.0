@@ -121,7 +121,7 @@
                         <nav class="navbar navbar-dark lighten-4 mb-4">
 
                             <!-- Navbar brand -->
-                            <a class="navbar-brand" href="#">Menú</a>
+                            <a class="navbar-brand">Menú</a>
 
                             <!-- Collapse button -->
                             <button class="navbar-toggler darken-3" type="button" data-toggle="collapse"
@@ -168,10 +168,8 @@
                                             Propietarios Anteriores</a></li>
                                 </ul>
                                 <!-- Links -->
-
                             </div>
                             <!-- Collapsible content -->
-
                         </nav>
                         <!--/.Navbar-->
                     </div>
@@ -556,19 +554,19 @@
                                                     <td>{{ $verificacion_as->estatus }}</td>
 
                                                     @switch($verificacion_as->engomado)
-                                                        @case(" 5 u 6")
+                                                        @case("5 u 6")
                                                             <td class="bg-yellow">FEBRERO, MARZO</td>
                                                         @break
-                                                        @case(" 7 u 8")
+                                                        @case("7 u 8")
                                                             <td class="bg-pink">FEBRERO, MARZO</td>
                                                         @break
-                                                        @case(" 3 o 4")
+                                                        @case("3 o 4")
                                                             <td class="bg-red">MARZO, ABRIL</td>
                                                         @break
-                                                        @case(" 1 o 2")
+                                                        @case("1 o 2")
                                                             <td class="bg-green">ABRIL, MAYO</td>
                                                         @break
-                                                        @case(" 9 o 0")
+                                                        @case("9 o 0")
                                                             <td class="bg-info">MAYO-JUNIO</td>
                                                         @break
                                                         @default
@@ -612,19 +610,19 @@
                                                     <td>{{ $verificacion_bs->fecha }}</td>
                                                     <td>{{ $verificacion_bs->estatus }}</td>
                                                     @switch($verificacion_bs->engomado)
-                                                        @case(" 5 u 6")
+                                                        @case("5 u 6")
                                                             <td class="bg-yellow">JULIO, AGOSTO</td>
                                                         @break
-                                                        @case(" 7 u 8")
+                                                        @case("7 u 8")
                                                             <td class="bg-pink">AGOSTO, SEPTIEMBRE</td>
                                                         @break
-                                                        @case(" 3 o 4")
+                                                        @case("3 o 4")
                                                             <td class="bg-red">SEPTIEMBRE, OCTUBRE</td>
                                                         @break
-                                                        @case(" 1 o 2")
+                                                        @case("1 o 2")
                                                             <td class="bg-green">OCTUBRE, NOVIEMBRE</td>
                                                         @break
-                                                        @case(" 9 o 0")
+                                                        @case("9 o 0")
                                                             <td class="bg-info">NOVIEMBRE, DICIEMBRE</td>
                                                         @break
                                                         @default

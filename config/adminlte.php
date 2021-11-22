@@ -242,6 +242,7 @@ return [
             'icon' => 'fa fa-desktop',
             'label_color' => 'success',
         ],
+       
         ['header' => 'Vehiculos'],
         [
             'text'        => 'Vehículo',
@@ -306,7 +307,7 @@ return [
         [
             'text'        => 'Tenencias',
             'url'         => 'tenencia',
-            'icon'        => 'fa fa-calendar',
+            'icon'        => 'fas fa-car-side',
             'label_color' => 'success',
         ], [
             'text'    => 'Verificaciones',

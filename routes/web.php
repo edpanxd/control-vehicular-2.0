@@ -7,6 +7,11 @@ Route::get('/', function () {
 });
 
 Route::resource('/dashboard', 'App\Http\Controllers\dashboardController');
+Route::get('/calendario', 'App\Http\Controllers\calendarioController@calendarioPP');
+Route::get('/calendarioT', 'App\Http\Controllers\calendarioController@calendarioT');
+Route::get('/calendarioVE', 'App\Http\Controllers\calendarioController@calendarioVE');
+Route::get('/calendarioVF', 'App\Http\Controllers\calendarioController@calendarioVF');
+Route::get('/eventos', 'App\Http\Controllers\dashboardController@eventos');
 Route::get('/dashboardvh/{id}', 'App\Http\Controllers\dashboardController@perfil');
 Route::get('/dashboardvim/{id}', 'App\Http\Controllers\dashboardController@imprimir');
 

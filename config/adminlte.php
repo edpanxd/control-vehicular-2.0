@@ -242,6 +242,12 @@ return [
             'icon' => 'fa fa-desktop',
             'label_color' => 'success',
         ],
+        [
+            'text' => 'Perfiles',
+            'url'  => '/tarjetaV',
+            'icon' => 'fa fa-desktop',
+            'label_color' => 'success',
+        ],
        
         ['header' => 'Vehiculos'],
         [

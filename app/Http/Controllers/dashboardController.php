@@ -27,7 +27,7 @@ class dashboardController extends Controller
         $año = date('Y');
         $final = new DateTime("30-03-$año");
         $valores = Vehiculo::all()->where('estatus', 'Activo');
-        $datos = Vehiculo::all();
+
         $placas = DB::table('placas')->where('placas.estatus', 'vencidas')->get();
         $poliza = DB::table('polizas')->where('polizas.estatus', 'vencidas')->get();
         $tenencia = DB::table('tenencias')->where('tenencias.estatus', 'sin pagar')->get();
@@ -36,7 +36,6 @@ class dashboardController extends Controller
         $Vf = DB::table('verificacion_fs')->where('verificacion_fs.estatus', 'sin pagar')->get();
         $Fm = DB::table('fisico_ms')->where('fisico_ms.estatus', 'sin pagar')->get();
         return view('dashboard.index')->with('valores', $valores)
-            ->with('datos', $datos)
             ->with('placas', $placas)
             ->with('poliza', $poliza)
             ->with('tenencia', $tenencia)
@@ -53,6 +52,12 @@ class dashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function vehiculos()
+    {
+        $datos = Vehiculo::all();
+        return view('dashboard.tarjetas')
+            ->with('datos', $datos);
+    }
     public function create($p)
     {
         $data = DB::table("$p" . 's')
@@ -226,6 +231,10 @@ class dashboardController extends Controller
             ->select('polizas.*', 'vehiculos.marca', 'vehiculos.serie')
             ->join('vehiculos', 'polizas.id_vehiculo', 'vehiculos.id')
             ->get();
+        $verificacion_e1 = DB::table('verificacion_as')
+        ->select('verificacion_as.*', 'vehiculos.marca', 'vehiculos.serie')
+        ->join('vehiculos', 'verificacion_as.id_vehiculo', 'vehiculos.id')
+        ->get();  
         $i = 0;
         $title = 'title';
         $start = 'start';
@@ -255,8 +264,20 @@ class dashboardController extends Controller
             );
             $i++;
         }
+        foreach ($verificacion_e1 as $verificacion_e1) {
+            $newDato = date("Y-m-j", strtotime($verificacion_e1->fecha));
+            $nuevafecha = strtotime ( '+1 year' , strtotime ( $newDato ) ) ;
+            $nuevafecha = date ( 'Y-m-j' , $nuevafecha );
+            $data[$i] = array(
+                $title => "Verificacion: " . $verificacion_e1->verificacion,
+                $start => $nuevafecha,
+                $color => 'pink',
+                $descripcion => 'La verificacione estatal A: ' . $verificacion_e1->engomado . ' del vehiculo ' . $verificacion_e1->marca . ' esta por vencer',
+                'url' => 'dashboardvh/' . $verificacion_e1->id_vehiculo,
+            );
+            $i++;
+        }
 
-
-        return response()->json($data);  //para luego retornarlo y estar listo para consumirlo
+        return response()->json($data);
     }
 }

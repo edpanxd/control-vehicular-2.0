@@ -3,6 +3,7 @@
         <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Registrar</a>
     </div>
     <x-jet-authentication-card>
+        
         <x-slot name="logo">
             <img src="{{asset('img/logo2.png')}}" alt="" width="500px" height="150px">
         </x-slot>

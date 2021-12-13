@@ -148,17 +148,13 @@
                                             data-toggle="tab">Tenencia</a></li>
                                     <li class="nav-item"><a class="nav-link" href="#va"
                                             data-toggle="tab">Verificación Estatal
-                                            A</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#vb"
-                                            data-toggle="tab">Verificación Estatal
-                                            B</a></li>
+                                            </a></li>
+                                   
                                     <li class="nav-item"><a class="nav-link" href="#vf"
                                             data-toggle="tab">Verificación
-                                            Federal A</a>
+                                            Federal</a>
                                     </li>
-                                    <li class="nav-item"><a class="nav-link" href="#vfa"
-                                            data-toggle="tab">Verificación
-                                            Federal B</a>
+                                   
                                     </li>
                                     <li class="nav-item"><a class="nav-link" href="#fm" data-toggle="tab">Físico
                                             Mecánico</a></li>
@@ -531,7 +527,7 @@
                             <!-- -->
                             <div class="tab-pane " id="va">
                                 <h1>Verificación Estatal 1° Periodo</h1>
-                                <div class="table-responsive">
+                                <div class="table-responsive post">
                                     <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas4">
                                         <thead class="thead-dark">
                                             <tr>
@@ -584,11 +580,9 @@
                                 <!-- Tabla verificacion a -->
 
 
-                            </div>
-                            <!-- -->
-                            <div class="tab-pane " id="vb">
+                            
                                 <h1>Verificación Estatal 2° Periodo</h1>
-                                <div class="table-responsive">
+                                <div class="table-responsive post">
                                     <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas5">
                                         <thead class="thead-dark">
                                             <tr>
@@ -644,7 +638,7 @@
                             <!-- -->
                             <div class="tab-pane " id="vf">
                                 <h1>Verificación Federal 1° Periodo</h1>
-                                <div class="table-responsive">
+                                <div class="table-responsive post">
                                     <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas6">
                                         <thead class="thead-dark">
                                             <tr>
@@ -674,11 +668,9 @@
                                 <!-- Tabla verificacion f -->
 
 
-                            </div>
-                            <!-- -->
-                            <div class="tab-pane " id="vfa">
+                            
                                 <h1>Verificación Federal 2° Periodo</h1>
-                                <div class="table-responsive">
+                                <div class="table-responsive post">
                                     <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas9">
                                         <thead class="thead-dark">
                                             <tr>

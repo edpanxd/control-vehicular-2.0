@@ -41,7 +41,7 @@
                                 </div>
                                 <!-- /.description-block -->
                             </div>
-                            <div class="col-sm-4 border-right mb-4">
+                            <div class="col-sm-4  mb-4">
                                 <div class="description-block">
                                     <h5 class="description-header">{{ $datos->uso }}</h5>
                                     <span class="description-text">Uso</span>

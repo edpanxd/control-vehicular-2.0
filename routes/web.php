@@ -9,12 +9,14 @@ Route::get('/', function () {
 Route::resource('/dashboard', 'App\Http\Controllers\dashboardController');
 Route::get('/tarjetaV', 'App\Http\Controllers\dashboardController@vehiculos');
 Route::get('/eventos', 'App\Http\Controllers\dashboardController@eventos');
+Route::get('/grafica', 'App\Http\Controllers\dashboardController@grafica');
 Route::get('/dashboardvh/{id}', 'App\Http\Controllers\dashboardController@perfil');
 Route::get('/dashboardvim/{id}', 'App\Http\Controllers\dashboardController@imprimir');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {    
     Route::get('/dashboardd/{p}', 'App\Http\Controllers\dashboardController@create');
-    Route::get('/dashboardv/{p}', 'App\Http\Controllers\dashboardController@create2');
+    Route::get('/dashboardv/{p}', 'App\Http\Controllers\dashboardController@verificacion');
+    Route::get('/dashboardvehiculo/{p}', 'App\Http\Controllers\dashboardController@vehiculoE');
     Route::post('/dashboardfoto', 'App\Http\Controllers\dashboardController@foto');
     Route::get('/dashboardE/{id}', 'App\Http\Controllers\dashboardController@eliminar');
    //ruta vehiculo

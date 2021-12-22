@@ -20,6 +20,10 @@ class CreatePlacasTable extends Migration
             $table->date('vencimiento');
             $table->date('alta');
             $table->date('baja');
+            $table->date('fecha_pago');
+            $table->date('fecha_estimada');
+            $table->integer('monto');
+            $table->integer('año');
             $table->string('cambio_propietario');
             $table->date("fecha_cambio_p");
             $table->string('estatus');

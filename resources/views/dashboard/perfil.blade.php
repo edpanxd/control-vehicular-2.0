@@ -511,8 +511,8 @@
                                             @foreach ($tenencias as $tenencias)
                                                 <tr>
                                                     <td>{{ $tenencias->id }}</td>
-                                                    <td>{{ $tenencias->tenencia }}</td>
-                                                    <td>$ {{ $tenencias->pago }}</td>
+                                                    <td>{{ $tenencias->año }}</td>
+                                                    <td>$ {{ $tenencias->monto }}</td>
                                                     <td>{{ $tenencias->estatus }}</td>
                                                     <td><a class="btn btn-primary"
                                                             href="/Tenencias/{{ $tenencias->archivo }}"
@@ -546,7 +546,7 @@
                                                     <td>{{ $verificacion_as->id }}</td>
                                                     <td>{{ $verificacion_as->verificacion }}</td>
                                                     <td>{{ $verificacion_as->placa }}</td>
-                                                    <td>{{ $verificacion_as->fecha }}</td>
+                                                    <td>{{ $verificacion_as->fecha_pago }}</td>
                                                     <td>{{ $verificacion_as->estatus }}</td>
 
                                                     @switch($verificacion_as->engomado)

@@ -247,7 +247,7 @@
                 <div class="inner">
                     <h3>
                         <!--{{ $V = 0 }}
-                                          @foreach ($placas as $placas) {{ $V = $V + 1 }} @endforeach -->
+                                                                              @foreach ($placas as $placas) {{ $V = $V + 1 }} @endforeach -->
                         {{ $V }}
                     </h3>
 
@@ -265,8 +265,8 @@
                 <div class="inner">
                     <h3>
                         <!--
-                                         {{ $p = 0 }}
-                                         @foreach ($poliza as $poliza) {{ $p = $p + 1 }} @endforeach-->
+                                                                             {{ $p = 0 }}
+                                                                             @foreach ($poliza as $poliza) {{ $p = $p + 1 }} @endforeach-->
                         {{ $p }}
                     </h3>
 
@@ -284,8 +284,8 @@
                 <div class="inner">
                     <h3>
                         <!--
-                                                {{ $t = 0 }}
-                                         @foreach ($tenencia as $tenencia) {{ $t = $t + 1 }} @endforeach -->
+                                                                                    {{ $t = 0 }}
+                                                                             @foreach ($tenencia as $tenencia) {{ $t = $t + 1 }} @endforeach -->
                         {{ $t }}
                     </h3>
 
@@ -303,7 +303,7 @@
                 <div class="inner">
                     <h3>
                         <!--{{ $verA = 0 }}
-                                            @foreach ($Va as $Va) {{ $verA = $verA + 1 }} @endforeach -->
+                                                                                @foreach ($Va as $Va) {{ $verA = $verA + 1 }} @endforeach -->
                         {{ $verA }}
                     </h3>
 
@@ -321,7 +321,7 @@
                 <div class="inner">
                     <h3>
                         <!--{{ $verB = 0 }}
-                                                    @foreach ($Vb as $Vb) {{ $verB = $verB + 1 }} @endforeach -->
+                                                                                        @foreach ($Vb as $Vb) {{ $verB = $verB + 1 }} @endforeach -->
                         {{ $verB }}
                     </h3>
 
@@ -339,7 +339,7 @@
                 <div class="inner">
                     <h3>
                         <!--{{ $verF = 0 }}
-                                                                                @foreach ($Vf as $Vf) {{ $verF = $verF + 1 }} @endforeach -->
+                                                                                                                    @foreach ($Vf as $Vf) {{ $verF = $verF + 1 }} @endforeach -->
                         {{ $verF }}
                     </h3>
 
@@ -357,7 +357,7 @@
                 <div class="inner">
                     <h3>
                         <!--{{ $fiM = 0 }}
-                                                                                @foreach ($Fm as $Fm) {{ $fiM = $fiM + 1 }} @endforeach -->
+                                                                                                                    @foreach ($Fm as $Fm) {{ $fiM = $fiM + 1 }} @endforeach -->
                         {{ $fiM }}
                     </h3>
 
@@ -370,7 +370,51 @@
                         class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
+        <div class="col-12">
+            <h4>Empresas</h4>
+        </div>
+        @foreach ($empresas as $empresas)
+            <div class="col-mb-3 col-3">
+                <div class="small-box" style="background-color: #9370DB">
+                    <div class="inner">
+                        <p>{{ $empresas->empresa }}</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <a href="/dashboardvehiculo/{{ $empresas->empresa }}" class="small-box-footer">Vehículos
+                        <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+
+        @endforeach
+
+        <div class="col-mb-12 col-12 mb-5" style="height: 500px; ">
+            <h4>Grafica mensual</h4>
+            <canvas id="myChart" class="mb-5" width="10%" height="10%"></canvas>
+        </div>
+        <div class="col-mb-12 col-12 mb-5" style="height: 300px;">
+            <h4>Grafica anual</h4>
+            <canvas id="bar-chart" width="800" height="450"></canvas>
+        </div>
+        @foreach ($sumaA as $sumaA)
+            <div class="col-md-3 col-sm-6 col-12">
+                <div class="info-box" style="background-color: #2E8B57">
+                    <span class="info-box-icon "><i class="fas fa-wallet"></i></span>
+
+                    <div class="info-box-content">
+                        <h5 class="info-box-text"> </h5>
+                        <h2 class="info-box-number">{{ $sumaA }}</h2>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+        @endforeach
+
     </div>
+
     <footer>
 
     </footer>
@@ -388,6 +432,8 @@
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales-all.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.2/dist/chart.min.js"></script>
+    <!--CALENDARIO -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
@@ -398,14 +444,15 @@
                     left: 'prev,next today',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth',
+
                 },
+
                 eventClick: function(info) {
                     info.jsEvent.preventDefault();
                     swal({
                         title: info.event.title,
                         text: info.event.extendedProps.descripcion,
                         icon: "warning",
-
                     }).then(function() {
                         window.open(info.event.url);
                     });
@@ -415,17 +462,17 @@
                 locale: 'es',
                 editable: false,
                 selectable: true,
-                defaultView: 'agendaWeek',
                 allDayDefault: false,
 
                 events: "/eventos",
                 eventColor: 'red',
-                
+
             });
 
             calendar.render();
         });
     </script>
+    <!--ALERTAS -->
     <script>
         function PrimerS1(params) {
             Command: toastr["warning"]("Recuarda realizar el pago de la verificacion", "Febrero, Marzo", )
@@ -536,5 +583,233 @@
 
             }
         }
+    </script>
+    <!--GRAFICA LINE-->
+    <script>
+        const T = @json($TenenciaM);
+        const P = @json($PolizaM);
+        const VE = @json($VerificacionM);
+        const VF = @json($VeridicacionFM);
+        const VFM = @json($FisicoM);
+        const PE = @json($PolizaM);
+        const PL = @json($PlacasM);
+        const TC = @json($TarjetasM);
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre',
+                    'Octubre', 'Noviembre', 'Diciembre'
+                ],
+                datasets: [{
+                        label: 'Tenencias',
+                        data: T,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+
+                        ],
+
+                        borderWidth: 3
+                    },
+                    {
+                        label: 'Pólizas',
+                        data: P,
+                        backgroundColor: [
+
+                            'rgba(54, 162, 235, 0.2)',
+
+                        ],
+                        borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                        ],
+
+                        borderWidth: 3
+                    },
+                    {
+                        label: 'Verificación Estatal',
+                        data: VE,
+                        backgroundColor: [
+
+                            'rgba(255, 206, 86, 0.2)',
+
+                        ],
+                        borderColor: [
+
+                            'rgba(255, 206, 86, 1)',
+
+                        ],
+
+                        borderWidth: 3
+                    },
+                    {
+                        label: 'Verificación Federal',
+                        data: VF,
+                        backgroundColor: [
+
+                            'rgba(75, 192, 192, 0.2)',
+
+                        ],
+                        borderColor: [
+
+                            'rgba(75, 192, 192, 1)',
+
+                        ],
+
+                        borderWidth: 3
+                    },
+                    {
+                        label: 'Verificacion Físico Mecánico',
+                        data: VFM,
+                        backgroundColor: [
+
+                            'rgba(153, 102, 255, 0.2)',
+
+                        ],
+                        borderColor: [
+
+                            'rgba(153, 102, 255, 1)',
+
+                        ],
+
+                        borderWidth: 3
+                    },
+                    {
+                        label: 'Permisos',
+                        data: PE,
+                        backgroundColor: [
+
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+
+                            'rgba(255, 159, 64, 1)'
+                        ],
+
+                        borderWidth: 3
+                    },
+                    {
+                        label: 'Placas',
+                        data: PL,
+                        backgroundColor: [
+                            'rgba(206, 248, 77, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(206, 248, 77, 1)',
+                        ],
+
+                        borderWidth: 3
+                    },
+                    {
+                        label: 'Tarjetas de circulación',
+                        data: TC,
+                        backgroundColor: [
+                            'rgba(89, 20, 77, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(89, 20, 77, 1)',
+                        ],
+
+                        borderWidth: 3
+                    }
+                ]
+
+            },
+            options: {
+
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+
+
+                        labels: {
+                            color: '#FFFF',
+                            font: {
+                                size: 15,
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            display: false,
+                        },
+                        ticks: {
+
+                            color: '#ffff',
+                        }
+                    },
+                    y: {
+
+                        ticks: {
+
+                            color: '#ffff',
+                        },
+                        grid: {
+                            drawBorder: false,
+                            color: '#ffff'
+                        },
+                    }
+                }
+            }
+        });
+    </script>
+    <!--GRAFICA BAR-->
+    <script>
+        const G = @json($graficaaño);
+        new Chart(document.getElementById("bar-chart"), {
+            type: 'bar',
+            data: {
+                labels: ["Tenencias", "Pólizas", "Verificación E", "Verificacion F", "Verificacion FM", "Placas",
+                    "Tarjetas"
+                ],
+                datasets: [{
+                    label: "",
+                    backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                    data: G
+                }, ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false,
+                        labels: {
+                            color: '#FFFF',
+                            font: {
+                                size: 15,
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            display: false,
+                        },
+                        ticks: {
+
+                            color: '#ffff',
+                        }
+                    },
+                    y: {
+                        ticks: {
+
+                            color: '#ffff',
+                        },
+                        grid: {
+                            drawBorder: false,
+                            color: '#ffff'
+                        },
+                    }
+                }
+            }
+        });
     </script>
 @stop

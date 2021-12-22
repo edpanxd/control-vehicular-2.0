@@ -245,7 +245,7 @@ return [
         [
             'text' => 'Perfiles',
             'url'  => '/tarjetaV',
-            'icon' => 'fa fa-desktop',
+            'icon' => 'fas fa-truck-pickup',
             'label_color' => 'success',
         ],
        
@@ -452,11 +452,11 @@ return [
             ],
         ],
         'Chartjs' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
                 ],
             ],

@@ -16,9 +16,11 @@ class CreateFisicoMsTable extends Migration
         Schema::create('fisico_ms', function (Blueprint $table) {
             $table->id();
             $table->string('placa');
-            $table->string('verificacion');
+            $table->integer('verificacion');
             $table->string('terminacion');
-            $table->date('fecha');
+            $table->date('fecha_pago');
+            $table->date('fecha_estimada');
+            $table->integer('monto');
             $table->string('estatus');
             $table->string('archivo');
             $table->unsignedBigInteger('id_vehiculo');

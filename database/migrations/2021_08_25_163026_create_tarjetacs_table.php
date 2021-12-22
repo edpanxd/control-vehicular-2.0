@@ -21,6 +21,10 @@ class CreateTarjetacsTable extends Migration
             $table->string('estatus');
             $table->date('inicio');
             $table->date('vencimiento');
+            $table->date('fecha_pago');
+            $table->date('fecha_estimada');
+            $table->integer('monto');
+            $table->integer('año');
             $table->unsignedBigInteger('id_vehiculo');
             $table->foreign('id_vehiculo')->references('id')->on('vehiculos');
             $table->timestamps();

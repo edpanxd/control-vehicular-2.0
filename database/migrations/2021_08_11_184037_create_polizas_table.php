@@ -20,6 +20,10 @@ class CreatePolizasTable extends Migration
             $table->string('estatus');
             $table->date('inicio');
             $table->date('vencimiento');
+            $table->date('fecha_pago');
+            $table->date('fecha_estimada');
+            $table->integer('monto');
+            $table->integer('año');
             $table->string('endoso');
             $table->string('concepto_endoso');
             $table->string('archivo');

@@ -43,8 +43,10 @@ class tenenciaController extends Controller
     public function store(Request $request)
     {
         $valores = new tenencias();
-        $valores->tenencia = $request->get('tenencia');
-        $valores->pago = $request->get('pago');
+        $valores->fecha_pago = $request->get('fecha_pago');
+        $valores->fecha_estimada = $request->get('fecha_estimada');
+        $valores->monto = $request->get('monto');
+        $valores->año = $request->get('año');
         $valores->estatus = $request->get('estatus');
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo= $request->file('archivo')){
@@ -97,8 +99,10 @@ class tenenciaController extends Controller
     public function update(Request $request, $id)
     {
         $valores = tenencias::find($id);
-        $valores->tenencia = $request->get('tenencia');
-        $valores->pago = $request->get('pago');
+        $valores->fecha_pago = $request->get('fecha_pago');
+        $valores->fecha_estimada = $request->get('fecha_estimada');
+        $valores->monto = $request->get('monto');
+        $valores->año = $request->get('año');
         $valores->estatus = $request->get('estatus');
         $valores->id_vehiculo = $request->get('vehiculo');
         $valores->save();

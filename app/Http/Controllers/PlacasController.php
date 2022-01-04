@@ -54,6 +54,10 @@ class PlacasController extends Controller
         $valores->vencimiento = $request->get('vencimiento');
         $valores->alta = $request->get('alta');
         $valores->baja = $request->get('baja');
+        $valores->fecha_pago = $request->get('fecha_pago');
+        $valores->fecha_estimada = $request->get('fecha_estimada');
+        $valores->monto = $request->get('monto');
+        $valores->año = $request->get('año');
         $valores->estatus = $request->get('estatus');
         $valores->cambio_propietario = $request->get('cambio_propietario');
         $valores->fecha_cambio_p = $request->get('fecha_cambio_p');

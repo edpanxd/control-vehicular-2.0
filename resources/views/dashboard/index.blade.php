@@ -23,7 +23,7 @@
                     <div class="icon">
                         <i class="fas fa-exclamation-triangle"></i>
                     </div>
-                    <a href="#" class="small-box-footer">mas información <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="#" class="small-box-footer"></a>
                 </div>
             @endif
             @if (new DateTime(" 01-02-$año") <=$actual and new DateTime(" 30-03-$año")>=
@@ -218,7 +218,6 @@
                 </div>
             @endif
         </div>
-
         <div class="col-mb-9 col-9 mb-5">
             <div style="background-color: rgb(45, 51, 58);" id="calendar"></div>
         </div>
@@ -387,9 +386,7 @@
                     </a>
                 </div>
             </div>
-
         @endforeach
-
         <div class="col-mb-12 col-12 mb-5" style="height: 500px; ">
             <h4>Grafica mensual</h4>
             <canvas id="myChart" class="mb-5" width="10%" height="10%"></canvas>
@@ -398,11 +395,13 @@
             <h4>Grafica anual</h4>
             <canvas id="bar-chart" width="800" height="450"></canvas>
         </div>
+        <div class="col-12">
+            <h4>Costos de años pasados</h4>
+        </div>
         @foreach ($sumaA as $sumaA)
             <div class="col-md-3 col-sm-6 col-12">
                 <div class="info-box" style="background-color: #2E8B57">
                     <span class="info-box-icon "><i class="fas fa-wallet"></i></span>
-
                     <div class="info-box-content">
                         <h5 class="info-box-text"> </h5>
                         <h2 class="info-box-number">{{ $sumaA }}</h2>
@@ -412,11 +411,21 @@
                 <!-- /.info-box -->
             </div>
         @endforeach
-
     </div>
-
     <footer>
-
+        <div class="col-12 mb-4">
+            <h4>Descargar excel</h4>
+            <a href="ExcelTene" class="btn btn-info mb-2">TENENCIAS</a>
+            <a href="ExcelPolizas" class="btn btn-info mb-2">PÓLIZAS</a>
+            <a href="ExcelVE1" class="btn btn-info mb-2">VERIFICACIÓN E 1</a>
+            <a href="ExcelVE2" class="btn btn-info mb-2">VERIFICACIÓN E 2</a>
+            <a href="ExcelVF1" class="btn btn-info mb-2">VERIFICACIÓN F 1</a>
+            <a href="ExcelVF2" class="btn btn-info mb-2">VERIFICACIÓN F 2</a>
+            <a href="ExcelFisico" class="btn btn-info mb-2">FISICO M</a>
+            <a href="ExcelPlacas" class="btn btn-info mb-2">PLACAS</a>
+            <a href="ExcelTarjeta" class="btn btn-info mb-2">TARJETAS C</a>
+        </div>
+           
     </footer>
 @stop
 

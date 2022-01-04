@@ -43,7 +43,9 @@ class verificacion_f2Controller extends Controller
         $valores = new Verificacion_f2();
         $valores->placa = $request->get('placa');
         $valores->verificacion = $request->get('verificacion');
-        $valores->fecha = $request->get('fecha');
+        $valores->fecha_pago = $request->get('fecha_pago');
+        $valores->fecha_estimada = $request->get('fecha_estimada');
+        $valores->monto = $request->get('monto');
         $valores->estatus = $request->get('estatus');
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo= $request->file('archivo')){
@@ -100,7 +102,9 @@ class verificacion_f2Controller extends Controller
         $valores = Verificacion_f2::find($id);
         $valores->placa = $request->get('placa');;
         $valores->verificacion = $request->get('verificacion');
-        $valores->fecha = $request->get('fecha');
+        $valores->fecha_pago = $request->get('fecha_pago');
+        $valores->fecha_estimada = $request->get('fecha_estimada');
+        $valores->monto = $request->get('monto');
         $valores->estatus = $request->get('estatus');
         $valores->id_vehiculo = $request->get('vehiculo');
         $valores->save();

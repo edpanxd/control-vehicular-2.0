@@ -50,7 +50,9 @@ class fisico_mController extends Controller
         $valores->placa = $request->get('placa');
         $valores->verificacion = $request->get('verificacion');
         $valores->terminacion = $request->get('terminacion');
-        $valores->fecha = $request->get('fecha');
+        $valores->fecha_pago = $request->get('fecha_pago');
+        $valores->fecha_estimada = $request->get('fecha_estimada');
+        $valores->monto = $request->get('monto');
         $valores->estatus = $request->get('estatus');
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo= $request->file('archivo')){
@@ -107,7 +109,9 @@ class fisico_mController extends Controller
         $valores = fisico_m::find($id);
         $valores->verificacion = $request->get('verificacion');
         $valores->terminacion = $request->get('terminacion');
-        $valores->fecha = $request->get('fecha');
+        $valores->fecha_pago = $request->get('fecha_pago');
+        $valores->fecha_estimada = $request->get('fecha_estimada');
+        $valores->monto = $request->get('monto');
         $valores->estatus = $request->get('estatus');
         $valores->id_vehiculo = $request->get('vehiculo');
         $valores->save();

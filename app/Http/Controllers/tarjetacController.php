@@ -51,6 +51,10 @@ class tarjetacController extends Controller
         $valores->folio= $request->get('folio');
         $valores->placas= $request->get('placa');
         $valores->inicio=$request->get('inicio');
+        $valores->fecha_pago = $request->get('fecha_pago');
+        $valores->fecha_estimada = $request->get('fecha_estimada');
+        $valores->monto = $request->get('monto');
+        $valores->año = $request->get('año');
         $valores->vencimiento=$request->get('vencimiento');
         $valores->estatus=$request->get('estatus');
         $valores->id_vehiculo=$request->get('vehiculo');
@@ -109,6 +113,10 @@ class tarjetacController extends Controller
         $valores->folio= $request->get('folio');
         $valores->placas= $request->get('placa');
         $valores->inicio=$request->get('inicio');
+        $valores->fecha_pago = $request->get('fecha_pago');
+        $valores->fecha_estimada = $request->get('fecha_estimada');
+        $valores->monto = $request->get('monto');
+        $valores->año = $request->get('año');
         $valores->vencimiento=$request->get('vencimiento');
         $valores->estatus=$request->get('estatus');
         $valores->id_vehiculo=$request->get('vehiculo');

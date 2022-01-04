@@ -30,7 +30,7 @@
                         <td>{{ $data->marca }}</td>
                         <td>{{ $data->serie }}</td>
                         <td>{{ $data->verificacion }}</td>
-                        <td>{{ $data->fecha }}</td>
+                        <td>{{ $data->fecha_pago }}</td>
                         <td>{{ $data->estatus }}</td>
                         
                         <td><a class="btn btn-primary" href="/verificacion federal/{{ $data->archivo }}" target="_blank"><i

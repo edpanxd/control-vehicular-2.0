@@ -51,7 +51,7 @@
                         @default
                         @endswitch
                         <td>{{ $data->verificacion }}</td>
-                        <td>{{ $data->fecha }}</td>
+                        <td>{{ $data->fecha_pago }}</td>
                         <td>{{ $data->estatus }}</td>
                         <th><a class="btn btn-primary" href="/Verificaciones B/{{ $data->archivo }}" target="_blank"> <i
                                     class="far fa-file-pdf"></i></a></th>

@@ -108,9 +108,11 @@
                                 {{ $vehiculo->modelo }}</p>
                         </td>
                         <td
-                            style="width:299pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                            <p style="text-indent: 0pt;text-align: left;"><br /></p>
-                        </td>
+                        style="width:262pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                        <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
+                        CAPACIDAD DE CARGA
+                        </p>
+                    </td>
                     </tr>
                     <tr style="height:20pt">
                         <td style="width:561pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
@@ -164,26 +166,26 @@
                     </td>
                 </tr>
 
-                
 
-                    <tr style="height:20pt">
-                       
-                        <td
-                            style="width:262pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                            @foreach ($empresa as $empresa)
+
+                <tr style="height:20pt">
+
+                    <td
+                        style="width:262pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                        @foreach ($empresa as $empresa)
                             @if ($empresa->empresa == $vehiculo->empresa)
                                 <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
                                     RFC: {{ $empresa->rfc }}</p>
                             @endif
-                            @endforeach
-                        </td>
-                        
-                        <td
-                            style="width:299pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                            <p style="text-indent: 0pt;text-align: left;"><br /></p>
-                        </td>
-                    </tr>
-              
+                        @endforeach
+                    </td>
+
+                    <td
+                        style="width:299pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                        <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                    </td>
+                </tr>
+
                 <tr style="height:20pt">
                     <td
                         style="width:262pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
@@ -202,7 +204,7 @@
                     @foreach ($Vehiculos_T as $Vehiculos_T)
 
                         <tr style="height:20pt">
-                            @if (count($estatus))
+                            @if (count($estatus)<=3)
                                 <td
                                     style="width:262pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                                     <p class="s2"
@@ -213,7 +215,7 @@
                                     style="width:299pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                                     <p class="s2"
                                         style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
-                                        No. FACTURA:
+                                       
                                     </p>
                                 </td>
                             @else
@@ -221,7 +223,7 @@
                                     style="width:262pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                                     <p class="s2"
                                         style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
-                                        No. FACTURA:</p>
+                                        </p>
                                 </td>
                                 <td
                                     style="width:299pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
@@ -234,7 +236,7 @@
 
                         </tr>
                         <tr style="height:20pt">
-                            @if (count($estatus))
+                            @if (count($estatus) <= 3)
                                 <td
                                     style="width:262pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                                     <p class="s2"
@@ -245,7 +247,7 @@
                                     style="width:299pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                                     <p class="s2"
                                         style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
-                                        PEDIMENTO:
+                                        
                                     </p>
                                 </td>
                             @else
@@ -253,13 +255,13 @@
                                     style="width:262pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                                     <p class="s2"
                                         style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
-                                        REFACTURADO:</p>
+                                       </p>
                                 </td>
                                 <td
                                     style="width:299pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                                     <p class="s2"
                                         style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
-                                        PEDIMENTO: {{ $$Vehiculos_T->Pedimento }}
+                                        PEDIMENTO: {{ $Vehiculos_T->pedimiento }}
                                     </p>
                                 </td>
 
@@ -267,7 +269,7 @@
 
                         </tr>
                         <tr style="height:20pt">
-                            @if (count($estatus))
+                            @if (count($estatus) <= 3)
                                 <td
                                     style="width:262pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                                     <p class="s2"
@@ -278,11 +280,23 @@
                                     style="width:299pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                                     <p class="s2"
                                         style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
-                                        TITULO PROPIETARIO:
+                                        
                                     </p>
                                 </td>
                             @else
-
+                                <td
+                                    style="width:262pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                    <p class="s2"
+                                        style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
+                                         </p>
+                                </td>
+                                <td
+                                    style="width:299pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                                    <p class="s2"
+                                        style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
+                                        TITULO PROPIETARIO: {{ $Vehiculos_T->titulo_pro }}
+                                    </p>
+                                </td>
                             @endif
 
                         </tr>
@@ -294,7 +308,8 @@
                     <td
                         style="width:262pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                         <p class="s2"
-                            style="padding-left: 5pt;padding-right: 183pt;text-indent: 0pt;line-height: 200%;text-align: left;"> VENDEDOR:</p>
+                            style="padding-left: 5pt;padding-right: 183pt;text-indent: 0pt;line-height: 200%;text-align: left;">
+                            VENDEDOR:</p>
                         <p class="s2"
                             style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;">COMPRADOR:
                         </p>
@@ -316,7 +331,7 @@
                 </tr>
                 @foreach ($placas as $placas)
                     @if ($placas->estatus == 'VIGENTES')
-                    
+
                         <tr style="height:20pt">
                             <td
                                 style="width:262pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
@@ -363,8 +378,8 @@
                                 </p>
                             </td>
                         </tr>
-                        @else
-             
+                    @else
+
                     @endif
                 @endforeach
                 @foreach ($tarjetacs as $tarjetacs)
@@ -483,7 +498,7 @@
                         <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
                             TENENCIAS: |
                             @foreach ($tenencias as $tenencias)
-                                {{ $tenencias->tenencia }} |
+                                {{ $tenencias->año }} |
                             @endforeach
 
                         </p>
@@ -501,7 +516,8 @@
                 <tr style="height:39pt">
                     <td style="width:561pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         colspan="2">
-                        <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">VERIFICACIÓN ESTATAL A: |
+                        <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
+                            VERIFICACIÓN ESTATAL A: |
                             @foreach ($verificacion_as as $verificacion_as)
                                 {{ $verificacion_as->verificacion }} |
                             @endforeach
@@ -511,7 +527,8 @@
                 <tr style="height:39pt">
                     <td style="width:561pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         colspan="2">
-                        <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">VERIFICACIÓN ESTATAL B: |
+                        <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
+                            VERIFICACIÓN ESTATAL B: |
                             @foreach ($verificacion_bs as $verificacion_bs)
                                 {{ $verificacion_bs->verificacion }} |
                             @endforeach
@@ -522,31 +539,34 @@
                 <tr style="height:39pt">
                     <td style="width:561pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         colspan="2">
-                        <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">VERIFICACION FEDERAL A: |
-                        @foreach ($verificacion_fs as $verificacion_fs)
-                            {{$verificacion_fs->verificacion}} |
-                        @endforeach
+                        <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
+                            VERIFICACION FEDERAL A: |
+                            @foreach ($verificacion_fs as $verificacion_fs)
+                                {{ $verificacion_fs->verificacion }} |
+                            @endforeach
                         </p>
                     </td>
                 </tr>
                 <tr style="height:39pt">
                     <td style="width:561pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         colspan="2">
-                        <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">VERIFICACION FEDERAL B: |
+                        <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
+                            VERIFICACION FEDERAL B: |
                             @foreach ($verificacion_fsa as $verificacion_fsa)
-                            {{$verificacion_fsa->verificacion}} |
-                        @endforeach
+                                {{ $verificacion_fsa->verificacion }} |
+                            @endforeach
                         </p>
                     </td>
                 </tr>
                 <tr style="height:39pt">
                     <td style="width:561pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         colspan="2">
-                        <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">VERIFICACION FISICO
+                        <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
+                            VERIFICACION FISICO
                             MECANICA: |
-                        @foreach($fisico_ms as $fisico_ms)
-                            {{$fisico_ms->verificacion }} |
-                        @endforeach
+                            @foreach ($fisico_ms as $fisico_ms)
+                                {{ $fisico_ms->verificacion }} |
+                            @endforeach
                         </p>
                     </td>
                 </tr>
@@ -563,9 +583,10 @@
                     <td style="width:561pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         colspan="2">
 
-                        <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">POLIZAS: |
+                        <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">POLIZAS:
+                            |
                             @foreach ($polizas2 as $polizas2)
-                                {{$polizas2->inicio}} |
+                                {{ $polizas2->inicio }} |
                             @endforeach
                         </p>
 
@@ -585,7 +606,7 @@
                         colspan="2">
                         <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">PLACAS: |
                             @foreach ($placas2 as $placas2)
-                                {{$placas2->placas}} |
+                                {{ $placas2->placas }} |
                             @endforeach
                         </p>
                     </td>
@@ -596,7 +617,7 @@
                         <p class="s2"
                             style="padding-left: 188pt;padding-right: 188pt;text-indent: 0pt;text-align: center;">
                             ENDOSO ANTERIORES
-                          
+
                         </p>
 
                     </td>
@@ -604,10 +625,11 @@
                 <tr style="height:39pt">
                     <td style="width:561pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         colspan="2">
-                        <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">ENDOSO ANTERIORES: |
+                        <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">ENDOSO
+                            ANTERIORES: |
                             @foreach ($polizas3 as $polizas3)
-                            {{$polizas3->concepto_endoso}} 
-                        @endforeach
+                                {{ $polizas3->concepto_endoso }} |
+                            @endforeach
                         </p>
                     </td>
                 </tr>
@@ -637,9 +659,10 @@
                 <tr style="height:39pt">
                     <td style="width:561pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         colspan="2">
-                        <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">PERMISOS ANTERIORES: |
+                        <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">PERMISOS
+                            ANTERIORES: |
                             @foreach ($permisos2 as $permisos2)
-                                {{$permisos2->no_permiso}} |
+                                {{ $permisos2->no_permiso }} |
                             @endforeach
                         </p>
                     </td>

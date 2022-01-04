@@ -48,6 +48,10 @@ class polizaController extends Controller
         $valores->aseguradora = $request->get('aseguradora');
         $valores->estatus = $request->get('estatus');
         $valores->inicio = $request->get('inicio');
+        $valores->fecha_pago = $request->get('fecha_pago');
+        $valores->fecha_estimada = $request->get('fecha_estimada');
+        $valores->monto = $request->get('monto');
+        $valores->año = $request->get('año');
         $valores->vencimiento = $request->get('vencimiento');
         $valores->endoso = $request->get('endoso');
         $valores->concepto_endoso = $request->get('concepto_endoso');
@@ -106,6 +110,10 @@ class polizaController extends Controller
         $valores->aseguradora = $request->get('aseguradora');
         $valores->estatus = $request->get('estatus');
         $valores->inicio = $request->get('inicio');
+        $valores->fecha_pago = $request->get('fecha_pago');
+        $valores->fecha_estimada = $request->get('fecha_estimada');
+        $valores->monto = $request->get('monto');
+        $valores->año = $request->get('año');
         $valores->vencimiento = $request->get('vencimiento');
         $valores->endoso = $request->get('endoso');
         $valores->concepto_endoso = $request->get('concepto_endoso');

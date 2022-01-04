@@ -55,6 +55,23 @@
                 <label for="message-text" class="col-form-label">Vencimiento:</label>
                 <input type="date" class="form-control" name="vencimiento" maxlength="20" value="{{$valores->vencimiento}}"required>
             </div>
+            <div class="form-group col-md-6">
+                <label for="message-text" class="col-form-label">Fecha de pago:</label>
+                <input type="date" class="form-control" name="fecha_pago" value="{{ $valores->fecha_pago }}" maxlength="20" required>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="message-text" class="col-form-label">Fecha estimada de pago:</label>
+                <input type="date" class="form-control" name="fecha_estimada" value="{{ $valores->fecha_estimada }}" maxlength="20" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="message-text" class="col-form-label">Monto:</label>
+                <input type="text" class="form-control" name="monto" value="{{ $valores->monto }}" maxlength="6" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="message-text" class="col-form-label">Año:</label>
+                <input type="text" class="form-control" name="año" value="{{ $valores->año }}" maxlength="4" required>
+            </div>
             <div class="form-group col-6">
                 <label class="col-form-label">Estatus:</label> <br>
                 <input type="radio" class="btn-check" name="estatus" id="success-outline" value="VIGENTE"

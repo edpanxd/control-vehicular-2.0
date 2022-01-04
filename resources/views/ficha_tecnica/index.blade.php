@@ -1,47 +1,48 @@
 @extends('adminlte::page')
 
-@section('title', 'Dash')
+@section('title', 'Vehículos')
 
 @section('content_header')
-    <h1>Verificación Federal 2° Periodo</h1>
+    <h1>Ficha Técnica</h1>
 @stop
 
 @section('content')
-    <a class="btn btn-primary mb-3" href="verificacion_f2/create">Registrar Verificación Federal</a>
+    <a class="btn btn-primary mb-3" href="ficha_tecnica/create">Registrar Ficha Técnica</a>
+
+
+
     <div class="table-responsive">
+
         <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Vehículo</th>
-                    <th scope="col">Serie</th>
-                    <th scope="col">Verificación</th>
-                    <th scope="col">Fecha</th>
-                    <th scope="col">Estatus</th>
-       
-                    <th scope="col">PDF</th>
+                    <th scope="col">Rendimiento</th>
+                    <th scope="col">Capacidad de caja</th>
+                    <th scope="col">Largo de caja</th>
+                    <th scope="col">Ancho de caja</th>
+                    <th scope="col">Alto de caja</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
+                    <!--<th scope="col">Eliminar inabilitado</th>-->
                 </tr>
             </thead>
             <tbody>
-                @foreach ($data as $data)
+                @foreach ($valores as $valores)
                     <tr>
-                        <td>{{ $data->id }}</td>
-                        <td>{{ $data->marca }}</td>
-                        <td>{{ $data->serie }}</td>
-                        <td>{{ $data->verificacion }}</td>
-                        <td>{{ $data->fecha_pago }}</td>
-                        <td>{{ $data->estatus }}</td>
-                        
-                        <td><a class="btn btn-primary" href="/Verificacion federal 2/{{ $data->archivo }}" target="_blank"><i
-                                    class="far fa-file-pdf"></i></a></td>
+                        <td>{{ $valores->id }}</td>
+                        <td>{{ $valores->marca }}</td>
+                        <td>{{ $valores->rendimientoConbustible }}</td>
+                        <td>{{ $valores->CapacidadCaja }}</td>
+                        <td>{{ $valores->LargoCaja }}</td>
+                        <td>{{ $valores->AnchoCaja }}</td>
+                        <td>{{ $valores->AltoCaja }}</td>
                         <td>
-                            <a class="btn btn-info" href="/verificacion_f2/{{ $data->id }}/edit"><i
+                            <a class="btn btn-info" href="/ficha_tecnica/{{ $valores->id }}/edit"><i
                                     class="fas fa-edit"></i></a>
                         </td>
-                        <td><a class="btn btn-danger eliminar" href="/verificacion_f2d/{{ $data->id }}"><i
-                                    class="fas fa-trash-alt"></i></a></td>
+                        <th><a class="btn btn-danger eliminar" href="/ficha_tecnicad/{{$valores->id}}"><i class="fas fa-trash-alt"></i></a></th>
                     </tr>
                 @endforeach
             </tbody>
@@ -66,6 +67,7 @@
 
             swal.fire({
                 title: 'Desea eliminar el registro?',
+                text: "Recuarda que si eliminas el vehiculo se eliminara automanticamnete todos los registros con los que tenga relacion",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#d33',

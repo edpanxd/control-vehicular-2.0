@@ -49,7 +49,9 @@ class verificacion_bController extends Controller
         $valores->placa = $request->get('placa');
         $valores->engomado = $request->get('engomado');
         $valores->verificacion = $request->get('verificacion');
-        $valores->fecha = $request->get('fecha');
+        $valores->fecha_pago = $request->get('fecha_pago');
+        $valores->fecha_estimada = $request->get('fecha_estimada');
+        $valores->monto = $request->get('monto');
         $valores->estatus = $request->get('estatus');
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo= $request->file('archivo')){
@@ -107,7 +109,9 @@ class verificacion_bController extends Controller
         $valores->placa = $request->get('placa');
         $valores->engomado = $request->get('engomado');
         $valores->verificacion = $request->get('verificacion');
-        $valores->fecha = $request->get('fecha');
+        $valores->fecha_pago = $request->get('fecha_pago');
+        $valores->fecha_estimada = $request->get('fecha_estimada');
+        $valores->monto = $request->get('monto');
         $valores->estatus = $request->get('estatus');
         $valores->id_vehiculo = $request->get('vehiculo');
         $valores->save();

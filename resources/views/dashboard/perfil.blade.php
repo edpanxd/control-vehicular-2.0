@@ -17,16 +17,11 @@
                     <div class="card card-info card-outline">
                         <div class="card-body box-profile">
                             <div class="text-center">
-
                                 <img class="img-fluid " src="/imagen/{{ $vehiculo->imagen }}"
                                     alt="User profile picture">
-
                             </div>
-
                             <h3 class="profile-username text-center">{{ $vehiculo->marca }}</h3>
-
                             <p class="text-muted text-center">{{ $vehiculo->submarca }}</p>
-
                             <ul class="list-group list-group-unbordered mb-3">
                                 <li class="list-group-item">
                                     <b>Uso</b>
@@ -76,39 +71,27 @@
                         <div class="card-header">
                             <h3 class="card-title">Mas informacion</h3>
                         </div>
-
                         <div class="card-body">
                             <strong><i class="fas fa-book mr-1"></i> Tipo</strong>
-
                             <p class="text-muted">
                                 {{ $vehiculo->tipo }}
-                            </p>
-
+                            </p>   
                             <hr>
-
                             <strong><i class="fas fa-sort-numeric-down mr-1"></i>Numero de motor</strong>
-
                             <p class="text-muted">
                                 {{ $vehiculo->numeroM }}
                             </p>
-
                             <hr>
-
                             <strong><i class="fas fa-pencil-alt mr-1"></i> Serie</strong>
-
                             <p class="text-muted">
                                 {{ $vehiculo->serie }}
                             </p>
-
                             <hr>
-
                             <strong><i class="far fa-file-alt mr-1"></i> Estatus</strong>
-
                             <p class="text-muted">
                                 {{ $vehiculo->estatus }}
                             </p>
                         </div>
-
                     </div>
 
                 @endforeach
@@ -578,9 +561,6 @@
                                     </table>
                                 </div>
                                 <!-- Tabla verificacion a -->
-
-
-                            
                                 <h1>Verificación Estatal 2° Periodo</h1>
                                 <div class="table-responsive post">
                                     <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas5">
@@ -601,7 +581,7 @@
                                                     <td>{{ $verificacion_bs->id }}</td>
                                                     <td>{{ $verificacion_bs->verificacion }}</td>
                                                     <td>{{ $verificacion_bs->placa }}</td>
-                                                    <td>{{ $verificacion_bs->fecha }}</td>
+                                                    <td>{{ $verificacion_bs->fecha_pago }}</td>
                                                     <td>{{ $verificacion_bs->estatus }}</td>
                                                     @switch($verificacion_bs->engomado)
                                                         @case("5 u 6")
@@ -632,8 +612,6 @@
                                     </table>
                                 </div>
                                 <!-- Tabla verificacion b -->
-
-
                             </div>
                             <!-- -->
                             <div class="tab-pane " id="vf">
@@ -654,7 +632,7 @@
                                                 <tr>
                                                     <td>{{ $verificacion_fs->id }}</td>
                                                     <td>{{ $verificacion_fs->verificacion }}</td>
-                                                    <td>{{ $verificacion_fs->fecha }}</td>
+                                                    <td>{{ $verificacion_fs->fecha_pago }}</td>
                                                     <td>{{ $verificacion_fs->estatus }}</td>
                                                     <td><a class="btn btn-primary"
                                                             href="/verificacion federal/{{ $verificacion_fs->archivo }}"
@@ -666,9 +644,6 @@
                                     </table>
                                 </div>
                                 <!-- Tabla verificacion f -->
-
-
-                            
                                 <h1>Verificación Federal 2° Periodo</h1>
                                 <div class="table-responsive post">
                                     <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas9">
@@ -686,7 +661,7 @@
                                                 <tr>
                                                     <td>{{ $verificacion_fsa->id }}</td>
                                                     <td>{{ $verificacion_fsa->verificacion }}</td>
-                                                    <td>{{ $verificacion_fsa->fecha }}</td>
+                                                    <td>{{ $verificacion_fsa->fecha_pago }}</td>
                                                     <td>{{ $verificacion_fsa->estatus }}</td>
                                                     <td><a class="btn btn-primary"
                                                             href="/Verificacion federal 2/{{ $verificacion_fsa->archivo }}"
@@ -700,8 +675,6 @@
                                     </table>
                                 </div>
                                 <!-- Tabla verificacion f -->
-
-
                             </div>
                             <!-- -->
                             <div class="tab-pane " id="fm">
@@ -726,7 +699,7 @@
                                                     <td>{{ $fisico_ms->verificacion }}</td>
                                                     <td>{{ $fisico_ms->placa }}</td>
                                                     <td>{{ $fisico_ms->terminacion }}</td>
-                                                    <td>{{ $fisico_ms->fecha }}</td>
+                                                    <td>{{ $fisico_ms->fecha_pago }}</td>
                                                     <td>{{ $fisico_ms->estatus }}</td>
                                                     <td><a class="btn btn-primary"
                                                             href="/fisico mecanico/{{ $fisico_ms->archivo }}"

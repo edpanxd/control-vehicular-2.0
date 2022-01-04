@@ -332,19 +332,19 @@ return [
                     'label_color' => 'success',
                 ],
                 [
-                    'text'        => 'Verificación federal A',
+                    'text'        => 'Verificación Federal A',
                     'url'         => 'verificacion_f',
                     'icon_color' => 'cyan',
                     'label_color' => 'success',
                 ],
                 [
-                    'text'        => 'Verificación federal B',
+                    'text'        => 'Verificación Federal B',
                     'url'         => 'verificacion_f2',
                     'icon_color' => 'cyan',
                     'label_color' => 'success',
                 ],
                 [
-                    'text'        => 'Físico mecánico ',
+                    'text'        => 'Físico Mecánico ',
                     'url'         => 'fisico_m',
                     'icon_color' => 'purple',
                     'label_color' => 'success',
@@ -353,12 +353,17 @@ return [
             ],
         ],
         [
-            'text'        => 'Propietarios anteriores',
+            'text'        => 'Propietarios Anteriores',
             'url'         => 'propietario',
             'icon'        => 'fa fa-lock',
             'label_color' => 'success',
         ],
-
+        [
+            'text'        => 'Ficha Tecnica',
+            'url'         => 'ficha_tecnica',
+            'icon'        => 'fas fa-journal-whills',
+            'label_color' => 'success',
+        ],
         ['header' => 'Empresa'],
         [
             'text'        => 'Empresas',
@@ -448,6 +453,21 @@ return [
                     'type' => 'css',
                     'asset' => true,
                     'location' => '//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css',
+                ],
+            ],
+        ],
+        'toastr' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js',
                 ],
             ],
         ],

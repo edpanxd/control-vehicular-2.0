@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +18,8 @@ use App\Models\verificacion_f2;
 use App\Models\fisico_m;
 use App\Models\tarjetac;
 use App\Models\permisos;
-use PDF;
+use Barryvdh\DomPDF\Facade as PDF;
+
 
 class dashboardController extends Controller
 {
@@ -53,15 +52,15 @@ class dashboardController extends Controller
             $b = $b + 1;
         }
         //datos para grafica anuales
-        $anualT = tenencias::whereYear('fecha_pago', '2021')->sum('monto');
-        $anualP = polizas::whereYear('fecha_pago', '2021')->sum('monto');
-        $anualVe1 = Verificacion_a::whereYear('fecha_pago', '2021')->sum('monto');
-        $anualVe2 = Verificacion_b::whereYear('fecha_pago', '2021')->sum('monto');
-        $anualVf1 = verificacion_f::whereYear('fecha_pago', '2021')->sum('monto');
-        $anualVf2 = verificacion_f2::whereYear('fecha_pago', '2021')->sum('monto');
-        $anualF = fisico_m::whereYear('fecha_pago', '2021')->sum('monto');
-        $anualPla = Placas::whereYear('fecha_pago', '2021')->sum('monto');
-        $anualTa = tarjetac::whereYear('fecha_pago', '2021')->sum('monto');
+        $anualT = tenencias::whereYear('fecha_pago', $año )->sum('monto');
+        $anualP = polizas::whereYear('fecha_pago', $año )->sum('monto');
+        $anualVe1 = Verificacion_a::whereYear('fecha_pago', $año )->sum('monto');
+        $anualVe2 = Verificacion_b::whereYear('fecha_pago', $año )->sum('monto');
+        $anualVf1 = verificacion_f::whereYear('fecha_pago', $año )->sum('monto');
+        $anualVf2 = verificacion_f2::whereYear('fecha_pago', $año )->sum('monto');
+        $anualF = fisico_m::whereYear('fecha_pago', $año )->sum('monto');
+        $anualPla = Placas::whereYear('fecha_pago', $año )->sum('monto');
+        $anualTa = tarjetac::whereYear('fecha_pago', $año )->sum('monto');
         $anualVe = $anualVe1+$anualVe2;
         $anualVf =  $anualVf1+$anualVf2;
         $graficaaño = [$anualT, $anualP, $anualVe, $anualVf, $anualF, $anualPla, $anualTa];
@@ -70,7 +69,7 @@ class dashboardController extends Controller
         $c = 0;
         $m = 1;
         while ($m <= 12) {
-            $data = tenencias::whereMonth('fecha_pago', $m)->whereYear('fecha_pago', '2021')->sum('monto');
+            $data = tenencias::whereMonth('fecha_pago', $m)->whereYear('fecha_pago', $año )->sum('monto');
             $TenenciaM[$c] = $data;
             $m = $m + 1;
             $c = $c + 1;
@@ -79,7 +78,7 @@ class dashboardController extends Controller
         $c = 0;
         $m = 1;
         while ($m <= 12) {
-            $data = polizas::whereMonth('fecha_pago', $m)->whereYear('fecha_pago', '2021')->sum('monto');
+            $data = polizas::whereMonth('fecha_pago', $m)->whereYear('fecha_pago', $año )->sum('monto');
             $PolizaM[$c] = $data;
             $m = $m + 1;
             $c = $c + 1;
@@ -89,10 +88,10 @@ class dashboardController extends Controller
         $m = 1;
         while ($m <= 12) {
             if ($m <= 6) {
-                $data = Verificacion_a::whereMonth('fecha_pago', $m)->whereYear('fecha_pago', '2021')->sum('monto');
+                $data = Verificacion_a::whereMonth('fecha_pago', $m)->whereYear('fecha_pago', $año )->sum('monto');
                 $VerificacionM[$c] = $data;
             }else{
-                $data = Verificacion_b::whereMonth('fecha_pago', $m)->whereYear('fecha_pago', '2021')->sum('monto');
+                $data = Verificacion_b::whereMonth('fecha_pago', $m)->whereYear('fecha_pago', $año )->sum('monto');
                 $VerificacionM[$c] = $data;
             }
             
@@ -104,10 +103,10 @@ class dashboardController extends Controller
         $m = 1;
         while ($m <= 12) {
             if ($m <= 6) {
-                $data = verificacion_f::whereMonth('fecha_pago', $m)->whereYear('fecha_pago', '2021')->sum('monto');
+                $data = verificacion_f::whereMonth('fecha_pago', $m)->whereYear('fecha_pago', $año )->sum('monto');
                 $VeridicacionFM[$c] = $data;
             }else{
-                $data = verificacion_f2::whereMonth('fecha_pago', $m)->whereYear('fecha_pago', '2021')->sum('monto');
+                $data = verificacion_f2::whereMonth('fecha_pago', $m)->whereYear('fecha_pago', $año )->sum('monto');
                 $VeridicacionFM[$c] = $data;
             }
             
@@ -118,7 +117,7 @@ class dashboardController extends Controller
         $c = 0;
         $m = 1;
         while ($m <= 12) {
-            $data = fisico_m::whereMonth('fecha_pago', $m)->whereYear('fecha_pago', '2021')->sum('monto');
+            $data = fisico_m::whereMonth('fecha_pago', $m)->whereYear('fecha_pago', $año )->sum('monto');
             $FisicoM[$c] = $data;
             $m = $m + 1;
             $c = $c + 1;
@@ -127,7 +126,7 @@ class dashboardController extends Controller
         $c = 0;
         $m = 1;
         while ($m <= 12) {
-            $data = permisos::whereMonth('fecha_pago', $m)->whereYear('fecha_pago', '2021')->sum('monto');
+            $data = permisos::whereMonth('fecha_pago', $m)->whereYear('fecha_pago', $año )->sum('monto');
             $PermisoM[$c] = $data;
             $m = $m + 1;
             $c = $c + 1;
@@ -136,7 +135,7 @@ class dashboardController extends Controller
         $c = 0;
         $m = 1;
         while ($m <= 12) {
-            $data = Placas::whereMonth('fecha_pago', $m)->whereYear('fecha_pago', '2021')->sum('monto');
+            $data = Placas::whereMonth('fecha_pago', $m)->whereYear('fecha_pago', $año )->sum('monto');
             $PlacasM[$c] = $data;
             $m = $m + 1;
             $c = $c + 1;
@@ -145,7 +144,7 @@ class dashboardController extends Controller
         $c = 0;
         $m = 1;
         while ($m <= 12) {
-            $data = tarjetac::whereMonth('fecha_pago', $m)->whereYear('fecha_pago', '2021')->sum('monto');
+            $data = tarjetac::whereMonth('fecha_pago', $m)->whereYear('fecha_pago', $año )->sum('monto');
             $TarjetasM[$c] = $data;
             $m = $m + 1;
             $c = $c + 1;
@@ -218,7 +217,6 @@ class dashboardController extends Controller
             return view("$p" . ".index")->with('data', $data);
         }   
     }
-    
     public function perfil($id)
     {
         $Vehiculos_T = "F";
@@ -374,9 +372,19 @@ class dashboardController extends Controller
             ->join('vehiculos', 'verificacion_as.id_vehiculo', 'vehiculos.id')
             ->where('verificacion', '>', 2019)
             ->get();
-            $verificacion_e2 = DB::table('verificacion_bs')
+        $verificacion_e2 = DB::table('verificacion_bs')
             ->select('verificacion_bs.*', 'vehiculos.marca', 'vehiculos.serie')
             ->join('vehiculos', 'verificacion_bs.id_vehiculo', 'vehiculos.id')
+            ->where('verificacion', '>', 2019)
+            ->get();
+        $verificacion_f = DB::table('verificacion_fs')
+            ->select('verificacion_fs.*', 'vehiculos.marca', 'vehiculos.serie')
+            ->join('vehiculos', 'verificacion_fs.id_vehiculo', 'vehiculos.id')
+            ->where('verificacion', '>', 2019)
+            ->get();
+        $verificacion_f2 = DB::table('verificacion_f2s')
+            ->select('verificacion_f2s.*', 'vehiculos.marca', 'vehiculos.serie')
+            ->join('vehiculos', 'verificacion_f2s.id_vehiculo', 'vehiculos.id')
             ->where('verificacion', '>', 2019)
             ->get();
 
@@ -385,9 +393,8 @@ class dashboardController extends Controller
         $start = 'start';
         $color = 'color';
         $descripcion = 'descripcion';
-
         foreach ($placas as $placas) {
-            $newDate = date("Y-m-d", strtotime($placas->baja));
+            $newDate = date("Y-m-d", strtotime($placas->fecha_estimada));
             $data[$i] = array(
                 $title => "Placa :" . $placas->placas,
                 $start => $newDate,
@@ -397,7 +404,6 @@ class dashboardController extends Controller
             );
             $i++;
         }
-
         foreach ($poliza as $poliza) {
             $newDato = date("Y-m-d", strtotime($poliza->fecha_estimada));
             $data[$i] = array(
@@ -422,28 +428,42 @@ class dashboardController extends Controller
             );
             $i++;
         }
+        foreach ($verificacion_e2 as $verificacion_e2) {
+            $newDato = date("Y-m-j", strtotime($verificacion_e2->fecha_estimada));
 
-        return response()->json($data);
-    }
-    public function grafica()
-    {
-        $a = [];
-        $c = 0;
-        $m = 1;
-        while ($m <= 12) {
-            $data = polizas::whereMonth('fecha_pago', $m)
-
-                ->whereYear('fecha_pago', '2021')
-
-                ->sum('monto');
-            $a[$c] = $data;
-            $m = $m + 1;
-            $c = $c + 1;
+            $data[$i] = array(
+                $title => "Verificacion: " . $verificacion_e2->verificacion,
+                $start => $newDato,
+                $color => '#663399',
+                $descripcion => 'La verificacione estatal B: ' . $verificacion_e2->engomado . ' del vehiculo ' . $verificacion_e2->marca . ' esta por vencer',
+                'url' => 'dashboardvh/' . $verificacion_e2->id_vehiculo,
+            );
+            $i++;
         }
+        foreach ($verificacion_f as $verificacion_f) {
+            $newDato = date("Y-m-j", strtotime($verificacion_f->fecha_estimada));
 
+            $data[$i] = array(
+                $title => "Verificacion: " . $verificacion_f->verificacion,
+                $start => $newDato,
+                $color => '#800000',
+                $descripcion => 'La verificacione Federal A: ' . ' Del vehiculo ' . $verificacion_f->marca . ' esta por vencer',
+                'url' => 'dashboardvh/' . $verificacion_f->id_vehiculo,
+            );
+            $i++;
+        }
+        foreach ($verificacion_f2 as $verificacion_f2) {
+            $newDato = date("Y-m-j", strtotime($verificacion_f2->fecha_estimada));
 
-
-
-        return response()->json($a);
+            $data[$i] = array(
+                $title => "Verificacion: " . $verificacion_f2->verificacion,
+                $start => $newDato,
+                $color => '#8B0000',
+                $descripcion => 'La verificacione Federal B: ' . ' Del vehiculo ' . $verificacion_f2->marca . ' esta por vencer',
+                'url' => 'dashboardvh/' . $verificacion_f2->id_vehiculo,
+            );
+            $i++;
+        }
+        return response()->json($data);
     }
 }

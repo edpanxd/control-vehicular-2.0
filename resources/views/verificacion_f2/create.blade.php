@@ -35,10 +35,18 @@
                 <input type="text" class="form-control" name="verificacion" maxlength="20" required>
             </div>
             <div class="form-group col-md-6">
-                <label for="message-text" class="col-form-label">Fecha:</label>
-                <input type="date" class="form-control" name="fecha" maxlength="20" required>
+                <label for="message-text" class="col-form-label">Fecha de pago:</label>
+                <input type="date" class="form-control" name="fecha_pago" maxlength="20" required>
             </div>
 
+            <div class="form-group col-md-6">
+                <label for="message-text" class="col-form-label">Fecha estimada de pago:</label>
+                <input type="date" class="form-control" name="fecha_estimada" maxlength="20" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="message-text" class="col-form-label">Monto:</label>
+                <input type="text" class="form-control" name="monto" maxlength="6" required>
+            </div>
 
             <div class="form-group col-6">
                 <label class="col-form-label">Estatus:</label> <br>
@@ -55,7 +63,7 @@
                     <span class="input-group-text">PDF</span>
                 </div>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" name="archivo" required>
+                    <input type="file" class="custom-file-input" onclick="PrimerS1()" name="archivo" required>
                     <label class="custom-file-label">Seleccionar PDF</label>
                 </div>
             </div>
@@ -70,10 +78,14 @@
 @section('css')
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https:////cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 @stop
 
 @section('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"
+        integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
     <script>
         $('.select2').select2({
             placeholder: 'Seleccione un vehículo'
@@ -88,4 +100,14 @@
             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
         });
     </script>
+     <script>
+        function PrimerS1(params) {
+           Command: toastr["info"]("RECUERDA QUE EL FORMATO DE LOS DOCUEMNTOS DEBE SER IGUAL PARA TODOS (DOCUMENTOS VERTICALES E INFORMACION VISIBLE)", )
+           toastr.options = {
+               "closeButton": true,
+               "positionClass": "toast-top-right",
+               "preventDuplicates": true,
+           }
+       }
+   </script>
 @stop

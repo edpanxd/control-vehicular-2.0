@@ -253,6 +253,7 @@ class dashboardController extends Controller
         $foto = DB::table('fotos_vehiculos')->where('id_vehiculo', "$id")->get();
         $placa = DB::table('placas')->where('id_vehiculo', "$id")->where('estatus', "VIGENTES")->get();
         $fotos = DB::table('fotos_vehiculos')->where('id_vehiculo', "$id")->get();
+        $fichatecnica = DB::table('ficha_tecnicas')->where('id_vehiculo', "$id")->get();
         return view('dashboard.perfil')->with('vehiculo', $vehiculo)
             ->with('placas', $placas)
             ->with('tarjetacs', $tarjetacs)
@@ -270,7 +271,8 @@ class dashboardController extends Controller
             ->with('fisico_ms', $fisico_ms)
             ->with('foto', $foto)
             ->with('placa', $placa)
-            ->with('fotos', $fotos);
+            ->with('fotos', $fotos)
+            ->with('fichatecnica', $fichatecnica);
     }
     public function imprimir($id)
     {

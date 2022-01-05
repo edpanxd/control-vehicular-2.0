@@ -359,6 +359,42 @@
                                         </div>
                                     @endforeach
                                 @endif
+        
+                                @foreach ($fichatecnica as $fichatecnica)
+                                    <h4>Ficha Tecnica</h4>
+                                    <div class="row">
+                                        <div class="col-5 mb-3">
+                                            <h5>Rendimiento de Conbustible</h5>
+                                        </div>
+                                        <div class="col-4 mb-3">
+                                            <h5>{{$fichatecnica->rendimientoConbustible}} KM/L</h5>
+                                        </div>
+                                        <div class="col-5 mb-3">
+                                            <h5>Capacidad de Carga</h5>
+                                        </div>
+                                        <div class="col-4 mb-3">
+                                            <h5>{{$fichatecnica->CapacidadCaja}} KG.</h5>
+                                        </div>
+                                        <div class="col-5 mb-3">
+                                            <h5>Largo de Caja</h5>
+                                        </div>
+                                        <div class="col-4 mb-3">
+                                            <h5>{{$fichatecnica->LargoCaja}} IN.</h5>
+                                        </div>
+                                        <div class="col-5 mb-3">
+                                            <h5>Ancho de Caja</h5>
+                                        </div>
+                                        <div class="col-4 mb-3">
+                                            <h5>{{$fichatecnica->AnchoCaja}} IN.</h5>
+                                        </div>
+                                        <div class="col-5 mb-3">
+                                            <h5>Alto de Caja</h5>
+                                        </div>
+                                        <div class="col-4 mb-3">
+                                            <h5>{{$fichatecnica->AltoCaja}} IN.</h5>
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
                             <!-- -->
                             <div class="tab-pane" id="placas">

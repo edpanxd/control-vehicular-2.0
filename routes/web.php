@@ -107,7 +107,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
      return view("ayuda.index");
   });
      
-
 });
 
 Route::get('/bingo', 'App\Http\Controllers\calendarioController@calendarioT');

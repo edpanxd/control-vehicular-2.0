@@ -33,11 +33,11 @@
                     <tr>
                         <td>{{ $valores->id }}</td>
                         <td>{{ $valores->marca }}</td>
-                        <td>{{ $valores->rendimientoConbustible }}</td>
+                        <td>{{ $valores->rendimientoConbustible}} KM/L.</td>
                         <td>{{ $valores->CapacidadCaja }} KG.</td>
-                        <td>{{ $valores->LargoCaja }}</td>
-                        <td>{{ $valores->AnchoCaja }}</td>
-                        <td>{{ $valores->AltoCaja }}</td>
+                        <td>{{ $valores->LargoCaja }} IN.</td>
+                        <td>{{ $valores->AnchoCaja }} IN.</td>
+                        <td>{{ $valores->AltoCaja }} IN.</td>
                         <td>
                             <a class="btn btn-info" href="/ficha_tecnica/{{ $valores->id }}/edit"><i
                                     class="fas fa-edit"></i></a>

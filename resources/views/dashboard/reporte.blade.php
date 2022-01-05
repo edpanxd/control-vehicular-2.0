@@ -107,12 +107,15 @@
                             <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">AÑO:
                                 {{ $vehiculo->modelo }}</p>
                         </td>
+                        @foreach ($fichatecnica as $fichatecnica)
                         <td
                         style="width:262pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                         <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
-                        CAPACIDAD DE CARGA
+                        CAPACIDAD DE CARGA: {{$fichatecnica->CapacidadCaja}} KG.
                         </p>
                     </td>
+                        @endforeach
+                        
                     </tr>
                     <tr style="height:20pt">
                         <td style="width:561pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"

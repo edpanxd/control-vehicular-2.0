@@ -25,7 +25,7 @@ class CreatePlacasTable extends Migration
             $table->integer('monto');
             $table->integer('año');
             $table->string('cambio_propietario');
-            $table->date("fecha_cambio_p");
+            $table->date("fecha_cambio_p")->nullable();
             $table->string('estatus');
             $table->string('observaciones');
             $table->string('archivo');

@@ -34,7 +34,7 @@
                         <td>{{ $valores->id }}</td>
                         <td>{{ $valores->marca }}</td>
                         <td>{{ $valores->rendimientoConbustible }}</td>
-                        <td>{{ $valores->CapacidadCaja }}</td>
+                        <td>{{ $valores->CapacidadCaja }} KG.</td>
                         <td>{{ $valores->LargoCaja }}</td>
                         <td>{{ $valores->AnchoCaja }}</td>
                         <td>{{ $valores->AltoCaja }}</td>

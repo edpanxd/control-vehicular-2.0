@@ -21,26 +21,25 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Rendimiento del Conbustible:</label>
-                <input type="number" class="form-control" name="rendimientoConbustible" maxlength="12" required>
+                <input type="number" class="form-control" name="rendimientoConbustible" maxlength="12" >
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Capacidad de Caja</label>
-                <input type="number" class="form-control" name="CapacidadCaja" maxlength="12" required>
+                <input type="number" class="form-control" name="CapacidadCaja" maxlength="12" >
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Largo de Caja</label>
-                <input type="number" class="form-control" name="LargoCaja" maxlength="12" required>
+                <input type="number" class="form-control" name="LargoCaja" maxlength="12" >
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Ancho de Caja</label>
-                <input type="number" class="form-control" name="AnchoCaja" maxlength="12" required>
+                <input type="number" class="form-control" name="AnchoCaja" maxlength="12" >
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Alto de Caja</label>
-                <input type="number" class="form-control" name="AltoCaja" maxlength="12" required>
+                <input type="number" class="form-control" name="AltoCaja" maxlength="12" >
             </div>
         </div>
-
         <a type="button" href="/ficha_tecnica" class="btn btn-secondary" data-dismiss="modal">Cancelar</a>
         <button type="submit" class="btn btn-primary">Registrar</button>
     </form>

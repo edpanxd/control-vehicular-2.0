@@ -25,7 +25,7 @@ class CreatePolizasTable extends Migration
             $table->integer('monto');
             $table->integer('año');
             $table->string('endoso');
-            $table->string('concepto_endoso');
+            $table->string('concepto_endoso')->nullable();
             $table->string('archivo');
             $table->unsignedBigInteger('id_vehiculo');
             $table->foreign('id_vehiculo')->references('id')->on('vehiculos');

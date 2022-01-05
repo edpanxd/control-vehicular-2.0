@@ -310,6 +310,7 @@ class dashboardController extends Controller
         $placas2 = DB::table('placas')->where('id_vehiculo', "$id")->get();
         $polizas3 = DB::table('polizas')->where('id_vehiculo', "$id")->get();
         $permisos2 = DB::table('permisos')->where('id_vehiculo', "$id")->get();
+        $fichatecnica = DB::table('ficha_tecnicas')->where('id_vehiculo', "$id")->get();
         $pdf = PDF::loadView('dashboard.reporte', compact(
             'vehiculo',
             'placas',
@@ -328,7 +329,8 @@ class dashboardController extends Controller
             'polizas2',
             'placas2',
             'polizas3',
-            'permisos2'
+            'permisos2',
+            'fichatecnica'
         ));
 
         return $pdf->stream('CÉDULA DE CONTROL VEHÍCULAR.pdf');

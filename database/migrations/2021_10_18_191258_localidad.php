@@ -28,6 +28,6 @@ class Localidad extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('localidad');
     }
 }

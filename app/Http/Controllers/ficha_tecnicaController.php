@@ -45,11 +45,32 @@ class ficha_tecnicaController extends Controller
     public function store(Request $request)
     {
         $valores = new ficha_tecnica();
-        $valores->rendimientoConbustible=$request->get('rendimientoConbustible');
-        $valores->CapacidadCaja=$request->get('CapacidadCaja');
-        $valores->LargoCaja=$request->get('LargoCaja');
-        $valores->AnchoCaja=$request->get('AnchoCaja');
-        $valores->AltoCaja=$request->get('AltoCaja');
+        if ($valores->rendimientoConbustible=$request->get('rendimientoConbustible')) {
+            $valores->rendimientoConbustible=$request->get('rendimientoConbustible');
+        }
+        else{
+            $valores->rendimientoConbustible= 0.00;
+        }
+        if ($valores->CapacidadCaja=$request->get('CapacidadCaja')) {
+            $valores->CapacidadCaja=$request->get('CapacidadCaja');
+        }else{
+            $valores->CapacidadCaja= 0.00;
+        }
+        if ($valores->LargoCaja=$request->get('LargoCaja')) {
+            $valores->LargoCaja=$request->get('LargoCaja');
+        }else{
+            $valores->LargoCaja= 0.00;
+        }
+        if ( $valores->AnchoCaja=$request->get('AnchoCaja')) {
+            $valores->AnchoCaja=$request->get('AnchoCaja');
+        }else{
+            $valores->AnchoCaja=0.00;
+        }
+        if ($valores->AltoCaja=$request->get('AltoCaja')) {
+            $valores->AltoCaja=$request->get('AltoCaja');
+        }else{
+            $valores->AltoCaja=0.00;                                                                                                                                                                                                                                                                                                                                                                                                                                
+        }
         $valores->id_vehiculo=$request->get('vehiculo');
         $valores->save();
         return redirect('/ficha_tecnica');

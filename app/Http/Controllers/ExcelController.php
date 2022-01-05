@@ -19,7 +19,7 @@ class ExcelController extends Controller
 {
     public function exportartenencia()
     {
-        return Excel::download(new TenenciasExport, 'pueba.xlsx');
+        return Excel::download(new TenenciasExport, 'Tenencias.xlsx');
     }
     public function exportarpolizas()
     {
@@ -43,7 +43,7 @@ class ExcelController extends Controller
     }
     public function fisico()
     {
-        return Excel::download(new FisicoExport, 'pueba.xlsx');
+        return Excel::download(new FisicoExport, 'Verificacion fisico mecanico.xlsx');
     }
     public function placas()
     {
@@ -55,6 +55,6 @@ class ExcelController extends Controller
     }
     public function permisos()
     {
-        return Excel::download(new TenenciasExport, 'pueba.xlsx');
+        return Excel::download(new TenenciasExport, 'Permisos.xlsx');
     }
 }

@@ -22,7 +22,7 @@
                 <th scope="col">Tipo</th>
                 <th scope="col">Modelo</th>
                 <th scope="col">Color</th>
-                <th scope="col">uso</th>
+                <th scope="col">Uso</th>
                 <th scope="col">Imagen</th>
                 <th scope="col"></th>
                 <!--<th scope="col">Eliminar inabilitado</th>-->

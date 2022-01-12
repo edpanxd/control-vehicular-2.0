@@ -501,7 +501,7 @@
                         <p class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
                             TENENCIAS: |
                             @foreach ($tenencias as $tenencias)
-                                {{ $tenencias->año }} |
+                                {{ $tenencias->tenencia }} |
                             @endforeach
 
                         </p>

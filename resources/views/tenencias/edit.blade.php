@@ -43,7 +43,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Año:</label>
-                <input type="text" class="form-control" name="año" value="{{ $valores->tenencia }}" maxlength="4" required>
+                <input type="number" class="form-control" name="año" value="{{ $valores->tenencia }}" maxlength="4" required>
             </div>
 
 

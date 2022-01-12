@@ -32,7 +32,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Verificación:</label>
-                <input type="text" class="form-control" name="verificacion" maxlength="20" required>
+                <input type="number" class="form-control" name="verificacion" maxlength="20" required>
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Terminacion de placa:</label>
@@ -56,7 +56,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Monto:</label>
-                <input type="text" class="form-control" name="monto" maxlength="15" required>
+                <input type="number" class="form-control" name="monto" maxlength="15" required>
             </div>
             <div class="form-group col-6">
                 <label class="col-form-label">Estatus:</label> <br>

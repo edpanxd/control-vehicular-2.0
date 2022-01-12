@@ -26,6 +26,27 @@
                     <a href="#" class="small-box-footer"></a>
                 </div>
             @endif
+
+            @if (new DateTime(" 01-01-$año") <=$actual and new DateTime(" 30-06-$año")>=
+            $actual)
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h5>
+                        Realizar Verificación Federal
+                    </h5>
+                    <h5>
+                        Primer periodo
+                    </h5>
+                    <p>Realizar Pago de verificación.</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                
+            </div>
+        @endif
+
+
             @if (new DateTime(" 01-02-$año") <=$actual and new DateTime(" 30-03-$año")>=
                 $actual)
                 <div class="small-box bg-yellow">

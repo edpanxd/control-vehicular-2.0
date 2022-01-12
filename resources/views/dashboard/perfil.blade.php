@@ -530,7 +530,7 @@
                                             @foreach ($tenencias as $tenencias)
                                                 <tr>
                                                     <td>{{ $tenencias->id }}</td>
-                                                    <td>{{ $tenencias->año }}</td>
+                                                    <td>{{ $tenencias->tenencia }}</td>
                                                     <td>$ {{ $tenencias->monto }}</td>
                                                     <td>{{ $tenencias->estatus }}</td>
                                                     <td><a class="btn btn-primary"

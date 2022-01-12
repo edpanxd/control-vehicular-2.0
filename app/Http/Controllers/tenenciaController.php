@@ -46,7 +46,7 @@ class tenenciaController extends Controller
         $valores->fecha_pago = $request->get('fecha_pago');
         $valores->fecha_estimada = $request->get('fecha_estimada');
         $valores->monto = $request->get('monto');
-        $valores->año = $request->get('año');
+        $valores->tenencia = $request->get('año');
         $valores->estatus = $request->get('estatus');
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo= $request->file('archivo')){
@@ -102,7 +102,7 @@ class tenenciaController extends Controller
         $valores->fecha_pago = $request->get('fecha_pago');
         $valores->fecha_estimada = $request->get('fecha_estimada');
         $valores->monto = $request->get('monto');
-        $valores->año = $request->get('año');
+        $valores->tenencia = $request->get('año');
         $valores->estatus = $request->get('estatus');
         $valores->id_vehiculo = $request->get('vehiculo');
         $valores->save();

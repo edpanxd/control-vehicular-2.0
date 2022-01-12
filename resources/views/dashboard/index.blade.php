@@ -482,7 +482,7 @@
                 headerToolbar: {
                     left: 'prev,next today',
                     center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth,listYear',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay,listYear',
 
                 },
 

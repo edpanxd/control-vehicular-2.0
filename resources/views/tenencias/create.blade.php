@@ -25,12 +25,12 @@
             </div>
 
             <div class="form-group col-md-6">
-                <label for="message-text" class="col-form-label">Fecha próximo de pago:</label>
+                <label for="message-text" class="col-form-label">Fecha próximo pago:</label>
                 <input type="date" class="form-control" name="fecha_estimada" maxlength="20" required>
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Monto:</label>
-                <input type="text" class="form-control" name="monto" maxlength="15" required>
+                <input type="number" class="form-control" name="monto" maxlength="15" required>
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Año:</label>

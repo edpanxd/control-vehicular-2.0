@@ -64,7 +64,7 @@
             </div>
 
             <div class="form-group col-md-6">
-                <label for="message-text" class="col-form-label">Fecha próximo de pago:</label>
+                <label for="message-text" class="col-form-label">Fecha próximo pago:</label>
                 <input type="date" class="form-control" name="fecha_estimada" value="{{ $valores->fecha_estimada }}" maxlength="20" required>
             </div>
             <div class="form-group col-md-6">

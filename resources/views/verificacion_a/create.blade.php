@@ -132,7 +132,7 @@
     </script>
     <script>
         function PrimerS1(params) {
-           Command: toastr["info"]("RECUERDA QUE EL FORMATO DE LOS DOCUEMNTOS DEBE SER IGUAL PARA TODOS (DOCUMENTOS VERTICALES E INFORMACION VISIBLE)", )
+           Command: toastr["info"]("RECUERDA QUE EL FORMATO DE LOS DOCUMENTOS DEBE SER IGUAL PARA TODOS (DOCUMENTOS VERTICALES E INFORMACION VISIBLE)", )
            toastr.options = {
                "closeButton": true,
                "positionClass": "toast-top-right",

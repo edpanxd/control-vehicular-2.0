@@ -25,7 +25,7 @@
                 <th scope="col">Uso</th>
                 <th scope="col">Imagen</th>
                 <th scope="col"></th>
-                <!--<th scope="col">Eliminar inabilitado</th>-->
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -43,8 +43,8 @@
                         <a class="btn btn-info" href="/vehiculo/{{ $valores->id }}/edit"><i
                                 class="fas fa-edit"></i></a>
                     </td>
-                  <!--  <th><a class="btn btn-danger eliminar" href="/vehiculod/"><i
-                                class="fas fa-trash-alt"></i></a></th>-->
+                   <th><a class="btn btn-danger eliminar" href="/vehiculod/{{$valores->id}}"><i
+                                class="fas fa-trash-alt"></i></a></th>
                 </tr>
             @endforeach
         </tbody>

@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <form action="/vehiculon/{{ $valores->id }}" method="POST">
+    <form action="/vehiculon/{{ $valores->id }}" method="POST" enctype="multipart/form-data">
         @method('put')
         @csrf
         <div class="row">
@@ -27,17 +27,53 @@
                     @endforeach
                 </select>
             </div>
-            <div class="form-group col-md-8">
+            <div class="form-group col-md-6">
                 <label  class="col-form-label">Numero de Factura:</label>
                 <input type="text" class="form-control" name="no_factura" maxlength="20" value="{{$valores->no_factura}}" required>
             </div>
-            <div class="form-group col-md-8">
+            <div class="form-group col-6 mb-4">
+                <label class="col-form-label">Factura</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">PDF</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="archivo_fa" >
+                        <label class="custom-file-label">Seleccionar PDF</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Refactura:</label>
                 <input type="text" class="form-control" name="refactura" maxlength="20" value="{{$valores->refactura}}" required>
             </div>
-            <div class="form-group col-md-8">
+            <div class="form-group col-6 mb-4">
+                <label class="col-form-label">Refactura</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">PDF</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="archivo_refa" >
+                        <label class="custom-file-label">Seleccionar PDF</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Carta factura:</label>
                 <input type="text" class="form-control" name="carta_fa" maxlength="20" value="{{$valores->carta_fa}}" required>
+            </div>
+            <div class="form-group col-6 mb-4">
+                <label class="col-form-label">Carta factura</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">PDF</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="archivo_car" >
+                        <label class="custom-file-label">Seleccionar PDF</label>
+                    </div>
+                </div>
             </div>
         </div>
         <a type="button" href="/vehiculon" class="btn btn-secondary" data-dismiss="modal">Cancelar</a>

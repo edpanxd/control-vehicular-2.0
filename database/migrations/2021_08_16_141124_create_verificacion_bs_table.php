@@ -20,7 +20,7 @@ class CreateVerificacionBsTable extends Migration
             $table->integer('verificacion');
             $table->date('fecha_pago');
             $table->date('fecha_estimada');
-            $table->integer('monto');
+            $table->decimal('monto');
             $table->string('estatus');
             $table->string('archivo');
             $table->unsignedBigInteger('id_vehiculo');

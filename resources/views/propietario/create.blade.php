@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dash')
+@section('title', 'Propietarios')
 
 @section('content_header')
     <h1>Registrar Propietario anterior</h1>

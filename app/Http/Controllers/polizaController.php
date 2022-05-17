@@ -45,7 +45,7 @@ class polizaController extends Controller
     {
         $valores = new polizas();
         $valores->poliza = $request->get('poliza');
-        $valores->aseguradora = $request->get('aseguradora');
+        $valores->aseguradora = strtoupper($request->get('aseguradora'));
         $valores->estatus = $request->get('estatus');
         $valores->inicio = $request->get('inicio');
         $valores->fecha_pago = $request->get('fecha_pago');
@@ -61,6 +61,8 @@ class polizaController extends Controller
             $archivonombre= date('YmdHis'). "." . $archivo->getClientOriginalExtension();
             $archivo->move($rutaguardarpdf, $archivonombre);
             $valores->archivo="$archivonombre";
+        }else{
+            $valores->archivo= "Sin archivo";
         }
         $valores->save();
         return redirect('/poliza');
@@ -107,7 +109,7 @@ class polizaController extends Controller
     {
         $valores = polizas::find($id);
         $valores->poliza = $request->get('poliza');
-        $valores->aseguradora = $request->get('aseguradora');
+        $valores->aseguradora = strtoupper($request->get('aseguradora'));
         $valores->estatus = $request->get('estatus');
         $valores->inicio = $request->get('inicio');
         $valores->fecha_pago = $request->get('fecha_pago');
@@ -118,6 +120,15 @@ class polizaController extends Controller
         $valores->endoso = $request->get('endoso');
         $valores->concepto_endoso = $request->get('concepto_endoso');
         $valores->id_vehiculo = $request->get('vehiculo');
+        if($archivo= $request->file('archivo')){
+            if($valores->archivo != "Sin archivo"){
+                unlink('Polizas/'.$valores->archivo);
+            }
+            $rutaguardarpdf= 'Polizas/';
+            $archivonombre= date('YmdHis'). "." . $archivo->getClientOriginalExtension();
+            $archivo->move($rutaguardarpdf, $archivonombre);
+            $valores->archivo="$archivonombre";
+        }
         $valores->save();
         return redirect('/poliza');
         

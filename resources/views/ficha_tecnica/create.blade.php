@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dash')
+@section('title', 'Ficha Tecnica')
 
 @section('content_header')
     <h1>Registrar Ficha Técnica</h1>

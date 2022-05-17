@@ -4,8 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Placas;
 use App\Models\Vehiculo;
+use Hamcrest\SelfDescribing;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Monolog\Handler\IFTTTHandler;
+use Illuminate\Validation\Rule;
 
 
 class PlacasController extends Controller
@@ -17,12 +22,12 @@ class PlacasController extends Controller
      */
     public function index()
     {
-        $data=DB::table('placas')
-        ->select('placas.*', 'vehiculos.marca','vehiculos.serie')
-        ->join('vehiculos', 'placas.id_vehiculo','vehiculos.id')
-        ->get();
-        $valores=Placas::all();
-        return view('placas.index')->with('data', $data);
+        $data = DB::table('placas')
+            ->select('placas.*', 'vehiculos.marca', 'vehiculos.serie')
+            ->join('vehiculos', 'placas.id_vehiculo', 'vehiculos.id')
+            ->get();
+        $error = 0;
+        return view('placas.index')->with('data', $data)->with('error', $error);
     }
 
     /**
@@ -32,11 +37,10 @@ class PlacasController extends Controller
      */
     public function create()
     {
-        $selec=Vehiculo::all();
-        $prueba=true;
+        $selec = Vehiculo::all();
+        $prueba = true;
         return view('placas.create')->with('selec', $selec)
-        ->with('prueba', $prueba);
-        
+            ->with('prueba', $prueba);
     }
 
     /**
@@ -47,7 +51,27 @@ class PlacasController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->get('estatus') == "VIGENTES") {
+            $consulta = Placas::all()->where("id_vehiculo", $request->get('vehiculo'))->where('estatus', 'VIGENTES');
+            if (count($consulta)) {
+                $error = 1;
+                $data = DB::table('placas')
+                    ->select('placas.*', 'vehiculos.marca', 'vehiculos.serie')
+                    ->join('vehiculos', 'placas.id_vehiculo', 'vehiculos.id')
+                    ->get();
+                return view('placas.index')->with('data', $data)->with('error', $error);
+            } else {
+                $guardar = self::guardar($request);
+                return redirect('/placa');
+            }
+        } else {
 
+            $guardar = self::guardar($request);
+            return redirect('/placa');
+        }
+    }
+    public function guardar($request)
+    {
         $valores = new Placas();
         $valores->placas = $request->get('placas');
         $valores->entidad = $request->get('entidad');
@@ -61,16 +85,17 @@ class PlacasController extends Controller
         $valores->estatus = $request->get('estatus');
         $valores->cambio_propietario = $request->get('cambio_propietario');
         $valores->fecha_cambio_p = $request->get('fecha_cambio_p');
-        $valores->observaciones = $request->get('observaciones');
+        $valores->observaciones = strtoupper($request->get('observaciones'));
         $valores->id_vehiculo = $request->get('vehiculo');
-        if($archivo= $request->file('archivo')){
-            $rutaguardarpdf= 'Placas/';
-            $archivonombre= date('YmdHis')."_". $valores->placas . "." . $archivo->getClientOriginalExtension();
+        if ($archivo = $request->file('archivo')) {
+            $rutaguardarpdf = 'Placas/';
+            $archivonombre = date('YmdHis') . "_" . $valores->placas . "." . $archivo->getClientOriginalExtension();
             $archivo->move($rutaguardarpdf, $archivonombre);
-            $valores->archivo="$archivonombre";
+            $valores->archivo = "$archivonombre";
+        } else {
+            $valores->archivo = "Sin archivo";
         }
         $valores->save();
-        return redirect('/placa');
     }
 
     /**
@@ -92,15 +117,15 @@ class PlacasController extends Controller
      */
     public function edit($id)
     {
-        $selec=Vehiculo::all();
-        $valores=Placas::find($id);
-        $datos=DB::table('placas')
-        ->join('vehiculos', 'placas.id_vehiculo','vehiculos.id')
-        ->where('placas.id', "$id")
-        ->get();
+        $selec = Vehiculo::all();
+        $valores = Placas::find($id);
+        $datos = DB::table('placas')
+            ->join('vehiculos', 'placas.id_vehiculo', 'vehiculos.id')
+            ->where('placas.id', "$id")
+            ->get();
         return view('placas.edit')->with('valores', $valores)
-        ->with('selec', $selec)
-        ->with('datos', $datos);
+            ->with('selec', $selec)
+            ->with('datos', $datos);
     }
 
     /**
@@ -118,11 +143,22 @@ class PlacasController extends Controller
         $valores->vencimiento = $request->get('vencimiento');
         $valores->alta = $request->get('alta');
         $valores->baja = $request->get('baja');
+        $valores->monto = $request->get('monto');
+        $valores->año = $request->get('año');
         $valores->estatus = $request->get('estatus');
         $valores->cambio_propietario = $request->get('cambio_propietario');
         $valores->fecha_cambio_p = $request->get('fecha_cambio_p');
-        $valores->observaciones = $request->get('observaciones');
+        $valores->observaciones = strtoupper($request->get('observaciones'));
         $valores->id_vehiculo = $request->get('vehiculo');
+        if ($archivo = $request->file('archivo')) {
+            if ($valores->archivo != "Sin archivo") {
+                unlink('Placas/' . $valores->archivo);
+            }
+            $rutaguardarpdf = 'Placas/';
+            $archivonombre = date('YmdHis') . "_" . $valores->placas . "." . $archivo->getClientOriginalExtension();
+            $archivo->move($rutaguardarpdf, $archivonombre);
+            $valores->archivo = "$archivonombre";
+        }
         $valores->save();
         return redirect('/placa');
     }
@@ -136,8 +172,13 @@ class PlacasController extends Controller
     public function destroy($id)
     {
         $valores = Placas::find($id);
-        unlink('Placas/'.$valores->archivo);
-        $valores->delete();
+        if ($valores->archivo != "Sin Archivo") {
+            $valores->delete();
+        } else {
+            unlink('Placas/' . $valores->archivo);
+            $valores->delete();
+        }
+
         return redirect('/placa');
     }
 }

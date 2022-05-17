@@ -39,24 +39,40 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Monto:</label>
-                <input type="number" class="form-control" name="monto" value="{{ $valores->monto }}" maxlength="15" required>
+                <input type="number" step="any" class="form-control" name="monto" value="{{ $valores->monto }}" maxlength="15" required>
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Año:</label>
-                <input type="number" class="form-control" name="año" value="{{ $valores->tenencia }}" maxlength="4" required>
+                <select class="custom-select select2" name="año" required>
+                    <option value="{{ $valores->tenencia }}">{{ $valores->tenencia }}</option>
+                    {{$año=2016}}
+                    @for($i = 0; $i < 35; $i++)
+                     <option value="{{$año}}">{{$año}}</option>
+                     {{$año++}}
+                    @endfor
+                </select>
             </div>
 
 
 
             <div class="form-group col-6">
                 <label class="col-form-label">Estatus:</label> <br>
-                <input type="radio" class="btn-check" name="estatus" id="success-outline" value="Pagado"
+                <input type="radio" class="btn-check" name="estatus" id="success-outline" value="PAGADO"
                     autocomplete="off" required>
-                <label class="btn btn-outline-success" for="success-outline">Pagado</label>
+                <label class="btn btn-outline-success" for="success-outline">PAGADO</label>
 
-                <input type="radio" class="btn-check" name="estatus" value="Sin pagar" id="danger-outline"
+                <input type="radio" class="btn-check" name="estatus" value="SIN PAGAR" id="danger-outline"
                     autocomplete="off" required>
-                <label class="btn btn-outline-danger" for="danger-outline">Sin pagar</label>
+                <label class="btn btn-outline-danger" for="danger-outline">SIN PAGAR</label>
+            </div>
+            <div class="input-group mb-4 ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">PDF</span>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" onclick="PrimerS1()" name="archivo" >
+                    <label class="custom-file-label">Seleccionar PDF</label>
+                </div>
             </div>
         </div>
 

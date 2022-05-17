@@ -22,7 +22,7 @@ class CreatePolizasTable extends Migration
             $table->date('vencimiento');
             $table->date('fecha_pago');
             $table->date('fecha_estimada');
-            $table->integer('monto');
+            $table->decimal('monto');
             $table->integer('año');
             $table->string('endoso');
             $table->string('concepto_endoso')->nullable();

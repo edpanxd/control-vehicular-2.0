@@ -39,7 +39,7 @@
             <div class="form-group col-md-6">
                 <label class="col-form-label">Engomado:</label>
                 <select class="custom-select" name="engomado" style="font-size:15pt" required>
-                    <option value=""></option>
+                    <option value="{{ $valores->engomado }}">{{ $valores->engomado }}</option>
                     <option value="5 u 6" style="background-color:rgba(247,255,23,1) "> 5 u 6 <a></a></option>
                     <option value="7 u 8" style="background-color:rgba(255,64,217,1)">7 u 8</option>
                     <option value="3 o 4" style="background-color:rgba(255,3,3,1)">3 o 4</option>
@@ -48,9 +48,15 @@
                 </select>
             </div>
             <div class="form-group col-md-6">
-                <label for="message-text" class="col-form-label">Verificación:</label>
-                <input type="number" class="form-control" name="verificacion" maxlength="20"
-                    value="{{ $valores->verificacion }}" required>
+                <label for="message-text" class="col-form-label">Año de Verificación:</label>
+                <select class="custom-select select2" name="verificacion" required>
+                    <option value="{{ $valores->verificacion }}">{{ $valores->verificacion }}</option>
+                    {{$año=2016}}
+                    @for($i = 0; $i < 35; $i++)
+                     <option value="{{$año}}">{{$año}}</option>
+                     {{$año++}}
+                    @endfor
+                </select>
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Fecha de pago:</label>
@@ -63,19 +69,28 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Monto:</label>
-                <input type="number" class="form-control" name="monto" value="{{ $valores->monto }}" maxlength="15" required>
+                <input type="number" step="any" class="form-control" name="monto" value="{{ $valores->monto }}" maxlength="15" required>
             </div>
 
             <div class="form-group col-6">
                 <label class="col-form-label">Estatus:</label> <br>
-                <input type="radio" class="btn-check" name="estatus" id="success-outline" value="Pagado"
+                <input type="radio" class="btn-check" name="estatus" id="success-outline" value="PAGADO"
                     autocomplete="off" required>
-                <label class="btn btn-outline-success" for="success-outline">Pagado</label>
-                <input type="radio" class="btn-check" name="estatus" value="Sin pagar" id="danger-outline"
+                <label class="btn btn-outline-success" for="success-outline">PAGADO</label>
+                <input type="radio" class="btn-check" name="estatus" value="SIN PAGAR" id="danger-outline"
                     autocomplete="off" required>
-                <label class="btn btn-outline-danger" for="danger-outline">Sin pagar</label>
+                <label class="btn btn-outline-danger" for="danger-outline">SIN PAGAR</label>
             </div>
 
+            <div class="input-group mb-4 ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">PDF</span>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" onclick="PrimerS1()" name="archivo" >
+                    <label class="custom-file-label">Seleccionar PDF</label>
+                </div>
+            </div>
         </div>
 
         <a type="button" href="/verificacion_b" class="btn btn-secondary" data-dismiss="modal">Cancelar</a>

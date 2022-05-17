@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dash')
+@section('title', 'Permisos')
 
 @section('content_header')
     <h1>Registrar Permisos</h1>

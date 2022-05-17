@@ -40,8 +40,8 @@ class empresaController extends Controller
     public function store(Request $request)
     {
         $valores = new empresa();
-        $valores->empresa = $request->get('empresa');
-        $valores->rfc = $request->get('rfc');
+        $valores->empresa = strtoupper($request->get('empresa'));
+        $valores->rfc = strtoupper($request->get('rfc'));
         $valores->save();
         return redirect('/empresa');
 
@@ -80,8 +80,8 @@ class empresaController extends Controller
     public function update(Request $request, $id)
     {
         $valores = empresa::find($id);
-        $valores->empresa=$request->get('empresa');
-        $valores->rfc=$request->get('rfc');
+        $valores->empresa = strtoupper($request->get('empresa'));
+        $valores->rfc = strtoupper($request->get('rfc'));
         $valores->save();
         return redirect('/empresa');
     }

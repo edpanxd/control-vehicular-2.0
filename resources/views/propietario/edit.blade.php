@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Dash')
+@section('title', 'Propietarios')
 
 @section('content_header')
     <h1>Editar Permisos</h1>
 @stop
 
 @section('content')
-    <form action="/permiso/{{ $valores->id }}" method="POST"  enctype="multipart/from-data">
+    <form action="/propietario/{{ $valores->id }}" method="POST"  enctype="multipart/form-data">
         @method('put')
         @csrf
         <div class="row">
@@ -24,12 +24,35 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Vendedor:</label>
-                <input type="text" class="form-control" name="Vendedor" maxlength="50" value="{{$valores->vendedor}}" required>
+                <input type="text" class="form-control" name="vendedor" maxlength="50" value="{{$valores->vendedor}}" required>
             </div>
-       
+            <div class="form-group col-6 mb-4">
+                <label class="col-form-label">Identificacion Vendedor</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">PDF</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="ide_ven" >
+                        <label class="custom-file-label">Seleccionar PDF</label>
+                    </div>
+                </div>
+            </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Comprador:</label>
-                <input type="text" class="form-control" name="Comprador" maxlength="50" value="{{$valores->comprador}}" required>
+                <input type="text" class="form-control" name="comprador" maxlength="50" value="{{$valores->comprador}}" required>
+            </div>
+            <div class="form-group col-6 mb-4">
+                <label class="col-form-label">Identificacion Comprador</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">PDF</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="ide_com" >
+                        <label class="custom-file-label">Seleccionar PDF</label>
+                    </div>
+                </div>
             </div>
         </div>
        

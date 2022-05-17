@@ -47,19 +47,21 @@ class fisico_mController extends Controller
     public function store(Request $request)
     {
         $valores = new fisico_m();
-        $valores->placa = $request->get('placa');
-        $valores->verificacion = $request->get('verificacion');
-        $valores->terminacion = $request->get('terminacion');
+        $valores->placa = strtoupper($request->get('placa'));
+        $valores->verificacion = strtoupper($request->get('verificacion'));
+        $valores->terminacion = strtoupper($request->get('terminacion'));
         $valores->fecha_pago = $request->get('fecha_pago');
         $valores->fecha_estimada = $request->get('fecha_estimada');
-        $valores->monto = $request->get('monto');
-        $valores->estatus = $request->get('estatus');
+        $valores->monto = strtoupper($request->get('monto'));
+        $valores->estatus = strtoupper($request->get('estatus'));
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo= $request->file('archivo')){
             $rutaguardarpdf= 'fisico mecanico/';
             $archivonombre= date('YmdHis'). "." . $archivo->getClientOriginalExtension();
             $archivo->move($rutaguardarpdf, $archivonombre);
             $valores->archivo="$archivonombre";
+        }else{
+            $valores->archivo= "Sin archivo";
         }
         $valores->save();
         return redirect('/fisico_m');
@@ -107,13 +109,22 @@ class fisico_mController extends Controller
     public function update(Request $request, $id)
     {
         $valores = fisico_m::find($id);
-        $valores->verificacion = $request->get('verificacion');
-        $valores->terminacion = $request->get('terminacion');
+        $valores->verificacion = strtoupper($request->get('verificacion'));
+        $valores->terminacion = strtoupper($request->get('terminacion'));
         $valores->fecha_pago = $request->get('fecha_pago');
         $valores->fecha_estimada = $request->get('fecha_estimada');
-        $valores->monto = $request->get('monto');
-        $valores->estatus = $request->get('estatus');
+        $valores->monto = strtoupper($request->get('monto'));
+        $valores->estatus = strtoupper($request->get('estatus'));
         $valores->id_vehiculo = $request->get('vehiculo');
+        if($archivo= $request->file('archivo')){
+            if($valores->archivo != "Sin archivo"){
+                unlink('fisico mecanico/'.$valores->archivo);
+            }
+            $rutaguardarpdf= 'fisico mecanico/';
+            $archivonombre= date('YmdHis'). "." . $archivo->getClientOriginalExtension();
+            $archivo->move($rutaguardarpdf, $archivonombre);
+            $valores->archivo="$archivonombre";
+        }
         $valores->save();
         return redirect('/fisico_m');
     }

@@ -54,6 +54,8 @@ class tenenciaController extends Controller
             $archivonombre= date('YmdHis'). "." . $archivo->getClientOriginalExtension();
             $archivo->move($rutaguardarpdf, $archivonombre);
             $valores->archivo="$archivonombre";
+        }else{
+            $valores->archivo= "Sin archivo";
         }
         $valores->save();
         return redirect('/tenencia');
@@ -105,6 +107,15 @@ class tenenciaController extends Controller
         $valores->tenencia = $request->get('año');
         $valores->estatus = $request->get('estatus');
         $valores->id_vehiculo = $request->get('vehiculo');
+        if($archivo= $request->file('archivo')){
+            if($valores->archivo != "Sin archivo"){
+                unlink('Tenencias/'.$valores->archivo);
+            }
+            $rutaguardarpdf= 'Tenencias/';
+            $archivonombre= date('YmdHis'). "." . $archivo->getClientOriginalExtension();
+            $archivo->move($rutaguardarpdf, $archivonombre);
+            $valores->archivo="$archivonombre";
+        }
         $valores->save();
         return redirect('/tenencia');
     }

@@ -52,11 +52,18 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Monto:</label>
-                <input type="number" class="form-control" name="monto" maxlength="15" required>
+                <input type="number" step="any" class="form-control" name="monto" maxlength="15" required>
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Año:</label>
-                <input type="number" class="form-control" name="año" maxlength="4" required>
+                <select class="custom-select select2" name="año" required>
+                    <option value=""></option>
+                    {{$año=2016}}
+                    @for($i = 0; $i < 35; $i++)
+                     <option value="{{$año}}">{{$año}}</option>
+                     {{$año++}}
+                    @endfor
+                </select>
             </div>
             <div class="form-group col-6">
                 <label class="col-form-label">Estatus:</label> <br>
@@ -74,7 +81,7 @@
                         <span class="input-group-text">PDF</span>
                     </div>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" onclick="PrimerS1()" name="archivo_pla" required>
+                        <input type="file" class="custom-file-input" onclick="PrimerS1()" name="archivo_pla">
                         <label class="custom-file-label">Seleccionar PDF</label>
                     </div>
                 </div>

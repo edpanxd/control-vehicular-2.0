@@ -115,6 +115,33 @@ class vehiculos_iController extends Controller
         $valores->pedimiento = $request->get('pedimiento');
         $valores->titulo_pro = $request->get('titulo_pro');
         $valores->id_vehiculo = $request->get('vehiculo');
+        if($archivo_fa= $request->file('archivo_fa')){
+            if($valores->archivo_fa != "Sin archivo"){
+                unlink('Facturas/'.$valores->archivo_fa);
+            }
+            $rutaguardarpdf= 'Facturas/';
+            $archivonombre= date('YmdHis')."-".$valores->no_factura. "." . $archivo_fa->getClientOriginalExtension();
+            $archivo_fa->move($rutaguardarpdf, $archivonombre);
+            $valores->archivo_fa="$archivonombre";
+        }
+        if($archivo_pe= $request->file('archivo_pe')){
+            if($valores->archivo_pe != "Sin archivo"){
+                unlink('Pedimento/'.$valores->archivo_pe);
+            }
+            $rutaguardarpdf= 'Pedimento/';
+            $archivonombre= date('YmdHis')."-".$valores->pedimiento."." . $archivo_pe->getClientOriginalExtension();
+            $archivo_pe->move($rutaguardarpdf, $archivonombre);
+            $valores->archivo_pe="$archivonombre";
+        }
+        if($archivo_titu= $request->file('archivo_titu')){
+            if($valores->archivo_titu != "Sin archivo"){
+                unlink('Titulos propietario/'.$valores->archivo_titu);
+            }
+            $rutaguardarpdf= 'Titulos propietario/';
+            $archivonombre= date('YmdHis')."-".$valores->titulo_pro. "." . $archivo_titu->getClientOriginalExtension();
+            $archivo_titu->move($rutaguardarpdf, $archivonombre);
+            $valores->archivo_titu="$archivonombre";
+        }
         $valores->save();
         return redirect('/vehiculoi');
     }

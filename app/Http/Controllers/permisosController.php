@@ -101,6 +101,15 @@ class permisosController extends Controller
     {
         $valores = permisos::find($id);
         $valores->no_permiso= $request->get('no_permiso');
+        if($archivo_per= $request->file('archivo_per')){
+            if($valores->archivo_per != "Sin archivo"){
+                unlink('Permisos/'.$valores->archivo_per);
+            }
+            $rutaguardarpdf= 'Permisos/';
+            $archivonombre= date('YmdHis'). "." . $archivo_per->getClientOriginalExtension();
+            $archivo_per->move($rutaguardarpdf, $archivonombre);
+            $valores->archivo_per="$archivonombre";
+        }
         $valores->save();
         
         return redirect('/permiso');

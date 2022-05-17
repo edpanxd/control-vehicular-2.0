@@ -33,7 +33,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboardE/{id}', 'App\Http\Controllers\dashboardController@eliminar');
    //ruta vehiculo
     Route::resource('/vehiculo', 'App\Http\Controllers\VehiculoController');
-  // Route::get('/vehiculod/{id}', 'App\Http\Controllers\VehiculoController@destroy'); //ruta de eliminar vehiculo inavilitada
+    Route::get('/vehiculod/{id}', 'App\Http\Controllers\VehiculoController@destroy'); //ruta de eliminar vehiculo inavilitada
 
    //ruta placas
    Route::resource('/placa', 'App\Http\Controllers\PlacasController');

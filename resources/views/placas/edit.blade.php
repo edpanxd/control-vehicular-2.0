@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dash')
+@section('title', 'Placas')
 
 @section('content_header')
     <h1>Editar de placas</h1>
@@ -66,11 +66,19 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Monto:</label>
-                <input type="number" class="form-control" name="monto" value="{{ $valores->monto }}" maxlength="15" required>
+                <input type="number" step="any" class="form-control" name="monto" value="{{ $valores->monto }}" maxlength="15" required>
             </div>
             <div class="form-group col-md-6">
-                <label for="message-text" class="col-form-label">Año:</label>
-                <input type="number" class="form-control" name="año" value="{{ $valores->año }}" maxlength="4" required>
+                <label for="message-text" class="col-form-label">Año:</label>   
+                <select class="custom-select select2" name="año" required>
+                    <option value="{{ $valores->año }}">{{ $valores->año }}</option>
+                    {{$año=2016}}
+                    @for($i = 0; $i < 35; $i++)
+                     <option value="{{$año}}">{{$año}}</option>
+                     {{$año++}}
+                    @endfor
+                    
+                </select>
             </div>
         </div>
         <div class="row">
@@ -106,6 +114,15 @@
                 <label for="message-text" class="col-form-label">Observaciones:</label>
                 <input type="text" class="form-control" name="observaciones" maxlength="55"
                     value="{{ $valores->observaciones }}" required>
+            </div>
+            <div class="input-group mb-4 ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">PDF</span>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" onclick="PrimerS1()" name="archivo">
+                    <label class="custom-file-label">Seleccionar PDF</label>
+                </div>
             </div>
         </div>
 

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Vehículos')
+@section('title', 'Permisos')
 
 @section('content_header')
     <h1>Permisos</h1>

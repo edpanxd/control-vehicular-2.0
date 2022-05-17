@@ -45,12 +45,12 @@ class documentos_pController extends Controller
     public function store(Request $request)
     {
         $valores = new documentos_p();
-        $valores->comprador = $request->get('comprador');
-        $valores->vendedor = $request->get('vendedor');
-        $valores->contrato_com = $request->get('contrato_com');
-        $valores->carta_res = $request->get('carta_res');
-        $valores->identificacion = $request->get('identificacion');
-        $valores->informe = $request->get('informe');
+        $valores->comprador = strtoupper($request->get('comprador'));
+        $valores->vendedor = strtoupper($request->get('vendedor'));
+        $valores->contrato_com = strtoupper($request->get('contrato_com'));
+        $valores->carta_res = strtoupper($request->get('carta_res'));
+        $valores->identificacion = strtoupper($request->get('identificacion'));
+        $valores->informe = strtoupper($request->get('informe'));
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo_con= $request->file('archivo_con')){
             $rutaguardarpdf= 'Contrato/';
@@ -120,9 +120,49 @@ class documentos_pController extends Controller
     public function update(Request $request, $id)
     {
         $valores = documentos_p::find($id);
-        $valores->comprador = $request->get('comprador');
-        $valores->vendedor = $request->get('vendedor');
+        $valores->comprador = strtoupper($request->get('comprador'));
+        $valores->vendedor = strtoupper($request->get('vendedor'));
         $valores->id_vehiculo = $request->get('vehiculo');
+        $valores->contrato_com = strtoupper($request->get('contrato_com'));
+        $valores->carta_res = strtoupper($request->get('carta_res'));
+        $valores->identificacion = strtoupper($request->get('identificacion'));
+        $valores->informe = strtoupper($request->get('informe'));
+        if($archivo_con= $request->file('archivo_con')){
+            if($valores->archivo_con != "Sin archivo"){
+                unlink('Contrato/'.$valores->archivo_con);
+            }
+            $rutaguardarpdf= 'Contrato/';
+            $archivonombre= date('YmdHis')."-vehiculo_id=".$valores->id_vehiculo.".". $archivo_con->getClientOriginalExtension();
+            $archivo_con->move($rutaguardarpdf, $archivonombre);
+            $valores->archivo_con="$archivonombre";
+        }
+        if($archivo_car= $request->file('archivo_car')){
+            if($valores->archivo_car != "Sin archivo"){
+                unlink('cartas responsivas/'.$valores->archivo_car);
+            }
+            $rutaguardarpdf= 'cartas responsivas/';
+            $archivonombre= date('YmdHis')."-vehiculo_id=".$valores->id_vehiculo."." . $archivo_car->getClientOriginalExtension();
+            $archivo_car->move($rutaguardarpdf, $archivonombre);
+            $valores->archivo_car="$archivonombre";
+        }
+        if($archivo_iden= $request->file('archivo_iden')){
+            if($valores->archivo_iden != "Sin archivo"){
+                unlink('Identificaciones/'.$valores->archivo_iden);
+            }
+            $rutaguardarpdf= 'Identificaciones/';
+            $archivonombre= date('YmdHis')."-vehiculo_id=".$valores->id_vehiculo.".".$archivo_iden->getClientOriginalExtension();
+            $archivo_iden->move($rutaguardarpdf, $archivonombre);
+            $valores->archivo_iden="$archivonombre";
+        }
+        if($archivo_in= $request->file('archivo_in')){
+            if($valores->archivo_in != "Sin archivo"){
+                unlink('Informe repuve/'.$valores->archivo_in);
+            }
+            $rutaguardarpdf= 'Informe repuve/';
+            $archivonombre= date('YmdHis')."-vehiculo_id=".$valores->id_vehiculo."." . $archivo_in->getClientOriginalExtension();
+            $archivo_in->move($rutaguardarpdf, $archivonombre);
+            $valores->archivo_in="$archivonombre";
+        }
         $valores->save();
         return redirect('/documento');
     }

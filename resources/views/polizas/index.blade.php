@@ -32,8 +32,15 @@
                     <td>{{ $data->marca }}</td>
                     <td>{{ $data->serie }}</td>
                     <td>{{ $data->poliza }}</td>
-                    <td><a class="btn btn-primary" href="/Polizas/{{ $data->archivo }}" target="_blank"><i
-                        class="far fa-file-pdf"></i></a></td>
+                    <td>
+                    @if ($data->archivo == 'Sin archivo')
+                        {{ $data->archivo }}
+                    @else
+                    <a class="btn btn-primary" href="/Polizas/{{ $data->archivo }}" target="_blank"><i
+                        class="far fa-file-pdf"></i></a>
+                    @endif
+                        
+                    </td>
                     <td>{{ $data->aseguradora }}</td>
                     <td>{{ $data->vencimiento }}</td>
                     <td>{{ $data->estatus }}</td>

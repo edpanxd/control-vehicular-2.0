@@ -46,19 +46,19 @@ class VehiculoController extends Controller
     public function store(Request $request)
     {
         $valores = new Vehiculo();
-        $valores->marca = $request->get('marca');
-        $valores->submarca = $request->get('submarca');
-        $valores->tipo = $request->get('tipo');
-        $valores->modelo = $request->get('modelo');
-        $valores->color = $request->get('color');
-        $valores->serie = $request->get('serie');
-        $valores->numeroM = $request->get('numeroM');
-        $valores->estatus = $request->get('estatus');
-        $valores->uso = $request->get('uso');
-        $valores->nombre_p =$request->get('nombre_p');
-        $valores->adquisicion = $request->get('adquisicion');
-        $valores->empresa = $request->get('empresa');
-        $valores->localidad = $request->get('localidad');
+        $valores->marca = strtoupper($request->get('marca'));
+        $valores->submarca = strtoupper($request->get('submarca'));
+        $valores->tipo = strtoupper($request->get('tipo'));
+        $valores->modelo = strtoupper($request->get('modelo'));
+        $valores->color = strtoupper($request->get('color'));
+        $valores->serie = strtoupper($request->get('serie'));
+        $valores->numeroM = strtoupper($request->get('numeroM'));
+        $valores->estatus = strtoupper($request->get('estatus'));
+        $valores->uso = strtoupper($request->get('uso'));
+        $valores->nombre_p =strtoupper($request->get('nombre_p'));
+        $valores->adquisicion = strtoupper($request->get('adquisicion'));
+        $valores->empresa = strtoupper($request->get('empresa'));
+        $valores->localidad = strtoupper($request->get('localidad'));
         if($imagen= $request->file('imagen')){
             $rutaguardarimg= 'imagen/';
             $imagennombre= date('YmdHis'). "." . $imagen->getClientOriginalExtension();
@@ -109,19 +109,30 @@ class VehiculoController extends Controller
     public function update(Request $request, $id)
     {
         $valores = Vehiculo::find($id);
-        $valores->marca = $request->get('marca');
-        $valores->submarca = $request->get('submarca');
-        $valores->tipo = $request->get('tipo');
-        $valores->modelo = $request->get('modelo');
-        $valores->color = $request->get('color');
-        $valores->serie = $request->get('serie');
-        $valores->numeroM = $request->get('numeroM');
-        $valores->estatus = $request->get('estatus');
-        $valores->uso = $request->get('uso');
-        $valores->nombre_p =$request->get('nombre_p');
-        $valores->adquisicion = $request->get('adquisicion');
-        $valores->empresa = $request->get('empresa');
-        $valores->localidad = $request->get('localidad');
+        $valores->marca = strtoupper($request->get('marca'));
+        $valores->submarca = strtoupper($request->get('submarca'));
+        $valores->tipo = strtoupper($request->get('tipo'));
+        $valores->modelo = strtoupper($request->get('modelo'));
+        $valores->color = strtoupper($request->get('color'));
+        $valores->serie = strtoupper($request->get('serie'));
+        $valores->numeroM = strtoupper($request->get('numeroM'));
+        $valores->estatus = strtoupper($request->get('estatus'));
+        $valores->uso = strtoupper($request->get('uso'));
+        $valores->nombre_p =strtoupper($request->get('nombre_p'));
+        $valores->adquisicion = strtoupper($request->get('adquisicion'));
+        $valores->empresa = strtoupper($request->get('empresa'));
+        $valores->localidad = strtoupper($request->get('localidad'));
+
+        if($imagen= $request->file('imagen')){
+            if($valores->imagen != ""){
+                unlink('imagen/'.$valores->imagen);
+            }
+            $rutaguardarimg= 'imagen/';
+            $imagennombre= date('YmdHis'). "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaguardarimg, $imagennombre);
+            $valores->imagen="$imagennombre";
+        }
+
         $valores->save();
         return redirect('/vehiculo');
     }
@@ -141,7 +152,5 @@ class VehiculoController extends Controller
             return redirect('/vehiculo');
         }
         
-       
-
     }
 }

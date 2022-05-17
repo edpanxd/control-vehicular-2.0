@@ -53,6 +53,8 @@ class verificacion_f2Controller extends Controller
             $archivonombre= date('YmdHis'). "." . $archivo->getClientOriginalExtension();
             $archivo->move($rutaguardarpdf, $archivonombre);
             $valores->archivo="$archivonombre";
+        }else{
+            $valores->archivo= "Sin archivo";
         }
         $valores->save();
         return redirect('/verificacion_f2');
@@ -107,6 +109,15 @@ class verificacion_f2Controller extends Controller
         $valores->monto = $request->get('monto');
         $valores->estatus = $request->get('estatus');
         $valores->id_vehiculo = $request->get('vehiculo');
+        if($archivo= $request->file('archivo')){
+            if($valores->archivo != "Sin archivo"){
+                unlink('Verificacion federal 2/'.$valores->archivo);
+            }
+            $rutaguardarpdf= 'Verificacion federal 2/';
+            $archivonombre= date('YmdHis'). "." . $archivo->getClientOriginalExtension();
+            $archivo->move($rutaguardarpdf, $archivonombre);
+            $valores->archivo="$archivonombre";
+        }
         $valores->save();
         return redirect('/verificacion_f2');
     }

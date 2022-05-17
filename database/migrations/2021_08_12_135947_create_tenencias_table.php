@@ -16,7 +16,7 @@ class CreateTenenciasTable extends Migration
         Schema::create('tenencias', function (Blueprint $table) {
             $table->id();
             $table->integer('tenencia');
-            $table->integer('monto');
+            $table->decimal('monto');
             $table->date('fecha_pago');
             $table->date('fecha_estimada');
             $table->string('estatus');

@@ -48,7 +48,7 @@ class tarjetacController extends Controller
     public function store(Request $request)
     {
         $valores = new tarjetac();
-        $valores->folio= $request->get('folio');
+        $valores->folio= strtoupper($request->get('folio'));
         $valores->placas= $request->get('placa');
         $valores->inicio=$request->get('inicio');
         $valores->fecha_pago = $request->get('fecha_pago');
@@ -63,6 +63,8 @@ class tarjetacController extends Controller
             $archivonombre= date('YmdHis'). "." . $archivo->getClientOriginalExtension();
             $archivo->move($rutaguardarpdf, $archivonombre);
             $valores->archivo_pla="$archivonombre";
+        }else{
+            $valores->archivo_pla= "Sin archivo";
         }
         $valores->save();
         return redirect('/tarjeta');
@@ -110,7 +112,7 @@ class tarjetacController extends Controller
     public function update(Request $request, $id)
     {
         $valores = tarjetac::find($id);
-        $valores->folio= $request->get('folio');
+        $valores->folio= strtoupper($request->get('folio'));
         $valores->placas= $request->get('placa');
         $valores->inicio=$request->get('inicio');
         $valores->fecha_pago = $request->get('fecha_pago');
@@ -120,6 +122,15 @@ class tarjetacController extends Controller
         $valores->vencimiento=$request->get('vencimiento');
         $valores->estatus=$request->get('estatus');
         $valores->id_vehiculo=$request->get('vehiculo');
+        if($archivo= $request->file('archivo_pla')){
+            if($valores->archivo_pla != "Sin archivo"){
+                unlink('Tarjetas de circulacion/'.$valores->archivo);
+            }
+            $rutaguardarpdf= 'Tarjetas de circulacion/';
+            $archivonombre= date('YmdHis'). "." . $archivo->getClientOriginalExtension();
+            $archivo->move($rutaguardarpdf, $archivonombre);
+            $valores->archivo_pla="$archivonombre";
+        }
         $valores->save();
         
         return redirect('/tarjeta');

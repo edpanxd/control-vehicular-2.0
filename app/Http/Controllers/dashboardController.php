@@ -152,11 +152,11 @@ class dashboardController extends Controller
         //Creacion de tarjetas
         $placas = DB::table('placas')->where('placas.estatus', 'vencidas')->get();
         $poliza = DB::table('polizas')->where('polizas.estatus', 'vencidas')->get();
-        $tenencia = DB::table('tenencias')->where('tenencias.estatus', 'sin pagar')->get();
-        $Va = DB::table('verificacion_as')->where('verificacion_as.estatus', 'sin pagar')->get();
-        $Vb = DB::table('verificacion_bs')->where('verificacion_bs.estatus', 'sin pagar')->get();
-        $Vf = DB::table('verificacion_fs')->where('verificacion_fs.estatus', 'sin pagar')->get();
-        $Fm = DB::table('fisico_ms')->where('fisico_ms.estatus', 'sin pagar')->get();
+        $tenencia = DB::table('tenencias')->where('tenencias.estatus', 'SIN PAGAR')->get();
+        $Va = DB::table('verificacion_as')->where('verificacion_as.estatus', 'SIN PAGAR')->get();
+        $Vb = DB::table('verificacion_bs')->where('verificacion_bs.estatus', 'SIN PAGAR')->get();
+        $Vf = DB::table('verificacion_fs')->where('verificacion_fs.estatus', 'SIN PAGAR')->get();
+        $Fm = DB::table('fisico_ms')->where('fisico_ms.estatus', 'SIN PAGAR')->get();
         return view('dashboard.index')
             ->with('PolizaM', $PolizaM)
             ->with('TenenciaM', $TenenciaM)
@@ -209,7 +209,7 @@ class dashboardController extends Controller
         $data = DB::table("$p" . 's')
             ->select("$p" . 's.*', 'vehiculos.marca', 'vehiculos.serie')
             ->join('vehiculos', "$p" . 's' . '.id_vehiculo', 'vehiculos.id')
-            ->where("$p" . 's' . '.estatus', 'sin pagar')
+            ->where("$p" . 's' . '.estatus', 'SIN PAGAR')
             ->get();
         if ($p == 'tenencia') {
             return view("$p" . 's' . ".index")->with('data', $data);

@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Dash')
+@section('title', 'Permisos')
 
 @section('content_header')
     <h1>Editar Permisos</h1>
 @stop
 
 @section('content')
-    <form action="/permiso/{{ $valores->id }}" method="POST"  enctype="multipart/from-data">
+    <form action="/permiso/{{ $valores->id }}" method="POST"  enctype="multipart/form-data">
         @method('put')
         @csrf
         <div class="row">
@@ -28,6 +28,18 @@
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Numero de Permiso:</label>
                 <input type="text" class="form-control" name="no_permiso" maxlength="30" value="{{$valores->no_permiso}}" required>
+            </div>
+            <div class="form-group col-6 mb-4">
+                <label class="col-form-label">Permiso</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">PDF</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="archivo_per" >
+                        <label class="custom-file-label">Seleccionar PDF</label>
+                    </div>
+                </div>
             </div>
         </div>
 

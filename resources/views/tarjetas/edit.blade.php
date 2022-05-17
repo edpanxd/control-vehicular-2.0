@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <form action="/tarjeta/{{ $valores->id }}" method="POST">
+    <form action="/tarjeta/{{ $valores->id }}" method="POST" enctype="multipart/form-data">
         @method('put')
         @csrf
         <div class="row">
@@ -70,7 +70,14 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="message-text" class="col-form-label">Año:</label>
-                <input type="number" class="form-control" name="año" value="{{ $valores->año }}" maxlength="4" required>
+                <select class="custom-select select2" name="año" required>
+                    <option value="{{ $valores->año }}">{{ $valores->año }}</option>
+                    {{$año=2016}}
+                    @for($i = 0; $i < 35; $i++)
+                     <option value="{{$año}}">{{$año}}</option>
+                     {{$año++}}
+                    @endfor
+                </select>
             </div>
             <div class="form-group col-6">
                 <label class="col-form-label">Estatus:</label> <br>
@@ -80,6 +87,18 @@
                 <input type="radio" class="btn-check" name="estatus" value="VENCIDA" id="danger-outline"
                     autocomplete="off" required>
                 <label class="btn btn-outline-danger" for="danger-outline">VENCIDA</label>
+            </div>
+            <div class="form-group col-12 mb-4">
+                <label class="col-form-label">Tarjeta de circulacion</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">PDF</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" onclick="PrimerS1()" name="archivo_pla">
+                        <label class="custom-file-label">Seleccionar PDF</label>
+                    </div>
+                </div>
             </div>
         </div>
       

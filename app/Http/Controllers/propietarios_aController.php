@@ -45,8 +45,8 @@ class propietarios_aController extends Controller
     public function store(Request $request)
     {
         $valores = new propietarios_a();
-        $valores->vendedor= $request->get('vendedor');
-        $valores->comprador= $request->get('comprador');
+        $valores->vendedor= strtoupper($request->get('vendedor'));
+        $valores->comprador= strtoupper($request->get('comprador'));
         $valores->id_vehiculo=$request->get('vehiculo');
         if($ide_ven= $request->file('ide_ven')){
             $rutaguardarpdf= 'Propietarios anteriores/';
@@ -109,9 +109,28 @@ class propietarios_aController extends Controller
     public function update(Request $request, $id)
     {
         $valores = propietarios_a::find($id);
-        $valores->vendedor= $request->get('vendedor');
-        $valores->comprador= $request->get('comprador');
+        $valores->vendedor= strtoupper($request->get('vendedor'));
+        $valores->comprador= strtoupper($request->get('comprador'));
         $valores->id_vehiculo=$request->get('vehiculo');
+        if($ide_ven= $request->file('ide_ven')){
+            if($valores->ide_ven != "Sin archivo"){
+                unlink('Propietarios anteriores/'.$valores->ide_ven);
+            }
+            $rutaguardarpdf= 'Propietarios anteriores/';
+            $archivonombre= date('YmdHis'). "." . $ide_ven->getClientOriginalExtension();
+            $ide_ven->move($rutaguardarpdf, $archivonombre);
+            $valores->ide_ven="$archivonombre";
+        }
+        if($ide_com= $request->file('ide_com')){
+            if($valores->ide_com != "Sin archivo"){
+                unlink('Propietarios anteriores/'.$valores->ide_com);
+            }
+            $rutaguardarpdf= 'Propietarios anteriores/';
+            $archivonombre= date('YmdHis'). "." . $ide_com->getClientOriginalExtension();
+            $ide_com->move($rutaguardarpdf, $archivonombre);
+            $valores->ide_com="$archivonombre";
+        }
+        
         $valores->save();
         
         return redirect('/propietario');

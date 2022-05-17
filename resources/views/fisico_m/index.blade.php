@@ -34,8 +34,14 @@
                         <td>{{ $data->fecha_pago }}</td>
                         <td>{{ $data->estatus }}</td>
                         <td>{{ $data->placa }}</td>
-                        <td><a class="btn btn-primary" href="/fisico mecanico/{{ $data->archivo }}" target="_blank"><i
-                                    class="far fa-file-pdf"></i></a></td>
+                        <td>
+                            @if ($data->archivo == 'Sin archivo')
+                            {{ $data->archivo }}
+                        @else
+                        <a class="btn btn-primary" href="/fisico mecanico/{{ $data->archivo }}" target="_blank"><i
+                            class="far fa-file-pdf"></i></a>
+                        @endif
+                        </td>
                         <td>
                             <a class="btn btn-info" href="/fisico_m/{{ $data->id }}/edit"><i
                                     class="fas fa-edit"></i></a>

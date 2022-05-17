@@ -53,8 +53,14 @@
                         <td>{{ $data->verificacion }}</td>
                         <td>{{ $data->fecha_pago }}</td>
                         <td>{{ $data->estatus }}</td>
-                        <th><a class="btn btn-primary" href="/Verificaciones B/{{ $data->archivo }}" target="_blank"> <i
-                                    class="far fa-file-pdf"></i></a></th>
+                        <th>
+                            @if ($data->archivo == 'Sin archivo')
+                            {{ $data->archivo }}
+                        @else
+                        <a class="btn btn-primary" href="/Verificaciones B/{{ $data->archivo }}" target="_blank"> <i
+                            class="far fa-file-pdf"></i></a>
+                        @endif
+                        </th>
                         <th>
                             <a class="btn btn-info" href="/verificacion_b/{{ $data->id }}/edit"><i
                                     class="fas fa-edit"></i></a>

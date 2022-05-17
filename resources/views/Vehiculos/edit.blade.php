@@ -7,9 +7,9 @@
 @stop
 
 @section('content')
-    <form action="/vehiculo/{{ $valores->id }}" method="POST">
-        @method('put')
+    <form action="/vehiculo/{{ $valores->id }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         <div class="row">
             <div class="form-group col-md-6">
                 <label for="recipient-name" class="col-form-label">Marca:</label>
@@ -120,6 +120,15 @@
                     @endforeach
                    
                 </select>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Foto de vehiculo</span>
+            </div>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" name="imagen" >
+                <label class="custom-file-label">Seleccionar Foto</label>
             </div>
         </div>
         <a type="button" href="/vehiculo" class="btn btn-secondary" data-dismiss="modal">Cancelar</a>

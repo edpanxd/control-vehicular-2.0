@@ -9,7 +9,7 @@
 @section('content')
     <div class="row">
 
-        <div class="col-mb-3 col-3">
+        <div class="col-lg-3 col-mb-3 col-sm-12">
             @if (new DateTime(" 30-03-$año")>= $actual)
                 <div class="small-box bg-pink">
                     <div class="inner">
@@ -248,10 +248,10 @@
                 </div>
             @endif
         </div>
-        <div class="col-mb-9 col-9 mb-5">
+        <div class="col-lg-9 col-mb-9 col-sm-12 mb-5">
             <div style="background-color: rgb(45, 51, 58);" id="calendar"></div>
         </div>
-        <div class="col-mb-3 col-3 ">
+        <div class="col-lg-3 col-mb-3 col-sm-12">
             <div class="small-box bg-purple">
                 <div class="inner">
                     <h3>
@@ -271,7 +271,7 @@
                 <a href="#" class="small-box-footer">mas información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
-        <div class="col-mb-3 col-3">
+        <div class="col-lg-3 col-mb-3 col-sm-12">
             <div class="small-box bg-teal">
                 <div class="inner">
                     <h3>
@@ -289,7 +289,7 @@
                     <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
-        <div class="col-mb-3 col-3">
+        <div class="col-lg-3 col-mb-3 col-sm-12">
             <div class="small-box bg-yellow">
                 <div class="inner">
                     <h3>
@@ -308,7 +308,7 @@
                         class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
-        <div class="col-mb-3 col-3">
+        <div class="col-lg-3 col-mb-3 col-sm-12">
             <div class="small-box bg-red">
                 <div class="inner">
                     <h3>
@@ -327,7 +327,7 @@
                         class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
-        <div class="col-mb-3 col-3">
+        <div class="col-lg-3 col-mb-3 col-sm-12">
             <div class="small-box bg-purple">
                 <div class="inner">
                     <h3>
@@ -345,7 +345,7 @@
                     información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
-        <div class="col-mb-3 col-3">
+        <div class="col-lg-3 col-mb-3 col-sm-12">
             <div class="small-box bg-teal">
                 <div class="inner">
                     <h3>
@@ -363,7 +363,7 @@
                     información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
-        <div class="col-mb-3 col-3">
+        <div class="col-lg-3 col-mb-3 col-sm-12">
             <div class="small-box bg-yellow">
                 <div class="inner">
                     <h3>
@@ -381,7 +381,7 @@
                     información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
-        <div class="col-mb-3 col-3">
+        <div class="col-lg-3 col-mb-3 col-sm-12">
             <div class="small-box bg-red">
                 <div class="inner">
                     <h3>
@@ -403,7 +403,7 @@
             <h4>Empresas</h4>
         </div>
         @foreach ($empresas as $empresas)
-            <div class="col-mb-3 col-3">
+            <div class="col-lg-3 col-mb-3 col-sm-12">
                 <div class="small-box" style="background-color: #9370DB">
                     <div class="inner">
                         <p>{{ $empresas->empresa }}</p>

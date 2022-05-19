@@ -13,7 +13,7 @@
 </div>
 <div class="row">
     @foreach ($datos as $datos)
-        <div class="col-4 cajapadre" style="display: block">
+        <div class="col-lg-4 col-mb-4 col-sm-12 cajapadre" style="display: block">
             <div class="card card-widget widget-user">
                 <div class="comida">
                     <div class="widget-user-header bg-navy">

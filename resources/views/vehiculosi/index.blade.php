@@ -31,7 +31,7 @@
             <tbody>
                 @foreach ($valores as $valores)
                     <tr>
-                        <td>{{ $valores->id }}</td>
+                        <td>{{ $valores->id_vehiculo }}</td>
                         <td>{{ $valores->no_factura }}</td>
                         <td>
                             @if ($valores->archivo_fa == 'Sin archivo')

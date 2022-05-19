@@ -16,7 +16,7 @@
         <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Id</th>
+                    <th scope="col">Vehiculo</th>
                     <th scope="col">No factura</th>
                     <th scope="col">PDF</th>
                     <th scope="col">Pedimento</th>

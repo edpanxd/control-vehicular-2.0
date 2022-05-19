@@ -42,25 +42,25 @@ class vehiculos_nController extends Controller
     public function store(Request $request)
     {
         $valores = new vehiculos_n();
-        $valores->no_factura = $request->get('no_factura');
-        $valores->refactura = $request->get('refactura');
-        $valores->carta_fa = $request->get('carta_fa');
+        $valores->no_factura = strtoupper($request->get('no_factura'));
+        $valores->refactura = strtoupper($request->get('refactura'));
+        $valores->carta_fa = strtoupper($request->get('carta_fa'));
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo_fa= $request->file('archivo_fa')){
             $rutaguardarpdf= 'Factura/';
-            $archivonombre= date('YmdHis')."-".$valores->no_factura."." . $archivo_fa->getClientOriginalExtension();
+            $archivonombre= date('YmdHis')."-".$valores->id_vehiculo."." . $archivo_fa->getClientOriginalExtension();
             $archivo_fa->move($rutaguardarpdf, $archivonombre);
             $valores->archivo_fa="$archivonombre";
         }else{ $valores->archivo_fa="Sin archivo"; }
         if($archivo_refa= $request->file('archivo_refa')){
             $rutaguardarpdf= 'Refactura/';
-            $archivonombre= date('YmdHis')."-".$valores->refactura. "." . $archivo_refa->getClientOriginalExtension();
+            $archivonombre= date('YmdHis')."-".$valores->id_vehiculo. "." . $archivo_refa->getClientOriginalExtension();
             $archivo_refa->move($rutaguardarpdf, $archivonombre);
             $valores->archivo_refa="$archivonombre";
         }else{ $valores->archivo_refa="Sin archivo"; }
         if($archivo_car= $request->file('archivo_car')){
             $rutaguardarpdf= 'Carta factura/';
-            $archivonombre= date('YmdHis')."-".$valores->carta_fa. "." . $archivo_car->getClientOriginalExtension();
+            $archivonombre= date('YmdHis')."-".$valores->id_vehiculo. "." . $archivo_car->getClientOriginalExtension();
             $archivo_car->move($rutaguardarpdf, $archivonombre);
             $valores->archivo_car="$archivonombre";
         }else{ $valores->archivo_car="Sin archivo"; }
@@ -108,16 +108,16 @@ class vehiculos_nController extends Controller
     public function update(Request $request, $id)
     {
         $valores = vehiculos_n::find($id);
-        $valores->no_factura = $request->get('no_factura');
-        $valores->refactura = $request->get('refactura');
-        $valores->carta_fa = $request->get('carta_fa');
+        $valores->no_factura = strtoupper($request->get('no_factura'));
+        $valores->refactura = strtoupper($request->get('refactura'));
+        $valores->carta_fa = strtoupper($request->get('carta_fa'));
         $valores->id_vehiculo = $request->get('vehiculo');
         if($archivo_fa= $request->file('archivo_fa')){
             if($valores->archivo_fa != "Sin archivo"){
                 unlink('Factura/'.$valores->archivo_fa);
             }
             $rutaguardarpdf= 'Factura/';
-            $archivonombre= date('YmdHis')."-".$valores->no_factura."." . $archivo_fa->getClientOriginalExtension();
+            $archivonombre= date('YmdHis')."-".$valores->id_vehiculo."." . $archivo_fa->getClientOriginalExtension();
             $archivo_fa->move($rutaguardarpdf, $archivonombre);
             $valores->archivo_fa="$archivonombre";
         }
@@ -126,7 +126,7 @@ class vehiculos_nController extends Controller
                 unlink('Refactura/'.$valores->archivo_refa);
             }
             $rutaguardarpdf= 'Refactura/';
-            $archivonombre= date('YmdHis')."-".$valores->refactura. "." . $archivo_refa->getClientOriginalExtension();
+            $archivonombre= date('YmdHis')."-".$valores->id_vehiculo. "." . $archivo_refa->getClientOriginalExtension();
             $archivo_refa->move($rutaguardarpdf, $archivonombre);
             $valores->archivo_refa="$archivonombre";
         }
@@ -135,7 +135,7 @@ class vehiculos_nController extends Controller
                 unlink('Carta factura/'.$valores->archivo_car);
             }
             $rutaguardarpdf= 'Carta factura/';
-            $archivonombre= date('YmdHis')."-".$valores->carta_fa. "." . $archivo_car->getClientOriginalExtension();
+            $archivonombre= date('YmdHis')."-".$valores->id_vehiculo. "." . $archivo_car->getClientOriginalExtension();
             $archivo_car->move($rutaguardarpdf, $archivonombre);
             $valores->archivo_car="$archivonombre";
         }

@@ -434,7 +434,7 @@
                     <span class="info-box-icon "><i class="fas fa-wallet"></i></span>
                     <div class="info-box-content">
                         <h5 class="info-box-text"> </h5>
-                        <h2 class="info-box-number">{{ $sumaA }}</h2>
+                        <h2 class="info-box-number">{{$formato= number_format($sumaA,2)  }}</h2>
                     </div>
                     <!-- /.info-box-content -->
                 </div>

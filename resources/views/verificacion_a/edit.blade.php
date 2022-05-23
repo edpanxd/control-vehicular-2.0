@@ -52,7 +52,7 @@
                 <label for="message-text" class="col-form-label">Año de Verificación:</label>
                 <select class="custom-select select2" name="verificacion" required>
                     <option value="{{ $valores->verificacion }}">{{ $valores->verificacion }}</option>
-                    {{$año=2016}}
+                    {{$año=2000}}
                     @for($i = 0; $i < 35; $i++)
                      <option value="{{$año}}">{{$año}}</option>
                      {{$año++}}

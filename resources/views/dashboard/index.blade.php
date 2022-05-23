@@ -433,7 +433,7 @@
                 <div class="info-box" style="background-color: #2E8B57">
                     <span class="info-box-icon "><i class="fas fa-wallet"></i></span>
                     <div class="info-box-content">
-                        <h5 class="info-box-text"> </h5>
+                        <h6 class="info-box-text"> </h6>
                         <h4 class="info-box-number">{{$sumaA}}</h4>
                     </div>
                     <!-- /.info-box-content -->

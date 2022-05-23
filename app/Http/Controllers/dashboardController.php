@@ -47,7 +47,7 @@ class dashboardController extends Controller
                 $añosumado = $añosumado + $anualP;
                 $a = $a + 1;
             }
-            $sumaA[$b] = "$añoE". "\n ".number_format($añosumado, 2);
+            $sumaA[$b] = "$añoE"."\n $".number_format($añosumado, 2);
             $añoE = $añoE + 1;
             $b = $b + 1;
         }

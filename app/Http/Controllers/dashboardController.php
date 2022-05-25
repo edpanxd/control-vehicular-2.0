@@ -374,7 +374,7 @@ class dashboardController extends Controller
         $tenencia = DB::table('tenencias')
             ->select('tenencias.*', 'vehiculos.marca', 'vehiculos.serie')
             ->join('vehiculos', 'tenencias.id_vehiculo', 'vehiculos.id')
-            ->where('año', '>', 2019)
+            ->where('tenencia', '>', 2019)
             ->get(); 
         $verificacion_e1 = DB::table('verificacion_as')
             ->select('verificacion_as.*', 'vehiculos.marca', 'vehiculos.serie')

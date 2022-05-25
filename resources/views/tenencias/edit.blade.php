@@ -15,14 +15,14 @@
                 <label for="message-text" class="col-form-label">Vehiculo:</label>
                 <select class="custom-select select2" id="pe" name="vehiculo" required>
                     @foreach ($datos as $datos)
-                        <option value="{{ $datos->id_vehiculo }}">{{ $datos->marca }}, {{$datos->serie}}</option>
+                        <option value="{{ $datos->id_vehiculo }}">{{ $selec->id_vehiculo }}, {{ $datos->marca }}, {{$datos->serie}}</option>
                     @endforeach
 
                     @foreach ($selec as $selec)
                     @if ($datos->id_vehiculo ==  $selec->id )
                         
                     @else
-                    <option value="{{ $selec->id }}">{{ $selec->marca }}, {{ $selec->serie }} </option>
+                    <option value="{{ $selec->id }}">{{ $selec->id_vehiculo }}, {{ $selec->marca }}, {{ $selec->serie }} </option>
                     @endif
                        
                     @endforeach

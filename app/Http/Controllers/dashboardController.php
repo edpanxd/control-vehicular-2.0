@@ -477,10 +477,10 @@ class dashboardController extends Controller
             $newDato = date("Y-m-j", strtotime($tenencia->fecha_estimada));
 
             $data[$i] = array(
-                $title => "Se puede pagar tenencia",
+                $title => "Tenencia",
                 $start => $newDato,
-                $color => 'red',
-                $descripcion => 'La verificacione Federal B: ' . ' Del vehiculo ' . $tenencia->marca . ' esta por vencer',
+                $color => '#FF6E40',
+                $descripcion => 'Se puede pagar Tenencia: ' . ' Del vehiculo ' . $tenencia->marca . ' esta por vencer',
                 'url' => 'dashboardvh/' . $tenencia->id_vehiculo,
             );
             $i++;

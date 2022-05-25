@@ -479,7 +479,7 @@ class dashboardController extends Controller
             $data[$i] = array(
                 $title => "Se puede pagar tenencia",
                 $start => $newDato,
-                $color => '#FF6E40',
+                $color => 'red',
                 $descripcion => 'La verificacione Federal B: ' . ' Del vehiculo ' . $tenencia->marca . ' esta por vencer',
                 'url' => 'dashboardvh/' . $tenencia->id_vehiculo,
             );

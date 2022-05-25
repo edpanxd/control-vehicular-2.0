@@ -519,7 +519,7 @@
                                     <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas3">
                                         <thead class="thead-dark">
                                             <tr>
-                                                <th scope="col">Id</th>
+                                                
                                                 <th scope="col">Tenencia</th>
                                                 <th scope="col">Pago</th>
                                                 <th scope="col">Estatus</th>
@@ -529,7 +529,7 @@
                                         <tbody>
                                             @foreach ($tenencias as $tenencias)
                                                 <tr>
-                                                    <td>{{ $tenencias->id }}</td>
+                                                   
                                                     <td>{{ $tenencias->tenencia }}</td>
                                                     <td>$ {{ $tenencias->monto }}</td>
                                                     <td>{{ $tenencias->estatus }}</td>

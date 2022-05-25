@@ -15,7 +15,7 @@
                 <select class="custom-select select2" id="message-text" name="vehiculo" required>
                     <option value=""></option>
                     @foreach ($selec as $selec)
-                        <option value="{{ $selec->id }}">{{ $selec->id_vehiculo }}, {{ $selec->marca }}, {{ $selec->serie }} </option>
+                        <option value="{{ $selec->id }}">{{ $selec->id }}, {{ $selec->marca }}, {{ $selec->serie }} </option>
                     @endforeach
                 </select>
             </div>

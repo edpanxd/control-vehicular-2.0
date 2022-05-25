@@ -21,7 +21,7 @@
                         @if ($datos->id_vehiculo ==  $selec->id )
                             
                         @else
-                        <option value="{{ $selec->id }}">{{ $selec->id_vehiculo }}, {{ $selec->marca }}, {{ $selec->serie }} </option> 
+                        <option value="{{ $selec->id }}">{{ $selec->id }}, {{ $selec->marca }}, {{ $selec->serie }} </option> 
                         @endif
                       
                     @endforeach

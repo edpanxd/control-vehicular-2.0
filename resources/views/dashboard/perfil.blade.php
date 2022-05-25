@@ -482,7 +482,7 @@
                                     <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas2">
                                         <thead class="thead-dark">
                                             <tr>
-                                                <th scope="col">Id</th>
+                                                
                                                 <th scope="col">Póliza</th>
                                                 <th scope="col">Aseguradora</th>
                                                 <th scope="col">Inicio</th>
@@ -495,7 +495,7 @@
                                         <tbody>
                                             @foreach ($polizas as $polizas)
                                                 <tr>
-                                                    <td>{{ $polizas->id }}</td>
+                                                    
                                                     <td>{{ $polizas->poliza }}</td>
                                                     <td>{{ $polizas->aseguradora }}</td>
                                                     <td>{{ $polizas->inicio }}</td>

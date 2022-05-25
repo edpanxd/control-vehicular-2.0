@@ -371,6 +371,11 @@ class dashboardController extends Controller
             ->join('vehiculos', 'polizas.id_vehiculo', 'vehiculos.id')
             ->where('año', '>', 2019)
             ->get();
+        $tenencia = DB::table('tenencias')
+            ->select('tenencias.*', 'vehiculos.marca', 'vehiculos.serie')
+            ->join('vehiculos', 'tenencias.id_vehiculo', 'vehiculos.id')
+            ->where('año', '>', 2019)
+            ->get(); 
         $verificacion_e1 = DB::table('verificacion_as')
             ->select('verificacion_as.*', 'vehiculos.marca', 'vehiculos.serie')
             ->join('vehiculos', 'verificacion_as.id_vehiculo', 'vehiculos.id')
@@ -465,6 +470,18 @@ class dashboardController extends Controller
                 $color => '#8B0000',
                 $descripcion => 'La verificacione Federal B: ' . ' Del vehiculo ' . $verificacion_f2->marca . ' esta por vencer',
                 'url' => 'dashboardvh/' . $verificacion_f2->id_vehiculo,
+            );
+            $i++;
+        }
+        foreach ($tenencia as $tenencia) {
+            $newDato = date("Y-m-j", strtotime($tenencia->fecha_estimada));
+
+            $data[$i] = array(
+                $title => "Se puede pagar tenencia",
+                $start => $newDato,
+                $color => '#FF6E40',
+                $descripcion => 'La verificacione Federal B: ' . ' Del vehiculo ' . $tenencia->marca . ' esta por vencer',
+                'url' => 'dashboardvh/' . $tenencia->id_vehiculo,
             );
             $i++;
         }

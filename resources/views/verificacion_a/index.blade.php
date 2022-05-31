@@ -114,7 +114,7 @@
         $(document).ready(function() {
             $('#tablas').DataTable({
                 "lengthMenu": [
-                    [5, 10, 50, -1],
+                    ["All"],
                     [5, 10, 50, "All"]
                 ],
                 "language": {

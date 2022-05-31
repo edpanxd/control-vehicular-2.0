@@ -28,7 +28,7 @@
             <tbody>
                 @foreach ($data as $data)
                     <tr>
-                        <td>{{ $data->id }}</td>
+                        <td>{{ $data->id_vehiculo }}</td>
                         <td>{{ $data->marca }}</td>
                         <td>{{ $data->serie }}</td>
                         <td>{{ $data->placa}} </td>
@@ -116,7 +116,10 @@
                 "lengthMenu": [
                     [5, 10, 50, -1],
                     [5, 10, 50, "All"]
-                ]
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+}
             });
         });
     </script>

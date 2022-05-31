@@ -97,8 +97,8 @@
         $(document).ready(function() {
             $('#tablas').DataTable({
                 "lengthMenu": [
-                    [5, 10, 50, -1],
-                    [5, 10, 50, "All"]
+                    [25, 50, 100, -1],
+                    [25, 50, 100, "All"]
                 ],
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"

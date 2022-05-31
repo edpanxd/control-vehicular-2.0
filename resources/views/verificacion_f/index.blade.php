@@ -32,15 +32,15 @@
                         <td>{{ $data->verificacion }}</td>
                         <td>{{ $data->fecha_pago }}</td>
                         <td>{{ $data->estatus }}</td>
-                        
+
                         <td>
                             @if ($data->archivo == 'Sin archivo')
-                            {{ $data->archivo }}
-                        @else
-                        <a class="btn btn-primary" href="/verificacion federal/{{ $data->archivo }}" target="_blank"><i
-                            class="far fa-file-pdf"></i></a>
-                        @endif
-                            
+                                {{ $data->archivo }}
+                            @else
+                                <a class="btn btn-primary" href="/verificacion federal/{{ $data->archivo }}"
+                                    target="_blank"><i class="far fa-file-pdf"></i></a>
+                            @endif
+
                         </td>
                         <td>
                             <a class="btn btn-info" href="/verificacion_f/{{ $data->id }}/edit"><i
@@ -95,9 +95,13 @@
         $(document).ready(function() {
             $('#tablas').DataTable({
                 "lengthMenu": [
-                    [5, 10, 50, -1],
-                    [5, 10, 50, "All"]
-                ]
+                    [25, 50, 100, -1],
+                    [25, 50, 100, "All"]
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                }
+
             });
         });
     </script>

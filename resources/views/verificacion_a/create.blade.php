@@ -15,17 +15,18 @@
                 <select class="custom-select select2" id="vehiculo" name="vehiculo" required>
                     <option value=""></option>
                     @foreach ($selec as $selec)
-                        <option value="{{ $selec->id }}">{{ $selec->id }}, {{ $selec->marca }}, {{ $selec->serie }} </option>
+                        <option value="{{ $selec->id }}">{{ $selec->id }}, {{ $selec->marca }},
+                            {{ $selec->serie }} </option>
                     @endforeach
                 </select>
             </div>
-            
+
             <div class="form-group col-md-6">
-                <label  class="col-form-label">Placas:</label>
+                <label class="col-form-label">Placas:</label>
                 <select class="custom-select select2" name="placa" id="" required>
                     <option value=""></option>
-                    @foreach($selec2 as $selec2)
-                    <option value="{{$selec2->placas}}">{{$selec2->placas}}</option>
+                    @foreach ($selec2 as $selec2)
+                        <option value="{{ $selec2->placas }}">{{ $selec2->placas }}</option>
                     @endforeach
                 </select>
             </div>
@@ -44,10 +45,10 @@
                 <label for="message-text" class="col-form-label">Año de Verificación:</label>
                 <select class="custom-select select2" name="verificacion" required>
                     <option value=""></option>
-                    {{$año=2000}}
-                    @for($i = 0; $i < 35; $i++)
-                     <option value="{{$año}}">{{$año}}</option>
-                     {{$año++}}
+                    {{ $año = 2000 }}
+                    @for ($i = 0; $i < 35; $i++)
+                        <option value="{{ $año }}">{{ $año }}</option>
+                        {{ $año++ }}
                     @endfor
                 </select>
             </div>
@@ -69,8 +70,8 @@
 
             <div class="form-group col-6">
                 <label class="col-form-label">Estatus:</label> <br>
-                <input type="radio" class="btn-check" name="estatus" id="success-outline" value="PAGADO" autocomplete="off"
-                    required>
+                <input type="radio" class="btn-check" name="estatus" id="success-outline" value="PAGADO"
+                    autocomplete="off" required>
                 <label class="btn btn-outline-success" for="success-outline">PAGADO</label>
                 <input type="radio" class="btn-check" name="estatus" value="SIN PAGAR" id="danger-outline"
                     autocomplete="off" required>
@@ -95,28 +96,22 @@
 @stop
 
 @section('css')
-    <link 
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https:////cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 @stop
 
 @section('js')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"
-         integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-    </script>
-    <script 
-        src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.6/jscolor.min.js">
-    </script>
+        integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.6/jscolor.min.js"></script>
     <script>
         $('.select2').select2({
             placeholder: 'Seleccione una opcion'
         });
-        
     </script>
-    <script 
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <script>
@@ -132,12 +127,14 @@
     </script>
     <script>
         function PrimerS1(params) {
-           Command: toastr["info"]("RECUERDA QUE EL FORMATO DE LOS DOCUMENTOS DEBE SER IGUAL PARA TODOS (DOCUMENTOS VERTICALES E INFORMACION VISIBLE)", )
-           toastr.options = {
-               "closeButton": true,
-               "positionClass": "toast-top-right",
-               "preventDuplicates": true,
-           }
-       }
-   </script>
+            Command: toastr["info"](
+                "RECUERDA QUE EL FORMATO DE LOS DOCUMENTOS DEBE SER IGUAL PARA TODOS (DOCUMENTOS VERTICALES E INFORMACION VISIBLE)",
+                )
+            toastr.options = {
+                "closeButton": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+            }
+        }
+    </script>
 @stop

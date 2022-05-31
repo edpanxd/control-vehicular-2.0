@@ -36,11 +36,11 @@
                         <td>{{ $data->placa }}</td>
                         <td>
                             @if ($data->archivo == 'Sin archivo')
-                            {{ $data->archivo }}
-                        @else
-                        <a class="btn btn-primary" href="/fisico mecanico/{{ $data->archivo }}" target="_blank"><i
-                            class="far fa-file-pdf"></i></a>
-                        @endif
+                                {{ $data->archivo }}
+                            @else
+                                <a class="btn btn-primary" href="/fisico mecanico/{{ $data->archivo }}" target="_blank"><i
+                                        class="far fa-file-pdf"></i></a>
+                            @endif
                         </td>
                         <td>
                             <a class="btn btn-info" href="/fisico_m/{{ $data->id }}/edit"><i
@@ -89,9 +89,12 @@
         $(document).ready(function() {
             $('#tablas').DataTable({
                 "lengthMenu": [
-                    [5, 10, 50, -1],
-                    [5, 10, 50, "All"]
-                ]
+                    [25, 50, 100, -1],
+                    [25, 50, 100, "All"]
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                }
             });
         });
     </script>

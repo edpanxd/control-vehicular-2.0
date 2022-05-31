@@ -34,8 +34,7 @@
                             @if ($valores->archivo_con == 'Sin archivo')
                                 {{ $valores->archivo_con }}
                             @else
-                                <a class="btn btn-primary" href="/Contrato/{{ $valores->archivo_con }}"
-                                    target="_blank">
+                                <a class="btn btn-primary" href="/Contrato/{{ $valores->archivo_con }}" target="_blank">
                                     <i class="far fa-file-pdf"></i>
                                 </a>
                             @endif
@@ -76,7 +75,8 @@
                             <a class="btn btn-info" href="/documento/{{ $valores->id }}/edit"><i
                                     class="fas fa-edit"></i></a>
                         </td>
-                        <th><a class="btn btn-danger eliminar" href="/documentod/{{ $valores->id }}"><i class="fas fa-trash-alt"></i></a></th>
+                        <th><a class="btn btn-danger eliminar" href="/documentod/{{ $valores->id }}"><i
+                                    class="fas fa-trash-alt"></i></a></th>
                     </tr>
                 @endforeach
             </tbody>
@@ -125,9 +125,13 @@
         $(document).ready(function() {
             $('#tablas').DataTable({
                 "lengthMenu": [
-                    [5, 10, 50, -1],
-                    [5, 10, 50, "All"]
-                ]
+                    [25, 50, 100, -1],
+                    [25, 50, 100, "All"]
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                }
+
             });
         });
     </script>

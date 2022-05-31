@@ -37,8 +37,7 @@
                             @if ($valores->archivo_fa == 'Sin archivo')
                                 {{ $valores->archivo_fa }}
                             @else
-                                <a class="btn btn-primary" href="/Factura/{{ $valores->archivo_fa }}"
-                                    target="_blank">
+                                <a class="btn btn-primary" href="/Factura/{{ $valores->archivo_fa }}" target="_blank">
                                     <i class="far fa-file-pdf"></i></a>
                             @endif
                         </td>
@@ -46,32 +45,32 @@
                         <td>{{ $valores->refactura }}</td>
                         <td>
                             @if ($valores->archivo_refa == 'Sin archivo')
-                            {{ $valores->archivo_refa }}
+                                {{ $valores->archivo_refa }}
                             @else
-                            <a class="btn btn-primary" href="/Refactura/{{ $valores->archivo_refa }}"
-                                target="_blank">
-                                <i class="far fa-file-pdf"></i>
-                            </a>
+                                <a class="btn btn-primary" href="/Refactura/{{ $valores->archivo_refa }}" target="_blank">
+                                    <i class="far fa-file-pdf"></i>
+                                </a>
                             @endif
                         </td>
-                       
+
                         <td>{{ $valores->carta_fa }}</td>
                         <td>
                             @if ($valores->archivo_car == 'Sin archivo')
-                            {{ $valores->archivo_car }}
+                                {{ $valores->archivo_car }}
                             @else
-                            <a class="btn btn-primary" href="/Carta factura/{{ $valores->archivo_car }}"
-                                target="_blank">
-                                <i class="far fa-file-pdf"></i>
-                            </a>
+                                <a class="btn btn-primary" href="/Carta factura/{{ $valores->archivo_car }}"
+                                    target="_blank">
+                                    <i class="far fa-file-pdf"></i>
+                                </a>
                             @endif
                         </td>
-                       
+
                         <td>
                             <a class="btn btn-info" href="/vehiculon/{{ $valores->id }}/edit"><i
                                     class="fas fa-edit"></i></a>
                         </td>
-                        <th><a class="btn btn-danger eliminar" href="/vehiculond/{{ $valores->id }}"><i class="fas fa-trash-alt"></i></a></th>
+                        <th><a class="btn btn-danger eliminar" href="/vehiculond/{{ $valores->id }}"><i
+                                    class="fas fa-trash-alt"></i></a></th>
                     </tr>
                 @endforeach
             </tbody>
@@ -117,9 +116,13 @@
         $(document).ready(function() {
             $('#tablas').DataTable({
                 "lengthMenu": [
-                    [5, 10, 50, -1],
-                    [5, 10, 50, "All"]
-                ]
+                    [25, 50, 100, -1],
+                    [25, 50, 100, "All"]
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                }
+
             });
         });
     </script>

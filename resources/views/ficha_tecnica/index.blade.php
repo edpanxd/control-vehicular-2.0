@@ -33,7 +33,7 @@
                     <tr>
                         <td>{{ $valores->id }}</td>
                         <td>{{ $valores->marca }}</td>
-                        <td>{{ $valores->rendimientoConbustible}} KM/L.</td>
+                        <td>{{ $valores->rendimientoConbustible }} KM/L.</td>
                         <td>{{ $valores->CapacidadCaja }} KG.</td>
                         <td>{{ $valores->LargoCaja }} IN.</td>
                         <td>{{ $valores->AnchoCaja }} IN.</td>
@@ -42,7 +42,8 @@
                             <a class="btn btn-info" href="/ficha_tecnica/{{ $valores->id }}/edit"><i
                                     class="fas fa-edit"></i></a>
                         </td>
-                        <th><a class="btn btn-danger eliminar" href="/ficha_tecnicad/{{$valores->id}}"><i class="fas fa-trash-alt"></i></a></th>
+                        <th><a class="btn btn-danger eliminar" href="/ficha_tecnicad/{{ $valores->id }}"><i
+                                    class="fas fa-trash-alt"></i></a></th>
                     </tr>
                 @endforeach
             </tbody>
@@ -91,9 +92,13 @@
         $(document).ready(function() {
             $('#tablas').DataTable({
                 "lengthMenu": [
-                    [5, 10, 50, -1],
-                    [5, 10, 50, "All"]
-                ]
+                    [25, 50, 100, -1],
+                    [25, 50, 100, "All"]
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                }
+
             });
         });
     </script>

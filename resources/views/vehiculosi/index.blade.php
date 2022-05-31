@@ -37,8 +37,7 @@
                             @if ($valores->archivo_fa == 'Sin archivo')
                                 {{ $valores->archivo_fa }}
                             @else
-                                <a class="btn btn-primary" href="/Facturas/{{ $valores->archivo_fa }}"
-                                    target="_blank">
+                                <a class="btn btn-primary" href="/Facturas/{{ $valores->archivo_fa }}" target="_blank">
                                     <i class="far fa-file-pdf"></i>
                                 </a>
                             @endif
@@ -48,8 +47,7 @@
                             @if ($valores->archivo_pe == 'Sin archivo')
                                 {{ $valores->archivo_pe }}
                             @else
-                                <a class="btn btn-primary" href="/Pedimento/{{ $valores->archivo_pe }}"
-                                    target="_blank">
+                                <a class="btn btn-primary" href="/Pedimento/{{ $valores->archivo_pe }}" target="_blank">
                                     <i class="far fa-file-pdf"></i>
                                 </a>
                             @endif
@@ -118,9 +116,13 @@
         $(document).ready(function() {
             $('#tablas').DataTable({
                 "lengthMenu": [
-                    [5, 10, 50, -1],
-                    [5, 10, 50, "All"]
-                ]
+                    [25, 50, 100, -1],
+                    [25, 50, 100, "All"]
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                }
+
             });
         });
     </script>

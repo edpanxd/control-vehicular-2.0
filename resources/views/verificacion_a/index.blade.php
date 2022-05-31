@@ -31,24 +31,29 @@
                         <td>{{ $data->id_vehiculo }}</td>
                         <td>{{ $data->marca }}</td>
                         <td>{{ $data->serie }}</td>
-                        <td>{{ $data->placa}} </td>
+                        <td>{{ $data->placa }} </td>
                         @switch($data->engomado)
-                        @case("5 u 6")
-                        <td class="bg-yellow">FEBRERO, MARZO</td>
+                            @case('5 u 6')
+                                <td class="bg-yellow">FEBRERO, MARZO</td>
                             @break
-                        @case("7 u 8")
-                        <td class="bg-pink">FEBRERO, MARZO</td>
+
+                            @case('7 u 8')
+                                <td class="bg-pink">FEBRERO, MARZO</td>
                             @break
-                        @case("3 o 4")
-                        <td class="bg-red">MARZO, ABRIL</td>
+
+                            @case('3 o 4')
+                                <td class="bg-red">MARZO, ABRIL</td>
                             @break
-                        @case("1 o 2")
-                        <td class="bg-green">ABRIL, MAYO</td>
+
+                            @case('1 o 2')
+                                <td class="bg-green">ABRIL, MAYO</td>
                             @break
-                        @case("9 o 0")
-                        <td class="bg-info">MAYO-JUNIO</td>
+
+                            @case('9 o 0')
+                                <td class="bg-info">MAYO-JUNIO</td>
                             @break
-                        @default
+
+                            @default
                         @endswitch
                         <td>{{ $data->verificacion }}</td>
                         <td>{{ $data->fecha_pago }}</td>
@@ -56,12 +61,12 @@
 
                         <td>
                             @if ($data->archivo == 'Sin archivo')
-                            {{ $data->archivo }}
-                        @else
-                        <a class="btn btn-primary" href="/Verificaciones A/{{ $data->archivo }}" target="_blank"><i
-                            class="far fa-file-pdf"></i></a>
-                        @endif
-                            </td>
+                                {{ $data->archivo }}
+                            @else
+                                <a class="btn btn-primary" href="/Verificaciones A/{{ $data->archivo }}" target="_blank"><i
+                                        class="far fa-file-pdf"></i></a>
+                            @endif
+                        </td>
                         <td>
                             <a class="btn btn-info" href="/verificacion_a/{{ $data->id }}/edit"><i
                                     class="fas fa-edit"></i></a>
@@ -119,7 +124,9 @@
                 ],
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
-}
+                }
+
+
             });
         });
     </script>

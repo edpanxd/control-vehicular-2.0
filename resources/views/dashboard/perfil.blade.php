@@ -75,7 +75,7 @@
                             <strong><i class="fas fa-book mr-1"></i> Tipo</strong>
                             <p class="text-muted">
                                 {{ $vehiculo->tipo }}
-                            </p>   
+                            </p>
                             <hr>
                             <strong><i class="fas fa-sort-numeric-down mr-1"></i>Numero de motor</strong>
                             <p class="text-muted">
@@ -93,7 +93,6 @@
                             </p>
                         </div>
                     </div>
-
                 @endforeach
             </div>
 
@@ -131,13 +130,13 @@
                                             data-toggle="tab">Tenencia</a></li>
                                     <li class="nav-item"><a class="nav-link" href="#va"
                                             data-toggle="tab">Verificación Estatal
-                                            </a></li>
-                                   
+                                        </a></li>
+
                                     <li class="nav-item"><a class="nav-link" href="#vf"
                                             data-toggle="tab">Verificación
                                             Federal</a>
                                     </li>
-                                   
+
                                     </li>
                                     <li class="nav-item"><a class="nav-link" href="#fm" data-toggle="tab">Físico
                                             Mecánico</a></li>
@@ -359,7 +358,7 @@
                                         </div>
                                     @endforeach
                                 @endif
-        
+
                                 @foreach ($fichatecnica as $fichatecnica)
                                     <h4>Ficha Tecnica</h4>
                                     <div class="row">
@@ -367,31 +366,31 @@
                                             <h5>Rendimiento de Conbustible</h5>
                                         </div>
                                         <div class="col-4 mb-3">
-                                            <h5>{{$fichatecnica->rendimientoConbustible}} KM/L</h5>
+                                            <h5>{{ $fichatecnica->rendimientoConbustible }} KM/L</h5>
                                         </div>
                                         <div class="col-5 mb-3">
                                             <h5>Capacidad de Carga</h5>
                                         </div>
                                         <div class="col-4 mb-3">
-                                            <h5>{{$fichatecnica->CapacidadCaja}} KG.</h5>
+                                            <h5>{{ $fichatecnica->CapacidadCaja }} KG.</h5>
                                         </div>
                                         <div class="col-5 mb-3">
                                             <h5>Largo de Caja</h5>
                                         </div>
                                         <div class="col-4 mb-3">
-                                            <h5>{{$fichatecnica->LargoCaja}} IN.</h5>
+                                            <h5>{{ $fichatecnica->LargoCaja }} IN.</h5>
                                         </div>
                                         <div class="col-5 mb-3">
                                             <h5>Ancho de Caja</h5>
                                         </div>
                                         <div class="col-4 mb-3">
-                                            <h5>{{$fichatecnica->AnchoCaja}} IN.</h5>
+                                            <h5>{{ $fichatecnica->AnchoCaja }} IN.</h5>
                                         </div>
                                         <div class="col-5 mb-3">
                                             <h5>Alto de Caja</h5>
                                         </div>
                                         <div class="col-4 mb-3">
-                                            <h5>{{$fichatecnica->AltoCaja}} IN.</h5>
+                                            <h5>{{ $fichatecnica->AltoCaja }} IN.</h5>
                                         </div>
                                     </div>
                                 @endforeach
@@ -482,7 +481,7 @@
                                     <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas2">
                                         <thead class="thead-dark">
                                             <tr>
-                                                
+
                                                 <th scope="col">Póliza</th>
                                                 <th scope="col">Aseguradora</th>
                                                 <th scope="col">Inicio</th>
@@ -495,7 +494,7 @@
                                         <tbody>
                                             @foreach ($polizas as $polizas)
                                                 <tr>
-                                                    
+
                                                     <td>{{ $polizas->poliza }}</td>
                                                     <td>{{ $polizas->aseguradora }}</td>
                                                     <td>{{ $polizas->inicio }}</td>
@@ -519,7 +518,7 @@
                                     <table class="table table-striped table-bordered shadow-lg mt-4" id="tablas3">
                                         <thead class="thead-dark">
                                             <tr>
-                                                
+
                                                 <th scope="col">Tenencia</th>
                                                 <th scope="col">Pago</th>
                                                 <th scope="col">Estatus</th>
@@ -529,7 +528,7 @@
                                         <tbody>
                                             @foreach ($tenencias as $tenencias)
                                                 <tr>
-                                                   
+
                                                     <td>{{ $tenencias->tenencia }}</td>
                                                     <td>$ {{ $tenencias->monto }}</td>
                                                     <td>{{ $tenencias->estatus }}</td>
@@ -569,21 +568,26 @@
                                                     <td>{{ $verificacion_as->estatus }}</td>
 
                                                     @switch($verificacion_as->engomado)
-                                                        @case("5 u 6")
+                                                        @case('5 u 6')
                                                             <td class="bg-yellow">FEBRERO, MARZO</td>
                                                         @break
-                                                        @case("7 u 8")
+
+                                                        @case('7 u 8')
                                                             <td class="bg-pink">FEBRERO, MARZO</td>
                                                         @break
-                                                        @case("3 o 4")
+
+                                                        @case('3 o 4')
                                                             <td class="bg-red">MARZO, ABRIL</td>
                                                         @break
-                                                        @case("1 o 2")
+
+                                                        @case('1 o 2')
                                                             <td class="bg-green">ABRIL, MAYO</td>
                                                         @break
-                                                        @case("9 o 0")
+
+                                                        @case('9 o 0')
                                                             <td class="bg-info">MAYO-JUNIO</td>
                                                         @break
+
                                                         @default
                                                     @endswitch
 
@@ -620,21 +624,26 @@
                                                     <td>{{ $verificacion_bs->fecha_pago }}</td>
                                                     <td>{{ $verificacion_bs->estatus }}</td>
                                                     @switch($verificacion_bs->engomado)
-                                                        @case("5 u 6")
+                                                        @case('5 u 6')
                                                             <td class="bg-yellow">JULIO, AGOSTO</td>
                                                         @break
-                                                        @case("7 u 8")
+
+                                                        @case('7 u 8')
                                                             <td class="bg-pink">AGOSTO, SEPTIEMBRE</td>
                                                         @break
-                                                        @case("3 o 4")
+
+                                                        @case('3 o 4')
                                                             <td class="bg-red">SEPTIEMBRE, OCTUBRE</td>
                                                         @break
-                                                        @case("1 o 2")
+
+                                                        @case('1 o 2')
                                                             <td class="bg-green">OCTUBRE, NOVIEMBRE</td>
                                                         @break
-                                                        @case("9 o 0")
+
+                                                        @case('9 o 0')
                                                             <td class="bg-info">NOVIEMBRE, DICIEMBRE</td>
                                                         @break
+
                                                         @default
                                                     @endswitch
                                                     <td><a class="btn btn-primary"
@@ -869,12 +878,12 @@
             <div class="modal-content">
                 <div class="modal-header d-flex">
                     <h4 class="modal-title">GALERIA DE {{ $vehiculo->marca }}, {{ $vehiculo->submarca }} </h4>
-                    <button href="#" class="btn btn-info mb-2 ml-auto"  data-toggle="popover" data-html="true"
-                    title="Información del vehículo" data-content="Marca: {{ $vehiculo->marca }} {{ $vehiculo->modelo }},<br> Submarca: {{ $vehiculo->submarca }},<br> Numero de serie: {{ $vehiculo->serie }},<br> Placa:  
-                         @foreach ($placa as $placa)
-                    {{ $placa->placas }}
-                    @endforeach" ><i class="fas fa-info"></i></button>
-                  
+                    <button href="#" class="btn btn-info mb-2 ml-auto" data-toggle="popover" data-html="true"
+                        title="Información del vehículo" data-content="Marca: {{ $vehiculo->marca }} {{ $vehiculo->modelo }},<br> Submarca: {{ $vehiculo->submarca }},<br> Numero de serie: {{ $vehiculo->serie }},<br> Placa:
+                              @foreach ($placa as $placa)
+                        {{ $placa->placas }}
+                        @endforeach" ><i class="fas fa-info"></i></button>
+
                 </div>
                 <div class="modal-body">
                     <div class="bd-example">
@@ -890,7 +899,8 @@
                                 </div>
                                 @foreach ($foto as $foto)
                                     <div class="carousel-item ">
-                                        <img src="/fotos_vehiculo/{{ $foto->fotos }}" class="d-block w-100" alt="..." height="460px" width="759">
+                                        <img src="/fotos_vehiculo/{{ $foto->fotos }}" class="d-block w-100" alt="..."
+                                            height="460px" width="759">
                                     </div>
                                 @endforeach
                             </div>
@@ -904,11 +914,11 @@
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
-                           
+
                         </div>
                     </div>
 
-                   
+
 
                 </div>
                 <div class="modal-footer justify-content-between">
@@ -935,24 +945,24 @@
 
                     <div class="card">
                         <div class="card-header p-2">
-                                    <!-- Links -->
-                                    <ul class="nav nav-pills ">
-                                        <li class="nav-item active"><a class="nav-link" href="#Subir"
-                                                data-toggle="tab">Subir imagen</a>
-                                        </li>
-                                        <li class="nav-item"><a class="nav-link " href="#Bajar"
-                                                data-toggle="tab">Eliminar Imagen</a></li>
-                                    </ul>
-                                    <!-- Links -->
+                            <!-- Links -->
+                            <ul class="nav nav-pills ">
+                                <li class="nav-item active"><a class="nav-link" href="#Subir"
+                                        data-toggle="tab">Subir imagen</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link " href="#Bajar"
+                                        data-toggle="tab">Eliminar Imagen</a></li>
+                            </ul>
+                            <!-- Links -->
                         </div>
                         <div class="card-body">
                             <div class="tab-content">
-                                
+
                                 <div class="tab-pane active" id="Subir">
                                     <form action="/dashboardfoto" method="POST" enctype="multipart/form-data">
                                         @csrf
-                                        <input type="hidden" class="input-group-text" value="{{ $vehiculo->id }}" readonly="readonly"
-                                            name="id">
+                                        <input type="hidden" class="input-group-text" value="{{ $vehiculo->id }}"
+                                            readonly="readonly" name="id">
                                         <label for="message-text" class="col-form-label">Foto del vehiculo:</label>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
@@ -971,7 +981,8 @@
                                 <!-- -->
                                 <div class="tab-pane" id="Bajar">
                                     <div class="table-responsive">
-                                        <table class="table table-striped table-bordered shadow-lg mt-4" style="text-align: center" id="tablas">
+                                        <table class="table table-striped table-bordered shadow-lg mt-4"
+                                            style="text-align: center" id="tablas">
                                             <thead class="thead-dark">
                                                 <tr>
                                                     <th scope="col">Imagen</th>
@@ -981,9 +992,11 @@
                                             <tbody>
                                                 @foreach ($fotos as $fotos)
                                                     <tr>
-                                                        <td><img src="/fotos_vehiculo/{{ $fotos->fotos}}" width="60px" height="50px" alt=""></td>
+                                                        <td><img src="/fotos_vehiculo/{{ $fotos->fotos }}" width="60px"
+                                                                height="50px" alt=""></td>
                                                         <td>
-                                                            <a class="btn btn-danger eliminar" href="/dashboardE/{{ $fotos->id }}">
+                                                            <a class="btn btn-danger eliminar"
+                                                                href="/dashboardE/{{ $fotos->id }}">
                                                                 <i class="fas fa-trash-alt"></i></a>
                                                         </td>
                                                     </tr>
@@ -991,11 +1004,11 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    
+
                                 </div>
-                               
+
                             </div>
-    
+
                         </div>
                     </div>
                 </div>
@@ -1015,15 +1028,18 @@
 
 @section('js')
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.6/jscolor.min.js">
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.6/jscolor.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#tablas').DataTable({
                 "lengthMenu": [
-                    [5, 10, 50, -1],
-                    [5, 10, 50, "All"]
-                ]
+                    [25, 50, 100, -1],
+                    [25, 50, 100, "All"]
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                }
+
             });
         });
         $(document).ready(function() {
@@ -1031,7 +1047,10 @@
                 "lengthMenu": [
                     [5, 10, 50, -1],
                     [5, 10, 50, "All"]
-                ]
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                }
             });
         });
         $(document).ready(function() {
@@ -1039,7 +1058,10 @@
                 "lengthMenu": [
                     [5, 10, 50, -1],
                     [5, 10, 50, "All"]
-                ]
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                }
             });
         });
         $(document).ready(function() {
@@ -1047,7 +1069,10 @@
                 "lengthMenu": [
                     [5, 10, 50, -1],
                     [5, 10, 50, "All"]
-                ]
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                }
             });
         });
         $(document).ready(function() {
@@ -1055,7 +1080,10 @@
                 "lengthMenu": [
                     [5, 10, 50, -1],
                     [5, 10, 50, "All"]
-                ]
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                }
             });
         });
         $(document).ready(function() {
@@ -1063,7 +1091,10 @@
                 "lengthMenu": [
                     [5, 10, 50, -1],
                     [5, 10, 50, "All"]
-                ]
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                }
             });
         });
         $(document).ready(function() {
@@ -1071,7 +1102,10 @@
                 "lengthMenu": [
                     [5, 10, 50, -1],
                     [5, 10, 50, "All"]
-                ]
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                }
             });
         });
         $(document).ready(function() {
@@ -1079,7 +1113,10 @@
                 "lengthMenu": [
                     [5, 10, 50, -1],
                     [5, 10, 50, "All"]
-                ]
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                }
             });
         });
         $(document).ready(function() {
@@ -1087,7 +1124,10 @@
                 "lengthMenu": [
                     [5, 10, 50, -1],
                     [5, 10, 50, "All"]
-                ]
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                }
             });
         });
         $(document).ready(function() {
@@ -1095,7 +1135,10 @@
                 "lengthMenu": [
                     [5, 10, 50, -1],
                     [5, 10, 50, "All"]
-                ]
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                }
             });
         });
         $(document).ready(function() {
@@ -1103,7 +1146,10 @@
                 "lengthMenu": [
                     [5, 10, 50, -1],
                     [5, 10, 50, "All"]
-                ]
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                }
             });
         });
     </script>
